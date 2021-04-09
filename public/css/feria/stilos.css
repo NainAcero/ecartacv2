@@ -1,0 +1,5083 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+
+
+* {
+
+	font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+
+
+body {
+
+	margin: 0;
+
+	padding: 0;
+
+}
+
+
+
+/*texto que se destaca e un artículo*/
+
+
+
+img:hover {
+
+	transform: scale(1)!important;
+
+}
+
+
+
+.img {
+
+	transform: scale(1)!important;
+
+}
+
+
+
+.textoDestacado {
+
+	text-align: center;
+
+	font-size: 40px;
+
+	display: block;
+
+	line-height: 1em;
+
+	padding: 9px;
+
+	box-sizing: border-box;
+
+	border-top: 1px solid #ccc;
+
+	border-bottom: 1px solid #ccc;
+
+	margin: 50px 0;
+
+}
+
+
+
+.bold {
+
+	font-weight: 900;
+
+}
+
+
+
+/*.instruccionesScroll {
+
+
+
+	position: fixed;
+
+
+
+	    width: 144px;
+
+
+
+	    margin: auto;
+
+
+
+	    top: 217px;
+
+
+
+
+
+
+
+	    right: 0;
+
+
+
+	    background-color: rgba(255, 255, 255, 0.95);
+
+
+
+	    padding: 20px;
+
+
+
+	    border-radius: 10px 0 0 10px;
+
+
+
+	    z-index: 200;
+
+
+
+	    box-shadow: 0 0 12px black;
+
+
+
+}
+
+
+
+.instruccionesScroll .iconoSroll {
+
+
+
+	width: 30px;
+
+
+
+	display: inline-block;
+
+
+
+	animation: animacionScroll 1s alternate infinite cubic-bezier(0.43, -0.01, 0.56, 1.04);
+
+
+
+}
+
+
+
+@keyframes animacionScroll {
+
+
+
+	0%{transform: translateY(-5px);}
+
+
+
+	100%{transform: translateY(5px);}
+
+
+
+}
+
+
+
+.instruccionesScroll .textoScroll {
+
+
+
+	display: inline-block;
+
+
+
+    width: 85px;
+
+
+
+    color: #797979;
+
+
+
+    vertical-align: top;
+
+
+
+    padding-top: 0;
+
+
+
+    padding-left: 10px;
+
+
+
+}
+
+
+
+.instruccionesScroll .cerrarMiniVentana {
+
+
+
+	position: absolute;
+
+
+
+	    top: 10px;
+
+
+
+	    right: 11px;
+
+
+
+			cursor: pointer;
+
+
+
+}
+
+
+
+*/
+
+
+
+.slider {
+
+	background-color: #3586B8;
+
+	margin-top: 57px;
+
+	height: 322px;
+
+	position: relative;
+
+}
+
+
+
+.slider .textoSlider {
+
+	position: absolute;
+
+	right: 23px;
+
+	top: 50px;
+
+	text-align: right;
+
+	color: #fff;
+
+	text-shadow: 0 0 5px black;
+
+}
+
+
+
+.slider .textoSlider h1 {
+
+	font-size: 40px;
+
+	margin: 0;
+
+}
+
+
+
+.slider .lineaSlider {
+
+	border: 1px solid;
+
+	margin: 20px 0 10px;
+
+}
+
+
+
+.feriasAbiertas {}
+
+
+
+.feriasAbiertas .franjaTituloSeccion {
+
+	background-color: #267db3;
+
+	color: white;
+
+	padding: 20px;
+
+	margin-top: 20px;
+
+}
+
+
+
+.feriasAbiertas h1 {
+
+	margin: 0;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias {
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+	justify-content: center;
+
+	padding: 30px;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias a {
+
+	background-color: white;
+
+	margin: 60px 11px 30px;
+
+	border-radius: 25px;
+
+	text-align: center;
+
+	box-sizing: border-box;
+
+	box-shadow: 0 0 10px #0000006e;
+
+	width: 235px;
+
+	position: relative;
+
+	text-decoration: none;
+
+	color: #747678;
+
+	font-size: 18px;
+
+	font-weight: 900;
+
+	display: block;
+
+	transition: all 0.3s;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias a:hover {
+
+	background-color: #d9f0f5;
+
+	padding: 40px 0 0 0;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias a .imagenFeria {
+
+	padding: 20px;
+
+	position: absolute;
+
+	width: 100%;
+
+	box-sizing: border-box;
+
+	top: -60px;
+
+	transition: all 0.3s;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias a:hover .imagenFeria {
+
+	transform: scale(1.4);
+
+	top: -40px;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias a .tipo {
+
+	background-color: #5D9FAD;
+
+	padding: 8px;
+
+	color: #fff;
+
+	margin-top: 79px;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias a .imagenFeria img {
+
+	width: 100%;
+
+	height: auto;
+
+}
+
+
+
+.feriasAbiertas .ingresoFerias a .nombreFeria {
+
+	padding: 20px;
+
+}
+
+
+
+.proximasFerias {
+
+	background-color: #267db3;
+
+	color: white;
+
+	padding: 20px;
+
+}
+
+
+
+.proximasFerias h1 {
+
+	margin: 0 0 20px;
+
+}
+
+
+
+.proximasFeriasContenido {
+
+	display: flex;
+
+}
+
+
+
+.proximaFeria {
+
+	background-color: white;
+
+	margin: 0 10px 10px 0;
+
+	border-radius: 14px;
+
+	width: 421px;
+
+	box-shadow: 0 0 8px #00000073;
+
+	text-decoration: none;
+
+	color: #fff;
+
+}
+
+
+
+.proximaFeria .proximaFeriaImagen {
+
+	overflow: hidden;
+
+	height: 96px;
+
+	border-radius: 14px 14px 0 0;
+
+	transition: all 0.3s;
+
+}
+
+
+
+.proximaFeria:hover .proximaFeriaImagen {
+
+	height: 185px;
+
+}
+
+
+
+.proximaFeria .proximaFeriaInfo {
+
+	background-color: #5d9fad;
+
+	padding: 12px;
+
+}
+
+
+
+.proximaFeria .proximaFeriaNombre {
+
+	margin: 0;
+
+	font-size: 26px;
+
+}
+
+
+
+.proximaFeria .proximaFeriaDescripcion {
+
+	font-weight: 400;
+
+	margin: 0;
+
+}
+
+
+
+.proximaFeria .proximaFeriaVerMas {
+
+	padding: 12px;
+
+	color: #747678;
+
+	font-size: 19px;
+
+	font-weight: 900;
+
+}
+
+
+
+.posterAutoAdministrable, .posterFeria3D, .posterFeriaRPG {
+
+	background-position: top center;
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	border-top: 2px solid #afafaf;
+
+}
+
+
+
+.posterAutoAdministrable {
+
+	background-image: url(imgs/fondo-feria-virtual-administrable.jpg);
+
+	height: 600px;
+
+}
+
+
+
+.posterFeria3D {
+
+	background-image: url(imgs/fondo-feria-virtual-3D.jpg);
+
+	height: 600px;
+
+}
+
+
+
+.posterFeriaRPG {
+
+	background-image: url(imgs/fondo-feria-virtual-RPG.jpg);
+
+	height: 600px;
+
+}
+
+
+
+.posterAutoAdministrable .textoPoster, .posterFeria3D .textoPoster, .posterFeriaRPG .textoPoster {
+
+	padding: 30px;
+
+	background-color: #00000066;
+
+	text-align: center;
+
+	width: 100%;
+
+}
+
+
+
+.posterAutoAdministrable .textoPoster h1, .posterFeria3D .textoPoster h1, .posterFeriaRPG .textoPoster h1 {
+
+	color: #fff;
+
+	font-size: 38px;
+
+	text-shadow: 0 0 4px black;
+
+}
+
+
+
+.posterAutoAdministrable .textoPoster a, .posterFeria3D .textoPoster a, .posterFeriaRPG .textoPoster a {
+
+	display: inline-block;
+
+	background-color: #267db3;
+
+	padding: 13px 40px;
+
+	border-radius: 12px;
+
+	font-size: 20px;
+
+	text-decoration: none;
+
+	color: #fff;
+
+	font-weight: 700;
+
+	transition: 0.3s all;
+
+}
+
+
+
+.posterAutoAdministrable .textoPoster a:hover, .posterFeria3D .textoPoster a:hover, .posterFeriaRPG .textoPoster a:hover {
+
+	background-color: #0fd840;
+
+	padding: 13px 60px;
+
+}
+
+
+
+.wrapp {
+
+	width: 1334px;
+
+	display: flex;
+
+	margin: 25px auto 0;
+
+	/*margin:57px auto 0;*/
+
+	position: relative;
+
+}
+
+
+
+/*
+
+
+
+.homeLateralIzq {
+
+
+
+	position:fixed;
+
+
+
+	top:0;
+
+
+
+	left:0;
+
+
+
+	bottom:0;
+
+
+
+	background-color:#FFF;
+
+
+
+	border-right: 1px solid #ccc;
+
+
+
+}
+
+
+
+.homeLateralIzq .logo {
+
+
+
+	    padding: 120px 110px 53px;
+
+
+
+    margin: 0 100px;
+
+
+
+    border-bottom: 1px solid #ccc;
+
+
+
+	animation:entradaLogoFeria 2s;
+
+
+
+}
+
+
+
+.homeLateralIzq .textoIntroduccion {
+
+
+
+	width:200px;
+
+
+
+	text-align:center;
+
+
+
+	margin:25px auto 0;
+
+
+
+	color:#aaa;
+
+
+
+	font-size:13px;
+
+
+
+}
+
+
+
+*/
+
+
+
+@keyframes entradaLogoFeria {
+
+	0% {
+
+		transform: translateY(-100px)
+
+	}
+
+	100% {
+
+		transform: translateY(0)
+
+	}
+
+}
+
+
+
+/*
+
+
+
+.homeLateralDer {
+
+
+
+	margin-left:558px;
+
+
+
+  margin-top: 56px;
+
+
+
+}
+
+
+
+	.homeLateralDer .logoAdOne {
+
+
+
+		border-bottom: 1px solid #ccc;
+
+
+
+    padding: 16px;
+
+
+
+    text-align: right;
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+	.homeLateralDer .feria3D {
+
+
+
+		border-bottom: 1px solid #ccc;
+
+
+
+	}
+
+
+
+	.homeLateralDer .feria3D:nth-child(even) {
+
+
+
+    background-color: #e8f3f7;
+
+
+
+	}
+
+
+
+	.homeLateralDer .feria3D:nth-child(odd) {
+
+
+
+	    background-color: #f3e8ff;
+
+
+
+	}
+
+
+
+		.homeLateralDer .feria3D a {
+
+
+
+			display: flex;
+
+
+
+    		padding: 20px;
+
+
+
+			color: #666;
+
+
+
+			align-items:center;
+
+
+
+			font-size: 20px;
+
+
+
+			text-decoration: none;
+
+
+
+			transition:0.4s all;
+
+
+
+		}
+
+
+
+		.homeLateralDer .feria3D a:hover {
+
+
+
+			background-color: #333e4a;
+
+
+
+    		color: #fff;
+
+
+
+
+
+
+
+		}
+
+
+
+			.homeLateralDer .feria3D a:hover .imagenFeria {
+
+
+
+				width:250px;
+
+
+
+
+
+
+
+			}
+
+
+
+			.homeLateralDer .feria3D a .imagenFeria {
+
+
+
+				display: inline-block;
+
+
+
+				width:158px;
+
+
+
+				transition:0.4s all;
+
+
+
+
+
+
+
+
+
+
+
+			}
+
+
+
+				.homeLateralDer .feria3D a .imagenFeria img {
+
+
+
+					width:100%;
+
+
+
+					height:auto;
+
+
+
+				}
+
+
+
+			.homeLateralDer .feria3D a .nombreFeria {
+
+
+
+				display: inline-block;
+
+
+
+				width:300px;
+
+
+
+				padding-left:40px;
+
+
+
+
+
+
+
+			}
+
+
+
+			.homeLateralDer .ingresoFerias {
+
+
+
+				margin-bottom:160px;
+
+
+
+			}
+
+
+
+			*/
+
+
+
+.bloqueSelectorStands {
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+}
+
+
+
+.bloqueSelectorStands .selectorStand {
+
+	height: 140px;
+
+	width: 300px;
+
+	border: 1px solid #ccc;
+
+	margin: 3px;
+
+	padding: 3px;
+
+	background-color: #fff;
+
+}
+
+
+
+.bloqueSelectorStands .selectorStand.seleccionado {
+
+	background-color: #f78f1e;
+
+}
+
+
+
+.ticketZone {
+
+	width: 50%;
+
+	padding: 30px;
+
+	box-sizing: border-box;
+
+}
+
+
+
+.ticketZone .titulo {
+
+	animation: fadeIn 2s;
+
+}
+
+
+
+.ticketZone .titulo h1 {
+
+	margin: 0 0 2px 6px;
+
+	color: #a3a4a7;
+
+	font-weight: 400;
+
+	font-size: 29px;
+
+}
+
+
+
+.ticketZone .titulo h1 img, .centroFeria .titulo h1 img {
+
+	margin-right: 10px;
+
+	transform: translateY(2px);
+
+	border-right: 3px solid #f00;
+
+	padding-right: 10px;
+
+}
+
+
+
+.ticketZone .ticketes {
+
+	animation: fadeIn 2s;
+
+	animation-delay: 3s;
+
+	animation-fill-mode: forwards;
+
+	opacity: 0;
+
+}
+
+
+
+.ticketZone .ticketes a {
+
+	background-image: url(imgs/ticket-bg.png);
+
+	background-repeat: no-repeat;
+
+	display: block;
+
+	height: 170px;
+
+	text-decoration: none;
+
+	padding: 60px 0 0 20px;
+
+	color: #FFF;
+
+	box-sizing: border-box;
+
+	width: 550px;
+
+	transition: all 0.5s;
+
+}
+
+
+
+.ticketZone .ticketes a:hover {
+
+	transform: rotateY(7deg) rotateZ(-2deg) rotateX(6deg) translateX(20px);
+
+}
+
+
+
+.ticketZone .ticketes a h2 {
+
+	margin: 0;
+
+	font-weight: 400;
+
+	font-size: 21px;
+
+	width: 330px;
+
+	line-height: 27px;
+
+}
+
+
+
+.ticketZone p {
+
+	margin: 4px 0 0 6px;
+
+	font-size: 20px;
+
+	border-top: 1px solid #ccc;
+
+	padding-top: 4px;
+
+	animation: fadeIn 2s;
+
+	animation-delay: 1s;
+
+	animation-fill-mode: forwards;
+
+	opacity: 0;
+
+}
+
+
+
+.ticketZone div.muyPronto {
+
+	font-size: 60px;
+
+	color: #8ab2ba;
+
+}
+
+
+
+.ticketZone p.nota {
+
+	font-size: 14px;
+
+	color: #a5a5a5;
+
+	border: none;
+
+	margin: 0 0 15px 21px;
+
+	animation: fadeIn 2s;
+
+	animation-delay: 2s;
+
+	animation-fill-mode: forwards;
+
+	opacity: 0;
+
+}
+
+
+
+.escarapelaZone {
+
+	min-height: 100vh;
+
+	padding: 0;
+
+	background-repeat: round;
+
+	background-size: 100% 100%;
+
+}
+
+
+
+.escarapelaZone .logoFeria {
+
+	overflow: hidden;
+
+	margin: 30px auto;
+
+	border-radius: 28px;
+
+	height: 235px;
+
+	box-shadow: 0 0 9px #00000059;
+
+}
+
+
+
+.escarapelaZone .logoAdOne {
+
+	position: absolute;
+
+	right: 44px;
+
+	top: 47px;
+
+}
+
+
+
+.escarapelaZone .zonaVideoPabellon {
+
+	text-align: center;
+
+}
+
+
+
+.escarapelaZone .zonaVideoPabellon iframe {
+
+	box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.59);
+
+	border: 6px solid;
+
+}
+
+
+
+.escarapela, .escarapelaVisitantes {
+
+	background-image: url(imgs/escarapela.png);
+
+	background-repeat: no-repeat;
+
+	background-position: 40px 0px;
+
+	height: 100vh;
+
+	box-sizing: border-box;
+
+	padding: 209px 0 0 65px;
+
+	transform: translateY(-24px);
+
+	transition: all 0.5s;
+
+}
+
+
+
+.escarapelaVisitantes {
+
+	background-image: url(imgs/escarapelaVisitantes.png);
+
+}
+
+
+
+.escarapelaRuedaNegocios {
+
+	background-image: url(imgs/escarapelaRuedaNegocios.png);
+
+}
+
+
+
+.escarapela:hover, .escarapelaVisitantes:hover {
+
+	transform: translateY(0px);
+
+}
+
+
+
+.escarapela .informacion, .escarapelaVisitantes .informacion {
+
+	width: 428px;
+
+}
+
+
+
+.escarapela .informacion h3, .escarapelaVisitantes .informacion h3 {
+
+	color: #FFF;
+
+	font-weight: 400;
+
+	font-size: 34px;
+
+	text-align: center;
+
+	margin: 0;
+
+}
+
+
+
+.escarapela .informacion h4, .escarapelaVisitantes .informacion h4 {
+
+	color: #FFF;
+
+	font-weight: 400;
+
+	font-size: 22px;
+
+	text-align: center;
+
+	margin: 10px auto 41px;
+
+	width: 340px;
+
+	height: 65px;
+
+}
+
+
+
+.escarapela .informacion form, .escarapelaVisitantes .informacion form {
+
+	width: 231px;
+
+	margin: 0 auto;
+
+}
+
+
+
+.escarapela .informacion form label, .escarapelaVisitantes .informacion form label {
+
+	display: inline-block;
+
+	width: 50px;
+
+	color: #737578;
+
+	font-size: 20px;
+
+}
+
+
+
+.escarapela .informacion form p, .escarapelaVisitantes .informacion form p {
+
+	margin: 4px 0;
+
+	font-size: 17px;
+
+}
+
+
+
+.escarapela .informacion form input.texto, .escarapelaVisitantes .informacion form input.texto {
+
+	display: inline-block;
+
+	width: 162px;
+
+	border-radius: 5px;
+
+	border: 1px solid #7A7A7A;
+
+	padding: 5px;
+
+	background-color: #BEBEBE;
+
+	font-size: 16px;
+
+}
+
+
+
+.escarapela .informacion form input.boton, .escarapelaVisitantes .informacion form input.boton {
+
+	background-image: url(imgs/fondo-boton-enviar.jpg);
+
+	padding: 2px 0 3px;
+
+	border: 0;
+
+	color: #fff;
+
+	border-radius: 5px;
+
+	width: 174px;
+
+	cursor: pointer;
+
+	margin-left: 54px;
+
+	box-sizing: border-box;
+
+	font-size: 15px;
+
+}
+
+
+
+.escarapela .informacion p a, .escarapelaVisitantes .informacion p a {
+
+	cursor: pointer;
+
+	text-decoration: none;
+
+	color: #737578;
+
+}
+
+
+
+/*Estilos de la feria isométrica */
+
+
+
+.recorridoMascaraIsometrica .iconoInauguracion {
+
+	position: absolute;
+
+	z-index: 200;
+
+	left: 260px;
+
+	top: 100px;
+
+	animation: entradaIconoInauguracion 1s;
+
+	background-color: #0000009c;
+
+	border-radius: 10px;
+
+}
+
+
+
+@keyframes entradaIconoInauguracion {
+
+	0% {
+
+		top: 0;
+
+		transform: scale(1);
+
+	}
+
+	50% {
+
+		transform: scale(1);
+
+	}
+
+	70% {
+
+		transform: scale(1.5);
+
+	}
+
+	100% {
+
+		top: 100px;
+
+		transform: scale(1)
+
+	}
+
+}
+
+
+
+.recorridoMascaraIsometrica .iconoInauguracion img.cerrar {
+
+	position: absolute;
+
+	top: 0;
+
+	right: 0;
+
+	cursor: pointer;
+
+}
+
+
+
+.feriaIsometrica {
+
+	background-size: auto, auto, contain;
+
+	background-repeat: no-repeat, no-repeat, repeat;
+
+	background-position: top right, top left, top;
+
+	/*height: 545px;*/
+
+	width: 100%;
+
+	display: grid;
+
+	grid-template-columns: repeat(3, 1fr);
+
+	/*grid-template-rows: 270px;*/
+
+	/*align-items: center;*/
+
+	justify-items: center;
+
+	animation: enfoque 3s forwards;
+
+	filter: brightness(0.3);
+
+}
+
+
+
+@keyframes enfoque {
+
+	from {
+
+		filter: brightness(0.3);
+
+	}
+
+	to {
+
+		filter: brightness(1);
+
+	}
+
+}
+
+
+
+.feriaIsometrica .standIsometrico {
+
+	position: relative;
+
+	padding: 20px 0 0;
+
+}
+
+
+
+.feriaIsometrica .standIsometrico img {
+
+}
+
+
+
+.feriaIsometrica .standIsometrico .logo {
+
+	position: absolute;
+
+	z-index: 10;
+
+	right: -50px;
+
+	top: 0;
+
+	transform: scale(0.6);
+
+	padding: 8px;
+
+	background-color: white;
+
+	border-radius: 8px;
+
+	box-shadow: 3px 2px 10px black;
+
+	transition: all 0.3s;
+
+}
+
+
+
+.feriaIsometrica .standIsometrico:hover .logo {
+
+	transform: scale(0.8);
+
+}
+
+
+
+.feriaIsometrica .standIsometrico .nombre {
+
+	position: absolute;
+
+	z-index: 10;
+
+	top: 88px;
+
+	padding: 11px;
+
+	background-color: #ffffffd6;
+
+	border-radius: 8px;
+
+	font-size: 12px;
+
+	left: 20px;
+
+	color: #09002b;
+
+	transform: skewY(36deg);
+
+	width: 110px;
+
+	border-top: #fff 2px solid;
+
+	border-right: 1px solid #fff;
+
+	transition: all 0.3s;
+
+}
+
+
+
+.feriaIsometrica .standIsometrico:hover .nombre {
+
+	left: -40px;
+
+	transform: skewY(0deg);
+
+	width: 110px;
+
+	border-top: #fff 0px solid;
+
+	border-right: 0px solid #fff;
+
+	top: 10px;
+
+	font-size: 14px;
+
+}
+
+
+
+/*Fin Estilos de la feria isométrica */
+
+
+
+/* Estilos de la feria*/
+
+
+
+.botonAvance {
+
+	padding: 300px 10px 0;
+
+	box-sizing: border-box;
+
+	cursor: pointer;
+
+	opacity: 0.5;
+
+	transition: 0.3s all;
+
+}
+
+
+
+.botonAvance:hover {
+
+	opacity: 1;
+
+	transform: scale(1.1);
+
+}
+
+
+
+.centroFeria {
+
+	width: 100%;
+
+	margin: 0 auto;
+
+	padding: 20px 0;
+
+}
+
+
+
+.centroFeria .titulo {
+
+	display: inline-block;
+
+}
+
+
+
+.centroFeria .titulo h1 {
+
+	margin: 0 0 22px;
+
+	color: #a3a4a7;
+
+	font-weight: 400;
+
+	font-size: 29px;
+
+	display: inline;
+
+}
+
+
+
+.centroFeria .titulo h2 {
+
+	margin: 0 0 22px;
+
+	color: #B95B10;
+
+	font-weight: 400;
+
+	font-size: 15px;
+
+	display: inline;
+
+}
+
+
+
+.centroFeria .logoAdOne {
+
+	float: right;
+
+}
+
+
+
+.centroFeria .logoFeria {
+
+	float: right;
+
+}
+
+
+
+.centroFeria .logoFeria img {
+
+	height: 48px;
+
+}
+
+
+
+.centroFeria .recorridoMascara {
+
+	box-shadow: 0 0 8px 2px #000000a6;
+
+	height: 541px;
+
+	margin: 20px 0;
+
+	position: relative;
+
+	overflow: hidden;
+
+}
+
+
+
+.centroFeria .recorridoMascaraIsometrica {
+
+	box-shadow: 0 0 8px 2px #000000a6;
+
+	height: auto;
+
+	margin: 20px 0;
+
+	position: relative;
+
+	/*overflow: overlay;*/
+
+	background-image: url(imgs/fondo-isometrico-tapete.jpg);
+
+	background-size: auto;
+
+	background-repeat: repeat;
+
+	background-position: top;
+
+}
+
+
+
+.recorridoFeria {
+
+	display: flex;
+
+	width: 100%;
+
+	position: absolute;
+
+	left: 0;
+
+	transition: 3s all;
+
+}
+
+
+
+.stand {
+
+	background-image: url(imgs/stand1.jpg);
+
+	width: 100%;
+
+	height: 542px;
+
+	position: relative;
+
+	display: inline-block;
+
+}
+
+
+
+.stand .nominadosMejorStand {
+
+	position: absolute;
+
+	padding: 54px 0 0 163px;
+
+}
+
+
+
+.stand h2 {
+
+	position: absolute;
+
+	color: #413e3e;
+
+	top: 33px;
+
+	left: 0;
+
+	font-weight: 400;
+
+	right: 0;
+
+	margin: 0 auto;
+
+	width: 450 px;
+
+	text-align: center;
+
+	font-size: 35px;
+
+}
+
+
+
+.stand .descripcion {
+
+	position: absolute;
+
+	color: #8c8b8b;
+
+	top: 80px;
+
+	left: 165px;
+
+	width: 165px;
+
+}
+
+
+
+.stand .cuadroComentarios {
+
+	position: absolute;
+
+	color: #585858;
+
+	top: 0px;
+
+	left: 0px;
+
+	width: 450px;
+
+	bottom: 0;
+
+	background-color: #ffffffeb;
+
+	z-index: 2;
+
+	padding: 25px;
+
+	box-sizing: border-box;
+
+	display: none;
+
+}
+
+
+
+.stand .cuadroComentarios .bloque, .data_bloque_feria .bloque {
+
+	padding: 7px 0;
+
+	border-bottom: 1px solid #ccc;
+
+}
+
+
+
+.cuadroComentarios .bloque:last-child {
+
+	border: 0;
+
+}
+
+
+
+.stand .cuadroComentarios .ComentariosComentar {
+
+	padding: 0 0 10px 0;
+
+	border-bottom: 2px solid #ccc;
+
+	margin: 0 0 13px 0;
+
+}
+
+
+
+.stand .cuadroComentarios .ComentariosComentar p {
+
+	margin: 4px 0;
+
+}
+
+
+
+.stand .cuadroComentarios .ComentariosComentar input[type=text] {
+
+	width: 100%;
+
+	padding: 8px;
+
+	font-size: 15px;
+
+	box-sizing: border-box;
+
+	border-radius: 5px 5px 0 0;
+
+	border: none;
+
+	box-shadow: inset 0 0 4px black;
+
+}
+
+
+
+.stand .cuadroComentarios .ComentariosComentar button {
+
+	background-color: #a3a4a7;
+
+	padding: 5px;
+
+	box-sizing: border-box;
+
+	border: none;
+
+	width: 100%;
+
+	border-radius: 0 0 10px 10px;
+
+	font-size: 16px;
+
+	color: white;
+
+	cursor: pointer;
+
+}
+
+
+
+.stand .cuadroComentarios .ComentariosComentar button:hover {
+
+	background-color: #267db3;
+
+}
+
+
+
+.stand .cuadroComentarios .ComentariosTextos .comentariosTitulo {
+
+	padding: 0 0 10px 0;
+
+	color: #000;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosTitulo .comentariosNumero {
+
+	font-weight: 900;
+
+	background-color: #267db3;
+
+	display: inline-block;
+
+	padding: 3px;
+
+	color: #fff;
+
+	border-radius: 4px;
+
+	font-size: 13px;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosyrespuestasMarco {
+
+	background-color: white;
+
+	padding: 10px;
+
+	box-sizing: border-box;
+
+	font-size: 13px;
+
+	overflow: auto;
+
+	height: 260px;
+
+	border: 1px solid #ccc;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosyrespuestasMarco .bloque .mensajeComentario, .data_bloque_feria .bloque .mensajeComentario {
+
+	margin: 0;
+
+	color: #6b6666;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosyrespuestasMarco .bloque .respuestaComentario, .data_bloque_feria .bloque .respuestaComentario {
+
+	margin: 0;
+
+	padding: 5px 0px 0 10px;
+
+	color: #00c0ca;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosCalificanos {
+
+	padding: 8px;
+
+	background-color: #d0e8e8;
+
+	box-sizing: border-box;
+
+	margin-top: 4px;
+
+	border: 1px solid #929191;
+
+	border-radius: 7px;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosCalificanos .calificanosTitulo {
+
+	color: #000;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosCalificanos .calificanosIconos {
+
+	display: flex;
+
+	justify-content: flex-start;
+
+}
+
+
+
+.stand .cuadroComentarios .comentariosCalificanos .calificanosIconos img {
+
+	margin: 4px 8px 0 0;
+
+	cursor: pointer;
+
+}
+
+
+
+.stand .descripcion h3 {
+
+	font-weight: 400;
+
+	margin: 0;
+
+	font-size: 20px;
+
+}
+
+
+
+.stand .descripcion div {
+
+	font-weight: 400;
+
+	font-size: 14px;
+
+	color: #282626;
+
+}
+
+
+
+.stand .tarjetaAsesor {
+
+	display: none;
+
+	background-color: #fff;
+
+	width: 100%;
+
+	position: absolute;
+
+	z-index: 10;
+
+	margin: auto;
+
+	top: 0;
+
+	left: 0;
+
+	right: 0;
+
+	bottom: 0;
+
+	border: 1px solid #cecece;
+
+	padding: 20px;
+
+	box-shadow: 16px 20px 19px #00000073;
+
+	height: 300px;
+
+	display: flex;
+
+	align-items: center;
+
+	transform: rotateY(0) rotateZ(0deg);
+
+	background-image: url(imgs/fondo-tarjeta-asesor.jpg);
+
+	background-size: 100% 100%;
+
+}
+
+
+
+.stand .tarjetaAsesor.animacionEntrada {
+
+	animation: entradaTarjeta 1s;
+
+}
+
+
+
+@keyframes entradaTarjeta {
+
+	from {
+
+		transform: scale(0) rotateY(90deg) rotateZ(45deg);
+
+	}
+
+	to {
+
+		transform: scale(1) rotateY(0deg) rotateZ(0deg);
+
+	}
+
+}
+
+
+
+.stand .tarjetaAsesor .cerrar, .stand .cuadroComentarios .cerrar {
+
+	position: absolute;
+
+	top: 16px;
+
+	right: 16px;
+
+	cursor: pointer;
+
+}
+
+
+
+.stand .tarjetaAsesor .logo {
+
+	padding: 0 40px 0px 40px;
+
+}
+
+
+
+.stand .tarjetaAsesor .informacion {
+
+	padding: 20px 0 20px 30px;
+
+	border-left: 1px solid #ccc;
+
+}
+
+
+
+.stand .tarjetaAsesor p {
+
+	margin: 0 0 10px;
+
+	word-break: break-all;
+
+}
+
+
+
+.stand .tarjetaAsesor p span.bold {
+
+	font-weight: 900;
+
+}
+
+
+
+.stand .logoExpositor {
+
+	right: 15px;
+
+	position: absolute;
+
+	top: 0;
+
+	width: 184px;
+
+	height: 140px;
+
+	padding: 16px 11px;
+
+	box-sizing: border-box;
+
+	text-align: center;
+
+	background-image: url(imgs/fondo-logo-stand.png);
+
+}
+
+
+
+.stand .logoExpositor img {
+
+	height: 101px;
+
+	width: 147px;
+
+}
+
+
+
+.stand .video {
+
+	position: absolute;
+
+	color: #FFF;
+
+	top: 138px;
+
+	left: 0;
+
+	right: 0;
+
+	margin: 0 auto;
+
+	width: 355px;
+
+}
+
+
+
+.stand .video iframe {
+
+	width: 355px;
+
+	height: 210px;
+
+}
+
+
+
+.stand .marcoBotonesDesplegables {
+
+	position: absolute;
+
+	bottom: 0;
+
+	right: 0;
+
+	display: flex;
+
+	overflow: hidden;
+
+	justify-content: flex-end;
+
+}
+
+
+
+.stand .marcoBotonesDesplegables .botonesLargos {
+
+	padding: 0 5px;
+
+	transform: translateY(100px);
+
+	transition: all 0.3s;
+
+	cursor: pointer;
+
+	animation: guardadoBotones 7s;
+
+}
+
+
+
+@keyframes guardadoBotones {
+
+	0% {
+
+		transform: translateY(100px)
+
+	}
+
+	20% {
+
+		transform: translateY(5px)
+
+	}
+
+	80% {
+
+		transform: translateY(5px)
+
+	}
+
+	100% {
+
+		transform: translateY(100px)
+
+	}
+
+}
+
+
+
+.stand .botonMeGusta {
+
+	/*right: 236px;
+
+
+
+    position: absolute;
+
+
+
+    bottom: 4px;
+
+
+
+		*/
+
+	transform: translateY(107px);
+
+	transition: all 0.3s;
+
+	cursor: pointer;
+
+}
+
+
+
+.stand .botonMeGusta img {
+
+	transform: scale(0.7, 0.7);
+
+	transition: all 0.3s;
+
+}
+
+
+
+.stand .botonMeGusta:hover img {
+
+	transform: scale(1, 1);
+
+}
+
+
+
+.stand .numeroMeGusta {
+
+	background-color: red;
+
+	color: antiquewhite;
+
+	border-radius: 10px;
+
+	text-align: center;
+
+	padding: 11px;
+
+	box-sizing: border-box;
+
+	text-shadow: 1px 2px 3px black;
+
+	box-shadow: 0 0 3px black;
+
+	height: 43px;
+
+	transform: translateY(120px);
+
+	margin: 0 8px;
+
+	display: none;
+
+}
+
+
+
+.stand .botonAsesor {
+
+	/*right: 196px;
+
+
+
+    position: absolute;
+
+
+
+    bottom: -109px;
+
+
+
+	transition:all 0.3s;
+
+
+
+	cursor:pointer;*/
+
+}
+
+
+
+.stand .botonContactanos {
+
+	/*right: 150px;
+
+
+
+    position: absolute;
+
+
+
+    bottom: -109px;
+
+
+
+	transition:all 0.3s;
+
+
+
+	cursor:pointer;*/
+
+}
+
+
+
+.stand .botonInfo {
+
+	/*right: 105px;
+
+
+
+    position: absolute;
+
+
+
+    bottom: -109px;
+
+
+
+	transition:all 0.3s;
+
+
+
+	cursor:pointer;*/
+
+}
+
+
+
+.stand .botonBrochure {
+
+	/*right: 60px;
+
+
+
+    position: absolute;
+
+
+
+    bottom: -109px;
+
+
+
+	transition:all 0.3s;
+
+
+
+	cursor:pointer;*/
+
+}
+
+
+
+.stand .botonWebsite {
+
+	/*right: 15px;
+
+
+
+    position: absolute;
+
+
+
+    bottom: -109px;*/
+
+}
+
+
+
+.stand .botonInfo:hover, .stand .botonAsesor:hover, .stand .botonContactanos:hover, .stand .botonBrochure:hover, .stand .botonWebsite:hover, .stand .marcoBotonesDesplegables .botonesLargos:hover {
+
+	/*bottom: -3px;*/
+
+	transform: translateY(4px);
+
+}
+
+
+
+.infoBt {
+
+	position: fixed;
+
+	left: 0;
+
+	right: 0;
+
+	margin: 0 auto;
+
+	top: 574px;
+
+	width: 513px;
+
+	box-shadow: 0 0 7px black;
+
+	height: 98px;
+
+	animation: saltando 3s infinite;
+
+}
+
+
+
+@keyframes saltando {
+
+	0% {
+
+		top: 609px;
+
+	}
+
+	80% {
+
+		top: 609px;
+
+	}
+
+	85% {
+
+		top: 569px;
+
+	}
+
+	90% {
+
+		top: 609px;
+
+	}
+
+	95% {
+
+		top: 599px;
+
+	}
+
+	100% {
+
+		top: 609px;
+
+	}
+
+}
+
+
+
+/*  Registro  */
+
+
+
+.contenido {
+
+	background-image: url('imgs/bg_registro.jpg');
+
+	background-size: cover;
+
+	background-repeat: no-repeat;
+
+	height: 100vh;
+
+	background-attachment: fixed;
+
+}
+
+
+
+.contenido form button, .formButton {
+
+	background: linear-gradient(to bottom, #FB0000 0%, #960303 99%, #960303 100%);
+
+	border: none;
+
+	color: white;
+
+	padding: 5px 40px;
+
+	border-radius: 8px;
+
+	font-size: 17px;
+
+	cursor: pointer;
+
+	width: 250px;
+
+	margin: 0 auto;
+
+	display: block;
+
+	text-decoration: none;
+
+	text-align: center;
+
+}
+
+
+
+.contenido form button:hover {
+
+	background: linear-gradient(to bottom, #00B7FB 0%, #035896 99%, #035896 100%);
+
+}
+
+
+
+.contenido.registroRueda {
+
+	background-image: url('imgs/bg_registro_rueda.jpg');
+
+}
+
+
+
+.registro {
+
+	width: 600px;
+
+	margin: 57px auto 0;
+
+	padding: 0 0 20px;
+
+}
+
+
+
+.titulo_registro {
+
+	color: white;
+
+	font-size: 30px;
+
+	margin: 0;
+
+	padding: 20px 0;
+
+}
+
+
+
+.caja_registro {
+
+	background-color: #000000b8;
+
+	color: white;
+
+	border: 2px solid white;
+
+	padding: 4px 15px;
+
+	border-radius: 15px;
+
+	margin-bottom: 15px;
+
+	font-size: 18px;
+
+}
+
+
+
+.caja_registro a {
+
+	color: white;
+
+	text-decoration: none;
+
+}
+
+
+
+.caja_registro:nth-child(1) label {
+
+	display: inline-block;
+
+	width: 180px;
+
+}
+
+
+
+.caja_registro:nth-child(2) input {
+
+	margin-right: 20px;
+
+}
+
+
+
+.caja_registro input {
+
+	background-color: #BEBEBE;
+
+	border: 1px solid #7A7A7A;
+
+	border-radius: 6px;
+
+	padding: 4px;
+
+	width: 180px;
+
+}
+
+
+
+.caja_registro input[required] {
+
+	background-color: antiquewhite;
+
+}
+
+
+
+.caja_registro input.semestre {
+
+	width: 30px;
+
+}
+
+
+
+/* Mi Stand */
+
+
+
+.mi-stand {
+
+	background-image: url(imgs/bg_mistand.jpg);
+
+	background-size: 100% auto;
+
+	background-repeat: no-repeat;
+
+	padding-bottom: 50px;
+
+}
+
+
+
+.mi-stand .logoAdOne {
+
+	position: absolute;
+
+	right: 44px;
+
+	top: 47px;
+
+}
+
+
+
+.mi-stand nav {
+
+	display: flex;
+
+	justify-content: flex-start;
+
+	padding: 10px;
+
+	background-color: #1c2d39;
+
+}
+
+
+
+.cabezera {
+
+	height: 355px;
+
+	text-align: center;
+
+}
+
+
+
+.cabezera h1 {
+
+	margin: 0 auto;
+
+	color: white;
+
+	font-size: 65px;
+
+	text-shadow: 0 0 4px black;
+
+	font-weight: 100;
+
+	padding-top: 100px;
+
+}
+
+
+
+.cabezera p {
+
+	text-shadow: 0 0 4px black;
+
+	font-size: 45px;
+
+	margin: 0 0 25px;
+
+	color: white;
+
+}
+
+
+
+.cabezera .editar {
+
+	background-color: rgba(201, 0, 0, 0);
+
+	background: linear-gradient(to bottom, #FB0000 0%, #960303 99%, #960303 100%);
+
+	padding: 15px 66px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	margin-right: 15px;
+
+	font-size: 16px;
+
+	border: 0;
+
+	cursor: pointer;
+
+}
+
+
+
+.cabezera .editar:hover {
+
+	background: #E94343;
+
+}
+
+
+
+.cabezera .publicar {
+
+	background: linear-gradient(to bottom, #34FB00 0%, #1F6810 99%, #1F6810 100%);
+
+	padding: 15px 37px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	margin-right: 15px;
+
+}
+
+
+
+.cabezera .publicar:hover {
+
+	background: #82DE6A;
+
+}
+
+
+
+.goferia {
+
+	background: linear-gradient(to bottom, #00b5fb 0%, #104368 99%, #104368 100%);
+
+	padding: 15px 66px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	margin-right: 15px;
+
+	font-size: 16px;
+
+	border: 0;
+
+	cursor: pointer;
+
+}
+
+
+
+.goferia:hover {
+
+	background: #5ab6da;
+
+}
+
+
+
+.gomarket {
+
+	background: linear-gradient(to bottom, #fb008b 0%, #671068 99%, #104368 100%);
+
+	padding: 15px 66px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	margin-right: 15px;
+
+	font-size: 16px;
+
+	border: 0;
+
+	cursor: pointer;
+
+}
+
+
+
+.gomarket:hover {
+
+	background: #fb008b;
+
+}
+
+
+
+.salida {
+
+	background: linear-gradient(to bottom, #FFC107 0%, #FF9800 99%, #802204 100%);
+
+	padding: 15px 66px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	margin-right: 15px;
+
+	font-size: 16px;
+
+	border: 0;
+
+	cursor: pointer;
+
+}
+
+
+
+.salida:hover {
+
+	background: #e0a903;
+
+}
+
+
+
+.btnInactivo {
+
+	background: #848484;
+
+	color: #ccc;
+
+	cursor: default;
+
+}
+
+
+
+.btnInactivo:hover {
+
+	background: #848484;
+
+	color: #ccc;
+
+}
+
+
+
+.data_content {
+
+	padding: 0 50px;
+
+	margin-bottom: 170px;
+
+}
+
+
+
+.col100porcientoancho {
+
+	width: 100%;
+
+}
+
+
+
+.data_flex {
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+}
+
+
+
+.data_content h2 {
+
+	margin: 0
+
+}
+
+
+
+.data_content h3 {
+
+	margin: 0
+
+}
+
+
+
+.data_content h4 {
+
+	color: #FF7B31;
+
+	margin: 18px 0 0px;
+
+	border-top: 1px solid #ccc;
+
+	padding: 13px 0 0 0;
+
+}
+
+
+
+.data_content .boton_pequeno_responder {
+
+	background: linear-gradient(to bottom, #00b5fb 0%, #104368 99%, #104368 100%);
+
+	padding: 6px 14px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	margin-right: 15px;
+
+	font-size: 16px;
+
+	border: 0;
+
+	cursor: pointer;
+
+	display: inline-block;
+
+}
+
+
+
+.data_content .boton_pequeno_borrar {
+
+	background-color: rgba(201, 0, 0, 0);
+
+	background: linear-gradient(to bottom, #FB0000 0%, #960303 99%, #960303 100%);
+
+	padding: 6px 14px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	margin-right: 15px;
+
+	font-size: 16px;
+
+	border: 0;
+
+	cursor: pointer;
+
+}
+
+
+
+.data_content p {
+
+	margin: 2px 0 12px;
+
+	word-break: break-word;
+
+}
+
+
+
+.data_content .logoPrevisualizacion {
+
+	width: 147px;
+
+	height: 101px;
+
+	border: 1px solid #ccc;
+
+	padding: 4px;
+
+	margin-top: 20px;
+
+}
+
+
+
+.data_content .data_bloque_feria {
+
+	padding: 20px;
+
+	box-shadow: 0 0 7px #00000075;
+
+	margin: 20px 20px 0 0;
+
+	width: 350px;
+
+}
+
+
+
+.data_content .data_bloque_feria_ancho {
+
+	padding: 20px;
+
+	box-shadow: 0 0 7px #00000075;
+
+	margin: 20px 20px 0 0;
+
+	width: 600px;
+
+}
+
+
+
+.data_content .data_bloque_feria_ancho_total {
+
+	padding: 20px;
+
+	box-shadow: 0 0 7px #00000075;
+
+	margin: 20px 20px 0 0;
+
+	width: 100%;
+
+	box-sizing: border-box;
+
+}
+
+
+
+.data_content .bloques_content {
+
+	width: 45%;
+
+	margin-right: 5%;
+
+}
+
+
+
+.data_content .bloques_content .dato {
+
+	color: #5A5A5A;
+
+	margin: 0 0 10px;
+
+}
+
+
+
+.descripcionEdicion {
+
+	font-size: 12px;
+
+	margin: 0 0 12px;
+
+	color: #707070;
+
+}
+
+
+
+.data_content .bloques_content p a, .data_bloque_feria_ancho h4 a, .data_bloque_feria_ancho_total h4 a {
+
+	text-decoration: none;
+
+	color: #1A4C9E;
+
+}
+
+
+
+.ccc {
+
+	width: 600px;
+
+}
+
+
+
+/* Mi Stand Editar */
+
+
+
+.edit_stand {
+
+	border: 1px solid #A4A4A4;
+
+	border-radius: 5px;
+
+	padding: 3px 6px;
+
+	color: #5A5A5A;
+
+	font-size: 14px;
+
+	/*transform: translateY(-10px);*/
+
+	width: 75%;
+
+}
+
+
+
+.link_stand {
+
+	width: 45%;
+
+}
+
+
+
+.probar_edit {
+
+	background: linear-gradient(to bottom, #34FB00 0%, #1F6810 99%, #1F6810 100%);
+
+	padding: 4px 38px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	/*transform: translateY(-9px);*/
+
+	display: inline-block;
+
+	margin-left: 10px;
+
+}
+
+
+
+.w50 {
+
+	width: 40%;
+
+	display: inline-block;
+
+	color: #5A5A5A;
+
+	margin: 0;
+
+	/*transform: translateY(-10px);*/
+
+}
+
+
+
+.integrantes_edit {
+
+	width: 230px;
+
+	margin: 4px 10px 0 0;
+
+}
+
+
+
+.integrantes_edit_sem {
+
+	width: 50px;
+
+	margin: 4px 10px 0 0;
+
+}
+
+
+
+.Guardar_edit {
+
+	background: linear-gradient(to bottom, #FB0000 0%, #960303 99%, #960303 100%);
+
+	padding: 8px 66px;
+
+	border-radius: 6px;
+
+	border: none;
+
+	color: white;
+
+	text-decoration: none;
+
+	width: 100%;
+
+	font-size: 15px;
+
+	cursor: pointer;
+
+	max-width: 1250px;
+
+	display: block;
+
+	bottom: 10px;
+
+	margin: 10px auto 0;
+
+}
+
+
+
+.Guardar_edit:hover {
+
+	background: #E94343;
+
+}
+
+
+
+.Data_nombre span {
+
+	color: #E3BAA3;
+
+	cursor: pointer;
+
+}
+
+
+
+/* Errores */
+
+
+
+.error_bg {
+
+	background-image: url(imgs/bg-error.jpg);
+
+	background-size: 100%;
+
+}
+
+
+
+.error_bg .logoAdOne {
+
+	/*position:absolute;
+
+
+
+	right: 44px;
+
+
+
+  top: 47px;*/
+
+}
+
+
+
+.content_error {
+
+	background-color: #ffffffad;
+
+	text-align: center;
+
+	padding: 39px;
+
+	margin-top: 20vh;
+
+	box-sizing: border-box;
+
+}
+
+
+
+.content_error h1 {
+
+	margin: 0 auto;
+
+	color: #E42D2D;
+
+	font-size: 103px;
+
+	font-weight: 100;
+
+	width: 280px;
+
+	height: 110px;
+
+}
+
+
+
+.content_error p {
+
+	margin: 0 auto;
+
+	width: 730px;
+
+	font-size: 22px;
+
+	color: #505050;
+
+}
+
+
+
+.content_error h2 {
+
+	margin: 20px auto;
+
+	background-color: #E42D2D;
+
+	width: 280px;
+
+	padding: 12px 20px;
+
+	box-sizing: border-box;
+
+	color: white;
+
+	font-weight: 100;
+
+	font-size: 30px;
+
+}
+
+
+
+.content_error img {
+
+	margin-top: 20px;
+
+}
+
+
+
+/*Gracias por registrarse*/
+
+
+
+.content_error span {
+
+	background-color: #12B2EF;
+
+	display: block;
+
+	width: 800px;
+
+	height: 190px;
+
+	position: relative;
+
+	text-align: center;
+
+	padding-left: 220px;
+
+	padding-top: 19px;
+
+	box-sizing: border-box;
+
+	margin: 15px auto;
+
+}
+
+
+
+.content_error span h1 {
+
+	color: white;
+
+	font-size: 80px;
+
+	text-transform: uppercase;
+
+	margin: 0;
+
+	width: auto;
+
+	height: auto;
+
+}
+
+
+
+.content_error span h2 {
+
+	margin: 0;
+
+	width: auto;
+
+	height: auto;
+
+	background: none;
+
+	font-weight: 800;
+
+	display: inline-block;
+
+	padding: 0;
+
+	font-size: 40px;
+
+}
+
+
+
+.content_error span img {
+
+	position: absolute;
+
+	left: 12px;
+
+	top: -57px;
+
+}
+
+
+
+.btt_thanks {
+
+	background: linear-gradient(to bottom, #34FB00 0%, #1F6810 99%, #1F6810 100%);
+
+	padding: 15px;
+
+	border-radius: 6px;
+
+	color: white;
+
+	text-decoration: none;
+
+	display: block;
+
+	margin-top: 5px;
+
+}
+
+
+
+#pabellon, select.seleccionEditar, select.tipoRuedaNegocios {
+
+	background-color: #ffffffd1;
+
+	border: 1px solid #7A7A7A;
+
+	border-radius: 6px;
+
+	padding: 4px;
+
+	width: 190px;
+
+}
+
+
+
+/*Acceso Notas Stands*/
+
+
+
+.data_content table {
+
+	text-align: left;
+
+	border-collapse: collapse;
+
+	color: #5A5A5A;
+
+	margin: 0 auto;
+
+}
+
+
+
+.data_content table tr th {
+
+	color: #FF7B31;
+
+	padding-bottom: 10px;
+
+	font-weight: 100;
+
+	background-color: #2a2b2db5;
+
+	padding-top: 10px;
+
+}
+
+
+
+.data_content table tr th:nth-child(1) {
+
+	width: 15%;
+
+}
+
+
+
+.data_content table tr th:nth-child(2) {
+
+	width: 10%;
+
+}
+
+
+
+.data_content table tr th:nth-child(3) {
+
+	width: 28%;
+
+}
+
+
+
+.data_content table tr th:nth-child(4) {
+
+	width: 40%;
+
+}
+
+
+
+.data_content table tr th:nth-child(5) {
+
+	width: 10%;
+
+}
+
+
+
+.data_content table tr td {
+
+	vertical-align: top;
+
+	border-top: 1px solid black;
+
+	padding: 8px 10px 8px 0;
+
+}
+
+
+
+.data_content table tr td a {
+
+	background-image: url(imgs/verstand_butt.png);
+
+	background-size: contain;
+
+	background-repeat: no-repeat;
+
+	background-position: center;
+
+	width: 135px;
+
+	height: 38px;
+
+	display: block;
+
+	color: white;
+
+	text-decoration: none;
+
+	padding: 9px 15px;
+
+	box-sizing: border-box;
+
+	transition: all 0.5s ease;
+
+}
+
+
+
+.data_content table tr td a:hover {
+
+	background-image: url(imgs/verstand_butt_on.png);
+
+}
+
+
+
+/*Stands Nota*/
+
+
+
+.botonCalifcar {
+
+	background-image: url(imgs/botonCalifcar.png);
+
+	background-repeat: no-repeat;
+
+	box-sizing: border-box;
+
+	padding: 9px 14px;
+
+	width: 347px;
+
+	height: 58px;
+
+	position: absolute;
+
+	bottom: 0;
+
+}
+
+
+
+.botonCalifcar p {
+
+	display: inline-block;
+
+	color: #868686;
+
+	font-size: 26px;
+
+	margin: 0;
+
+	margin-right: 13px;
+
+	transform: translateY(4px);
+
+}
+
+
+
+.botonCalifcar input {
+
+	background-color: #BEBEBE;
+
+	border: 1px solid #7A7A7A;
+
+	border-radius: 6px;
+
+	padding: 4px;
+
+	width: 25px;
+
+	margin-right: 20px;
+
+}
+
+
+
+.botonCalifcar button {
+
+	background: linear-gradient(to bottom, #FB0000 0%, #960303 99%, #960303 100%);
+
+	border: none;
+
+	color: white;
+
+	border-radius: 6px;
+
+	font-size: 15px;
+
+	cursor: pointer;
+
+	padding: 4px 15px;
+
+}
+
+
+
+.w-nota {
+
+	width: 1165px;
+
+}
+
+
+
+/* Selector de ferias inicio */
+
+
+
+.arquitecturaFeria {
+
+	width: 470px;
+
+	margin: 0 auto;
+
+	text-align: center;
+
+}
+
+
+
+.arquitecturaFeria .cycle-slideshow {
+
+	margin-top: 140px;
+
+}
+
+
+
+.arquitecturaFeria .cycle-slideshow .feria3D {
+
+	padding: 70px 0;
+
+}
+
+
+
+.arquitecturaFeria .cycle-slideshow .feria3D a {
+
+	text-decoration: none;
+
+}
+
+
+
+.arquitecturaFeria .cycle-slideshow .feria3D .imagenFeria {
+
+	transform: scale(0.9);
+
+	transition: all 0.3s;
+
+	animation: entradaFeria 0.6s linear;
+
+}
+
+
+
+@keyframes entradaFeria {
+
+	0% {
+
+		transform: translateY(150px) scale(0.5)
+
+	}
+
+	80% {
+
+		transform: translateY(-60px) scale(0.9)
+
+	}
+
+	100% {
+
+		transform: translateY(0) scale(0.9)
+
+	}
+
+}
+
+
+
+.arquitecturaFeria .cycle-slideshow .feria3D:hover .imagenFeria {
+
+	transform: scale(1);
+
+}
+
+
+
+.arquitecturaFeria .cycle-slideshow .feria3D .nombreFeria {
+
+	margin: 0 0 22px;
+
+	color: #a3a4a7;
+
+	font-weight: 400;
+
+	font-size: 24px;
+
+}
+
+
+
+/* Selector de ferias final */
+
+
+
+/* Calificación de Stands */
+
+
+
+.standActivoBG {
+
+	background-color: #d9fdb7;
+
+}
+
+
+
+.notaPublicado {
+
+	background-color: #00e038;
+
+	color: #fff;
+
+	padding: 5px 14px 5px 9px;
+
+	display: inline-block;
+
+	margin: 5px 0 0 0;
+
+	border-radius: 0 7px 17px 0;
+
+	border: 2px solid #1b9402;
+
+	border-left: 0;
+
+	font-size: 13px;
+
+}
+
+
+
+.notaBloqueado {
+
+	background-color: #e03e00;
+
+	color: #fff;
+
+	padding: 5px 14px 5px 9px;
+
+	display: inline-block;
+
+	margin: 5px 0 0 0;
+
+	border-radius: 0 7px 17px 0;
+
+	border: 2px solid #774b1d;
+
+	border-left: 0;
+
+	font-size: 10px;
+
+}
+
+
+
+.notaBloqueado img {
+
+	margin-right: 4px;
+
+}
+
+
+
+.fechaModificado {
+
+	font-size: 12px;
+
+}
+
+
+
+.sinStands {
+
+	position: absolute;
+
+	width: 1200px;
+
+	background-color: #fff;
+
+	top: 238px;
+
+	bottom: 0;
+
+	left: 0;
+
+	right: 0;
+
+	text-align: center;
+
+	font-size: 24px;
+
+	color: #797979;
+
+}
+
+
+
+#videoYoutube iframe {
+
+	width: 100%;
+
+}
+
+
+
+.accesosPabellonesDocente {}
+
+
+
+.accesosPabellonesDocente a {
+
+	background-color: #5193b7;
+
+	padding: 13px;
+
+	border-radius: 10px;
+
+	margin: 0 10px 10px 0;
+
+	text-decoration: none;
+
+	color: white;
+
+	border: 4px solid #fff;
+
+	box-shadow: 0 0 3px black;
+
+	display: block;
+
+}
+
+
+
+.accesosPabellonesDocente a span.feriaNombre {
+
+	margin: 0 20px 0 0;
+
+	border-right: 3px solid #ffffff6e;
+
+	padding-right: 20px;
+
+	font-weight: 700;
+
+}
+
+
+
+.accesosPabellonesDocente a:nth-child(5n+1) {
+
+	background-color: #d41111;
+
+}
+
+
+
+.accesosPabellonesDocente a:nth-child(5n+2) {
+
+	background-color: #d47d11;
+
+}
+
+
+
+.accesosPabellonesDocente a:nth-child(5n+3) {
+
+	background-color: #d4b311;
+
+}
+
+
+
+.accesosPabellonesDocente a:nth-child(5n+4) {
+
+	background-color: #9abb14;
+
+}
+
+
+
+.accesosPabellonesDocente a:nth-child(5n+5) {
+
+	background-color: #15b799;
+
+}
+
+
+
+.accesosPabellonesDocente a:hover {
+
+	background-color: #58b751;
+
+}
+
+
+
+.botonAccesoCordinadores {
+
+	display: inline-block;
+
+	background-color: #267db3;
+
+	color: #fff;
+
+	padding: 10px;
+
+	border-radius: 7px;
+
+}
+
+
+
+.tablaExportacion {}
+
+
+
+.tablaExportacion tr {}
+
+
+
+.tablaExportacion tr td, .tablaExportacion tr th {
+
+	border: 1px solid #000;
+
+}
+
+
+
+.botonExportar {
+
+	background-color: #5193b7;
+
+	padding: 9px 23px;
+
+	border-radius: 10px;
+
+	margin: 0 10px 10px 0;
+
+	text-decoration: none;
+
+	color: white;
+
+	border: 4px solid #fff;
+
+	box-shadow: 0 0 3px black;
+
+	display: inline-block;
+
+}
+
+
+
+.botonExportar:hover {
+
+	background-color: #53b751;
+
+}
+
+
+
+/*Inicio Tabla para exportar*/
+
+
+
+.tableexport-caption {
+
+	text-align: left;
+
+	padding: 5px;
+
+	background-color: cadetblue;
+
+	margin: 12px 0;
+
+}
+
+
+
+.button-default {
+
+	margin: 0 3px !important;
+
+	border-radius: 5px;
+
+	border: none;
+
+	padding: 10px !important;
+
+}
+
+
+
+/*final Tabla para exportar*/
+
+
+
+/*Paginas de contenidos de marketing (precios, acerca de, etc)*/
+
+
+
+.informacionComercial {
+
+	max-width: 1200px;
+
+	margin: 70px auto 0;
+
+	color: #fff;
+
+	padding: 30px;
+
+}
+
+
+
+.informacionComercial h1 {
+
+	font-weight: 400;
+
+	font-size: 29px;
+
+	margin: 14px 0 0;
+
+}
+
+
+
+.informacionComercial h2 {
+
+	font-weight: 400;
+
+	font-size: 29px;
+
+	margin: 0px 0 0;
+
+	color: #caebff;
+
+}
+
+
+
+.informacionComercial h3 {
+
+	font-weight: 400;
+
+	font-size: 25px;
+
+	margin: 34px 0 0;
+
+	line-height: 23px;
+
+}
+
+
+
+.informacionComercial .textoPrincipal {
+
+	font-size: 55px;
+
+	max-width: 1020px;
+
+	animation: entradaTextoPrincipalinfoComercial 1s;
+
+}
+
+
+
+@keyframes entradaTextoPrincipalinfoComercial {
+
+	from {
+
+		transform: translateX(60px);
+
+	}
+
+	to {
+
+		transform: translateX(0);
+
+	}
+
+}
+
+
+
+.informacionComercial .columna {
+
+	width: 440px;
+
+	font-size: 16px;
+
+	margin-top: 70px;
+
+}
+
+
+
+.informacionComercial .columna p {}
+
+
+
+.informacionComercial .columna .contactanosHoy {
+
+	font-size: 23px;
+
+}
+
+
+
+.informacionComercial .columna .datosContacto {
+
+	color: #00f1ff;
+
+}
+
+
+
+/*final Paginas de contenidos de marketing (precios, acerca de, etc)*/
+
+
+
+/*Buscador de stands*/
+
+
+
+.resultadoBuscador {
+
+	padding: 10px 0;
+
+	border-top: 1px solid #ccc;
+
+}
+
+
+
+.resultadoBuscador a {
+
+	text-decoration: none;
+
+	color: #ccc;
+
+	display: block;
+
+}
+
+
+
+.resultadoBuscador a:nth-child(1) {
+
+	color: #fff;
+
+}
+
+
+
+/*final Buscador de stands*/
+
+
+
+.marcoListadoVisitantes {
+
+	width: 1390px;
+
+	margin: 0 auto;
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+}
+
+
+
+.marcoListadoVisitantes {
+
+	padding: 5px;
+
+	border: 1px solid #ccc;
+
+}
+
+
+
+.marcoListadoVisitantes div {
+
+	border: 1px solid #ccc;
+
+	padding: 5px;
+
+	box-sizing: border-box;
+
+	width: 458px;
+
+	margin: 2px;
+
+	background-color: #e8e8e8;
+
+	border-radius: 3px;
+
+}
+
+
+
+.marcoListadoVisitantesUnicos {
+
+	width: 1390px;
+
+	margin: 0 auto;
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+}
+
+
+
+.marcoListadoVisitantesUnicos {
+
+	padding: 5px;
+
+	border: 1px solid #ccc;
+
+}
+
+
+
+.marcoListadoVisitantesUnicos div {
+
+	border: 1px solid #ccc;
+
+	padding: 5px;
+
+	box-sizing: border-box;
+
+	width: 458px;
+
+	margin: 2px;
+
+	background-color: #d7f1f9;
+
+	border-radius: 3px;
+
+}
+
+
+
+footer {
+
+	background-color: #4A4A4A;
+
+	color: #fff;
+
+	padding: 140px 20px 40px;
+
+	font-size: 15px;
+
+	font-weight: 300;
+
+}
+
+
+
+footer a {
+
+	text-decoration: none;
+
+	color: #fff;
+
+}
+
+
+
+/*ANIMACIONES*/
+
+
+
+@keyframes fadeIn {
+
+	from {
+
+		opacity: 0
+
+	}
+
+	to {
+
+		opacity: 1
+
+	}
+
+}
+
+
+
+/*FIN ANIMACIONES*/
+
+
+
+.wrappContenidoFeria {
+
+	display: flex;
+
+}
+
+
+
+.wrappContenidoFeria nav {
+
+	background-color: #3586b8;
+
+}
+
+
+
+.wrappContenidoFeria nav ul {
+
+	margin: 0;
+
+	padding: 0;
+
+}
+
+
+
+.wrappContenidoFeria nav ul li {
+
+	padding: 0;
+
+	margin: 0;
+
+	list-style: none;
+
+	border-bottom: 1px solid #50B1C7;
+
+}
+
+
+
+.wrappContenidoFeria nav ul li a {
+
+	display: block;
+
+	padding: 14px;
+
+	font-size: 20px;
+
+	text-decoration: none;
+
+	border-left: 0 solid #B10F91;
+
+	color: #fff;
+
+	width: 330px;
+
+	box-sizing: border-box;
+
+	transition: all 0.3s;
+
+}
+
+
+
+.wrappContenidoFeria nav ul li.comprarEntradas a {
+
+	background-image: url(imgs/fondo-comprar-boletas.png);
+
+}
+
+
+
+.wrappContenidoFeria nav ul li a:hover {
+
+	border-left: 22px solid #B10F91;
+
+}
+
+
+
+.wrappContenidoFeria section {
+
+	padding: 20px;
+
+}
+
+
+
+.wrappContenidoFeria section h2 {
+
+	color: #838383;
+
+	font-size: 38px;
+
+	margin: 0 0 20px;
+
+	padding: 0 0 10px;
+
+	border-bottom: 2px solid #838383;
+
+}
+
+
+
+.wrappContenidoFeria section h3 {
+
+	color: #838383;
+
+	font-size: 27px;
+
+	margin: 60px 0 0;
+
+}
+
+
+
+.wrappContenidoFeria section h4 {
+
+	color: #9e9e9e;
+
+	font-size: 24px;
+
+	margin: 40px 0 0;
+
+}
+
+
+
+.wrappContenidoFeria section h5 {
+
+	color: #838383;
+
+	font-size: 27px;
+
+	margin: 0 0 20px;
+
+}
+
+
+
+.wrappContenidoFeria section p {
+
+	color: #838383;
+
+	max-width: 630px;
+
+	font-size: 18px;
+
+	font-weight: 300;
+
+	margin: 0 0 20px;
+
+}
+
+
+
+.listadoPatrocinadores {
+
+	width: 1334px;
+
+	margin: 10px auto;
+
+}
+
+
+
+.listadoPatrocinadores .patrocinador {}
+
+
+
+.listadoExpositores {
+
+	width: 1164px;
+
+	margin: 10px auto;
+
+}
+
+
+
+.listadoExpositores .botonDesplegableExpositores {
+
+	border: 1px solid #ccc;
+
+	padding: 10px;
+
+	font-size: 18px;
+
+	cursor: pointer;
+
+}
+
+
+
+.listadoExpositores .botonDesplegableExpositores img {
+
+	margin-right: 10px;
+
+}
+
+
+
+.listadoExpositores .botonDesplegableExpositores img.cerrar {
+
+	transform: rotate(180deg);
+
+}
+
+
+
+.listadoExpositores .listadoExpositoresOculto {
+
+	border: 1px solid #ccc;
+
+	border-radius: 0 0 10px 10px;
+
+	border-top: 0px;
+
+	display: none;
+
+}
+
+
+
+.listadoExpositores .listadoExpositoresMarco {
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+	justify-content: center;
+
+}
+
+
+
+.listadoExpositores .listadoExpositoresOculto a {
+
+	display: block;
+
+	padding: 8px;
+
+	background-color: #969595;
+
+	color: #fff;
+
+	text-decoration: none;
+
+	width: 205px;
+
+	border-radius: 7px;
+
+	margin: 5px;
+
+}
+
+
+
+.listadoExpositores .listadoExpositoresOculto a:hover {
+
+	background-color: #267db3;
+
+}
+
+
+
+.franjaPatrocinadores {
+
+	background-color: #768086;
+
+	padding: 10px;
+
+}
+
+
+
+.franjaPatrocinadores .tituloPatrocinadores h3 {
+
+	color: #BDBDBD;
+
+	margin: 0;
+
+	text-align: center;
+
+}
+
+
+
+.franjaPatrocinadores .logosPatrocinadoresPrincipales {
+
+	display: flex;
+
+	justify-content: center;
+
+	flex-wrap: wrap;
+
+}
+
+
+
+.franjaPatrocinadores .logosPatrocinadoresPrincipales div {
+
+	width: 203px;
+
+	margin: 6px;
+
+	height: 109px;
+
+	background-color: white;
+
+	border-radius: 8px;
+
+	box-shadow: 0 0 5px black;
+
+	overflow: hidden;
+
+}
+
+
+
+.franjaPatrocinadores .logosPatrocinadoresSecundarios {
+
+	display: flex;
+
+	justify-content: center;
+
+	flex-wrap: wrap;
+
+}
+
+
+
+.franjaPatrocinadores .logosPatrocinadoresSecundarios div {
+
+	width: 139px;
+
+	margin: 6px 3px;
+
+	height: 74px;
+
+	background-color: white;
+
+	border-radius: 8px;
+
+	box-shadow: 0 0 5px black;
+
+	overflow: hidden;
+
+}
+
+
+
+.owl-nav1 div {
+
+	height: 85;
+
+	width: 5vw;
+
+	line-height: 80px;
+
+	top: 50%;
+
+	color: #fff;
+
+	font-size: 4vw;
+
+	position: absolute;
+
+	border: none;
+
+	-webkit-transition: all 0.3s ease 0s;
+
+	-moz-transition: all 0.3s ease 0s;
+
+	transition: all 0.3s ease 0s;
+
+	border-radius: 0px;
+
+	padding: 0;
+
+	transform: translateY(-50%);
+
+	z-index: 999;
+
+	text-align: center;
+
+	background-color: #D6D6D6;
+
+	margin-top: 50px;
+
+}
+
+
+
+.owl-nav1 div {
+
+	opacity: 1;
+
+	visibility: visible;
+
+}
+
+
+
+.owl-nav1 div:hover {
+
+	background: rgba(39, 6, 223, 0.836);
+
+	border-color: transparent;
+
+}
+
+
+
+.owl-nav1 .owl-prev {
+
+	left: 0;
+
+	-webkit-transform: translateX(-100px);
+
+	-moz-transform: translateX(-100px);
+
+	transform: translateX(-100px);
+
+}
+
+
+
+.owl-nav1 .owl-prev {
+
+	transform: translateX(0px);
+
+}
+
+
+
+.owl-nav1 .owl-next {
+
+	-webkit-transform: translateX(100px);
+
+	-moz-transform: translateX(100px);
+
+	transform: translateX(100px);
+
+	right: 0;
+
+}
+
+
+
+.owl-nav1 .owl-next {
+
+	transform: translateX(0px);
+
+}

@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateGaleriasTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('galerias', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('galeria');
+            $table->string('slug');
+            $table->string('celular')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lon')->nullable();
+            $table->text('mapa')->nullable();
+            $table->boolean('estado')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('galerias');
+    }
+}
