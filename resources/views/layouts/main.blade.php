@@ -17,12 +17,14 @@
                 <p>Home</p>
                 </a>
             </li>
+            @hasanyrole('Delivery')
             <li class="nav-item ">
                 <a href="{{url('pedidos')}}" class="nav-link {{ (request()->is('pedidos')) ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Pedidos</p>
                 </a>
             </li>
+            @endhasanyrole
             {{-- <li class="nav-item">
                 <a href="{{url('dashboard')}} " class="nav-link {{ (request()->is('dashboard')) ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
@@ -85,6 +87,14 @@
                 <a href="{{url('products')}} " class="nav-link">
                 <i class="fas fa-concierge-bell"></i>
                 <p>Menu/Carta</p>
+                </a>
+            </li>
+            @endhasanyrole
+            @hasanyrole('Tienda') {{-- CONVENIO --}}
+            <li class="nav-item">
+                <a href="{{url('pedidosTienda')}} " class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                <p>Pedidos</p>
                 </a>
             </li>
             @endhasanyrole

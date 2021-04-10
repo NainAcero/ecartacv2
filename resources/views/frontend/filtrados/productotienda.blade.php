@@ -44,7 +44,7 @@
         @stop
 <!-- ============================ COMPONENT BANNER 5  ================================= -->
       {{-- <div class="card-banner img-fluid rounded" style="height:400px; background-image: url('{{asset($galeriimagen->imagen_pri)}}');"> --}}
-        <div class="card-banner img-fluid rounded" style="height:400px; background-image: url('{{asset("ecom/images/banners/slide-lg-2.jpg")}}');">
+        <div class="card-banner card-bodyv2 img-fluid rounded" style="height:400px; background-image: url('{{asset($galeriimagen->imagen_pri)}}');">
         <article class="text-bottom">
             <div class="icontext mb-3">
                 {{-- <img class="icon icon-md rounded-circle" src="{{asset($tienda->portada)}}"> --}}

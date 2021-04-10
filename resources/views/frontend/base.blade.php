@@ -66,81 +66,97 @@
 		<script src="{{asset('ecom/js/script.js')}}" type="text/javascript"></script>
 
         <style type="text/css">
-
             .no-img-cellphone {
-                display: block;
+              display: block;
             }
 
             .img-responsi-feria {
-                margin-left: 94%;
+              margin-left: 94%;
             }
 
             .ocultar_name {
-                display: block;
+              display: block;
             }
 
             @media (max-width: 720px) {
 
-                .ocultar_name {
-                    display: none;
-                }
+              .ocultar_name {
+                display: none;
+              }
 
-                .no-img-cellphone {
-                    display: none;
-                }
+              .no-img-cellphone {
+                display: none;
+              }
 
-                .img-responsi-feria {
-                    margin-left: 80%;
-                }
+              .img-responsi-feria {
+                margin-left: 80%;
+              }
             }
 
             .btn-flotante {
-                font-size: 16px; /* Cambiar el tamaño de la tipografia */
-                text-transform: uppercase; /* Texto en mayusculas */
-                font-weight: bold; /* Fuente en negrita o bold */
-                color: #ffffff; /* Color del texto */
-                border-radius: 5px; /* Borde del boton */
-                letter-spacing: 2px; /* Espacio entre letras */
-                background-color: #E91E63; /* Color de fondo */
-                padding: 18px 30px; /* Relleno del boton */
-                position: fixed;
-                bottom: 30px;
-                right: 120px;
-                transition: all 300ms ease 0ms;
-                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-                z-index: 99;
+              font-size: 16px;
+              /* Cambiar el tamaño de la tipografia */
+              text-transform: uppercase;
+              /* Texto en mayusculas */
+              font-weight: bold;
+              /* Fuente en negrita o bold */
+              color: #ffffff;
+              /* Color del texto */
+              border-radius: 5px;
+              /* Borde del boton */
+              letter-spacing: 2px;
+              /* Espacio entre letras */
+              background-color: #E91E63;
+              /* Color de fondo */
+              padding: 18px 30px;
+              /* Relleno del boton */
+              position: fixed;
+              bottom: 30px;
+              right: 120px;
+              transition: all 300ms ease 0ms;
+              box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+              z-index: 99;
             }
 
             .btn-flotante-ecart {
-                text-transform: uppercase; /* Texto en mayusculas */
-                font-weight: bold; /* Fuente en negrita o bold */
-                color: #000; /* Color del texto */
-                border-radius: 5px; /* Borde del boton */
-                letter-spacing: 2px; /* Espacio entre letras */
-                background-color: #fff; /* Color de fondo */
-                padding: 18px 30px; /* Relleno del boton */
-                position: fixed;
-                bottom: 0px;
-                right: 0px;
-                transition: all 300ms ease 0ms;
-                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-                z-index: 99;
+              text-transform: uppercase;
+              /* Texto en mayusculas */
+              font-weight: bold;
+              /* Fuente en negrita o bold */
+              color: #000;
+              /* Color del texto */
+              border-radius: 5px;
+              /* Borde del boton */
+              letter-spacing: 2px;
+              /* Espacio entre letras */
+              background-color: #fff;
+              /* Color de fondo */
+              padding: 18px 30px;
+              /* Relleno del boton */
+              position: fixed;
+              bottom: 0px;
+              right: 0px;
+              transition: all 300ms ease 0ms;
+              box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+              z-index: 99;
             }
 
             .btn-flotante:hover {
-                background-color: #2c2fa5; /* Color de fondo al pasar el cursor */
-                box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
-                transform: translateY(-7px);
+              background-color: #2c2fa5;
+              /* Color de fondo al pasar el cursor */
+              box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+              transform: translateY(-7px);
             }
+
             @media only screen and (max-width: 600px) {
-                .btn-flotante {
-                    font-size: 14px;
-                    padding: 12px 20px;
-                    bottom: 20px;
-                    right: 20px;
-                }
+              .btn-flotante {
+                font-size: 14px;
+                padding: 12px 20px;
+                bottom: 20px;
+                right: 20px;
+              }
             }
-            </style>
+          </style>
 
         @yield('styles')
     </head>
@@ -203,67 +219,74 @@
 
 
 		<!-- ========================= FOOTER ========================= -->
-		<footer class="section-footer bg-secondary text-white">
-			<div class="container">
-				<section class="footer-top  padding-y-lg">
-					<div class="row">
-						<aside class="col-md-4 col-12">
-							<article class="mr-md-4">
-								{{-- <h5 class="title">Sobre nosotros</h5> --}}
-								<p>eCartac, una plataforma web que muestra la Carta/Menú de los Restaurantes y/o al escanear el código QR desde su celular.</p>
-								{{-- <p>tus clientes podrán escanear el código QR desde su celular y acceder al menú online de tu local.</p> --}}
+		<footer class="section-footer">
+            <div class="container">
+              <section class="footer-top  padding-y-lg">
+                <div class="row">
+                  <aside class="col-md-4 col-12">
+                    <article class="mr-md-4">
+                      {{-- <h5 class="title">Sobre nosotros</h5> --}}
+                      <p>eCartac, una plataforma web que ayuda a las personas a conocer la Carta/Menú de los restaurantes de la
+                        ciudad de Tacna al escanear el código QR
+                        desde su celular.</p>
+                      {{-- <p>tus clientes podrán escanear el código QR desde su celular y acceder al menú online de tu local.</p> --}}
 
-								<ul class="list-icon">
-									<li> <i class="icon fa fa-map-marker"> </i>Tacna </li>
-									<li> <i class="icon fa fa-envelope"> </i> wgcalisaya@gmail.com</li>
-									<li>
-										{{-- <i class="icon fa fa-whatsapp"> </i>  --}}
-										<i class="fab fa-whatsapp-square" style="color:#50c55c;"></i>
-										<a href="https://wa.me/51952633245?text=Más información para publicar mi menu/carta ..." target="../" class="widget-view">952633245</a>
-										</li>
-									{{-- <li> <i class="icon fa fa-clock"> </i>Lun-Vie 9:00am - 5:00pm</li> --}}
-								</ul>
-							</article>
-						</aside>
-						{{-- <aside class="col-md col-6">
-							<h5 class="title">Información</h5>
-							<ul class="list-unstyled">
-								<li> <a href="#">Sobre nosotros</a></li>
-								<li> <a href="#">Contáctanos</a></li>
-								<li> <a href="#">Encuentra un restaurant</a></li>
-								<li> <a href="#">Terminos y condiciónes</a></li>
-								<li> <a href="#">Sitios</a></li>
-							</ul>
-						</aside>
-						<aside class="col-md col-6">
-							<h5 class="title">Preguntas frecuentes</h5>
-							<ul class="list-unstyled">
-								<li> <a href="#">Formas de pago</a></li>
-								<li> <a href="#">Estado de pedidos</a></li>
-								<li> <a href="#">Info de envíos</a></li>
-								<li> <a href="#">Disponibilidad de productos</a></li>
-							</ul>
-						</aside> --}}
-						<aside class="col-md-4 col-12">
-							<p class="text-white-50 mb-2">Síguienos en nuestra red social</p>
-							<div>
-								{{-- <a href="https://www.facebook.com/ecartac" target="../" class="btn btn-icon btn-outline-light"><i class="fab fa-facebook-f"></i></a> --}}
-								{{-- <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-twitter"></i></a>
-								<a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-instagram"></i></a>
-								<a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-youtube"></i></a> --}}
-								{{-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fecartac&tabs&width=340&height=130&small_header=false&adapt_container_width=false&hide_cover=true&show_facepile=false&appId=369870783750134" width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> --}}
-								<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fecartac&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=369870783750134" width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-							</div>
+                      <ul class="list-icon">
+                        <li> <i class="icon fa fa-map-marker"> </i>Tacna </li>
+                        <li> <i class="icon fa fa-envelope"> </i> wgcalisaya@gmail.com</li>
+                        <li>
+                          {{-- <i class="icon fa fa-whatsapp"> </i>  --}}
+                          <i class="icon fab fa-whatsapp-square" style="color:#50c55c;"></i>
+                          <a href="https://wa.me/51952633245?text=Más información para publicar mi menu/carta ..." target="../"
+                            class="widget-view">952633245</a>
+                        </li>
+                        {{-- <li> <i class="icon fa fa-clock"> </i>Lun-Vie 9:00am - 5:00pm</li> --}}
+                      </ul>
+                    </article>
+                  </aside>
+                  {{-- <aside class="col-md col-6">
+                                    <h5 class="title">Información</h5>
+                                    <ul class="list-unstyled">
+                                        <li> <a href="#">Sobre nosotros</a></li>
+                                        <li> <a href="#">Contáctanos</a></li>
+                                        <li> <a href="#">Encuentra un restaurant</a></li>
+                                        <li> <a href="#">Terminos y condiciónes</a></li>
+                                        <li> <a href="#">Sitios</a></li>
+                                    </ul>
+                                </aside>
+                                <aside class="col-md col-6">
+                                    <h5 class="title">Preguntas frecuentes</h5>
+                                    <ul class="list-unstyled">
+                                        <li> <a href="#">Formas de pago</a></li>
+                                        <li> <a href="#">Estado de pedidos</a></li>
+                                        <li> <a href="#">Info de envíos</a></li>
+                                        <li> <a href="#">Disponibilidad de productos</a></li>
+                                    </ul>
+                                </aside> --}}
+                  <aside class="col-md-4 col-12">
+                    <p class="text-dark-50 mb-2">Síguenos en nuestra red social</p>
+                    <div>
+                      {{-- <a href="https://www.facebook.com/ecartac" target="../" class="btn btn-icon btn-outline-light"><i class="fab fa-facebook-f"></i></a> --}}
+                      {{-- <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-youtube"></i></a> --}}
+                      {{-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fecartac&tabs&width=340&height=130&small_header=false&adapt_container_width=false&hide_cover=true&show_facepile=false&appId=369870783750134" width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> --}}
+                      <iframe
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fecartac&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=369870783750134"
+                        width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
 
-						</aside>
-					</div> <!-- row.// -->
-				</section>	<!-- footer-top.// -->
+                  </aside>
+                </div> <!-- row.// -->
+              </section> <!-- footer-top.// -->
 
-				<section class="footer-bottom text-center">
-					<p class="text-muted"> &copy 2021 NodeLab, All rights reserved </p>
-			</section>
-			</div><!-- //container -->
-		</footer>
+              <section class="footer-bottom text-center">
+                <p class="text-muted"> &copy 2021 NodeLab, Todos los derechos reservados </p>
+              </section>
+            </div><!-- //container -->
+          </footer>
 			<!-- ========================= FOOTER END // ========================= -->
 
 

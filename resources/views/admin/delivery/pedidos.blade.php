@@ -37,7 +37,9 @@
             </button>
             </div>
             <div class="modal-body">
-                <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/6f/79/7a/frontis-del-restaurante.jpg" alt="Card image cap">
+                <div id="portada">
+
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-text" id="nombre"></h6>
@@ -208,7 +210,7 @@
         data.productos.forEach(producto => {
             console.log(producto);
             htmlOptions += `<tr>`;
-            htmlOptions += `<td><img class="icon icon-md rounded-circle" width="60" src="https://www.eltiempo.com/files/article_content/uploads/2020/08/03/5f2890b4d9ef7.png"></td>`;
+            htmlOptions += `<td><img class="icon icon-md rounded-circle" width="60" src="${producto.portada}"></td>`;
             htmlOptions += `<td>${producto.producto}</td>`;
             htmlOptions += `<td>${producto.precio}</td>`;
             htmlOptions += `<td>${producto.cantidad}</td>`;
@@ -223,6 +225,7 @@
         $('#nombre').html(`<b>Restaurante: </b> ${data.restaurante.tienda}`);
         $('#direccion').html(`<b>Dirección: </b> ${data.restaurante.direccion}`);
         $('#telefono').html(`<b>Celular: </b> ${data.restaurante.celular}`);
+        $('#portada').html(`<img class="card-img-top" src="${data.restaurante.portada}" alt="Card image cap">`);
     }
 
     Pusher.logToConsole = true;

@@ -38,8 +38,10 @@
                         <tr v-for="(item, index) in categoria.productos">
                             <td width="20">
                                 <a :href="'../productos/'+ item.slug">
-                                   <img class="icon icon-md rounded-circle" :src="'../img/elpadrino-logo.png'">
+                                    <img v-if="item.portada" class="icon icon-md rounded-circle" :src="'../'+item.portada">
+                                    <img v-else class="icon icon-md rounded-circle" :src="'../' + restportada">
                                 </a>
+
                             </td>
                             <td>
                                 <h6 class="title mb-0"><a :href="'../productos/'+ item.slug"> {{item.producto}}  </a>  <span v-if="item.oferta" class="text-warning mr-2" data-toggle="tooltip" title="Oferta/Promoción"><i class="fas fa-tag"></i></span></h6>
@@ -64,13 +66,13 @@
                     <div class="row justify-content-md-center ">
                         <div class="col-md-3 col-6">
                             <div class="card">
-                                <a :href="'https://wa.me/51'+ restcelular + '?text=Hola, deseo realizar este pedido. '+listwsp +'%0D%0A%0D%0A Gracias'" class="btn btn-primary">
-                                    <i class="fab fa-whatsapp"></i> En sitio</a>
+                                <a href="#" @click="showModal(5)" class="btn btn-primary">
+                                    <i class="fab fa-whatsapp"></i> Domicilio</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="card">
-                                <a @click="showModal()" href="#" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Domicilio</a>
+                                <a @click="showModal(1)" href="#" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Galedy</a>
                             </div>
                         </div>
                     </div>
@@ -233,6 +235,7 @@
                 categoriaid:'0',
                 buscador:'',
                 tab: 0,
+                selector: 1,
 
                 carrito:[],
                 newCat:null,
@@ -268,11 +271,14 @@
                 this.tab = !this.tab;
             },
 
-            showModal() {
+            showModal(select) {
+                this.selector = select;
                 this.is_modal_visible = true;
                 this.$nextTick(() => {
                     $('#modal').modal('show');
                 });
+
+                console.log(this.selector);
             },
             getCateProd(){
                 // this.valuemultisel = {iglesia:'Buscar...', codigo:'', manual_online:''}
@@ -329,7 +335,8 @@
                     telefono: this.model.telefono,
                     direccion: this.model.direccion,
                     tienda_id: this.idrest,
-                    productos: this.carrito
+                    productos: this.carrito,
+                    estado: this.selector
                 }).then(res=>{
                     if(res.status == 201) {
                         toastr.success("Pedido Enviado con éxito")

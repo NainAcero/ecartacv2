@@ -33,7 +33,8 @@ class PedidoController extends Controller
                 "tienda_id" => $request->tienda_id,
                 "nombre" => $request->nombre,
                 "telefono" => $request->telefono,
-                "direccion" => $request->direccion
+                "direccion" => $request->direccion,
+                "estado" => $request->estado
             ]);
 
             foreach($request->productos as $p) {
@@ -46,7 +47,17 @@ class PedidoController extends Controller
             }
             DB::commit();
 
-            event(new \App\Events\PedidoEvent([
+            if($request->estado == 1) {
+                event(new \App\Events\PedidoEvent([
+                    "id" => $pedido->id,
+                    "tienda_id" => $request->tienda_id,
+                    "nombre" => $request->nombre,
+                    "telefono" => $request->telefono,
+                    "direccion" => $request->direccion,
+                ]));
+            }
+
+            event(new \App\Events\RestauranteEvent([
                 "id" => $pedido->id,
                 "tienda_id" => $request->tienda_id,
                 "nombre" => $request->nombre,
@@ -90,9 +101,9 @@ class PedidoController extends Controller
 
     public function get_productos(Request $request) {
         $productos = Carta::join('productos', 'cartas.producto_id', '=', 'productos.id')
+                        ->join('tiendas', 'productos.tienda_id', '=', 'tiendas.id')
                         ->where('cartas.pedido_id', "=", $request->id)
                         ->get();
-
         return response()->json(compact('productos'),200);
     }
 
@@ -101,5 +112,11 @@ class PedidoController extends Controller
 
         $pedido->estado = 2;
         $pedido->save();
+    }
+
+    // TIENDA PEDIDOS
+
+    public function tienda() {
+        return view('admin.tienda.pedidos');
     }
 }
