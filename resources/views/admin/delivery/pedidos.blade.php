@@ -139,7 +139,6 @@
     $pedido = $('#pedidos');
 
     var pedidos = [];
-    var ads = null;
 
     $(function () {
         const url = `/get_pedidos`;

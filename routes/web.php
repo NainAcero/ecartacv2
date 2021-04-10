@@ -53,10 +53,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pedidos', 'PedidoController@pedidos')->middleware('role:Delivery');
     Route::get('get_pedidos', 'PedidoController@get_pedidos')->middleware('role:Delivery');
     Route::get('get_restaurante', 'PedidoController@get_restaurante')->middleware('role:Delivery');
-    Route::get('get_productos', 'PedidoController@get_productos')->middleware('role:Delivery');
+    Route::get('get_productos', 'PedidoController@get_productos')->middleware('role:Delivery|Tienda');
     Route::get('enviar_delivery', 'PedidoController@enviar_delivery')->middleware('role:Delivery');
 
     Route::get('pedidosTienda', 'PedidoController@tienda')->middleware('role:Tienda');
+    Route::get('get_pedidos_restaurante', 'PedidoController@get_pedidos_restaurante')->middleware('role:Tienda');
+
 
     Route::get('users_impersonate', 'PersonaController@indexusers')->name('users.users_impersonate')->middleware('role:Admin');
     //impersonate

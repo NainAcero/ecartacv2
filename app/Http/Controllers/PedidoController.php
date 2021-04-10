@@ -119,4 +119,18 @@ class PedidoController extends Controller
     public function tienda() {
         return view('admin.tienda.pedidos');
     }
+
+    public function get_pedidos_restaurante(Request $request) {
+
+        $fi = Carbon::parse(Carbon::now())->format('Y-m-d').' 00:00:00';
+        $ff = Carbon::parse(Carbon::now())->format('Y-m-d').' 23:59:59';
+
+        $pedidos = Pedido::whereBetween('created_at',[$fi , $ff ])
+            ->where('tienda_id', "=", $request->id)
+            ->select("id", "tienda_id", "nombre", "telefono", "direccion")
+            ->orderBy("id", "DESC")
+            ->get();
+
+        return response()->json(compact('pedidos'),200);
+    }
 }

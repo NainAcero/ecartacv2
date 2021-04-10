@@ -1817,7 +1817,6 @@ html[dir="rtl"] .itemside .info {
 
 .card-body {
     padding: 20px 20px 15px;
-    z-index: 1;
 }
 
 .card-bodyv2 {
