@@ -390,6 +390,7 @@
             //     console.log('imaginen que estoy haciendo más cosas...');
             // }
             addProducto(val) {
+                var check = false;
                 // ensure they actually typed something
                 // if(!this.newCat) return;
                 this.pedidos = {
@@ -399,13 +400,24 @@
                     'xprecio':val.precio,
                     'xportada':val.portada,
                     'xslug':val.slug,
-                    'xcantidad':'1'
+                    'xcantidad': 1
 
                 }
-                this.carrito.push(this.pedidos);
+
+                for (var i = 0; i < this.carrito.length; i++) {
+                    if(this.carrito[i].xid == this.pedidos.xid) {
+                        this.carrito[i].xcantidad += 1;
+                        check = true;
+                    }
+                }
+
+                if(!check) {
+                    this.carrito.push(this.pedidos);
+                    toastr.success('Se agregó a la lista');
+                }
+
                 this.newCat = '';
                 this.saveCarts();
-                toastr.success('Se agregó a la lista');
             },
             removeCart(x) {
                 this.carrito.splice(x,1);
