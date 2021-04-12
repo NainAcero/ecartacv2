@@ -181,6 +181,7 @@ class EcommerceController extends Controller
                 $query->orWhere('ingredientes', 'like', '%'.$buscar.'%');
                 $query->where('estado', 1);
             }))
+            ->orderBy('sort_id','asc')
             ->get();
         }else{
             $categoria = Categoria::where('id', $request->category)
