@@ -411,13 +411,15 @@
                     }
                 }
 
+                this.newCat = '';
                 if(!check) {
                     this.carrito.push(this.pedidos);
                     toastr.success('Se agregó a la lista');
+                    this.saveCarts();
+                }else {
+                    this.cantidadPedidos();
                 }
 
-                this.newCat = '';
-                this.saveCarts();
             },
             removeCart(x) {
                 this.carrito.splice(x,1);

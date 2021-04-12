@@ -2386,13 +2386,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
 
+      this.newCat = '';
+
       if (!check) {
         this.carrito.push(this.pedidos);
         toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success('Se agregó a la lista');
+        this.saveCarts();
+      } else {
+        this.cantidadPedidos();
       }
-
-      this.newCat = '';
-      this.saveCarts();
     },
     removeCart: function removeCart(x) {
       this.carrito.splice(x, 1);
