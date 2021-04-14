@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Horario;
 use Illuminate\Http\Request;
+use DB;
 
 class HorarioController extends Controller
 {
@@ -48,7 +49,12 @@ class HorarioController extends Controller
     }
 
     public function get_horarios(Request $request) {
-        $horarios = Horario::where('tienda_id', $request->tienda_id)->get();
+        $horarios = Horario::where('tienda_id', $request->tienda_id)
+            ->select('*', DB::RAW("0 as checked ", "'' as start", "'' as end"))->get();
+
+        foreach($horarios as $horario){
+
+        }
         return response()->json(compact('horarios'),200);
     }
 }
