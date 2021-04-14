@@ -50,11 +50,26 @@ class HorarioController extends Controller
 
     public function get_horarios(Request $request) {
         $horarios = Horario::where('tienda_id', $request->tienda_id)
-            ->select('*', DB::RAW("0 as checked ", "'' as start", "'' as end"))->get();
+            ->select('*',
+                DB::RAW("0 as checked"),
+                DB::RAW("'' as inicio"),
+                DB::RAW("'' as fin")
+            )->get();
 
-        foreach($horarios as $horario){
+        for($i =0; $i < count($horarios); $i++){
+            if(intval(substr($horarios[$i]->start_time, 0, 2)) >= 12 ) {
+                $horarios[$i]->inicio = substr($horarios[$i]->start_time, 0, 5) . " pm";
+            }else {
+                $horarios[$i]->inicio = substr($horarios[$i]->start_time, 0, 5) . " am";
+            }
 
+            if(intval(substr($horarios[$i]->end_time, 0, 2)) >= 12 ) {
+                $horarios[$i]->fin = substr($horarios[$i]->end_time, 0, 5) . " pm";
+            }else {
+                $horarios[$i]->fin = substr($horarios[$i]->end_time, 0, 5) . " am";
+            }
         }
-        return response()->json(compact('horarios'),200);
+        $dia= date("w");
+        return response()->json(compact('horarios', 'dia'),200);
     }
 }

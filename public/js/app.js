@@ -2366,27 +2366,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
@@ -2402,7 +2381,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       restdescripcion: this.descripcion,
       resttienda: this.tienda,
       restimagen_pri: "height:400px; background-image: url(../" + this.imagen_pri + ");"
-    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
+    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
       nombre: '',
       telefono: '',
       direccion: ''
@@ -2459,10 +2438,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.horarios = [];
       axios.get('../get_horarios?tienda_id=' + this.idrest).then(function (res) {
+        if (res.data.dia == 0) _this4.dia = 6;else _this4.dia = res.data.dia - 1;
         _this4.horarios = res.data.horarios;
-        var Xmas95 = new Date();
-        var weekday = Xmas95.getDay();
-        _this4.dia = weekday;
       });
     },
     enviarDelivery: function enviarDelivery() {
@@ -39437,67 +39414,35 @@ var render = function() {
                             _vm._v(_vm._s(horario.day))
                           ]),
                           _vm._v(" "),
-                          parseInt(horario.start_time.substr(0, 2)) >= 12 &&
-                          parseInt(horario.end_time.substr(0, 2)) >= 12 &&
-                          horario.estatus == 1
-                            ? _c("td", { staticClass: "text-right" }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(horario.start_time.substr(0, 5)) +
-                                    " pm - " +
-                                    _vm._s(horario.end_time.substr(0, 5)) +
-                                    " pm\n                                "
-                                )
-                              ])
+                          horario.estatus == 1 && index == _vm.dia
+                            ? _c(
+                                "td",
+                                {
+                                  staticClass: "text-right bg-light text-dark"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(horario.inicio) +
+                                      " - " +
+                                      _vm._s(horario.fin)
+                                  )
+                                ]
+                              )
                             : _vm._e(),
                           _vm._v(" "),
-                          parseInt(horario.start_time.substr(0, 2)) < 12 &&
-                          parseInt(horario.end_time.substr(0, 2)) < 12 &&
-                          horario.estatus == 1
-                            ? _c("td", { staticClass: "text-right" }, [
+                          horario.estatus == 1 && index != _vm.dia
+                            ? _c("td", { staticClass: "text-right " }, [
                                 _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(horario.start_time.substr(0, 5)) +
-                                    " am - " +
-                                    _vm._s(horario.end_time.substr(0, 5)) +
-                                    " am\n                                "
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          parseInt(horario.start_time.substr(0, 2)) < 12 &&
-                          parseInt(horario.end_time.substr(0, 2)) >= 12 &&
-                          horario.estatus == 1
-                            ? _c("td", { staticClass: "text-right" }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(horario.start_time.substr(0, 5)) +
-                                    " am - " +
-                                    _vm._s(horario.end_time.substr(0, 5)) +
-                                    " pm\n                                "
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          parseInt(horario.start_time.substr(0, 2)) >= 12 &&
-                          parseInt(horario.end_time.substr(0, 2)) < 12 &&
-                          horario.estatus == 1
-                            ? _c("td", { staticClass: "text-right" }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(horario.start_time.substr(0, 5)) +
-                                    " pm - " +
-                                    _vm._s(horario.end_time.substr(0, 5)) +
-                                    " am\n                                "
+                                  _vm._s(horario.inicio) +
+                                    " - " +
+                                    _vm._s(horario.fin)
                                 )
                               ])
                             : _vm._e(),
                           _vm._v(" "),
                           horario.estatus == 0
                             ? _c("td", { staticClass: "text-right" }, [
-                                _vm._v(
-                                  "\n                                    Cerrado\n                                "
-                                )
+                                _vm._v("Cerrado")
                               ])
                             : _vm._e()
                         ])
@@ -39603,7 +39548,21 @@ var render = function() {
                           },
                           [_c("i", { staticClass: "fab fa-internet-explorer" })]
                         )
-                      : _vm._e()
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-lg btn-info ",
+                        attrs: {
+                          type: "button",
+                          "data-toggle": "modal",
+                          "data-target": "#exampleModalCenter"
+                        },
+                        on: { click: _vm.get_horarios }
+                      },
+                      [_c("i", { staticClass: "fas fa-stopwatch" })]
+                    )
                   ])
                 ])
               ]
@@ -41470,13 +41429,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Save changes")]
+        [_vm._v("Cerrar")]
       )
     ])
   },
