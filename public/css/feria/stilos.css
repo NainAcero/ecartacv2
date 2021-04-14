@@ -2,9 +2,9 @@
 
 /* CSS Document */
 
-* {
-    font-family: "Roboto Condensed", sans-serif;
-}
+/* * {
+    font-family: "Roboto", sans-serif;
+} */
 
 body {
     margin: 0;
@@ -1237,6 +1237,8 @@ img:hover {
     /*align-items: center;*/
 
     justify-items: center;
+    padding: 0 100px 20px 60px;
+    row-gap: 30px;
 
     animation: enfoque 3s forwards;
 
@@ -1250,6 +1252,12 @@ img:hover {
 
     to {
         filter: brightness(1);
+    }
+}
+
+@media (max-width: 726px) {
+    .feriaIsometrica {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1279,7 +1287,7 @@ img:hover {
 
     border-radius: 8px;
 
-    box-shadow: 3px 2px 10px black;
+    box-shadow: 3px 7px 19px -7px black;
 
     transition: all 0.3s;
 }
@@ -1295,21 +1303,19 @@ img:hover {
 
     top: 88px;
 
-    padding: 11px;
+    padding: 5px;
 
-    background-color: #ffffffd6;
+    background-color: #ffffff;
 
-    border-radius: 8px;
+    border-radius: 5px;
 
-    font-size: 12px;
-
-    left: 20px;
+    left: 60px;
 
     color: #09002b;
 
-    transform: skewY(36deg);
+    transform: skewY(30deg);
 
-    width: 110px;
+    width: 130px;
 
     border-top: #fff 2px solid;
 
@@ -1319,17 +1325,17 @@ img:hover {
 }
 
 .feriaIsometrica .standIsometrico:hover .nombre {
-    left: -40px;
+    left: 40px;
 
     transform: skewY(0deg);
 
-    width: 110px;
+    width: 190px;
 
     border-top: #fff 0px solid;
 
     border-right: 0px solid #fff;
 
-    top: 10px;
+    top: 20px;
 
     font-size: 14px;
 }
@@ -1361,7 +1367,7 @@ img:hover {
 
     margin: 0 auto;
 
-    padding: 20px 0;
+    padding-bottom: 20px;
 }
 
 .centroFeria .titulo {
@@ -1421,7 +1427,7 @@ img:hover {
 
     height: auto;
 
-    margin: 20px 0;
+    margin-bottom: 20px;
 
     position: relative;
 
