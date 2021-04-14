@@ -44,6 +44,7 @@ Route::get('feria', 'FeriaController@index')->name('feria');
 Route::get('feria/isometrica', 'FeriaController@isometrica')->name('isometrica');
 Route::get('feria/stand', 'FeriaController@stand')->name('stand');
 
+Route::get('get_horarios', 'HorarioController@get_horarios');
 
 // Route::get('/productos', function () {
 //     return view('frontend.detalleproducto');
@@ -59,6 +60,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pedidosTienda', 'PedidoController@tienda')->middleware('role:Tienda');
     Route::get('get_pedidos_restaurante', 'PedidoController@get_pedidos_restaurante')->middleware('role:Tienda');
 
+    //horaios
+    Route::get('horarios/show/{id}', 'HorarioController@show')->middleware('role:Tienda|Admin')->name('horarios.show');
+    Route::post('horarios/store', 'HorarioController@store')->middleware('role:Tienda|Admin')->name('horarios.store');
 
     Route::get('users_impersonate', 'PersonaController@indexusers')->name('users.users_impersonate')->middleware('role:Admin');
     //impersonate

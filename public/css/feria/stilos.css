@@ -2,9 +2,9 @@
 
 /* CSS Document */
 
-* {
-    font-family: "Roboto Condensed", sans-serif;
-}
+/* * {
+    font-family: "Roboto", sans-serif;
+} */
 
 body {
     margin: 0;
@@ -47,149 +47,40 @@ img:hover {
 }
 
 /*.instruccionesScroll {
-
-
-
 	position: fixed;
-
-
-
 	    width: 144px;
-
-
-
 	    margin: auto;
-
-
-
 	    top: 217px;
-
-
-
-
-
-
-
 	    right: 0;
-
-
-
 	    background-color: rgba(255, 255, 255, 0.95);
-
-
-
 	    padding: 20px;
-
-
-
 	    border-radius: 10px 0 0 10px;
-
-
-
 	    z-index: 200;
-
-
-
 	    box-shadow: 0 0 12px black;
-
-
-
 }
-
-
-
 .instruccionesScroll .iconoSroll {
-
-
-
 	width: 30px;
-
-
-
 	display: inline-block;
-
-
-
 	animation: animacionScroll 1s alternate infinite cubic-bezier(0.43, -0.01, 0.56, 1.04);
-
-
-
 }
-
-
-
 @keyframes animacionScroll {
-
-
-
 	0%{transform: translateY(-5px);}
-
-
-
 	100%{transform: translateY(5px);}
-
-
-
 }
-
-
-
 .instruccionesScroll .textoScroll {
-
-
-
 	display: inline-block;
-
-
-
     width: 85px;
-
-
-
     color: #797979;
-
-
-
     vertical-align: top;
-
-
-
     padding-top: 0;
-
-
-
     padding-left: 10px;
-
-
-
 }
-
-
-
 .instruccionesScroll .cerrarMiniVentana {
-
-
-
 	position: absolute;
-
-
-
 	    top: 10px;
-
-
-
 	    right: 11px;
-
-
-
 			cursor: pointer;
-
-
-
 }
-
-
-
 */
 
 .slider {
@@ -502,93 +393,27 @@ img:hover {
 }
 
 /*
-
-
-
 .homeLateralIzq {
-
-
-
 	position:fixed;
-
-
-
 	top:0;
-
-
-
 	left:0;
-
-
-
 	bottom:0;
-
-
-
 	background-color:#FFF;
-
-
-
 	border-right: 1px solid #ccc;
-
-
-
 }
-
-
-
 .homeLateralIzq .logo {
-
-
-
 	    padding: 120px 110px 53px;
-
-
-
     margin: 0 100px;
-
-
-
     border-bottom: 1px solid #ccc;
-
-
-
 	animation:entradaLogoFeria 2s;
-
-
-
 }
-
-
-
 .homeLateralIzq .textoIntroduccion {
-
-
-
 	width:200px;
-
-
-
 	text-align:center;
-
-
-
 	margin:25px auto 0;
-
-
-
 	color:#aaa;
-
-
-
 	font-size:13px;
-
-
-
 }
-
-
-
 */
 
 @keyframes entradaLogoFeria {
@@ -602,241 +427,57 @@ img:hover {
 }
 
 /*
-
-
-
 .homeLateralDer {
-
-
-
 	margin-left:558px;
-
-
-
   margin-top: 56px;
-
-
-
 }
-
-
-
 	.homeLateralDer .logoAdOne {
-
-
-
 		border-bottom: 1px solid #ccc;
-
-
-
     padding: 16px;
-
-
-
     text-align: right;
-
-
-
-
-
-
-
 	}
-
-
-
-
-
-
-
 	.homeLateralDer .feria3D {
-
-
-
 		border-bottom: 1px solid #ccc;
-
-
-
 	}
-
-
-
 	.homeLateralDer .feria3D:nth-child(even) {
-
-
-
     background-color: #e8f3f7;
-
-
-
 	}
-
-
-
 	.homeLateralDer .feria3D:nth-child(odd) {
-
-
-
 	    background-color: #f3e8ff;
-
-
-
 	}
-
-
-
 		.homeLateralDer .feria3D a {
-
-
-
 			display: flex;
-
-
-
     		padding: 20px;
-
-
-
 			color: #666;
-
-
-
 			align-items:center;
-
-
-
 			font-size: 20px;
-
-
-
 			text-decoration: none;
-
-
-
 			transition:0.4s all;
-
-
-
 		}
-
-
-
 		.homeLateralDer .feria3D a:hover {
-
-
-
 			background-color: #333e4a;
-
-
-
     		color: #fff;
-
-
-
-
-
-
-
 		}
-
-
-
 			.homeLateralDer .feria3D a:hover .imagenFeria {
-
-
-
 				width:250px;
-
-
-
-
-
-
-
 			}
-
-
-
 			.homeLateralDer .feria3D a .imagenFeria {
-
-
-
 				display: inline-block;
-
-
-
 				width:158px;
-
-
-
 				transition:0.4s all;
-
-
-
-
-
-
-
-
-
-
-
 			}
-
-
-
 				.homeLateralDer .feria3D a .imagenFeria img {
-
-
-
 					width:100%;
-
-
-
 					height:auto;
-
-
-
 				}
-
-
-
 			.homeLateralDer .feria3D a .nombreFeria {
-
-
-
 				display: inline-block;
-
-
-
 				width:300px;
-
-
-
 				padding-left:40px;
-
-
-
-
-
-
-
 			}
-
-
-
 			.homeLateralDer .ingresoFerias {
-
-
-
 				margin-bottom:160px;
-
-
-
 			}
-
-
-
 			*/
 
 .bloqueSelectorStands {
@@ -1237,6 +878,8 @@ img:hover {
     /*align-items: center;*/
 
     justify-items: center;
+    padding: 0 100px 20px 60px;
+    row-gap: 30px;
 
     animation: enfoque 3s forwards;
 
@@ -1250,6 +893,12 @@ img:hover {
 
     to {
         filter: brightness(1);
+    }
+}
+
+@media (max-width: 726px) {
+    .feriaIsometrica {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1279,7 +928,7 @@ img:hover {
 
     border-radius: 8px;
 
-    box-shadow: 3px 2px 10px black;
+    box-shadow: 3px 7px 19px -7px black;
 
     transition: all 0.3s;
 }
@@ -1295,21 +944,19 @@ img:hover {
 
     top: 88px;
 
-    padding: 11px;
+    padding: 5px;
 
-    background-color: #ffffffd6;
+    background-color: #ffffff;
 
-    border-radius: 8px;
+    border-radius: 5px;
 
-    font-size: 12px;
-
-    left: 20px;
+    left: 60px;
 
     color: #09002b;
 
-    transform: skewY(36deg);
+    transform: skewY(30deg);
 
-    width: 110px;
+    width: 130px;
 
     border-top: #fff 2px solid;
 
@@ -1319,17 +966,17 @@ img:hover {
 }
 
 .feriaIsometrica .standIsometrico:hover .nombre {
-    left: -40px;
+    left: 40px;
 
     transform: skewY(0deg);
 
-    width: 110px;
+    width: 190px;
 
     border-top: #fff 0px solid;
 
     border-right: 0px solid #fff;
 
-    top: 10px;
+    top: 20px;
 
     font-size: 14px;
 }
@@ -1361,7 +1008,7 @@ img:hover {
 
     margin: 0 auto;
 
-    padding: 20px 0;
+    padding-bottom: 20px;
 }
 
 .centroFeria .titulo {
@@ -1421,7 +1068,7 @@ img:hover {
 
     height: auto;
 
-    margin: 20px 0;
+    margin-bottom: 20px;
 
     position: relative;
 
@@ -1874,17 +1521,8 @@ img:hover {
 
 .stand .botonMeGusta {
     /*right: 236px;
-
-
-
     position: absolute;
-
-
-
     bottom: 4px;
-
-
-
 		*/
 
     transform: translateY(107px);
@@ -1932,93 +1570,39 @@ img:hover {
 
 .stand .botonAsesor {
     /*right: 196px;
-
-
-
     position: absolute;
-
-
-
     bottom: -109px;
-
-
-
 	transition:all 0.3s;
-
-
-
 	cursor:pointer;*/
 }
 
 .stand .botonContactanos {
     /*right: 150px;
-
-
-
     position: absolute;
-
-
-
     bottom: -109px;
-
-
-
 	transition:all 0.3s;
-
-
-
 	cursor:pointer;*/
 }
 
 .stand .botonInfo {
     /*right: 105px;
-
-
-
     position: absolute;
-
-
-
     bottom: -109px;
-
-
-
 	transition:all 0.3s;
-
-
-
 	cursor:pointer;*/
 }
 
 .stand .botonBrochure {
     /*right: 60px;
-
-
-
     position: absolute;
-
-
-
     bottom: -109px;
-
-
-
 	transition:all 0.3s;
-
-
-
 	cursor:pointer;*/
 }
 
 .stand .botonWebsite {
     /*right: 15px;
-
-
-
     position: absolute;
-
-
-
     bottom: -109px;*/
 }
 
@@ -2715,13 +2299,7 @@ img:hover {
 
 .error_bg .logoAdOne {
     /*position:absolute;
-
-
-
 	right: 44px;
-
-
-
   top: 47px;*/
 }
 

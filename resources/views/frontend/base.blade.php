@@ -69,30 +69,23 @@
             .no-img-cellphone {
               display: block;
             }
-
             .img-responsi-feria {
               margin-left: 94%;
             }
-
             .ocultar_name {
               display: block;
             }
-
             @media (max-width: 720px) {
-
               .ocultar_name {
                 display: none;
               }
-
               .no-img-cellphone {
                 display: none;
               }
-
               .img-responsi-feria {
                 margin-left: 80%;
               }
             }
-
             .btn-flotante {
               font-size: 16px;
               /* Cambiar el tamaño de la tipografia */
@@ -104,31 +97,28 @@
               /* Color del texto */
               border-radius: 5px;
               /* Borde del boton */
-              letter-spacing: 2px;
-              /* Espacio entre letras */
-              background-color: #E91E63;
+              background-color: #ff6a00;
               /* Color de fondo */
-              padding: 18px 30px;
+              padding: 14px 30px;
               /* Relleno del boton */
               position: fixed;
               bottom: 30px;
-              right: 120px;
               transition: all 300ms ease 0ms;
               box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
               z-index: 99;
+              display: flex;
+              align-items: center
             }
-
+            .btn-flotante h5 {
+              letter-spacing: 1px
+            }
             .btn-flotante-ecart {
-              text-transform: uppercase;
-              /* Texto en mayusculas */
               font-weight: bold;
               /* Fuente en negrita o bold */
               color: #000;
               /* Color del texto */
               border-radius: 5px;
               /* Borde del boton */
-              letter-spacing: 2px;
-              /* Espacio entre letras */
               background-color: #fff;
               /* Color de fondo */
               padding: 18px 30px;
@@ -140,14 +130,12 @@
               box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
               z-index: 99;
             }
-
             .btn-flotante:hover {
               background-color: #2c2fa5;
               /* Color de fondo al pasar el cursor */
               box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
               transform: translateY(-7px);
             }
-
             @media only screen and (max-width: 600px) {
               .btn-flotante {
                 font-size: 14px;
@@ -158,8 +146,8 @@
             }
           </style>
 
-        @yield('styles')
-    </head>
+          @yield('styles')
+        </head>
 	<body>
         <b class="screen-overlay"></b>
 
