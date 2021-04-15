@@ -16,13 +16,14 @@
                         <table class="table">
                             <tbody>
                                 <tr v-for="(horario, index) in horarios">
-                                    <td class="text-left">{{ horario.day }}</td>
+                                    <td class="text-left bg-light text-dark" v-if="index == dia">{{ horario.day }}</td>
+                                    <td class="text-left" v-if="index != dia">{{ horario.day }}</td>
 
                                     <td class="text-right bg-light text-dark" v-if="horario.estatus == 1 && index == dia">{{ horario.inicio }} - {{ horario.fin }}</td>
                                     <td class="text-right " v-if="horario.estatus == 1 && index != dia">{{ horario.inicio }} - {{ horario.fin }}</td>
 
-                                    <td class="text-right" v-if="horario.estatus == 0">Cerrado</td>
-
+                                    <td class="text-right bg-light text-dark" v-if="horario.estatus == 0 && index == dia">Cerrado</td>
+                                    <td class="text-right" v-if="horario.estatus == 0 && index != dia">Cerrado</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -60,7 +61,10 @@
                             <a :href="'tel:+51' + restcelular" class="btn btn-lg btn-info "><i class="fas fa-phone"></i></a>
                             <a v-if="restfacebook != null" :href="restfacebook" target="../" class="btn btn-lg btn-secondary" style="background-color: #0d3be0;"><i class="fab fa-facebook-f"></i></a>
                             <a v-if="restweb != null" :href="restweb" target="../" class="btn btn-lg btn-gray "> <i class="fab fa-internet-explorer"></i></a>
-                            <button type="button" @click="get_horarios" class="btn btn-lg btn-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-stopwatch"></i></button>
+                            <button type="button" class="btn btn-lg btn-info " data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fas fa-stopwatch"></i> {{ estatus }}
+                            </button>
+
                         </div>
                     </article>
                   </div>
@@ -396,6 +400,8 @@
                 categoriaid:'0',
                 buscador:'',
                 tab: 0,
+                estatus: '',
+                dia: 0,
                 selector: 1,
                 horarios: [],
 
@@ -416,12 +422,14 @@
             }
         },
         created(){
+            this.carrito = [];
+            this.saveCarts();
             var urlcategprod = '../catemenu/'+this.idrest
             axios.get(urlcategprod).then(res=>{
                 this.categorias = res.data.categprod;
                 this.listCategoria = res.data.categprod;
             })
-
+            this.get_horarios();
         },
         // computed:{
         //     buscarMenu: function () {
@@ -463,9 +471,8 @@
             get_horarios() {
                 this.horarios = [];
                 axios.get('../get_horarios?tienda_id='+this.idrest).then(res=>{
-                    if(res.data.dia == 0)   this.dia = 6;
-                    else   this.dia = res.data.dia - 1;
-
+                    this.dia = res.data.dia;
+                    this.estatus = res.data.estatus;
                     this.horarios = res.data.horarios;
                 })
 
@@ -511,7 +518,7 @@
                         toastr.success("Pedido Enviado con éxito")
                         this.carrito = []
                         this.saveCarts();
-                        window.location.replace('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A Gracias');
+                        window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A Gracias', '_blank');
                     }else{
                         toastr.error("Ocurrio un error!..")
                     }

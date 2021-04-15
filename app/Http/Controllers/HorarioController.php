@@ -74,6 +74,16 @@ class HorarioController extends Controller
                 DB::RAW("'' as fin")
             )->get();
 
+        $estatus = "Abierto";
+        $dia= date("w");
+
+        if($dia == 0)  $dia = 6;
+        else $dia = $dia - 1;
+
+        if($horarios[$dia]->estatus == 0){
+            $estatus = "Cerrado";
+        }
+
         for($i =0; $i < count($horarios); $i++){
             if(intval(substr($horarios[$i]->start_time, 0, 2)) >= 12 ) {
                 $horarios[$i]->inicio = substr($horarios[$i]->start_time, 0, 5) . " pm";
@@ -87,7 +97,6 @@ class HorarioController extends Controller
                 $horarios[$i]->fin = substr($horarios[$i]->end_time, 0, 5) . " am";
             }
         }
-        $dia= date("w");
-        return response()->json(compact('horarios', 'dia'),200);
+        return response()->json(compact('horarios', 'dia', 'estatus'),200);
     }
 }

@@ -2366,6 +2366,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
@@ -2381,7 +2385,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       restdescripcion: this.descripcion,
       resttienda: this.tienda,
       restimagen_pri: "height:400px; background-image: url(../" + this.imagen_pri + ");"
-    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
+    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
       nombre: '',
       telefono: '',
       direccion: ''
@@ -2390,11 +2394,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {
     var _this = this;
 
+    this.carrito = [];
+    this.saveCarts();
     var urlcategprod = '../catemenu/' + this.idrest;
     axios.get(urlcategprod).then(function (res) {
       _this.categorias = res.data.categprod;
       _this.listCategoria = res.data.categprod;
     });
+    this.get_horarios();
   },
   // computed:{
   //     buscarMenu: function () {
@@ -2438,7 +2445,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.horarios = [];
       axios.get('../get_horarios?tienda_id=' + this.idrest).then(function (res) {
-        if (res.data.dia == 0) _this4.dia = 6;else _this4.dia = res.data.dia - 1;
+        _this4.dia = res.data.dia;
+        _this4.estatus = res.data.estatus;
         _this4.horarios = res.data.horarios;
       });
     },
@@ -2490,7 +2498,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           _this5.saveCarts();
 
-          window.location.replace('https://wa.me/51' + _this5.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this5.listwsp + '%0D%0A%0D%0A Gracias');
+          window.open('https://wa.me/51' + _this5.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this5.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.error("Ocurrio un error!..");
         }
@@ -39410,9 +39418,19 @@ var render = function() {
                       "tbody",
                       _vm._l(_vm.horarios, function(horario, index) {
                         return _c("tr", [
-                          _c("td", { staticClass: "text-left" }, [
-                            _vm._v(_vm._s(horario.day))
-                          ]),
+                          index == _vm.dia
+                            ? _c(
+                                "td",
+                                { staticClass: "text-left bg-light text-dark" },
+                                [_vm._v(_vm._s(horario.day))]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          index != _vm.dia
+                            ? _c("td", { staticClass: "text-left" }, [
+                                _vm._v(_vm._s(horario.day))
+                              ])
+                            : _vm._e(),
                           _vm._v(" "),
                           horario.estatus == 1 && index == _vm.dia
                             ? _c(
@@ -39440,7 +39458,17 @@ var render = function() {
                               ])
                             : _vm._e(),
                           _vm._v(" "),
-                          horario.estatus == 0
+                          horario.estatus == 0 && index == _vm.dia
+                            ? _c(
+                                "td",
+                                {
+                                  staticClass: "text-right bg-light text-dark"
+                                },
+                                [_vm._v("Cerrado")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          horario.estatus == 0 && index != _vm.dia
                             ? _c("td", { staticClass: "text-right" }, [
                                 _vm._v("Cerrado")
                               ])
@@ -39558,10 +39586,16 @@ var render = function() {
                           type: "button",
                           "data-toggle": "modal",
                           "data-target": "#exampleModalCenter"
-                        },
-                        on: { click: _vm.get_horarios }
+                        }
                       },
-                      [_c("i", { staticClass: "fas fa-stopwatch" })]
+                      [
+                        _c("i", { staticClass: "fas fa-stopwatch" }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.estatus) +
+                            "\n                        "
+                        )
+                      ]
                     )
                   ])
                 ])
