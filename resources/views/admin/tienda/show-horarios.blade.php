@@ -78,11 +78,6 @@
                                 <input type="hidden" name="delete" value="{{ $id }}">
                                 <h3 class="card-title">Horarios</h3>
                                 <button type="submit" class="btn btn-success float-right">Guardar</button>
-                                <div class="card-body">
-                                    <div class="alert alert-default" role="alert">
-                                        awd
-                                    </div>
-                                </div>
                                 @foreach ($horarios as $horario)
                                 <tr>
                                     <td class="text-center">

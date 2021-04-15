@@ -98,6 +98,18 @@
                 </a>
             </li>
             @endhasanyrole
+
+            @hasanyrole('Tienda')
+            @if(Auth::user()->mitienda != null)
+                <li class="nav-item">
+                    <a href="{{ route('horarios.show', [Auth::user()->mitienda->id]) }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                    <p>Horarios</p>
+                    </a>
+                </li>
+            @endif
+            @endhasanyrole
+
             @hasanyrole('Admin') {{-- CONVENIO --}}
             <li class="nav-item">
                 <a href="{{route('personal.index')}} " class="nav-link">

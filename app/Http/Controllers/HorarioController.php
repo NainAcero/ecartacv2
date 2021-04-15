@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use App\Horario;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class HorarioController extends Controller
 {
     public function show($id) {
+        if (!Auth::user()->hasRole('Admin')) {
+            if(Auth::user()->mitienda->id != $id ){
+                return redirect()->back()->with('error', 'Forbidden: You dont have permission to access [directory] on this server');
+            }
+        }
+
         $horarios = Horario::where('tienda_id', '=', $id)->get();
         $dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
@@ -16,6 +23,11 @@ class HorarioController extends Controller
     }
 
     public function store(Request $request) {
+        if (!Auth::user()->hasRole('Admin')) {
+            if(Auth::user()->mitienda->id != $request->tienda_id){
+                return redirect()->back()->with('error', 'Forbidden: You dont have permission to access [directory] on this server');
+            }
+        }
 
         if(count($request->dias) > 6 &&
             count($request->start_hours) > 6 && count($request->end_hours) > 6) {
@@ -49,6 +61,12 @@ class HorarioController extends Controller
     }
 
     public function get_horarios(Request $request) {
+        if (!Auth::user()->hasRole('Admin')) {
+            if(Auth::user()->mitienda->id != $request->tienda_id){
+                return redirect()->back()->with('error', 'Forbidden: You dont have permission to access [directory] on this server');
+            }
+        }
+
         $horarios = Horario::where('tienda_id', $request->tienda_id)
             ->select('*',
                 DB::RAW("0 as checked"),
