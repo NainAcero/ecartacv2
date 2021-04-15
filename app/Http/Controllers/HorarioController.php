@@ -61,12 +61,6 @@ class HorarioController extends Controller
     }
 
     public function get_horarios(Request $request) {
-        if (!Auth::user()->hasRole('Admin')) {
-            if(Auth::user()->mitienda->id != $request->tienda_id){
-                return redirect()->back()->with('error', 'Forbidden: You dont have permission to access [directory] on this server');
-            }
-        }
-
         $horarios = Horario::where('tienda_id', $request->tienda_id)
             ->select('*',
                 DB::RAW("0 as checked"),
