@@ -5,13 +5,13 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{ resttienda }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+                    <span type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="28"><title>Close</title><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="38" d="M368 368L144 144M368 144L144 368"/></svg>
+                    </span>
                 </div>
                 <div class="modal-body">
-                    <p class="text-center">Horarios de Atención</p>
+                  <h4 class="modal-title">{{ resttienda }}</h4>
+                    <h5 class="text-center">Horarios de Atención</h5>
                     <div class="table-responsive">
                         <table class="table">
                             <tbody>
@@ -29,9 +29,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
+                </div> -->
                 </div>
             </div>
         </div>
@@ -41,30 +41,30 @@
                   <div class="card-banner card-bodyv2 img-fluid d-flex restaurant-header"
                         :style="restimagen_pri">
                     <article class="restaurant-content container">
-                         <div class="icontext mb-3 align-items-end">
-                             <div class="d-flex align-items-center">
-                                 <div class="restaurant-img mr-4">
-                                     <img :src="restportada" class="icon rounded-circle">
+                         <div class="icontext mb-lg-3 align-items-end">
+                             <div class="d-flex align-items-center flex-md-row flex-column">
+                                 <div class="restaurant-img mb-3 mb-md-0 mr-md-4">
+                                     <img :src="restportada" class="rounded-circle">
                                  </div>
                                  <div class="restaurant-info">
-                                     <h3 class="card-title">{{ resttienda }} </h3>
+                                     <div class="d-flex mb-2 align-items-md-center">
+                                       <h3 class="card-title mb-md-0 mr-md-3">{{ resttienda }} </h3>
+                                      <button type="button" class="btn btn-sm px-3" data-toggle="modal" data-target="#exampleModalCenter">{{ estatus }}
+                                      </button>
+                                     </div>
                                         <p class="restaurant-description mb-3">{{ restdescripcion }}</p>
-                                        <p class="restaurant-direccion"><i class="fa fa-map-marker-alt"></i> {{ restdireccion }}</p>
+                                        <p class="restaurant-direccion"><i class="fa fa-map-marker-alt mr-2"></i> {{ restdireccion }}</p>
                                  </div>
                              </div>
                          </div>
-                         <div class="restaurant-socials mb-3">
+                         <div class="restaurant-socials mb-lg-3">
                              <a :href="'https://wa.me/51'+ restcelular + '?text=Hola' + resttienda + '.. quisiera un pedido'" target=".../"
                                 class="btn btn-lg btn-success ">
-                                </i><i class="fab fa-whatsapp"></i>
+                                <i class="fab fa-whatsapp"></i>
                             </a>
                             <a :href="'tel:+51' + restcelular" class="btn btn-lg btn-info "><i class="fas fa-phone"></i></a>
                             <a v-if="restfacebook != null" :href="restfacebook" target="../" class="btn btn-lg btn-secondary" style="background-color: #0d3be0;"><i class="fab fa-facebook-f"></i></a>
-                            <a v-if="restweb != null" :href="restweb" target="../" class="btn btn-lg btn-gray "> <i class="fab fa-internet-explorer"></i></a>
-                            <button type="button" class="btn btn-lg btn-info " data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-stopwatch"></i> {{ estatus }}
-                            </button>
-
+                            <a v-if="restweb != null" :href="restweb" target="../" class="btn btn-lg btn-gray "> <i class="fa fa-globe"></i></a>
                         </div>
                     </article>
                   </div>
@@ -76,12 +76,16 @@
             <div class="" id="app">
                 <div class="row" v-if="tab == 0">
 
-                <a href="#" @click="changeTab()" class="btn-flotante" v-if="listwsp.length > 0" style="width:76%">
-                    <div class="col-md-5">
-                    <span class="py-1 px-2 text-white rounded" style="background:#ff8c3b" >{{ listwsp.length }}</span>
-                    </div>
-                    <h5 class="p-2 m-0 col-md-6">Ver Canasta</h5>
-                </a>
+                <div class="bottom-section-fixed">
+                  <div class="container-btn">
+                    <a href="#" @click="changeTab()" class="btn-flotante" v-if="listwsp.length > 0">
+                        <div class="col-md-5 col-3">
+                        <span class="py-1 px-2 text-white rounded" style="background:#ff8c3b" >{{ listwsp.length }}</span>
+                        </div>
+                        <h5 class="p-2 m-0 col-md-6">Ver Canasta</h5>
+                    </a>
+                  </div>
+                </div>
 
                 <main class="col-md-12">
                     <header class="border-bottom mb-4 pb-3">
@@ -90,7 +94,7 @@
                                 <option value="0">Ver toda la Carta</option>
                                 <option v-for="(categoria, index) in listCategoria" :value="categoria.id">{{categoria.categoria}} </option>
                             </select>
-                            <div class="input-group">
+                            <div class="input-group mt-md-0 mt-2">
                                 <input type="text" v-model="textBusc" @change="getCatProdInput()" class="form-control" placeholder="Buscar Producto">
                                 <div class="input-group-append">
                                 <button class="btn btn-primary" @click="getBuscProd()" type="submit">
@@ -105,13 +109,13 @@
                     <article v-for="(categoria, index) in categorias" v-if="categoria.productos.length > 0" class="mb-3">
                         <template v-if="categoria.categoria === 'Promociones'">
                         <div class="lista-categoria">
-                            <header class="p-3">
+                            <header class="py-3">
                                 <h3>
                                     <strong class="card-title mb-4">{{categoria.categoria.replace(/\b\w/g, l => l.toUpperCase())}}</strong>
                                 </h3>
                             </header>
-                            <div class="menu-holder row mb-5 mt-3">
-                            <div v-for="(item, index) in categoria.productos" :key="index" class="menu-post col-md-3 flex-column text-center px-3">
+                            <div class="menu-holder mb-5 mt-3">
+                            <div v-for="(item, index) in categoria.productos" :key="index" class="menu-post flex-column text-center">
                                 <div class="menu-post-img overflow-hidden position-relative" style="max-height:194px">
                                 <a :href="'../productos/'+ item.slug">
                                     <img v-if="item.portada" class="w-100" :src="'../'+item.portada">
@@ -144,34 +148,32 @@
                             <label :for="'group-toggle-'+categoria.categoria.replace(/ /g,'')" class="mb-0"></label>
                             <i class="fa fa-chevron-down"></i>
                             </header>
-                            <div class="table-responsive contenido-categoria pt-2">
-                            <table class="table table-hover">
-                                <tbody>
-                                <tr v-for="(item, index) in categoria.productos" :key="index">
-                                    <td width="20">
+                            <div class="table-responsive contenido-categoria px-4">
+                            <div class="table table-hover">
+                                <div v-for="(item, index) in categoria.productos" :key="index" class="row align-items-center mt-3 flex-md-nowrap cat-prod">
+                                    <div class="p-2">
                                         <a :href="'../productos/'+ item.slug">
                                             <img v-if="item.portada" class="icon icon-md rounded-circle" :src="'../'+item.portada">
                                             <img v-else class="icon icon-md rounded-circle" :src="'../' + restportada">
                                         </a>
-                                    </td>
-                                    <td>
-                                    <div class="d-flex align-items-center">
+                                    </div>
+                                    <div class="col-xl-11 p-2">
+                                    <div class="d-flex align-items-md-center">
                                         <div class="product-info">
-                                        <h6 class="title mb-1 position-relative">
+                                        <h6 class="title mb-1">
                                             <a :href="'../productos/'+ item.slug" class="bg-white position-relative" style="z-index:2"> {{item.producto}}  </a>  <span v-if="item.oferta" class="text-warning mr-2" data-toggle="tooltip" title="Oferta/Promoción"><i class="fas fa-tag"></i></span>
                                             <span class="menu-dots"></span>
                                             <span class="price bg-white pl-2">S/ {{item.precio}}</span>
                                         </h6>
                                         <small class="text-muted"><p>{{item.ingredientes}}</p></small>
                                         </div>
-                                        <div class="product-btn ml-4">
-                                        <button class="btn btn-warning" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
+                                        <div class="product-btn ml-md-4">
+                                        <button class="btn btn-warning" @click="addProducto(item)"> <i class="fas fa-cart-plus mr-2 mr-md-0"></i> <span>Añadir al carrito</span></button>
                                         </div>
                                     </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                         </template>
@@ -204,8 +206,8 @@
                     </div>
                 </div> -->
                 <main class="col-md-12">
-                    <div class="d-flex justify-content-between">
-                    <button type="button" @click="changeTab()" class="btn btn-light"><i class="fa fa-arrow-circle-left mr-2"></i> Continuar comprando</button>
+                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                    <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0""><i class="fa fa-arrow-circle-left"></i> Continuar comprando</button>
                     <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
                     </div>
                     <div class="mt-4" v-if="listwsp.length > 0">
@@ -216,7 +218,8 @@
                                 <table class="table">
                                     <thead class="text-muted cart-header">
                                     <tr class="text-uppercase">
-                                        <th colspan="2">Plato</th>
+                                        <th scope="col">Plato</th>
+                                        <th scope="col" class="head-delete"></th>
                                         <th scope="col">Precio</th>
                                         <th scope="col" width="100" class="text-center">Cantidad</th>
                                         <th class="text-center"></th>
@@ -236,7 +239,7 @@
                                                 <var class="text-muted">S/ {{item.xprecio}}</var>
                                             </td>
                                             <td>
-                                                <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" min="0" class="form-control">
+                                                <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" min="0" class="form-control text-center">
                                             </td>
                                             <td class="text-center">
                                                 <button class="btn btn-outline-danger" @click="removeCart(index)"><i class="fa fa-trash-alt"></i></button>
@@ -279,11 +282,11 @@
                                                                             <tr v-for="(item, index) in carrito">
                                                                                 <td>{{item.xprod}}</td>
                                                                                 <td class="text-right">
-                                                                                    <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" class="form-control text-center" style="width: 80px;">
+                                                                                    <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" class="form-control text-center" readonly="readonly" style="width: 80px;margin:0 auto">
                                                                                 </td>
-                                                                                <td>
+                                                                                <!-- <td>
                                                                                     <button class="btn btn-outline-danger btn-sm float-right" @click="removeCartModal(index)"><i class="fa fa-trash-alt"></i></button>
-                                                                                </td>
+                                                                                </td> -->
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -295,7 +298,7 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label >Teléfono</label>
-                                                                        <input type="text" v-model="model.telefono" class="form-control">
+                                                                        <input type="tel" v-model="model.telefono" class="form-control">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label >Dirección</label>
@@ -342,12 +345,12 @@
                                                                 <div v-else-if="modal_page === 2" class="d-flex justify-content-between w-100">
                                                                 <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
                                                                 <div>
-                                                                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
                                                                     <button type="button" class="btn btn-primary" @click="enviarDelivery()">Siguiente<i class="fa fa-arrow-right ml-2"></i></button>
                                                                 </div>
                                                                 </div>
                                                                 <div v-else-if="modal_page === 1">
-                                                                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
                                                                     <button type="button" class="btn btn-primary" @click="enviarDelivery()">Siguiente<i class="fa fa-arrow-right ml-2"></i></button>
                                                                 </div>
                                                             </div>
@@ -390,7 +393,7 @@
                 restweb : this.web,
                 restdescripcion : this.descripcion,
                 resttienda:this.tienda,
-                restimagen_pri: "height:400px; background-image: url(../"+ this.imagen_pri +");",
+                restimagen_pri: "min-height:320px; background-image: url(../"+ this.imagen_pri +");",
                 restportada: "../" + this.portada,
                 restinfo: "https://wa.me/51"+ this.celular +"?text=Hola "+ this.tienda +" deseo más información...",
                 restfacebook: this.facebook,
@@ -659,7 +662,7 @@
     bottom: 0;
     left: 0;
     height: 5px;
-    z-index: 3;
+    z-index: 2;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAFCAYAAABxeg0vAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGZJREFUeNpi/P//PwMy+PvnFw+QWgjET4G4gpmF7RuKApAGGP7z+6cSEF8C4v9QfAeIbZHVICt2BOLXSIph+C8Q9wMxF0gdI4gAOiMLaNkEIGZlwA1uA3ESI1DnUiAjioE48A8gwABE92fYusK+KwAAAABJRU5ErkJggg==) left bottom repeat-x;
   }
   .menu-info {
@@ -716,17 +719,7 @@
     font-size: 16px;
     padding: 15px;
   }
-  /* .card-header::after {
-    content: "\f078";
-    font-family: 'Font Awesome 5 Free';
-    position: absolute;
-    right: 20px;
-    top: 19px;
-    line-height: 1;
-    font-size: 20px;
-    pointer-events: none;
-    color: #414551;
-  } */
+
   .cart-header {
     font-size: 13px;
   }
@@ -841,9 +834,134 @@
     font-size: 55px;
     color: #B7B8BD;
   }
+
+  .input-group-prepend .btn, .input-group-append .btn {
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .menu-holder {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    gap: 30px;
+  }
+
+  .menu-post {
+    flex: 0 0 260px;
+  }
+  
+  .bottom-section-fixed {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .container-btn {
+        width: 100%;
+    padding: 9px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+
+@media (min-width: 960px){
+
+  .container-btn {
+      max-width: 900px;
+  }
+
+}
+
+  @media (min-width: 1264px){
+
+    .container-btn {
+        max-width: 1185px;
+    }
+
+  }
+
+  @media (min-width: 768px){
+      .form-inline .input-group {
+        width: 30%;
+      }
+
+      .table .product-btn span {
+        display: none;
+      }
+
+      .cat-prod .title {
+        position: relative;
+      }
+  }
   @media (min-width: 576px){
     .modal-dialog {
         max-width: 470px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cart-wrapper .table td:first-child {
+      display: none;
+    }
+
+    .cart-wrapper {
+      padding: 25px 10px;
+    }
+
+    .card-header h4 {
+      font-size: 20px;
+    }
+
+    .cat-prod {
+      position: relative;
+      align-items: center;
+      margin-bottom: 35px;
+    }
+
+    .cat-prod > div:last-child {
+      position: unset;
+    }
+    .cat-prod > div>div {
+      flex-direction: column;
+    }
+
+    .menu-dots {
+      position: static;
+    }
+
+    .price {
+    top: 25px;
+    right: 10px;
+    font-size: 20px;
+    }
+
+    .product-info small p {
+      margin-bottom: 1rem;
+    }
+
+    .product-btn button {
+      width: 100%;
+    }
+
+    .head-delete {
+      display: none;
+    }
+
+    .options-wrapper {
+      flex-direction: column;
+    }
+
+    .option-body {
+      padding: 19px 50px 19px;
+    }
+
+    .cancel-btn {
+      display: none;
     }
   }
 </style>
