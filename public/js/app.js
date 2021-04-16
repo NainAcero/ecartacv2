@@ -2373,6 +2373,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
@@ -40423,13 +40424,24 @@ var render = function() {
                                                 }
                                               },
                                               [
-                                                _c("img", {
-                                                  staticClass: "icon icon-md",
-                                                  attrs: {
-                                                    src:
-                                                      "../img/elpadrino-logo.png"
-                                                  }
-                                                })
+                                                item.portada
+                                                  ? _c("img", {
+                                                      staticClass:
+                                                        "icon icon-md",
+                                                      attrs: {
+                                                        src:
+                                                          "../" + item.portada
+                                                      }
+                                                    })
+                                                  : _c("img", {
+                                                      staticClass:
+                                                        "icon icon-md",
+                                                      attrs: {
+                                                        src:
+                                                          "../" +
+                                                          _vm.restportada
+                                                      }
+                                                    })
                                               ]
                                             )
                                           ]),
@@ -53991,8 +54003,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
