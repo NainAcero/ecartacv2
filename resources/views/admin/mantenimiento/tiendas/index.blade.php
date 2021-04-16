@@ -73,6 +73,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('tiendas.edit', [$item->id]) }}" class="btn btn-block btn-outline-info btn-sm">Editar</a>
+                                    <a href="{{ route('horarios.show', [$item->id]) }}" class="btn btn-block btn-outline-success btn-sm">Horario</a>
                                 </td>
 
 
@@ -99,5 +100,5 @@
             });
         });
     </script>
-    
+
 @endsection
