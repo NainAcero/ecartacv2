@@ -229,7 +229,8 @@
                                         <tr v-for="(item, index) in carrito" v-if="item.xmaster == idrest">
                                             <td width="20">
                                                 <a :href="'../productos/'+ item.slug">
-                                                <img class="icon icon-md" :src="'../img/elpadrino-logo.png'">
+                                                <img v-if="item.portada" class="icon icon-md" :src="'../'+item.portada">
+                                                <img v-else class="icon icon-md" :src="'../' + restportada">
                                                 </a>
                                             </td>
                                             <td>
