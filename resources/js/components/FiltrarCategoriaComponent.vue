@@ -150,7 +150,7 @@
                             </header>
                             <div class="table-responsive contenido-categoria px-4">
                             <div class="table table-hover">
-                                <div v-for="(item, index) in categoria.productos" :key="index" class="row align-items-center mt-3 flex-md-nowrap cat-prod">
+                                <div v-for="(item, index) in categoria.productos" :key="index" class="row align-items-center mt-3 flex-nowrap cat-prod">
                                     <div class="p-2">
                                         <a :href="'../productos/'+ item.slug">
                                             <img v-if="item.portada" class="icon icon-md rounded-circle" :src="'../'+item.portada">
@@ -168,7 +168,7 @@
                                         <small class="text-muted"><p>{{item.ingredientes}}</p></small>
                                         </div>
                                         <div class="product-btn ml-md-4">
-                                        <button class="btn btn-warning" @click="addProducto(item)"> <i class="fas fa-cart-plus mr-2 mr-md-0"></i> <span>Añadir al carrito</span></button>
+                                        <button class="btn btn-warning" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
                                         </div>
                                     </div>
                                     </div>
@@ -903,7 +903,7 @@
   }
 
   @media (max-width: 768px) {
-    .cart-wrapper .table td:first-child {
+    .cart-wrapper > .table-responsive >.table >tbody> tr>td:first-child {
       display: none;
     }
 
@@ -918,12 +918,12 @@
     .cat-prod {
       position: relative;
       align-items: center;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
     }
 
-    .cat-prod > div:last-child {
+    /* .cat-prod > div:last-child {
       position: unset;
-    }
+    } */
     .cat-prod > div>div {
       flex-direction: column;
     }
@@ -933,8 +933,10 @@
     }
 
     .price {
-    top: 25px;
-    right: 10px;
+    top: unset;
+    right: unset;
+    bottom: 13px;
+    left: 0;
     font-size: 20px;
     }
 
@@ -942,9 +944,13 @@
       margin-bottom: 1rem;
     }
 
-    .product-btn button {
-      width: 100%;
+    .product-btn {
+      justify-content: flex-end;
     }
+
+    /* .product-btn button {
+      width: 100%;
+    } */
 
     .head-delete {
       display: none;

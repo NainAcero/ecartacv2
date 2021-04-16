@@ -41,16 +41,18 @@
   <header class="section-heading heading-line">
     <h2 class="title-section text-uppercase">Restaurantes</h2>
   </header>
-Aqui hascer las etiquetas
   <div class="row ">
     @foreach ($tiendas as $item)
     <div class="col-lg-3 col-md-4 col-6 mb-3">
-      
+
       <a href="{{url('r/'.$item->slug)}}" class="item">
         <article class="card card-product-grid card-lg h-100">
-          <div class="img-container position-relative @if ($item->feria)
-            feria
-          @endif ">
+          <div class="img-container position-relative">
+            @if($item->feria)
+            <div class="en-feria">
+              <span>En la feria</span>
+            </div>
+            @endif
             <img src="{{asset($item->portada)}}" class="card-img-top">
           </div>
 

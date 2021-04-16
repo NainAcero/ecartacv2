@@ -1927,6 +1927,32 @@ footer {
     color: #fff;
 }
 
+.en-feria {
+    position: absolute;
+    overflow: hidden;
+    top: -9px;
+    left: -9px;
+    width: 130px;
+    height: 133px;
+}
+
+.en-feria span {
+    position: absolute;
+    display: block;
+    width: 160px;
+    padding: 11px 0;
+    background-color: #3498db;
+    box-shadow: 0 5px 5px rgb(0 0 0 / 20%);
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    left: -30px;
+    top: 28px;
+    transform: rotate(-45deg);
+}
+
 @media (max-width: 992px) {
     .restaurant-content {
         justify-content: space-around;
