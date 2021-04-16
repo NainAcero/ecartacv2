@@ -6,6 +6,7 @@ use App\Horario;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class HorarioController extends Controller
 {
@@ -68,15 +69,22 @@ class HorarioController extends Controller
                 DB::RAW("'' as fin")
             )->get();
 
-        $estatus = "Abierto";
+        $estatus = "Cerrado";
         $dia= date("w");
 
         if($dia == 0)  $dia = 6;
         else $dia = $dia - 1;
 
-        if($horarios[$dia]->estatus == 0){
-            $estatus = "Cerrado";
+        $date = Carbon::now();
+        $hora = substr($date->toTimeString(), 0, 2);
+
+        if(intval($hora) >= intval(substr($horarios[$dia]->start_time, 0, 2))) {
+            if(intval($hora) < intval(substr($horarios[$dia]->end_time, 0, 2))){
+                $estatus = "Abierto";
+            }
         }
+
+        if($horarios[$dia]->estatus == 0)   $estatus = "Cerrado";
 
         for($i =0; $i < count($horarios); $i++){
             if(intval(substr($horarios[$i]->start_time, 0, 2)) >= 12 ) {

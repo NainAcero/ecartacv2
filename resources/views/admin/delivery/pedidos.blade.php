@@ -111,6 +111,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Dirección</th>
+                        <th scope="col">Estado</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
@@ -158,6 +159,12 @@
             htmlOptions += `<td>${pedido.nombre}</td>`;
             htmlOptions += `<td>${pedido.telefono}</td>`;
             htmlOptions += `<td>${pedido.direccion}</td>`;
+            if(pedido.estado == 1){
+                htmlOptions += `<td><button type="button" class="btn btn-primary btn-sm">En espera</button></td>`;
+            } else if(pedido.estado == 2) {
+                htmlOptions += `<td><button type="button" class="btn btn-danger btn-sm">Recibido</button></td>`;
+            }
+
             htmlOptions += `<td>
                 <button class="btn btn-dark btn-sm text-white" onclick="showRestaurante(${pedido.tienda_id})" data-toggle="modal" data-target="#restauranteModal"><i class="fas fa-store-alt"></i></button>
                 <button class="btn btn-success btn-sm text-white" onclick="shoProductos(${pedido.id})" data-toggle="modal" data-target="#pedidosModal"><i class="fas fa-shopping-cart"></i></button>
@@ -180,7 +187,13 @@
     }
 
     function showPedido(id) {
-        pedidos = pedidos.filter(pedido => pedido.id != id);
+        pedidos = pedidos.map(function(pedido) {
+            if(pedido.id == id) {
+                pedido.estado = 2;
+            }
+            return pedido;
+        });
+
         cargarPedidos();
         const url = `/enviar_delivery?id=${id}`;
         $.getJSON(url, onPedidoLoaded);
@@ -235,6 +248,7 @@
     var channel = pusher.subscribe('chat-channel');
 
     channel.bind('chat-event', function(data) {
+        console.log(data);
         pedidos.unshift(data.pedido);
         cargarPedidos();
         setTimeout(function(){ play_audio("play"); }, 500);

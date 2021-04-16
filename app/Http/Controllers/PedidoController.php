@@ -54,6 +54,7 @@ class PedidoController extends Controller
                     "nombre" => $request->nombre,
                     "telefono" => $request->telefono,
                     "direccion" => $request->direccion,
+                    "estado" => 1
                 ]));
             }
 
@@ -63,6 +64,7 @@ class PedidoController extends Controller
                 "nombre" => $request->nombre,
                 "telefono" => $request->telefono,
                 "direccion" => $request->direccion,
+                "estado" => 1
             ]));
 
             $mensaje = "Pedido enviado con éxito....";
@@ -86,9 +88,9 @@ class PedidoController extends Controller
         $ff = Carbon::parse(Carbon::now())->format('Y-m-d').' 23:59:59';
 
         $pedidos = Pedido::whereBetween('created_at',[$fi , $ff ])
-            ->select("id", "tienda_id", "nombre", "telefono", "direccion")
+            ->select("id", "tienda_id", "nombre", "telefono", "direccion", "estado")
             ->orderBy("id", "DESC")
-            ->where("estado", "=", 1)
+            ->where("estado", "<>", 5)
             ->get();
 
         return response()->json(compact('pedidos'),200);
@@ -127,7 +129,7 @@ class PedidoController extends Controller
 
         $pedidos = Pedido::whereBetween('created_at',[$fi , $ff ])
             ->where('tienda_id', "=", $request->id)
-            ->select("id", "tienda_id", "nombre", "telefono", "direccion")
+            ->select("id", "tienda_id", "nombre", "telefono", "direccion", "estado")
             ->orderBy("id", "DESC")
             ->get();
 
