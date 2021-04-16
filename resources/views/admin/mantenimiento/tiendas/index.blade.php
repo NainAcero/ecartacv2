@@ -52,6 +52,7 @@
                             <th>Portada</th>
                             <th>Estado</th>
                             <th>Opc</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -73,6 +74,8 @@
                                 <td>
                                     <a href="{{ route('tiendas.edit', [$item->id]) }}" class="btn btn-block btn-outline-info btn-sm">Editar</a>
                                 </td>
+
+
                             </tr>
                         @endforeach
                     </tbody>

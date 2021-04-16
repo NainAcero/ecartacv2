@@ -50,6 +50,7 @@
                             <th>Dirección</th>
                             <th>Estado</th>
                             <th>Opc</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -69,6 +70,7 @@
                                 <td>
                                     <a href="{{ route('galerias.edit', [$gal->id]) }}" class="btn btn-block btn-outline-info btn-sm">Editar</a>
                                 </td>
+                         
                             </tr>
                         @endforeach
                     </tbody>

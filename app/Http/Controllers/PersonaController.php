@@ -292,6 +292,7 @@ class PersonaController extends Controller
             $tienda->tipo_id = $request->tipo_id;
             $tienda->descripcion = $request->descripcion;
             $tienda->verificado = $request->verificado;
+            $tienda->feria = $request->feria;
             // $tienda->portada = $imagen;
             $tienda->save();
 

@@ -22,6 +22,7 @@ class CreateTiendasTable extends Migration
             $table->text('mapa')->nullable();
             $table->string('portada')->nullable();
             $table->boolean('estado')->nullable();
+            $table->boolean('feria')->nullable();
             $table->timestamps();
             $table->foreign('persona_id')->references('id')->on('personas')
                 ->onUpdate('cascade');

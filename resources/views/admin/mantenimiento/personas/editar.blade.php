@@ -253,6 +253,23 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>En Feria</label>
+                                                            <div class="form-group">
+                                                                <div class="custom-control custom-radio">
+                                                                    <input class="custom-control-input" type="radio" id="customRadio7" name="feria" value="1" required {{ 1 == old('feria', $user->persona->tienda->feria) ? 'checked' : '' }}>
+                                                                    <label for="customRadio7" class="custom-control-label">Activo</label>
+                                                                </div>
+                                                                <div class="custom-control custom-radio">
+                                                                    <input class="custom-control-input" type="radio" id="customRadio8" name="feria" value="0" required {{ 0 == old('feria', $user->persona->tienda->feria) ? 'checked' : '' }}>
+                                                                    <label for="customRadio8" class="custom-control-label">Inactivo</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                                 <br>
                                                 <div class="col-sm-12">
