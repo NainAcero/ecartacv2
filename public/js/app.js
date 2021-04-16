@@ -2500,7 +2500,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           _this5.saveCarts();
 
-          window.open('https://wa.me/51' + _this5.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this5.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+          if (Number(_this5.selector) == 1) {
+            window.open('https://wa.me/51931375941?text=Hola, deseo realizar este pedido. ' + _this5.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+          } else {
+            window.open('https://wa.me/51' + _this5.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this5.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+          }
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.error("Ocurrio un error!..");
         }
