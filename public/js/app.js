@@ -2397,8 +2397,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {
     var _this = this;
 
-    this.carrito = [];
-    this.saveCarts();
     var urlcategprod = '../catemenu/' + this.idrest;
     axios.get(urlcategprod).then(function (res) {
       _this.categorias = res.data.categprod;
@@ -40708,93 +40706,96 @@ var render = function() {
                                                                               item,
                                                                               index
                                                                             ) {
-                                                                              return _c(
-                                                                                "tr",
-                                                                                [
-                                                                                  _c(
-                                                                                    "td",
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        _vm._s(
-                                                                                          item.xprod
-                                                                                        )
-                                                                                      )
-                                                                                    ]
-                                                                                  ),
-                                                                                  _vm._v(
-                                                                                    " "
-                                                                                  ),
-                                                                                  _c(
-                                                                                    "td",
-                                                                                    {
-                                                                                      staticClass:
-                                                                                        "text-right"
-                                                                                    },
+                                                                              return item.xmaster ==
+                                                                                _vm.idrest
+                                                                                ? _c(
+                                                                                    "tr",
                                                                                     [
                                                                                       _c(
-                                                                                        "input",
+                                                                                        "td",
+                                                                                        [
+                                                                                          _vm._v(
+                                                                                            _vm._s(
+                                                                                              item.xprod
+                                                                                            )
+                                                                                          )
+                                                                                        ]
+                                                                                      ),
+                                                                                      _vm._v(
+                                                                                        " "
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "td",
                                                                                         {
-                                                                                          directives: [
-                                                                                            {
-                                                                                              name:
-                                                                                                "model",
-                                                                                              rawName:
-                                                                                                "v-model",
-                                                                                              value:
-                                                                                                item.xcantidad,
-                                                                                              expression:
-                                                                                                "item.xcantidad"
-                                                                                            }
-                                                                                          ],
                                                                                           staticClass:
-                                                                                            "form-control text-center",
-                                                                                          staticStyle: {
-                                                                                            width:
-                                                                                              "80px",
-                                                                                            margin:
-                                                                                              "0 auto"
-                                                                                          },
-                                                                                          attrs: {
-                                                                                            type:
-                                                                                              "number",
-                                                                                            readonly:
-                                                                                              "readonly"
-                                                                                          },
-                                                                                          domProps: {
-                                                                                            value:
-                                                                                              item.xcantidad
-                                                                                          },
-                                                                                          on: {
-                                                                                            change: function(
-                                                                                              $event
-                                                                                            ) {
-                                                                                              return _vm.cantidadPedidos()
-                                                                                            },
-                                                                                            input: function(
-                                                                                              $event
-                                                                                            ) {
-                                                                                              if (
-                                                                                                $event
-                                                                                                  .target
-                                                                                                  .composing
-                                                                                              ) {
-                                                                                                return
+                                                                                            "text-right"
+                                                                                        },
+                                                                                        [
+                                                                                          _c(
+                                                                                            "input",
+                                                                                            {
+                                                                                              directives: [
+                                                                                                {
+                                                                                                  name:
+                                                                                                    "model",
+                                                                                                  rawName:
+                                                                                                    "v-model",
+                                                                                                  value:
+                                                                                                    item.xcantidad,
+                                                                                                  expression:
+                                                                                                    "item.xcantidad"
+                                                                                                }
+                                                                                              ],
+                                                                                              staticClass:
+                                                                                                "form-control text-center",
+                                                                                              staticStyle: {
+                                                                                                width:
+                                                                                                  "80px",
+                                                                                                margin:
+                                                                                                  "0 auto"
+                                                                                              },
+                                                                                              attrs: {
+                                                                                                type:
+                                                                                                  "number",
+                                                                                                readonly:
+                                                                                                  "readonly"
+                                                                                              },
+                                                                                              domProps: {
+                                                                                                value:
+                                                                                                  item.xcantidad
+                                                                                              },
+                                                                                              on: {
+                                                                                                change: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  return _vm.cantidadPedidos()
+                                                                                                },
+                                                                                                input: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  if (
+                                                                                                    $event
+                                                                                                      .target
+                                                                                                      .composing
+                                                                                                  ) {
+                                                                                                    return
+                                                                                                  }
+                                                                                                  _vm.$set(
+                                                                                                    item,
+                                                                                                    "xcantidad",
+                                                                                                    $event
+                                                                                                      .target
+                                                                                                      .value
+                                                                                                  )
+                                                                                                }
                                                                                               }
-                                                                                              _vm.$set(
-                                                                                                item,
-                                                                                                "xcantidad",
-                                                                                                $event
-                                                                                                  .target
-                                                                                                  .value
-                                                                                              )
                                                                                             }
-                                                                                          }
-                                                                                        }
+                                                                                          )
+                                                                                        ]
                                                                                       )
                                                                                     ]
                                                                                   )
-                                                                                ]
-                                                                              )
+                                                                                : _vm._e()
                                                                             }
                                                                           ),
                                                                           0
@@ -54001,8 +54002,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

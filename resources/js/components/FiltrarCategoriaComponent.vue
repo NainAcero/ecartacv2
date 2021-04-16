@@ -279,7 +279,7 @@
                                                                     </div>
                                                                     <table class="table table-modal">
                                                                         <tbody>
-                                                                            <tr v-for="(item, index) in carrito">
+                                                                            <tr v-for="(item, index) in carrito" v-if="item.xmaster == idrest">
                                                                                 <td>{{item.xprod}}</td>
                                                                                 <td class="text-right">
                                                                                     <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" class="form-control text-center" readonly="readonly" style="width: 80px;margin:0 auto">
@@ -425,8 +425,6 @@
             }
         },
         created(){
-            this.carrito = [];
-            this.saveCarts();
             var urlcategprod = '../catemenu/'+this.idrest
             axios.get(urlcategprod).then(res=>{
                 this.categorias = res.data.categprod;
@@ -852,7 +850,7 @@
   .menu-post {
     flex: 0 0 260px;
   }
-  
+
   .bottom-section-fixed {
     position: fixed;
     width: 100%;
