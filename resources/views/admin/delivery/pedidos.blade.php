@@ -160,9 +160,9 @@
             htmlOptions += `<td>${pedido.telefono}</td>`;
             htmlOptions += `<td>${pedido.direccion}</td>`;
             if(pedido.estado == 1){
-                htmlOptions += `<td><button type="button" class="btn btn-primary btn-sm">En espera</button></td>`;
+                htmlOptions += `<td><button type="button" class="btn btn-danger btn-sm">En espera</button></td>`;
             } else if(pedido.estado == 2) {
-                htmlOptions += `<td><button type="button" class="btn btn-danger btn-sm">Recibido</button></td>`;
+                htmlOptions += `<td><button type="button" class="btn btn-success btn-sm">Recibido</button></td>`;
             }
 
             htmlOptions += `<td>
