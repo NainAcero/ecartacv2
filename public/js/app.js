@@ -2389,7 +2389,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       restdescripcion: this.descripcion,
       resttienda: this.tienda,
       restimagen_pri: "min-height:320px; background-image: url(../" + this.imagen_pri + ");"
-    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
+    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "ofertas", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
       nombre: '',
       telefono: '',
       direccion: ''
@@ -2404,6 +2404,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _this.listCategoria = res.data.categprod;
     });
     this.get_horarios();
+    this.get_productos_by_oferta();
   },
   // computed:{
   //     buscarMenu: function () {
@@ -2421,20 +2422,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         $('#modal').modal('show');
       }); // console.log(this.selector);
     },
-    getCateProd: function getCateProd() {
+    get_productos_by_oferta: function get_productos_by_oferta() {
       var _this2 = this;
+
+      axios.get('../get_productos_by_oferta?id=' + this.idrest).then(function (res) {
+        _this2.ofertas = res.data.productos;
+      });
+    },
+    getCateProd: function getCateProd() {
+      var _this3 = this;
 
       // this.valuemultisel = {iglesia:'Buscar...', codigo:'', manual_online:''}
       axios.get('../getcategoria?category=' + this.categoriaid + '&key=' + this.idrest).then(function (res) {
-        _this2.categorias = res.data.categoria;
+        _this3.categorias = res.data.categoria;
         console.log(res);
       });
     },
     getBuscProd: function getBuscProd() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('../getbuscador?category=' + this.categoriaid + '&buscar=' + this.textBusc + '&key=' + this.idrest).then(function (res) {
-        _this3.categorias = res.data.categoria;
+        _this4.categorias = res.data.categoria;
       });
     },
     getCatProdInput: function getCatProdInput() {
@@ -2443,13 +2451,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     get_horarios: function get_horarios() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.horarios = [];
       axios.get('../get_horarios?tienda_id=' + this.idrest).then(function (res) {
-        _this4.dia = res.data.dia;
-        _this4.estatus = res.data.estatus;
-        _this4.horarios = res.data.horarios;
+        _this5.dia = res.data.dia;
+        _this5.estatus = res.data.estatus;
+        _this5.horarios = res.data.horarios;
       });
     },
     enviarDelivery: function enviarDelivery() {
@@ -2474,7 +2482,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.modal_page += 1;
     },
     confirmDelivery: function confirmDelivery() {
-      var _this5 = this;
+      var _this6 = this;
 
       // var aux = 0
       // this.carrito.forEach(element => {
@@ -2496,14 +2504,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (res) {
         if (res.status == 201) {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Pedido Enviado con éxito");
-          _this5.carrito = [];
+          _this6.carrito = [];
 
-          _this5.saveCarts();
+          _this6.saveCarts();
 
-          if (Number(_this5.selector) == 1) {
-            window.open('https://wa.me/51931375941?text=Hola, deseo realizar este pedido. ' + _this5.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+          if (Number(_this6.selector) == 1) {
+            window.open('https://wa.me/51931375941?text=Hola, deseo realizar este pedido. ' + _this6.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           } else {
-            window.open('https://wa.me/51' + _this5.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this5.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+            window.open('https://wa.me/51' + _this6.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this6.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           }
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.error("Ocurrio un error!..");
@@ -2513,12 +2521,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $('#modal').modal('hide');
     },
     calcularTotal: function calcularTotal() {
-      var _this6 = this;
+      var _this7 = this;
 
       this.total = 0.00;
       this.carrito.forEach(function (element) {
         if (element.xprecioNew != null) {
-          _this6.total += parseFloat(element.xprecioNew) * parseInt(element.xcantidad);
+          _this7.total += parseFloat(element.xprecioNew) * parseInt(element.xcantidad);
         }
       });
     },
@@ -2580,12 +2588,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       localStorage.setItem('carrito', parsed);
     },
     cantidadPedidos: function cantidadPedidos() {
-      var _this7 = this;
+      var _this8 = this;
 
       this.listwsp = [];
       this.carrito.forEach(function (val) {
-        if (val.xmaster == _this7.idrest) {
-          _this7.listwsp.push('%0D%0A • *' + val.xprod + '* | _Cant_=*' + val.xcantidad + '*');
+        if (val.xmaster == _this8.idrest) {
+          _this8.listwsp.push('%0D%0A • *' + val.xprod + '* | _Cant_=*' + val.xcantidad + '*');
         }
       });
       this.saveCarts(); // this.calcularTotal();
@@ -39825,20 +39833,204 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _vm._l(_vm.categorias, function(categoria, index) {
-                      return categoria.productos.length > 0
-                        ? _c(
-                            "article",
-                            { staticClass: "mb-3" },
-                            [
-                              categoria.categoria === "Promociones"
-                                ? [
-                                    _c(
-                                      "div",
-                                      { staticClass: "lista-categoria" },
-                                      [
-                                        _c("header", { staticClass: "py-3" }, [
-                                          _c("h3", [
+                    [
+                      _vm.ofertas.length > 0
+                        ? [
+                            _c("div", { staticClass: "lista-categoria" }, [
+                              _vm._m(0),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "menu-holder mb-5 mt-3" },
+                                _vm._l(_vm.ofertas, function(item, index) {
+                                  return _c(
+                                    "div",
+                                    {
+                                      key: index,
+                                      staticClass:
+                                        "menu-post flex-column text-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "menu-post-img overflow-hidden position-relative",
+                                          staticStyle: { "max-height": "194px" }
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              attrs: {
+                                                href:
+                                                  "../productos/" + item.slug
+                                              }
+                                            },
+                                            [
+                                              item.portada
+                                                ? _c("img", {
+                                                    staticClass: "w-100",
+                                                    attrs: {
+                                                      src: "../" + item.portada
+                                                    }
+                                                  })
+                                                : _c("img", {
+                                                    staticClass: "w-100",
+                                                    attrs: {
+                                                      src:
+                                                        "../" + _vm.restportada
+                                                    }
+                                                  })
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "menu-info pt-4 pb-3 px-2 bg-white"
+                                        },
+                                        [
+                                          _c(
+                                            "h6",
+                                            { staticClass: "title mb-1" },
+                                            [
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass:
+                                                    "bg-white position-relative",
+                                                  attrs: {
+                                                    href:
+                                                      "../productos/" +
+                                                      item.slug
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    " " +
+                                                      _vm._s(item.producto) +
+                                                      "  "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "small",
+                                            { staticClass: "text-muted" },
+                                            [
+                                              _c("p", [
+                                                _vm._v(
+                                                  _vm._s(item.ingredientes)
+                                                )
+                                              ])
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "menu-bottom d-flex justify-content-around mt-3 align-items-center"
+                                            },
+                                            [
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "font-weight-bold"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "S/ " + _vm._s(item.precio)
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "product-btn" },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-warning",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.addProducto(
+                                                            item
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fas fa-cart-plus"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ])
+                          ]
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm._l(_vm.categorias, function(categoria, index) {
+                        return categoria.productos.length > 0
+                          ? _c(
+                              "article",
+                              { staticClass: "mb-3" },
+                              [
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "card lista-categoria" },
+                                    [
+                                      _c("input", {
+                                        staticStyle: {
+                                          position: "absolute",
+                                          clip: "rect(0, 0, 0, 0)"
+                                        },
+                                        attrs: {
+                                          id:
+                                            "group-toggle-" +
+                                            categoria.categoria.replace(
+                                              / /g,
+                                              ""
+                                            ),
+                                          type: "checkbox"
+                                        },
+                                        domProps: {
+                                          checked: index === 0 || index === 1
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "header",
+                                        {
+                                          staticClass:
+                                            "card-header border-3 position-relative"
+                                        },
+                                        [
+                                          _c("h4", { staticClass: "mb-0" }, [
                                             _c(
                                               "strong",
                                               {
@@ -39846,100 +40038,60 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  _vm._s(
-                                                    categoria.categoria.replace(
-                                                      /\b\w/g,
-                                                      function(l) {
-                                                        return l.toUpperCase()
-                                                      }
-                                                    )
-                                                  )
+                                                  _vm._s(categoria.categoria)
                                                 )
                                               ]
                                             )
-                                          ])
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "menu-holder mb-5 mt-3"
-                                          },
-                                          _vm._l(categoria.productos, function(
-                                            item,
-                                            index
-                                          ) {
-                                            return _c(
-                                              "div",
-                                              {
-                                                key: index,
-                                                staticClass:
-                                                  "menu-post flex-column text-center"
-                                              },
-                                              [
-                                                _c(
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("label", {
+                                            staticClass: "mb-0",
+                                            attrs: {
+                                              for:
+                                                "group-toggle-" +
+                                                categoria.categoria.replace(
+                                                  / /g,
+                                                  ""
+                                                )
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", {
+                                            staticClass: "fa fa-chevron-down"
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "table-responsive contenido-categoria px-4"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "table table-hover"
+                                            },
+                                            _vm._l(
+                                              categoria.productos,
+                                              function(item, index) {
+                                                return _c(
                                                   "div",
                                                   {
+                                                    key: index,
                                                     staticClass:
-                                                      "menu-post-img overflow-hidden position-relative",
-                                                    staticStyle: {
-                                                      "max-height": "194px"
-                                                    }
+                                                      "row align-items-center mt-3 flex-nowrap cat-prod"
                                                   },
                                                   [
                                                     _c(
-                                                      "a",
-                                                      {
-                                                        attrs: {
-                                                          href:
-                                                            "../productos/" +
-                                                            item.slug
-                                                        }
-                                                      },
-                                                      [
-                                                        item.portada
-                                                          ? _c("img", {
-                                                              staticClass:
-                                                                "w-100",
-                                                              attrs: {
-                                                                src:
-                                                                  "../" +
-                                                                  item.portada
-                                                              }
-                                                            })
-                                                          : _c("img", {
-                                                              staticClass:
-                                                                "w-100",
-                                                              attrs: {
-                                                                src:
-                                                                  "../" +
-                                                                  _vm.restportada
-                                                              }
-                                                            })
-                                                      ]
-                                                    )
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "menu-info pt-4 pb-3 px-2 bg-white"
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "h6",
-                                                      {
-                                                        staticClass:
-                                                          "title mb-1"
-                                                      },
+                                                      "div",
+                                                      { staticClass: "p-2" },
                                                       [
                                                         _c(
                                                           "a",
                                                           {
-                                                            staticClass:
-                                                              "bg-white position-relative",
                                                             attrs: {
                                                               href:
                                                                 "../productos/" +
@@ -39947,32 +40099,27 @@ var render = function() {
                                                             }
                                                           },
                                                           [
-                                                            _vm._v(
-                                                              " " +
-                                                                _vm._s(
-                                                                  item.producto
-                                                                ) +
-                                                                "  "
-                                                            )
+                                                            item.portada
+                                                              ? _c("img", {
+                                                                  staticClass:
+                                                                    "icon icon-md rounded-circle",
+                                                                  attrs: {
+                                                                    src:
+                                                                      "../" +
+                                                                      item.portada
+                                                                  }
+                                                                })
+                                                              : _c("img", {
+                                                                  staticClass:
+                                                                    "icon icon-md rounded-circle",
+                                                                  attrs: {
+                                                                    src:
+                                                                      "../" +
+                                                                      _vm.restportada
+                                                                  }
+                                                                })
                                                           ]
                                                         )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "small",
-                                                      {
-                                                        staticClass:
-                                                          "text-muted"
-                                                      },
-                                                      [
-                                                        _c("p", [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              item.ingredientes
-                                                            )
-                                                          )
-                                                        ])
                                                       ]
                                                     ),
                                                     _vm._v(" "),
@@ -39980,52 +40127,152 @@ var render = function() {
                                                       "div",
                                                       {
                                                         staticClass:
-                                                          "menu-bottom d-flex justify-content-around mt-3 align-items-center"
+                                                          "col-xl-11 p-2"
                                                       },
                                                       [
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "font-weight-bold"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "S/ " +
-                                                                _vm._s(
-                                                                  item.precio
-                                                                )
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
                                                         _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "product-btn"
+                                                              "d-flex align-items-md-center"
                                                           },
                                                           [
                                                             _c(
-                                                              "button",
+                                                              "div",
                                                               {
                                                                 staticClass:
-                                                                  "btn btn-warning",
-                                                                on: {
-                                                                  click: function(
-                                                                    $event
-                                                                  ) {
-                                                                    return _vm.addProducto(
-                                                                      item
-                                                                    )
-                                                                  }
-                                                                }
+                                                                  "product-info"
                                                               },
                                                               [
-                                                                _c("i", {
-                                                                  staticClass:
-                                                                    "fas fa-cart-plus"
-                                                                })
+                                                                _c(
+                                                                  "h6",
+                                                                  {
+                                                                    staticClass:
+                                                                      "title mb-1"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "a",
+                                                                      {
+                                                                        staticClass:
+                                                                          "bg-white position-relative",
+                                                                        staticStyle: {
+                                                                          "z-index":
+                                                                            "2"
+                                                                        },
+                                                                        attrs: {
+                                                                          href:
+                                                                            "../productos/" +
+                                                                            item.slug
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          " " +
+                                                                            _vm._s(
+                                                                              item.producto
+                                                                            ) +
+                                                                            "  "
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    item.oferta
+                                                                      ? _c(
+                                                                          "span",
+                                                                          {
+                                                                            staticClass:
+                                                                              "text-warning mr-2",
+                                                                            attrs: {
+                                                                              "data-toggle":
+                                                                                "tooltip",
+                                                                              title:
+                                                                                "Oferta/Promoción"
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _c(
+                                                                              "i",
+                                                                              {
+                                                                                staticClass:
+                                                                                  "fas fa-tag"
+                                                                              }
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      : _vm._e(),
+                                                                    _vm._v(" "),
+                                                                    _c("span", {
+                                                                      staticClass:
+                                                                        "menu-dots"
+                                                                    }),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "span",
+                                                                      {
+                                                                        staticClass:
+                                                                          "price bg-white pl-2"
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "S/ " +
+                                                                            _vm._s(
+                                                                              item.precio
+                                                                            )
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "small",
+                                                                  {
+                                                                    staticClass:
+                                                                      "text-muted"
+                                                                  },
+                                                                  [
+                                                                    _c("p", [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          item.ingredientes
+                                                                        )
+                                                                      )
+                                                                    ])
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "product-btn ml-md-4"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "button",
+                                                                  {
+                                                                    staticClass:
+                                                                      "btn btn-warning",
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.addProducto(
+                                                                          item
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("i", {
+                                                                      staticClass:
+                                                                        "fas fa-cart-plus"
+                                                                    })
+                                                                  ]
+                                                                )
                                                               ]
                                                             )
                                                           ]
@@ -40034,319 +40281,21 @@ var render = function() {
                                                     )
                                                   ]
                                                 )
-                                              ]
-                                            )
-                                          }),
-                                          0
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                : [
-                                    _c(
-                                      "div",
-                                      { staticClass: "card lista-categoria" },
-                                      [
-                                        _c("input", {
-                                          staticStyle: {
-                                            position: "absolute",
-                                            clip: "rect(0, 0, 0, 0)"
-                                          },
-                                          attrs: {
-                                            id:
-                                              "group-toggle-" +
-                                              categoria.categoria.replace(
-                                                / /g,
-                                                ""
-                                              ),
-                                            type: "checkbox"
-                                          },
-                                          domProps: {
-                                            checked: index === 0 || index === 1
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "header",
-                                          {
-                                            staticClass:
-                                              "card-header border-3 position-relative"
-                                          },
-                                          [
-                                            _c("h4", { staticClass: "mb-0" }, [
-                                              _c(
-                                                "strong",
-                                                {
-                                                  staticClass: "card-title mb-4"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    _vm._s(categoria.categoria)
-                                                  )
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("label", {
-                                              staticClass: "mb-0",
-                                              attrs: {
-                                                for:
-                                                  "group-toggle-" +
-                                                  categoria.categoria.replace(
-                                                    / /g,
-                                                    ""
-                                                  )
                                               }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("i", {
-                                              staticClass: "fa fa-chevron-down"
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "table-responsive contenido-categoria px-4"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass: "table table-hover"
-                                              },
-                                              _vm._l(
-                                                categoria.productos,
-                                                function(item, index) {
-                                                  return _c(
-                                                    "div",
-                                                    {
-                                                      key: index,
-                                                      staticClass:
-                                                        "row align-items-center mt-3 flex-nowrap cat-prod"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        { staticClass: "p-2" },
-                                                        [
-                                                          _c(
-                                                            "a",
-                                                            {
-                                                              attrs: {
-                                                                href:
-                                                                  "../productos/" +
-                                                                  item.slug
-                                                              }
-                                                            },
-                                                            [
-                                                              item.portada
-                                                                ? _c("img", {
-                                                                    staticClass:
-                                                                      "icon icon-md rounded-circle",
-                                                                    attrs: {
-                                                                      src:
-                                                                        "../" +
-                                                                        item.portada
-                                                                    }
-                                                                  })
-                                                                : _c("img", {
-                                                                    staticClass:
-                                                                      "icon icon-md rounded-circle",
-                                                                    attrs: {
-                                                                      src:
-                                                                        "../" +
-                                                                        _vm.restportada
-                                                                    }
-                                                                  })
-                                                            ]
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-xl-11 p-2"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "d-flex align-items-md-center"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "product-info"
-                                                                },
-                                                                [
-                                                                  _c(
-                                                                    "h6",
-                                                                    {
-                                                                      staticClass:
-                                                                        "title mb-1"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "a",
-                                                                        {
-                                                                          staticClass:
-                                                                            "bg-white position-relative",
-                                                                          staticStyle: {
-                                                                            "z-index":
-                                                                              "2"
-                                                                          },
-                                                                          attrs: {
-                                                                            href:
-                                                                              "../productos/" +
-                                                                              item.slug
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _vm._v(
-                                                                            " " +
-                                                                              _vm._s(
-                                                                                item.producto
-                                                                              ) +
-                                                                              "  "
-                                                                          )
-                                                                        ]
-                                                                      ),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      item.oferta
-                                                                        ? _c(
-                                                                            "span",
-                                                                            {
-                                                                              staticClass:
-                                                                                "text-warning mr-2",
-                                                                              attrs: {
-                                                                                "data-toggle":
-                                                                                  "tooltip",
-                                                                                title:
-                                                                                  "Oferta/Promoción"
-                                                                              }
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "i",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fas fa-tag"
-                                                                                }
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        : _vm._e(),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "span",
-                                                                        {
-                                                                          staticClass:
-                                                                            "menu-dots"
-                                                                        }
-                                                                      ),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "span",
-                                                                        {
-                                                                          staticClass:
-                                                                            "price bg-white pl-2"
-                                                                        },
-                                                                        [
-                                                                          _vm._v(
-                                                                            "S/ " +
-                                                                              _vm._s(
-                                                                                item.precio
-                                                                              )
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "small",
-                                                                    {
-                                                                      staticClass:
-                                                                        "text-muted"
-                                                                    },
-                                                                    [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          _vm._s(
-                                                                            item.ingredientes
-                                                                          )
-                                                                        )
-                                                                      ])
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "product-btn ml-md-4"
-                                                                },
-                                                                [
-                                                                  _c(
-                                                                    "button",
-                                                                    {
-                                                                      staticClass:
-                                                                        "btn btn-warning",
-                                                                      on: {
-                                                                        click: function(
-                                                                          $event
-                                                                        ) {
-                                                                          return _vm.addProducto(
-                                                                            item
-                                                                          )
-                                                                        }
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _c("i", {
-                                                                        staticClass:
-                                                                          "fas fa-cart-plus"
-                                                                      })
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
-                                                      )
-                                                    ]
-                                                  )
-                                                }
-                                              ),
-                                              0
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                            ],
-                            2
-                          )
-                        : _vm._e()
-                    })
+                                            ),
+                                            0
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ],
+                              2
+                            )
+                          : _vm._e()
+                      })
+                    ]
                   ],
                   2
                 )
@@ -40410,7 +40359,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("div", { staticClass: "table-responsive" }, [
                             _c("table", { staticClass: "table" }, [
-                              _vm._m(0),
+                              _vm._m(1),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -40694,7 +40643,7 @@ var render = function() {
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
-                                                                    _vm._m(1),
+                                                                    _vm._m(2),
                                                                     _vm._v(" "),
                                                                     _c(
                                                                       "table",
@@ -41128,7 +41077,7 @@ var render = function() {
                                                                               " "
                                                                             ),
                                                                             _vm._m(
-                                                                              2
+                                                                              3
                                                                             )
                                                                           ]
                                                                         ),
@@ -41187,7 +41136,7 @@ var render = function() {
                                                                               " "
                                                                             ),
                                                                             _vm._m(
-                                                                              3
+                                                                              4
                                                                             )
                                                                           ]
                                                                         )
@@ -41263,7 +41212,7 @@ var render = function() {
                                                                         },
                                                                         [
                                                                           _vm._m(
-                                                                            4
+                                                                            5
                                                                           )
                                                                         ]
                                                                       )
@@ -41487,6 +41436,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "py-3" }, [
+      _c("h3", [
+        _c("strong", { staticClass: "card-title mb-4" }, [_vm._v("OFERTAS")])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -35,6 +35,8 @@ Route::get('catemenu/{id}', 'EcommerceController@listarCategProducto_rest');
 Route::get('getcategoria', 'EcommerceController@getCategoria_rest');
 Route::get('getbuscador', 'EcommerceController@getBuscador_rest');
 Route::get('getFilterPrice', 'EcommerceController@getFilterPrice_rest');
+Route::get('get_productos_by_oferta', 'EcommerceController@get_productos_by_oferta');
+
 
 // PEDIDO
 Route::post('pedido', 'PedidoController@enviar');

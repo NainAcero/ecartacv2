@@ -212,4 +212,10 @@ class EcommerceController extends Controller
         $tiendas = Tienda::where('codigoqr',$qr)->where('estado', 1)->firstorfail();
         return redirect('r/'.$tiendas->slug);
     }
+
+    public function get_productos_by_oferta(Request $request){
+        $productos = Producto::where('tienda_id', $request->id)
+                        ->where('oferta', '=', 1)->get();
+        return compact('productos');
+    }
 }

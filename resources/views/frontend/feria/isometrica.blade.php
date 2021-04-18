@@ -20,15 +20,16 @@
                                 url({{ URL::asset('img/feria/fondo-isometrico-puertas-der.png') }}),
                                 url({{ URL::asset('img/feria/fondo-isometrico.jpg') }}); ">
 
-              @foreach ([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] as $item)
+              @foreach ($tiendas as $tienda)
               <a href="{{ url('feria/stand') }}" target="_self" class="standIsometrico">
                 <img src="{{ asset('img/feria/rest_1.png') }}" alt="" width="290">
                 <div class="nombre ocultar_name logo">
-                  <img src="{{ asset('img/prueba.jpg') }}" class="w-100" alt="Ok Computer">
+                  <img src="{{asset($tienda->portada)}}" class="w-100" alt="Ok Computer">
                 </div>
                 {{-- <div class="nombre ocultar_name text-center">Ok Computer </div> --}}
               </a>
               @endforeach
+
             </div>
           </div>
         </div>

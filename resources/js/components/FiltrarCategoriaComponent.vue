@@ -106,16 +106,15 @@
                         </div>
                     </header>
                     <template>
-                    <article v-for="(categoria, index) in categorias" v-if="categoria.productos.length > 0" class="mb-3">
-                        <template v-if="categoria.categoria === 'Promociones'">
+                    <template  v-if="ofertas.length > 0">
                         <div class="lista-categoria">
                             <header class="py-3">
                                 <h3>
-                                    <strong class="card-title mb-4">{{categoria.categoria.replace(/\b\w/g, l => l.toUpperCase())}}</strong>
+                                    <strong class="card-title mb-4">OFERTAS</strong>
                                 </h3>
                             </header>
                             <div class="menu-holder mb-5 mt-3">
-                            <div v-for="(item, index) in categoria.productos" :key="index" class="menu-post flex-column text-center">
+                            <div v-for="(item, index) in ofertas" :key="index" class="menu-post flex-column text-center">
                                 <div class="menu-post-img overflow-hidden position-relative" style="max-height:194px">
                                 <a :href="'../productos/'+ item.slug">
                                     <img v-if="item.portada" class="w-100" :src="'../'+item.portada">
@@ -137,8 +136,9 @@
                             </div>
                             </div>
                         </div>
-                        </template>
-                        <template v-else>
+                    </template>
+                    <article v-for="(categoria, index) in categorias" v-if="categoria.productos.length > 0" class="mb-3">
+                        <template >
                         <div class="card lista-categoria">
                             <input :id="'group-toggle-'+categoria.categoria.replace(/ /g,'')" type="checkbox" style="position: absolute; clip: rect(0, 0, 0, 0);" :checked="index === 0 || index === 1">
                             <header class="card-header border-3 position-relative">
@@ -408,6 +408,7 @@
                 dia: 0,
                 selector: 1,
                 horarios: [],
+                ofertas: [],
 
                 carrito:[],
                 newCat:null,
@@ -432,6 +433,7 @@
                 this.listCategoria = res.data.categprod;
             })
             this.get_horarios();
+            this.get_productos_by_oferta();
         },
         // computed:{
         //     buscarMenu: function () {
@@ -451,6 +453,11 @@
                     $('#modal').modal('show');
                 });
                 // console.log(this.selector);
+            },
+            get_productos_by_oferta() {
+                axios.get('../get_productos_by_oferta?id='+this.idrest).then(res=>{
+                    this.ofertas = res.data.productos;
+                })
             },
             getCateProd(){
                 // this.valuemultisel = {iglesia:'Buscar...', codigo:'', manual_online:''}
