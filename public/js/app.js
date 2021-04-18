@@ -39709,9 +39709,7 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("h5", { staticClass: "p-2 m-0 col-md-6" }, [
-                              _vm._v("Ver Canasta")
-                            ])
+                            _vm._m(0)
                           ]
                         )
                       : _vm._e()
@@ -39837,7 +39835,7 @@ var render = function() {
                       _vm.ofertas.length > 0
                         ? [
                             _c("div", { staticClass: "lista-categoria" }, [
-                              _vm._m(0),
+                              _vm._m(1),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -40325,7 +40323,7 @@ var render = function() {
                         },
                         [
                           _c("i", { staticClass: "fa fa-arrow-circle-left" }),
-                          _vm._v(" Continuar comprando")
+                          _vm._v(" Ir a la Carta")
                         ]
                       ),
                       _vm._v(" "),
@@ -40353,13 +40351,11 @@ var render = function() {
                   _vm.listwsp.length > 0
                     ? _c("div", { staticClass: "mt-4" }, [
                         _c("div", { staticClass: "bg-white cart-wrapper" }, [
-                          _c("h4", { staticClass: "pb-4" }, [
-                            _vm._v("Canasta")
-                          ]),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c("div", { staticClass: "table-responsive" }, [
                             _c("table", { staticClass: "table" }, [
-                              _vm._m(1),
+                              _vm._m(3),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -40643,7 +40639,7 @@ var render = function() {
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
-                                                                    _vm._m(2),
+                                                                    _vm._m(4),
                                                                     _vm._v(" "),
                                                                     _c(
                                                                       "table",
@@ -40862,7 +40858,7 @@ var render = function() {
                                                                             "label",
                                                                             [
                                                                               _vm._v(
-                                                                                "Teléfono"
+                                                                                "Celular"
                                                                               )
                                                                             ]
                                                                           ),
@@ -41013,7 +41009,7 @@ var render = function() {
                                                                       },
                                                                       [
                                                                         _vm._v(
-                                                                          "Seleccione el delivery"
+                                                                          "Seleccionar Delivery"
                                                                         )
                                                                       ]
                                                                     ),
@@ -41077,7 +41073,7 @@ var render = function() {
                                                                               " "
                                                                             ),
                                                                             _vm._m(
-                                                                              3
+                                                                              5
                                                                             )
                                                                           ]
                                                                         ),
@@ -41136,7 +41132,7 @@ var render = function() {
                                                                               " "
                                                                             ),
                                                                             _vm._m(
-                                                                              4
+                                                                              6
                                                                             )
                                                                           ]
                                                                         )
@@ -41212,7 +41208,7 @@ var render = function() {
                                                                         },
                                                                         [
                                                                           _vm._m(
-                                                                            5
+                                                                            7
                                                                           )
                                                                         ]
                                                                       )
@@ -41440,10 +41436,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "p-2 m-0 col-md-6" }, [
+      _c("i", { staticClass: "fas fa-shopping-basket" }),
+      _vm._v(" Ver Canasta")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("header", { staticClass: "py-3" }, [
       _c("h3", [
         _c("strong", { staticClass: "card-title mb-4" }, [_vm._v("OFERTAS")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", { staticClass: "pb-4" }, [
+      _c("i", { staticClass: "fas fa-shopping-basket" }),
+      _vm._v(" Canasta")
     ])
   },
   function() {
