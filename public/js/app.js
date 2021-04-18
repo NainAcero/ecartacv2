@@ -39696,9 +39696,7 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("h5", { staticClass: "p-2 m-0 col-md-6" }, [
-                              _vm._v("Ver Canasta")
-                            ])
+                            _vm._m(0)
                           ]
                         )
                       : _vm._e()
@@ -40371,7 +40369,7 @@ var render = function() {
                         },
                         [
                           _c("i", { staticClass: "fa fa-arrow-circle-left" }),
-                          _vm._v(" Continuar comprando")
+                          _vm._v(" Ir a la Carta")
                         ]
                       ),
                       _vm._v(" "),
@@ -40399,13 +40397,11 @@ var render = function() {
                   _vm.listwsp.length > 0
                     ? _c("div", { staticClass: "mt-4" }, [
                         _c("div", { staticClass: "bg-white cart-wrapper" }, [
-                          _c("h4", { staticClass: "pb-4" }, [
-                            _vm._v("Canasta")
-                          ]),
+                          _vm._m(1),
                           _vm._v(" "),
                           _c("div", { staticClass: "table-responsive" }, [
                             _c("table", { staticClass: "table" }, [
-                              _vm._m(0),
+                              _vm._m(2),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -40678,7 +40674,7 @@ var render = function() {
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
-                                                                    _vm._m(1),
+                                                                    _vm._m(3),
                                                                     _vm._v(" "),
                                                                     _c(
                                                                       "table",
@@ -40897,7 +40893,7 @@ var render = function() {
                                                                             "label",
                                                                             [
                                                                               _vm._v(
-                                                                                "Teléfono"
+                                                                                "Celular"
                                                                               )
                                                                             ]
                                                                           ),
@@ -41048,7 +41044,7 @@ var render = function() {
                                                                       },
                                                                       [
                                                                         _vm._v(
-                                                                          "Seleccione el delivery"
+                                                                          "Seleccionar Delivery"
                                                                         )
                                                                       ]
                                                                     ),
@@ -41112,7 +41108,7 @@ var render = function() {
                                                                               " "
                                                                             ),
                                                                             _vm._m(
-                                                                              2
+                                                                              4
                                                                             )
                                                                           ]
                                                                         ),
@@ -41171,7 +41167,7 @@ var render = function() {
                                                                               " "
                                                                             ),
                                                                             _vm._m(
-                                                                              3
+                                                                              5
                                                                             )
                                                                           ]
                                                                         )
@@ -41247,7 +41243,7 @@ var render = function() {
                                                                         },
                                                                         [
                                                                           _vm._m(
-                                                                            4
+                                                                            6
                                                                           )
                                                                         ]
                                                                       )
@@ -41471,6 +41467,24 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "p-2 m-0 col-md-6" }, [
+      _c("i", { staticClass: "fas fa-shopping-basket" }),
+      _vm._v(" Ver Canasta")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", { staticClass: "pb-4" }, [
+      _c("i", { staticClass: "fas fa-shopping-basket" }),
+      _vm._v(" Canasta")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -53951,7 +53965,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltrarCategoriaComponent_vue_vue_type_style_index_0_id_67d0f5f2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./FiltrarCategoriaComponent.vue?vue&type=style&index=0&id=67d0f5f2&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FiltrarCategoriaComponent.vue?vue&type=style&index=0&id=67d0f5f2&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltrarCategoriaComponent_vue_vue_type_style_index_0_id_67d0f5f2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltrarCategoriaComponent_vue_vue_type_style_index_0_id_67d0f5f2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltrarCategoriaComponent_vue_vue_type_style_index_0_id_67d0f5f2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltrarCategoriaComponent_vue_vue_type_style_index_0_id_67d0f5f2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltrarCategoriaComponent_vue_vue_type_style_index_0_id_67d0f5f2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
 
 /***/ }),
 
@@ -53991,8 +54005,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/williamcalisaya/Proyectos/laravel/ecartacv2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/williamcalisaya/Proyectos/laravel/ecartacv2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
