@@ -111,6 +111,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Dirección</th>
+                        <th scope="col">Restaurante</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Acciones</th>
                       </tr>
@@ -159,6 +160,7 @@
             htmlOptions += `<td>${pedido.nombre}</td>`;
             htmlOptions += `<td>${pedido.telefono}</td>`;
             htmlOptions += `<td>${pedido.direccion}</td>`;
+            htmlOptions += `<td>${pedido.tienda}</td>`;
             if(pedido.estado == 1){
                 htmlOptions += `<td><button type="button" class="btn btn-danger btn-sm">En espera</button></td>`;
             } else if(pedido.estado == 2) {
@@ -253,6 +255,8 @@
         cargarPedidos();
         setTimeout(function(){ play_audio("play"); }, 500);
     });
+
+
 </script>
 
 @endsection

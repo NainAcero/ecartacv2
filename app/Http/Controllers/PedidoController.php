@@ -29,6 +29,8 @@ class PedidoController extends Controller
 
             DB::beginTransaction();
 
+            $tienda = Tienda::where('id', '=', $request->tienda_id)->first();
+
             $pedido = Pedido::create([
                 "tienda_id" => $request->tienda_id,
                 "nombre" => $request->nombre,
@@ -54,6 +56,7 @@ class PedidoController extends Controller
                     "nombre" => $request->nombre,
                     "telefono" => $request->telefono,
                     "direccion" => $request->direccion,
+                    "tienda" => $tienda->tienda,
                     "estado" => 1
                 ]));
             }
@@ -64,7 +67,8 @@ class PedidoController extends Controller
                 "nombre" => $request->nombre,
                 "telefono" => $request->telefono,
                 "direccion" => $request->direccion,
-                "estado" => 1
+                "tienda" => $tienda->tienda,
+                "estado" => $request->estado
             ]));
 
             $mensaje = "Pedido enviado con éxito....";
@@ -87,10 +91,12 @@ class PedidoController extends Controller
         $fi = Carbon::parse(Carbon::now())->format('Y-m-d').' 00:00:00';
         $ff = Carbon::parse(Carbon::now())->format('Y-m-d').' 23:59:59';
 
-        $pedidos = Pedido::whereBetween('created_at',[$fi , $ff ])
-            ->select("id", "tienda_id", "nombre", "telefono", "direccion", "estado")
-            ->orderBy("id", "DESC")
-            ->where("estado", "<>", 5)
+        $pedidos = Pedido::join('tiendas', 'pedidos.tienda_id', '=', 'tiendas.id')
+            ->whereBetween('pedidos.created_at',[$fi , $ff ])
+            ->select("pedidos.id", "pedidos.tienda_id", "pedidos.nombre", "pedidos.telefono",
+                "pedidos.direccion", "pedidos.estado", "tiendas.tienda")
+            ->orderBy("pedidos.id", "DESC")
+            ->where("pedidos.estado", "<>", 5)
             ->get();
 
         return response()->json(compact('pedidos'),200);
@@ -113,6 +119,7 @@ class PedidoController extends Controller
         $pedido = Pedido::where('id', '=', $request->id)->first();
 
         $pedido->estado = 2;
+        event(new \App\Events\RestauranteNotification($request->id));
         $pedido->save();
     }
 
