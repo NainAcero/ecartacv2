@@ -82,7 +82,7 @@
                         <div class="col-md-5 col-3">
                         <span class="py-1 px-2 text-white rounded" style="background:#ff8c3b" >{{ listwsp.length }}</span>
                         </div>
-                        <h5 class="p-2 m-0 col-md-6">Ver Canasta</h5>
+                        <h5 class="p-2 m-0 col-md-6"> <i class="fas fa-shopping-basket"></i> Ver Canasta</h5>
                     </a>
                   </div>
                 </div>
@@ -207,13 +207,13 @@
                 </div> -->
                 <main class="col-md-12">
                     <div class="d-flex justify-content-between flex-column flex-md-row">
-                    <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0""><i class="fa fa-arrow-circle-left"></i> Continuar comprando</button>
+                    <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0""><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
                     <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
                     </div>
                     <div class="mt-4" v-if="listwsp.length > 0">
                         <!-- <h4 class="py-4">Su Canasta</h4> -->
                         <div class="bg-white cart-wrapper">
-                        <h4 class="pb-4">Canasta</h4>
+                        <h4 class="pb-4"> <i class="fas fa-shopping-basket"></i> Canasta</h4>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class="text-muted cart-header">
@@ -297,7 +297,7 @@
                                                                     <input type="text" v-model="model.nombre" class="form-control">
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label >Teléfono</label>
+                                                                        <label >Celular</label>
                                                                         <input type="tel" v-model="model.telefono" class="form-control">
                                                                     </div>
                                                                     <div class="form-group">
@@ -307,7 +307,7 @@
                                                                     </div>
                                                                 </template>
                                                                 <template v-else-if="modal_page === 1">
-                                                                <h4 class="modal-title" id="exampleModalLongTitle">Seleccione el delivery</h4>
+                                                                <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
                                                                 <div class="options-wrapper">
                                                                     <div class="option">
                                                                     <input type="radio" name="delivery" id="deliv_res" v-model="selector" value="5">
