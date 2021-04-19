@@ -1304,7 +1304,7 @@ img:hover {
 
     margin: 0 auto;
 
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 .centroFeria .titulo {
@@ -1348,12 +1348,10 @@ img:hover {
 }
 
 .centroFeria .recorridoMascara {
-    -webkit-box-shadow: 0 0 8px 2px #000000a6;
-    box-shadow: 0 0 8px 2px #000000a6;
+    /* -webkit-box-shadow: 0 0 8px 2px #000000a6;
+    box-shadow: 0 0 8px 2px #000000a6; */
 
     height: 541px;
-
-    margin: 20px 0;
 
     position: relative;
 
@@ -1361,8 +1359,8 @@ img:hover {
 }
 
 .centroFeria .recorridoMascaraIsometrica {
-    -webkit-box-shadow: 0 0 8px 2px #000000a6;
-    box-shadow: 0 0 8px 2px #000000a6;
+    /* -webkit-box-shadow: 0 0 8px 2px #000000a6;
+    box-shadow: 0 0 8px 2px #000000a6; */
 
     height: auto;
 
