@@ -22,9 +22,13 @@
 
               @foreach ($tiendas as $tienda)
               <a href="{{ url('feria/stand') }}" target="_self" class="standIsometrico">
-                <img src="{{ asset('img/feria/rest_1.png') }}" alt="" width="290">
-                <div class="nombre ocultar_name logo">
+                <img src="{{ asset('img/feria/rest_1.png') }}" alt="">
+                <div class="nombre logo">
                   <img src="{{asset($tienda->portada)}}" class="w-100" alt="Ok Computer">
+                  <div class="nombre-tienda text-dark text-center">{{$tienda->tienda}}</div>
+                </div>
+                <div class="content">
+                  <div class="text-dark text-center">{{$tienda->tienda}}</div>
                 </div>
                 {{-- <div class="nombre ocultar_name text-center">Ok Computer </div> --}}
               </a>

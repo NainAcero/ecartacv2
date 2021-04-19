@@ -99,26 +99,29 @@
 
     .btn-flotante {
       font-size: 16px;
-      /* Cambiar el tamaño de la tipografia */
       text-transform: uppercase;
-      /* Texto en mayusculas */
       font-weight: bold;
-      /* Fuente en negrita o bold */
       color: #ffffff;
-      /* Color del texto */
       border-radius: 5px;
-      /* Borde del boton */
       background-color: #ff6a00;
-      /* Color de fondo */
       padding: 14px 30px;
-      /* Relleno del boton */
+
+      -webkit-transition: all 300ms ease 0ms;
+
+      -o-transition: all 300ms ease 0ms;
 
       transition: all 300ms ease 0ms;
+      -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
-      display: flex;
-      align-items: center;
+      display: -webkit-box;
 
+      display: -ms-flexbox;
+
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
     }
 
     .btn-flotante h5 {
@@ -127,27 +130,27 @@
 
     .btn-flotante-ecart {
       font-weight: bold;
-      /* Fuente en negrita o bold */
       color: #000;
-      /* Color del texto */
       border-radius: 5px;
-      /* Borde del boton */
       background-color: #fff;
-      /* Color de fondo */
       padding: 18px 30px;
-      /* Relleno del boton */
       position: fixed;
       bottom: 0px;
       right: 0px;
+      -webkit-transition: all 300ms ease 0ms;
+      -o-transition: all 300ms ease 0ms;
       transition: all 300ms ease 0ms;
+      -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
       z-index: 99;
     }
 
     .btn-flotante:hover {
       background-color: #F79D5C;
-      /* Color de fondo al pasar el cursor */
+      -webkit-box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
       box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+      -webkit-transform: translateY(-7px);
+      -ms-transform: translateY(-7px);
       transform: translateY(-7px);
       color: #fff
     }
@@ -160,9 +163,6 @@
       .btn-flotante {
         font-size: 14px;
         padding: 12px 20px;
-        /* bottom: 20px;
-            right: 9px;
-            width: 95%; */
       }
     }
   </style>
