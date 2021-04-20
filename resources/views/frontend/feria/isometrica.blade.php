@@ -53,20 +53,20 @@
                   </div>
                 </div>
 
-                {{-- <div class="marcoBotonesDesplegables" data-id="1532">
+                <div class="marcoBotonesDesplegables" data-id="1532">
                   <div class="botonContactanos botonesLargos">
-                    <a href="https://www.facebook.com/Culturaltacna" target="_blank">
+                    <a href="https://www.facebook.com/MunicipalidadProvincialDeTacna" target="_blank">
                       <img src="{{ asset('img/feria/bc_facebook.png' ) }} ">
                 </a>
               </div>
 
-              <div class="botonContactanos botonesLargos">
+              {{-- <div class="botonContactanos botonesLargos">
                 <a href="https://www.instagram.com/Cultural.tacna/" target="_blank">
                   <img src="{{ asset('img/feria/bc_instagram.png' ) }}">
                 </a>
-              </div>
+              </div> --}}
 
-              <div class="botonContactanos botonesLargos">
+              {{-- <div class="botonContactanos botonesLargos">
                 <a href="https://cultural.edu.pe/tacna/" target="_blank">
                   <img src="{{ asset('img/feria/bc_web.png' ) }}">
                 </a>
