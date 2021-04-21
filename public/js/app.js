@@ -2519,8 +2519,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           _this7.saveCarts();
 
-          if (Number(_this7.selector) == 1) {
-            window.open('https://wa.me/51931375941?text=Hola, deseo realizar este pedido. ' + _this7.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+          if (Number(_this7.selector) > 0) {
+            window.open('https://wa.me/' + res.data.delivery.celular + '?text=Hola, deseo realizar este pedido. ' + _this7.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           } else {
             window.open('https://wa.me/51' + _this7.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this7.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           }

@@ -38,7 +38,7 @@ class PedidoController extends Controller
                 "nombre" => $request->nombre,
                 "telefono" => $request->telefono,
                 "direccion" => $request->direccion,
-                "delivery_id" => $request->estado
+                "delivery_id" => ($request->estado == 0)? null : $request->estado,
             ]);
 
             foreach($request->productos as $p) {
@@ -52,6 +52,7 @@ class PedidoController extends Controller
             DB::commit();
 
             $nombres = "";
+            $delivery = null;
 
             if($request->estado != 0) {
                 event(new \App\Events\PedidoEvent([
@@ -83,7 +84,7 @@ class PedidoController extends Controller
             ]));
 
             $mensaje = "Pedido enviado con éxito....";
-            return response()->json(compact('mensaje'),201);
+            return response()->json(compact('mensaje', 'delivery'),201);
 
         } catch (Exception $e) {
             DB::rollback();

@@ -49,10 +49,10 @@
                     <tbody>
                         @foreach ($users as $index => $user)
                             <tr>
-                                <td>{{$user->persona->nombres}} {{$user->persona->apellidos}}</td>
+                                <td>{{$user->nombres}} {{$user->apellidos}}</td>
                                 <td>{{$user->username}}</td>
-                                <td>{{$user->persona->celular}}</td>
-                                @if ($user->persona->estado == 1)
+                                <td>{{$user->celular}}</td>
+                                @if ($user->estado == 1)
                                     <td><small class="badge badge-success">Activo</small></td>
                                 @else
                                     <td><small class="badge badge-danger">Inactivo</small></td>

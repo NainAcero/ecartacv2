@@ -538,8 +538,8 @@
                         toastr.success("Pedido Enviado con éxito")
                         this.carrito = []
                         this.saveCarts();
-                        if(Number(this.selector) == 1){
-                            window.open('https://wa.me/51931375941?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A Gracias', '_blank');
+                        if(Number(this.selector) > 0){
+                            window.open('https://wa.me/'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A Gracias', '_blank');
                         }else{
                             window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A Gracias', '_blank');
                         }

@@ -17,7 +17,7 @@ class CreatePedidosTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('tienda_id')->unsigned();
-            $table->bigInteger('delivery_id')->unsigned();
+            $table->bigInteger('delivery_id')->unsigned()->nullable();
 
             $table->String('nombre', 120);
             $table->String('telefono', 30);

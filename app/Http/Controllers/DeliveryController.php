@@ -21,8 +21,8 @@ class DeliveryController extends Controller
      */
     public function index()
     {
-        $users = User::join('model_has_roles as mr', 'mr.model_id', 'users.id')
-            ->where('mr.role_id', '=', 4)
+        $users = Delivery::join('personas', 'personas.id', 'deliveries.persona_id')
+            ->join('users', 'users.id', 'personas.user_id')
             ->get();
 
         return view('admin.mantenimiento.delivery.index', compact('users'));
