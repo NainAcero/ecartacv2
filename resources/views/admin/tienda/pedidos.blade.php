@@ -83,6 +83,7 @@
                         <th scope="col">Teléfono</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Estado</th>
+                        <th scope="col">Delivery</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
@@ -134,13 +135,14 @@
             htmlOptions += `<td>${pedido.nombre}</td>`;
             htmlOptions += `<td>${pedido.telefono}</td>`;
             htmlOptions += `<td>${pedido.direccion}</td>`;
-            if(pedido.estado == 1){
+            if(pedido.aceptar == 0){
                 htmlOptions += `<td><button type="button" class="btn btn-danger btn-sm">En espera</button></td>`;
-            } else if(pedido.estado == 2) {
+            } else if(pedido.aceptar == 1) {
                 htmlOptions += `<td><button type="button" class="btn btn-success btn-sm">Recibido</button></td>`;
-            } else if(pedido.estado == 5) {
-                htmlOptions += `<td><button type="button" class="btn btn-warning btn-sm">Sin Delivery</button></td>`;
             }
+
+            htmlOptions += `<td>${pedido.nombres}</td>`;
+
             htmlOptions += `<td>
                 <button class="btn btn-success btn-sm text-white" onclick="shoProductos(${pedido.id})" data-toggle="modal" data-target="#pedidosModal"><i class="fas fa-shopping-cart"></i></button>
             </td>`;
@@ -204,7 +206,7 @@
     notification.bind('restaurante-evento', function(data) {
         pedidos = pedidos.map(function(pedido) {
             if(pedido.id == parseInt(data.id)) {
-                pedido.estado = 2;
+                pedido.aceptar = 1;
                 setTimeout(function(){ play_audio("play"); }, 500);
                 toastr.success("Pedido Recibido", "info");
             }

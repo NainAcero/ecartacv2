@@ -120,6 +120,7 @@
 
                     </tbody>
                   </table>
+                  <input type="hidden" name="delivery" id="delivery" value="{{ $delivery->id }}">
             </div>
             <!-- /.card-body -->
             </div>
@@ -161,9 +162,9 @@
             htmlOptions += `<td>${pedido.telefono}</td>`;
             htmlOptions += `<td>${pedido.direccion}</td>`;
             htmlOptions += `<td>${pedido.tienda}</td>`;
-            if(pedido.estado == 1){
+            if(pedido.aceptar == 0){
                 htmlOptions += `<td><button type="button" class="btn btn-danger btn-sm">En espera</button></td>`;
-            } else if(pedido.estado == 2) {
+            } else if(pedido.aceptar == 1) {
                 htmlOptions += `<td><button type="button" class="btn btn-success btn-sm">Recibido</button></td>`;
             }
 
@@ -191,7 +192,7 @@
     function showPedido(id) {
         pedidos = pedidos.map(function(pedido) {
             if(pedido.id == id) {
-                pedido.estado = 2;
+                pedido.aceptar = 1;
             }
             return pedido;
         });
@@ -250,12 +251,13 @@
     var channel = pusher.subscribe('chat-channel');
 
     channel.bind('chat-event', function(data) {
-        console.log(data);
-        pedidos.unshift(data.pedido);
-        cargarPedidos();
-        setTimeout(function(){ play_audio("play"); }, 500);
+        $delivery_id = $('#delivery').val();
+        if(data.pedido.delivery_id == $delivery_id) {
+            pedidos.unshift(data.pedido);
+            cargarPedidos();
+            setTimeout(function(){ play_audio("play"); }, 500);
+        }
     });
-
 
 </script>
 

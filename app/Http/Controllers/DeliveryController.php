@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Delivery;
 use App\Persona;
+use App\RestDelivery;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -69,6 +72,10 @@ class DeliveryController extends Controller
             $persona->estado = 1;
             $persona->save();
 
+            $delivery = new Delivery();
+            $delivery->persona_id = $persona->id;
+            $delivery->save();
+
             DB::commit();
             return redirect()->route('delivery.index')
                 ->with('info', 'El registro se guardo con éxito');
@@ -82,48 +89,44 @@ class DeliveryController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function show_restaurante() {
+        $deliveries = RestDelivery::where('tienda_id', '=', Auth::user()->mitienda->id)
+                ->join('deliveries', 'deliveries.id', 'rest_deliveries.delivery_id')
+                ->join('personas', 'deliveries.persona_id', 'personas.id')
+                ->get();
+
+        return view('admin.tienda.delivery-index',compact('deliveries'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function crear_restaurante() {
+        $deliveries = Delivery::join('personas', 'personas.id', 'deliveries.persona_id')
+            ->select("deliveries.id", "personas.nombres")
+            ->get();
+
+        return view('admin.tienda.delivery-create',compact('deliveries'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function restaurante_store(Request $request) {
+        if(count($request->deliveries) > 0) {
+            foreach($request->deliveries as $delivery) {
+                $resDelivery = RestDelivery::create([
+                    "delivery_id" => $delivery,
+                    "tienda_id" => Auth::user()->mitienda->id
+                ]);
+            }
+            return redirect()->route("restaurante.delivery-show");
+        }else{
+            return back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function get_deliveries(Request $request) {
+        $deliveries = RestDelivery::where('tienda_id', '=', $request->id)
+            ->join('deliveries', 'deliveries.id', 'rest_deliveries.delivery_id')
+            ->join('personas', 'deliveries.persona_id', 'personas.id')
+            ->select('deliveries.id', 'personas.nombres')
+            ->get();
+
+        return response()->json(compact('deliveries'),200);
     }
 }

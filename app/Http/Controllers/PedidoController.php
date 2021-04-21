@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Carta;
+use App\Delivery;
 use App\Pedido;
 use App\Tienda;
 use Illuminate\Support\Facades\Validator;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -36,7 +38,7 @@ class PedidoController extends Controller
                 "nombre" => $request->nombre,
                 "telefono" => $request->telefono,
                 "direccion" => $request->direccion,
-                "estado" => $request->estado
+                "delivery_id" => $request->estado
             ]);
 
             foreach($request->productos as $p) {
@@ -49,7 +51,9 @@ class PedidoController extends Controller
             }
             DB::commit();
 
-            if($request->estado == 1) {
+            $nombres = "";
+
+            if($request->estado != 0) {
                 event(new \App\Events\PedidoEvent([
                     "id" => $pedido->id,
                     "tienda_id" => $request->tienda_id,
@@ -57,8 +61,13 @@ class PedidoController extends Controller
                     "telefono" => $request->telefono,
                     "direccion" => $request->direccion,
                     "tienda" => $tienda->tienda,
-                    "estado" => 1
+                    "delivery_id" => $request->estado,
+                    "aceptar" => 0,
                 ]));
+
+                $delivery = Delivery::join('personas', 'personas.id', 'deliveries.persona_id')
+                    ->where('deliveries.id', '=', $request->estado)->first();
+                $nombres = $delivery->nombres;
             }
 
             event(new \App\Events\RestauranteEvent([
@@ -68,7 +77,9 @@ class PedidoController extends Controller
                 "telefono" => $request->telefono,
                 "direccion" => $request->direccion,
                 "tienda" => $tienda->tienda,
-                "estado" => $request->estado
+                "delivery_id" => $request->estado,
+                "nombres" => $nombres,
+                "aceptar" => 0,
             ]));
 
             $mensaje = "Pedido enviado con éxito....";
@@ -84,7 +95,10 @@ class PedidoController extends Controller
     }
 
     public function pedidos() {
-        return view('admin.delivery.pedidos');
+        $user_id = Auth::user()->persona->id;
+        $delivery = Delivery::where('persona_id', '=', $user_id)->first();
+
+        return view('admin.delivery.pedidos', compact('delivery'));
     }
 
     public function get_pedidos() {
@@ -94,9 +108,9 @@ class PedidoController extends Controller
         $pedidos = Pedido::join('tiendas', 'pedidos.tienda_id', '=', 'tiendas.id')
             ->whereBetween('pedidos.created_at',[$fi , $ff ])
             ->select("pedidos.id", "pedidos.tienda_id", "pedidos.nombre", "pedidos.telefono",
-                "pedidos.direccion", "pedidos.estado", "tiendas.tienda")
+                "pedidos.direccion", "pedidos.delivery_id", "tiendas.tienda", "aceptar")
             ->orderBy("pedidos.id", "DESC")
-            ->where("pedidos.estado", "<>", 5)
+            ->where("pedidos.delivery_id", "<>", 0)
             ->get();
 
         return response()->json(compact('pedidos'),200);
@@ -118,7 +132,7 @@ class PedidoController extends Controller
     public function enviar_delivery(Request $request) {
         $pedido = Pedido::where('id', '=', $request->id)->first();
 
-        $pedido->estado = 2;
+        $pedido->aceptar = 1;
         event(new \App\Events\RestauranteNotification($request->id));
         $pedido->save();
     }
@@ -134,10 +148,12 @@ class PedidoController extends Controller
         $fi = Carbon::parse(Carbon::now())->format('Y-m-d').' 00:00:00';
         $ff = Carbon::parse(Carbon::now())->format('Y-m-d').' 23:59:59';
 
-        $pedidos = Pedido::whereBetween('created_at',[$fi , $ff ])
-            ->where('tienda_id', "=", $request->id)
-            ->select("id", "tienda_id", "nombre", "telefono", "direccion", "estado")
-            ->orderBy("id", "DESC")
+        $pedidos = Pedido::join('deliveries', 'deliveries.id', 'pedidos.delivery_id')
+            ->join('personas', 'deliveries.persona_id', 'personas.id')
+            ->whereBetween('pedidos.created_at',[$fi , $ff ])
+            ->where('pedidos.tienda_id', "=", $request->id)
+            ->select("pedidos.id", "pedidos.tienda_id", "pedidos.nombre", "pedidos.telefono", "pedidos.direccion", "pedidos.delivery_id", "aceptar", "nombres")
+            ->orderBy("pedidos.id", "DESC")
             ->get();
 
         return response()->json(compact('pedidos'),200);

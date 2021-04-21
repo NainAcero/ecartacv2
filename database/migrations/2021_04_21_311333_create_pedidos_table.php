@@ -17,13 +17,18 @@ class CreatePedidosTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('tienda_id')->unsigned();
+            $table->bigInteger('delivery_id')->unsigned();
 
             $table->String('nombre', 120);
             $table->String('telefono', 30);
             $table->String('direccion');
-            $table->SmallInteger('estado')->default(1);
+
+            $table->boolean('aceptar')->default(0)->nullable();
 
             $table->foreign('tienda_id')->references('id')->on('tiendas')
+                ->onUpdate('cascade');
+
+            $table->foreign('delivery_id')->references('id')->on('deliveries')
                 ->onUpdate('cascade');
             $table->timestamps();
         });

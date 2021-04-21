@@ -17,7 +17,7 @@
                 <p>Home</p>
                 </a>
             </li>
-            @hasanyrole('Delivery')
+            @hasanyrole('Delivery|DeliveryRestaurante')
             <li class="nav-item ">
                 <a href="{{url('pedidos')}}" class="nav-link {{ (request()->is('pedidos')) ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
@@ -105,6 +105,17 @@
                     <a href="{{ route('horarios.show', [Auth::user()->mitienda->id]) }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                     <p>Horarios</p>
+                    </a>
+                </li>
+            @endif
+            @endhasanyrole
+
+            @hasanyrole('Tienda')
+            @if(Auth::user()->mitienda != null)
+                <li class="nav-item">
+                    <a href="{{ url('restaurante/delivery-show') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                    <p>Delivery</p>
                     </a>
                 </li>
             @endif

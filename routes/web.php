@@ -47,17 +47,22 @@ Route::get('feria/isometrica', 'FeriaController@isometrica')->name('isometrica')
 Route::get('feria/stand', 'FeriaController@stand')->name('stand');
 
 Route::get('get_horarios', 'HorarioController@get_horarios');
+Route::get('get_deliveries', 'DeliveryController@get_deliveries');
 
 // Route::get('/productos', function () {
 //     return view('frontend.detalleproducto');
 // });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('pedidos', 'PedidoController@pedidos')->middleware('role:Delivery');
-    Route::get('get_pedidos', 'PedidoController@get_pedidos')->middleware('role:Delivery');
-    Route::get('get_restaurante', 'PedidoController@get_restaurante')->middleware('role:Delivery');
-    Route::get('get_productos', 'PedidoController@get_productos')->middleware('role:Delivery|Tienda');
-    Route::get('enviar_delivery', 'PedidoController@enviar_delivery')->middleware('role:Delivery');
+    Route::get('pedidos', 'PedidoController@pedidos')->middleware('role:Delivery|DeliveryRestaurante');
+    Route::get('get_pedidos', 'PedidoController@get_pedidos')->middleware('role:Delivery|DeliveryRestaurante');
+    Route::get('get_restaurante', 'PedidoController@get_restaurante')->middleware('role:Delivery|DeliveryRestaurante');
+    Route::get('get_productos', 'PedidoController@get_productos')->middleware('role:Delivery|Tienda|DeliveryRestaurante');
+    Route::get('enviar_delivery', 'PedidoController@enviar_delivery')->middleware('role:Delivery|DeliveryRestaurante');
+
+    Route::get('restaurante/delivery-show', 'DeliveryController@show_restaurante')->middleware('role:Tienda')->name('restaurante.delivery-show');
+    Route::get('restaurante/delivery', 'DeliveryController@crear_restaurante')->middleware('role:Tienda');
+    Route::post('restaurante/restaurante_store', 'DeliveryController@restaurante_store')->middleware('role:Tienda')->name('delivery.restaurante_store');
 
     Route::get('pedidosTienda', 'PedidoController@tienda')->middleware('role:Tienda');
     Route::get('get_pedidos_restaurante', 'PedidoController@get_pedidos_restaurante')->middleware('role:Tienda');

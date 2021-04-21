@@ -209,6 +209,7 @@
                     <div class="d-flex justify-content-between flex-column flex-md-row">
                     <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0""><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
                     <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
+
                     </div>
                     <div class="mt-4" v-if="listwsp.length > 0">
                         <!-- <h4 class="py-4">Su Canasta</h4> -->
@@ -311,24 +312,25 @@
                                                                 <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
                                                                 <div class="options-wrapper">
                                                                     <div class="option">
-                                                                    <input type="radio" name="delivery" id="deliv_res" v-model="selector" value="5">
-                                                                    <div class="option-body">
-                                                                        <div class="option-img">
-                                                                        <i class="fab fa-whatsapp"></i>
+                                                                        <input type="radio" name="delivery" id="deliv_res" v-model="selector" value="0">
+                                                                        <div class="option-body">
+                                                                            <div class="option-img">
+                                                                            <i class="fab fa-whatsapp"></i>
+                                                                            </div>
+                                                                            <strong>Restaurante</strong>
+                                                                            <label for="deliv_res"></label>
                                                                         </div>
-                                                                        <strong>Restaurante</strong>
-                                                                        <label for="deliv_res"></label>
                                                                     </div>
-                                                                    </div>
-                                                                    <div class="option">
-                                                                    <input type="radio" name="delivery" id="deliv_gad" v-model="selector" value="1">
-                                                                    <div class="option-body">
-                                                                        <div class="option-img">
-                                                                        <i class="fas fa-motorcycle"></i>
+
+                                                                    <div class="option" v-for="(delivery, index) in deliveries">
+                                                                        <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" v-bind:value="delivery.id">
+                                                                        <div class="option-body">
+                                                                            <div class="option-img">
+                                                                            <i class="fas fa-motorcycle"></i>
+                                                                            </div>
+                                                                            <strong>{{ delivery.nombres }}</strong>
+                                                                            <label v-bind:for="delivery.id"></label>
                                                                         </div>
-                                                                        <strong>Gadeli</strong>
-                                                                        <label for="deliv_gad"></label>
-                                                                    </div>
                                                                     </div>
                                                                 </div>
 
@@ -409,6 +411,7 @@
                 selector: 1,
                 horarios: [],
                 ofertas: [],
+                deliveries: [],
 
                 carrito:[],
                 newCat:null,
@@ -434,6 +437,7 @@
             })
             this.get_horarios();
             this.get_productos_by_oferta();
+            this.get_deliveries();
         },
         // computed:{
         //     buscarMenu: function () {
@@ -444,6 +448,13 @@
 
             changeTab() {
                 this.tab = !this.tab;
+            },
+
+            get_deliveries(){
+                axios.get('../get_deliveries?id='+this.idrest).then(res=>{
+                    this.deliveries = res.data.deliveries;
+                    console.log(this.deliveries);
+                })
             },
 
             showModal(select) {

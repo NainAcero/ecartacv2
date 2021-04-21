@@ -9,7 +9,7 @@ class Pedido extends Model
     protected $table = 'pedidos';
 
     protected $fillable = [
-        'tienda_id', 'nombre', 'telefono', 'direccion', 'estado'
+        'tienda_id', 'nombre', 'telefono', 'direccion', 'delivery_id', 'aceptar'
     ];
 
     public function cartas() {

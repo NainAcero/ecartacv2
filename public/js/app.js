@@ -2374,6 +2374,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
@@ -2389,7 +2391,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       restdescripcion: this.descripcion,
       resttienda: this.tienda,
       restimagen_pri: "min-height:320px; background-image: url(../" + this.imagen_pri + ");"
-    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "ofertas", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
+    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "ofertas", []), _defineProperty(_ref, "deliveries", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
       nombre: '',
       telefono: '',
       direccion: ''
@@ -2405,6 +2407,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
     this.get_horarios();
     this.get_productos_by_oferta();
+    this.get_deliveries();
   },
   // computed:{
   //     buscarMenu: function () {
@@ -2415,6 +2418,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     changeTab: function changeTab() {
       this.tab = !this.tab;
     },
+    get_deliveries: function get_deliveries() {
+      var _this2 = this;
+
+      axios.get('../get_deliveries?id=' + this.idrest).then(function (res) {
+        _this2.deliveries = res.data.deliveries;
+        console.log(_this2.deliveries);
+      });
+    },
     showModal: function showModal(select) {
       // this.selector = select;
       this.is_modal_visible = true;
@@ -2423,26 +2434,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }); // console.log(this.selector);
     },
     get_productos_by_oferta: function get_productos_by_oferta() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('../get_productos_by_oferta?id=' + this.idrest).then(function (res) {
-        _this2.ofertas = res.data.productos;
+        _this3.ofertas = res.data.productos;
       });
     },
     getCateProd: function getCateProd() {
-      var _this3 = this;
+      var _this4 = this;
 
       // this.valuemultisel = {iglesia:'Buscar...', codigo:'', manual_online:''}
       axios.get('../getcategoria?category=' + this.categoriaid + '&key=' + this.idrest).then(function (res) {
-        _this3.categorias = res.data.categoria;
+        _this4.categorias = res.data.categoria;
         console.log(res);
       });
     },
     getBuscProd: function getBuscProd() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get('../getbuscador?category=' + this.categoriaid + '&buscar=' + this.textBusc + '&key=' + this.idrest).then(function (res) {
-        _this4.categorias = res.data.categoria;
+        _this5.categorias = res.data.categoria;
       });
     },
     getCatProdInput: function getCatProdInput() {
@@ -2451,13 +2462,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     get_horarios: function get_horarios() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.horarios = [];
       axios.get('../get_horarios?tienda_id=' + this.idrest).then(function (res) {
-        _this5.dia = res.data.dia;
-        _this5.estatus = res.data.estatus;
-        _this5.horarios = res.data.horarios;
+        _this6.dia = res.data.dia;
+        _this6.estatus = res.data.estatus;
+        _this6.horarios = res.data.horarios;
       });
     },
     enviarDelivery: function enviarDelivery() {
@@ -2482,7 +2493,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.modal_page += 1;
     },
     confirmDelivery: function confirmDelivery() {
-      var _this6 = this;
+      var _this7 = this;
 
       // var aux = 0
       // this.carrito.forEach(element => {
@@ -2504,14 +2515,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (res) {
         if (res.status == 201) {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Pedido Enviado con éxito");
-          _this6.carrito = [];
+          _this7.carrito = [];
 
-          _this6.saveCarts();
+          _this7.saveCarts();
 
-          if (Number(_this6.selector) == 1) {
-            window.open('https://wa.me/51931375941?text=Hola, deseo realizar este pedido. ' + _this6.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+          if (Number(_this7.selector) == 1) {
+            window.open('https://wa.me/51931375941?text=Hola, deseo realizar este pedido. ' + _this7.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           } else {
-            window.open('https://wa.me/51' + _this6.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this6.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+            window.open('https://wa.me/51' + _this7.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this7.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           }
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.error("Ocurrio un error!..");
@@ -2521,12 +2532,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $('#modal').modal('hide');
     },
     calcularTotal: function calcularTotal() {
-      var _this7 = this;
+      var _this8 = this;
 
       this.total = 0.00;
       this.carrito.forEach(function (element) {
         if (element.xprecioNew != null) {
-          _this7.total += parseFloat(element.xprecioNew) * parseInt(element.xcantidad);
+          _this8.total += parseFloat(element.xprecioNew) * parseInt(element.xcantidad);
         }
       });
     },
@@ -2588,12 +2599,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       localStorage.setItem('carrito', parsed);
     },
     cantidadPedidos: function cantidadPedidos() {
-      var _this8 = this;
+      var _this9 = this;
 
       this.listwsp = [];
       this.carrito.forEach(function (val) {
-        if (val.xmaster == _this8.idrest) {
-          _this8.listwsp.push('%0D%0A • *' + val.xprod + '* | _Cant_=*' + val.xcantidad + '*');
+        if (val.xmaster == _this9.idrest) {
+          _this9.listwsp.push('%0D%0A • *' + val.xprod + '* | _Cant_=*' + val.xcantidad + '*');
         }
       });
       this.saveCarts(); // this.calcularTotal();
@@ -41051,12 +41062,12 @@ var render = function() {
                                                                                   id:
                                                                                     "deliv_res",
                                                                                   value:
-                                                                                    "5"
+                                                                                    "0"
                                                                                 },
                                                                                 domProps: {
                                                                                   checked: _vm._q(
                                                                                     _vm.selector,
-                                                                                    "5"
+                                                                                    "0"
                                                                                   )
                                                                                 },
                                                                                 on: {
@@ -41064,7 +41075,7 @@ var render = function() {
                                                                                     $event
                                                                                   ) {
                                                                                     _vm.selector =
-                                                                                      "5"
+                                                                                      "0"
                                                                                   }
                                                                                 }
                                                                               }
@@ -41080,63 +41091,107 @@ var render = function() {
                                                                         _vm._v(
                                                                           " "
                                                                         ),
-                                                                        _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "option"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "input",
+                                                                        _vm._l(
+                                                                          _vm.deliveries,
+                                                                          function(
+                                                                            delivery,
+                                                                            index
+                                                                          ) {
+                                                                            return _c(
+                                                                              "div",
                                                                               {
-                                                                                directives: [
+                                                                                staticClass:
+                                                                                  "option"
+                                                                              },
+                                                                              [
+                                                                                _c(
+                                                                                  "input",
                                                                                   {
-                                                                                    name:
-                                                                                      "model",
-                                                                                    rawName:
-                                                                                      "v-model",
-                                                                                    value:
-                                                                                      _vm.selector,
-                                                                                    expression:
-                                                                                      "selector"
+                                                                                    directives: [
+                                                                                      {
+                                                                                        name:
+                                                                                          "model",
+                                                                                        rawName:
+                                                                                          "v-model",
+                                                                                        value:
+                                                                                          _vm.selector,
+                                                                                        expression:
+                                                                                          "selector"
+                                                                                      }
+                                                                                    ],
+                                                                                    attrs: {
+                                                                                      type:
+                                                                                        "radio",
+                                                                                      name:
+                                                                                        "delivery[]",
+                                                                                      id:
+                                                                                        delivery.id
+                                                                                    },
+                                                                                    domProps: {
+                                                                                      value:
+                                                                                        delivery.id,
+                                                                                      checked: _vm._q(
+                                                                                        _vm.selector,
+                                                                                        delivery.id
+                                                                                      )
+                                                                                    },
+                                                                                    on: {
+                                                                                      change: function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        _vm.selector =
+                                                                                          delivery.id
+                                                                                      }
+                                                                                    }
                                                                                   }
-                                                                                ],
-                                                                                attrs: {
-                                                                                  type:
-                                                                                    "radio",
-                                                                                  name:
-                                                                                    "delivery",
-                                                                                  id:
-                                                                                    "deliv_gad",
-                                                                                  value:
-                                                                                    "1"
-                                                                                },
-                                                                                domProps: {
-                                                                                  checked: _vm._q(
-                                                                                    _vm.selector,
-                                                                                    "1"
-                                                                                  )
-                                                                                },
-                                                                                on: {
-                                                                                  change: function(
-                                                                                    $event
-                                                                                  ) {
-                                                                                    _vm.selector =
-                                                                                      "1"
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _vm._m(
-                                                                              6
+                                                                                ),
+                                                                                _vm._v(
+                                                                                  " "
+                                                                                ),
+                                                                                _c(
+                                                                                  "div",
+                                                                                  {
+                                                                                    staticClass:
+                                                                                      "option-body"
+                                                                                  },
+                                                                                  [
+                                                                                    _vm._m(
+                                                                                      6,
+                                                                                      true
+                                                                                    ),
+                                                                                    _vm._v(
+                                                                                      " "
+                                                                                    ),
+                                                                                    _c(
+                                                                                      "strong",
+                                                                                      [
+                                                                                        _vm._v(
+                                                                                          _vm._s(
+                                                                                            delivery.nombres
+                                                                                          )
+                                                                                        )
+                                                                                      ]
+                                                                                    ),
+                                                                                    _vm._v(
+                                                                                      " "
+                                                                                    ),
+                                                                                    _c(
+                                                                                      "label",
+                                                                                      {
+                                                                                        attrs: {
+                                                                                          for:
+                                                                                            delivery.id
+                                                                                        }
+                                                                                      }
+                                                                                    )
+                                                                                  ]
+                                                                                )
+                                                                              ]
                                                                             )
-                                                                          ]
+                                                                          }
                                                                         )
-                                                                      ]
+                                                                      ],
+                                                                      2
                                                                     )
                                                                   ]
                                                                 : _vm._e()
@@ -41518,14 +41573,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "option-body" }, [
-      _c("div", { staticClass: "option-img" }, [
-        _c("i", { staticClass: "fas fa-motorcycle" })
-      ]),
-      _vm._v(" "),
-      _c("strong", [_vm._v("Gadeli")]),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "deliv_gad" } })
+    return _c("div", { staticClass: "option-img" }, [
+      _c("i", { staticClass: "fas fa-motorcycle" })
     ])
   },
   function() {
@@ -53980,8 +54029,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
