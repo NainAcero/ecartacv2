@@ -18,6 +18,11 @@
                 <a href="{{url('r/'.$item->slug)}}" class="item">
                 <article class="card card-product-grid card-lg h-100">
                     <div class="img-container position-relative">
+                    @if($item->feria)
+                        <div class="en-feria">
+                        <span>En la feria</span>
+                        </div>
+                    @endif
                     <img src="{{asset($item->portada)}}" class="card-img-top">
                     </div>
 

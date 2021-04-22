@@ -93,6 +93,7 @@ class DeliveryController extends Controller
         $deliveries = RestDelivery::where('tienda_id', '=', Auth::user()->mitienda->id)
                 ->join('deliveries', 'deliveries.id', 'rest_deliveries.delivery_id')
                 ->join('personas', 'deliveries.persona_id', 'personas.id')
+                ->select('rest_deliveries.id', 'personas.nombres', 'personas.celular', 'personas.estado' )
                 ->get();
 
         return view('admin.tienda.delivery-index',compact('deliveries'));
@@ -128,5 +129,17 @@ class DeliveryController extends Controller
             ->get();
 
         return response()->json(compact('deliveries'),200);
+    }
+
+    public function destroy(int $id) {
+        if (request()->isMethod("DELETE")) {
+            try {
+                $rest_delivery = RestDelivery::where('id', $id)->first();
+                $rest_delivery->delete();
+                return back();
+            } catch (\Exception $exception) {
+                dd($exception);
+            }
+        }
     }
 }

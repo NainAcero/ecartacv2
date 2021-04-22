@@ -56,7 +56,11 @@
                                     <td><small class="badge badge-danger">Inactivo</small></td>
                                 @endif
                                 <td>
-                                    <a href="#" title="Eliminar" class="btn btn-danger btn-sm"><i class="fas fa-user-times"></i></a>
+                                    <form method="POST" action="{{ route("restDelivery.destroy", ["id" => $delivery->id]) }}">
+                                        @method("DELETE")
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-user-times"></i></button>
+                                    </form>
                                 </td>
                                 {{-- <td>{{$$delivery->nombres}} {{$$delivery->apellidos}}</td>
                                 <td>{{$delivery->celular}}</td>

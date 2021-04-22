@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('restaurante/delivery-show', 'DeliveryController@show_restaurante')->middleware('role:Tienda')->name('restaurante.delivery-show');
     Route::get('restaurante/delivery', 'DeliveryController@crear_restaurante')->middleware('role:Tienda');
     Route::post('restaurante/restaurante_store', 'DeliveryController@restaurante_store')->middleware('role:Tienda')->name('delivery.restaurante_store');
+    Route::delete('restaurante/delivery/{id}', "DeliveryController@destroy")->middleware('role:Tienda')->name("restDelivery.destroy");
 
     Route::get('pedidosTienda', 'PedidoController@tienda')->middleware('role:Tienda');
     Route::get('get_pedidos_restaurante', 'PedidoController@get_pedidos_restaurante')->middleware('role:Tienda');
