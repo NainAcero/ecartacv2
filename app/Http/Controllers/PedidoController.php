@@ -108,12 +108,17 @@ class PedidoController extends Controller
         $fi = Carbon::parse(Carbon::now())->format('Y-m-d').' 00:00:00';
         $ff = Carbon::parse(Carbon::now())->format('Y-m-d').' 23:59:59';
 
+        $user_id = Auth::user()->persona->id;
+
         $pedidos = Pedido::join('tiendas', 'pedidos.tienda_id', '=', 'tiendas.id')
+            ->join('deliveries', 'deliveries.id', 'pedidos.delivery_id')
+            ->join('personas', 'personas.id', 'deliveries.persona_id')
             ->whereBetween('pedidos.created_at',[$fi , $ff ])
             ->select("pedidos.id", "pedidos.tienda_id", "pedidos.nombre", "pedidos.telefono",
                 "pedidos.direccion", "pedidos.delivery_id", "tiendas.tienda", "aceptar")
             ->orderBy("pedidos.id", "DESC")
             ->where("pedidos.delivery_id", "<>", 0)
+            ->where("personas.id", "=", $user_id)
             ->get();
 
         return response()->json(compact('pedidos'),200);
