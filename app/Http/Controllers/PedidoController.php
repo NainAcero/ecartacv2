@@ -42,12 +42,14 @@ class PedidoController extends Controller
             ]);
 
             foreach($request->productos as $p) {
-                Carta::create([
-                    "pedido_id" => $pedido->id,
-                    "cantidad" => (int) $p['xcantidad'],
-                    "precio" => 0,
-                    "producto_id" => (int) $p['xid'],
-                ]);
+                if ($p['xmaster']==$request->tienda_id) {
+                    Carta::create([
+                        "pedido_id" => $pedido->id,
+                        "cantidad" => (int) $p['xcantidad'],
+                        "precio" => 0,
+                        "producto_id" => (int) $p['xid'],
+                    ]);
+                }
             }
             DB::commit();
 
