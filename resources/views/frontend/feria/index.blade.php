@@ -27,7 +27,7 @@
                     </div>
                     <div class="choose-right">
                         <div class="Tiquete">
-                            <a href="{{ url('feria/isometrica') }}">
+                            <a href="{{ url('feriadigital') }}">
                                 <img class="img-src" src="{{ asset('img/feria/ticket-pago-bg.png') }}" alt="#">
                             </a>
                         </div>

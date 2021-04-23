@@ -43,7 +43,7 @@ Route::post('pedido', 'PedidoController@enviar');
 
 // FERIA
 Route::get('feria', 'FeriaController@index')->name('feria');
-Route::get('feria/isometrica', 'FeriaController@isometrica')->name('isometrica');
+Route::get('feriadigital', 'FeriaController@isometrica')->name('isometrica');
 Route::get('feria/stand', 'FeriaController@stand')->name('stand');
 
 Route::get('get_horarios', 'HorarioController@get_horarios');
