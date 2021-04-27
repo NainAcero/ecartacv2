@@ -1018,7 +1018,7 @@
   }
 
   .restaurant-content .restaurant-img {
-      width: 190px;
+      flex: 0 0 190px;
       height: 180px;
       background: white;
       border: 4px solid #ff6a00;
@@ -1048,7 +1048,7 @@
 
   @media (max-width: 768px) {
       .restaurant-content .restaurant-img {
-          width: 150px;
+          flex: 0 0 150px;
           height: 140px;
           display: none;
       }
@@ -1073,4 +1073,15 @@
           justify-content: flex-start;
       }
   }
+
+  @media (max-width: 992px) {
+    .restaurant-content {
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .restaurant-content .restaurant-socials {
+        justify-content: center;
+    }
+}
 </style>
