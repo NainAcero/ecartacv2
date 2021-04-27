@@ -91,7 +91,7 @@
                     <header class="border-bottom mb-4 pb-3">
                         <div class="form-inline justify-content-between">
                             <select class="mr-2 form-control" v-model="categoriaid" @change="getCateProd()">
-                                <option value="0">Ver toda la Carta</option>
+                                <option value="0">Ver toda la Cartas</option>
                                 <option v-for="(categoria, index) in listCategoria" :value="categoria.id">{{categoria.categoria}} </option>
                             </select>
                             <div class="input-group mt-md-0 mt-2">
@@ -990,5 +990,87 @@
     .cancel-btn {
       display: none;
     }
+  }
+
+  .restaurant-header {
+    min-height: 250px;
+  }
+
+  .restaurant-header::before {
+      content: "";
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+  }
+
+  .restaurant-content {
+      display: flex;
+      justify-content: space-between;
+      color: #fff;
+      z-index: 3;
+  }
+
+  .restaurant-content::after {
+      content: none;
+  }
+
+  .restaurant-content .restaurant-img {
+      width: 190px;
+      height: 180px;
+      background: white;
+      border: 4px solid #ff6a00;
+      border-radius: 50%;
+      overflow: hidden;
+  }
+
+  .restaurant-content .restaurant-img img {
+      width: 100%;
+      height: 100%;
+  }
+
+  .restaurant-content .restaurant-socials {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+  }
+  .restaurant-content .restaurant-socials a {
+      border-radius: 24px;
+  }
+
+  .restaurant-info .btn {
+      background-color: #91b622;
+      border-color: #91b622;
+      color: #fff;
+  }
+
+  @media (max-width: 768px) {
+      .restaurant-content .restaurant-img {
+          width: 150px;
+          height: 140px;
+          display: none;
+      }
+
+      .restaurant-info > div {
+          flex-direction: column-reverse;
+          gap: 15px;
+      }
+      .restaurant-info > div > h3 {
+          font-size: 24px;
+      }
+      .restaurant-info > div > .btn {
+          width: 35%;
+      }
+
+      .restaurant-description,
+      .restaurant-direccion {
+          font-size: 14px;
+      }
+
+      .restaurant-content .restaurant-socials {
+          justify-content: flex-start;
+      }
   }
 </style>
