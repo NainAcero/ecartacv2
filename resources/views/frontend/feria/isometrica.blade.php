@@ -35,7 +35,7 @@
             <div class="recorridoFeria">
               <div
                 style="background-image:
-                              url({{ URL::asset('img/portada_feria2.png') }});background-size: cover;background-position: center; "
+                              url({{ URL::asset('img/portada_feria2.png') }});background-size: cover;background-position: center; background-repeat:no-repeat"
                 class="stand">
 
                 <div class="nominadosMejorStand"></div>
@@ -46,7 +46,10 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe> --}}
 
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/WkrhVexll_g?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/WkrhVexll_g?controls=0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
 
                   <div class="text-center mt-5" hidden>
                     <a class="btn black " href="https://meet.google.com/pup-veda-bqy">
@@ -60,16 +63,16 @@
                   <div class="botonContactanos botonesLargos">
                     <a href="https://www.facebook.com/MunicipalidadProvincialDeTacna" target="_blank">
                       <img src="{{ asset('img/feria/bc_facebook.png' ) }} ">
-                </a>
-              </div>
+                    </a>
+                  </div>
 
-              {{-- <div class="botonContactanos botonesLargos">
+                  {{-- <div class="botonContactanos botonesLargos">
                 <a href="https://www.instagram.com/Cultural.tacna/" target="_blank">
                   <img src="{{ asset('img/feria/bc_instagram.png' ) }}">
-                </a>
-              </div> --}}
+                  </a>
+                </div> --}}
 
-              {{-- <div class="botonContactanos botonesLargos">
+                {{-- <div class="botonContactanos botonesLargos">
                 <a href="https://cultural.edu.pe/tacna/" target="_blank">
                   <img src="{{ asset('img/feria/bc_web.png' ) }}">
                 </a>

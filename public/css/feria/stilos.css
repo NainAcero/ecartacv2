@@ -1351,7 +1351,7 @@ img:hover {
     /* -webkit-box-shadow: 0 0 8px 2px #000000a6;
     box-shadow: 0 0 8px 2px #000000a6; */
 
-    height: 541px;
+    height: 428px;
 
     position: relative;
 
@@ -1387,6 +1387,7 @@ img:hover {
     width: 100%;
 
     position: absolute;
+    height: 100%;
 
     left: 0;
 
@@ -1402,7 +1403,7 @@ img:hover {
 
     width: 100%;
 
-    height: 542px;
+    height: 100%;
 
     position: relative;
 
@@ -1807,7 +1808,7 @@ img:hover {
 
     color: #fff;
 
-    top: 138px;
+    top: 98px;
 
     left: 0;
 
