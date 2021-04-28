@@ -42,9 +42,11 @@
                 {{-- <h2 style="color:black;"><b>Restaurante 01</b></h2> --}}
 
                 <div class="video">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/sjY0XPg_xwA" frameborder="0"
+                  {{-- <iframe width="600" height="500" src="https://www.youtube.com/embed/WkrhVexll_g" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                    allowfullscreen></iframe> --}}
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/WkrhVexll_g?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                   <div class="text-center mt-5" hidden>
                     <a class="btn black " href="https://meet.google.com/pup-veda-bqy">
