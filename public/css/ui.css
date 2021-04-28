@@ -1,6 +1,5 @@
-/* ==== BASE STYLES ====*/
+@import url(https://rsms.me/inter/inter.css);/* ==== BASE STYLES ====*/
 /* ==================== GLOBAL STYLES ======================= */
-@import url("https://rsms.me/inter/inter.css");
 html {
     font-family: "Inter", sans-serif;
     font-size: 15px;
@@ -32,8 +31,6 @@ a:hover {
 }
 
 .content-body {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 30px;
 }
@@ -45,10 +42,7 @@ a:hover {
 .icon-lg {
     display: inline-block;
     text-align: center;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
     flex-grow: 0;
 }
 
@@ -84,12 +78,8 @@ a:hover {
 .img-sm,
 .img-md,
 .img-lg {
-    -o-object-fit: cover;
     object-fit: cover;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
     flex-grow: 0;
 }
 
@@ -122,21 +112,18 @@ a:hover {
     top: 50%;
     left: 50%;
     position: absolute;
-    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
 .center-y {
     top: 50%;
     position: absolute;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
 .center-x {
     left: 50%;
     position: absolute;
-    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 
@@ -149,7 +136,6 @@ a:hover {
 }
 
 .flip-h {
-    -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
 
@@ -158,7 +144,6 @@ a:hover {
 }
 
 [class*="hover-"] {
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -168,23 +153,13 @@ a:hover {
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right bottom,
-        from(#ff6a00),
-        to(#ff6a00)
-    );
     background: linear-gradient(to bottom right, #ff6a00, #ff6a00);
     /* Standard syntax */
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
 .hover-zoom:hover {
-    -webkit-transition: 0.5s;
     transition: 0.5s;
-    -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
 
@@ -273,10 +248,7 @@ article:after,
 .row-sm {
     margin-right: -5px;
     margin-left: -5px;
-    display: -ms-flexbox;
-    display: -webkit-box;
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -331,20 +303,12 @@ article:after,
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right bottom,
-        from(rgba(18, 34, 91, 0.65)),
-        to(rgba(33, 37, 41, 0.4))
-    );
     background: linear-gradient(
         to bottom right,
         rgba(18, 34, 91, 0.65),
         rgba(33, 37, 41, 0.4)
     );
     /* Standard syntax */
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -354,20 +318,12 @@ article:after,
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right bottom,
-        from(rgba(0, 181, 23, 0.65)),
-        to(rgba(33, 37, 41, 0.4))
-    );
     background: linear-gradient(
         to bottom right,
         rgba(0, 181, 23, 0.65),
         rgba(33, 37, 41, 0.4)
     );
     /* Standard syntax */
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -377,20 +333,12 @@ article:after,
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right bottom,
-        from(rgba(255, 106, 0, 0.65)),
-        to(rgba(33, 37, 41, 0.4))
-    );
     background: linear-gradient(
         to bottom right,
         rgba(255, 106, 0, 0.65),
         rgba(33, 37, 41, 0.4)
     );
     /* Standard syntax */
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -400,20 +348,12 @@ article:after,
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right bottom,
-        from(rgba(250, 52, 52, 0.65)),
-        to(rgba(33, 37, 41, 0.4))
-    );
     background: linear-gradient(
         to bottom right,
         rgba(250, 52, 52, 0.65),
         rgba(33, 37, 41, 0.4)
     );
     /* Standard syntax */
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -423,20 +363,12 @@ article:after,
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right bottom,
-        from(rgba(232, 62, 140, 0.65)),
-        to(rgba(33, 37, 41, 0.4))
-    );
     background: linear-gradient(
         to bottom right,
         rgba(232, 62, 140, 0.65),
         rgba(33, 37, 41, 0.4)
     );
     /* Standard syntax */
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -473,20 +405,12 @@ article:after,
     right: 0;
     bottom: 0;
     opacity: 0.6;
-    -webkit-transition: 0.5s;
     transition: 0.5s;
     background: #12225b;
     /* For browsers that do not support gradients */
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right bottom,
-        from(#ff6a00),
-        to(#12225b)
-    );
     background: linear-gradient(to bottom right, #ff6a00, #12225b);
     /* Standard syntax */
 }
@@ -573,7 +497,6 @@ p:last-child {
 /* ================== SECTIONS =================== */
 .section-header {
     background-color: #fff;
-    -webkit-box-shadow: 0 0 3px rgba(51, 51, 51, 0.15);
     box-shadow: 0 0 3px rgba(51, 51, 51, 0.15);
 }
 
@@ -611,10 +534,7 @@ p:last-child {
     border-color: transparent;
 }
 .search-header select {
-    -ms-flex-preferred-size: 150px !important;
     flex-basis: 150px !important;
-    -webkit-box-flex: 0 !important;
-    -ms-flex-positive: 0 !important;
     flex-grow: 0 !important;
 }
 
@@ -779,14 +699,11 @@ p:last-child {
 
 .itemside {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     width: 100%;
 }
 .itemside .aside {
     position: relative;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
 }
 .itemside .info {
@@ -846,8 +763,6 @@ dl[class="row"] {
 }
 
 .dlist-align {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 .dlist-align dt {
@@ -856,8 +771,6 @@ dl[class="row"] {
     font-weight: normal;
 }
 .dlist-align dd {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
     flex-grow: 1;
 }
 
@@ -939,7 +852,7 @@ ul.row-sm {
     position: absolute;
     top: 3px;
     left: 0;
-    content: "\f00c";
+    content: "\F00C";
 }
 
 .list-normal {
@@ -1024,7 +937,6 @@ a[class*="card"]:hover .title {
     max-width: 100%;
     width: auto;
     display: inline-block;
-    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -1063,7 +975,6 @@ a[class*="card"]:hover .title {
     overflow: hidden;
 }
 .card-product-grid .btn-overlay {
-    -webkit-transition: 0.5s;
     transition: 0.5s;
     opacity: 0;
     left: 0;
@@ -1079,9 +990,7 @@ a[class*="card"]:hover .title {
     opacity: 1;
 }
 .card-product-grid:hover {
-    -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
     box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-    -webkit-transition: 0.3s;
     transition: 0.3s;
 }
 
@@ -1106,9 +1015,7 @@ a[class*="card"]:hover .title {
     height: 100%;
 }
 .card-product-list:hover {
-    -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
     box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-    -webkit-transition: 0.3s;
     transition: 0.3s;
 }
 
@@ -1143,13 +1050,11 @@ a[class*="card"]:hover .title {
 .card-category .img-wrap img {
     height: 100%;
     width: 60%;
-    -o-object-fit: cover;
     object-fit: cover;
     mix-blend-mode: multiply;
 }
 .card-category .list-menu a:hover {
     margin-left: 3px;
-    -webkit-transition: 0.2s;
     transition: 0.2s;
 }
 .card-category:hover {
@@ -1157,8 +1062,6 @@ a[class*="card"]:hover .title {
 }
 
 .card-banner {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -1205,13 +1108,6 @@ a[class*="card"]:hover .title {
     padding: 7px 20px;
     padding-top: 30px;
     border-radius: 0 0 0.37rem 0.37rem;
-    background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        from(rgba(0, 0, 0, 0)),
-        to(rgba(0, 0, 0, 0.8))
-    );
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
@@ -1229,13 +1125,11 @@ a[class*="card"]:hover .title {
 
 .card-banner-lg img {
     max-height: 320px;
-    -o-object-fit: cover;
     object-fit: cover;
 }
 
 .card-post .card-img-top {
     height: 200px;
-    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -1244,11 +1138,7 @@ a[class*="card"]:hover .title {
 }
 
 .icontext {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     vertical-align: middle;
 }
@@ -1262,10 +1152,7 @@ a[class*="card"]:hover .title {
 .icontext .icon {
     position: relative;
     margin-right: 10px;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
     flex-grow: 0;
 }
 .icontext .title {
@@ -1438,7 +1325,6 @@ a[class*="card"]:hover .title {
     display: none;
     margin: 0;
     padding: 0;
-    -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 20;
     position: absolute;
@@ -1456,7 +1342,6 @@ a[class*="card"]:hover .title {
 }
 .nav-home-aside .menu-category a:hover {
     color: #ff6a00;
-    -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
 .nav-home-aside .menu-category li:hover .submenu {
@@ -1496,20 +1381,14 @@ a[class*="card"]:hover .title {
 
 .input-spinner {
     width: 120px;
-    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
 }
 .input-spinner input.form-control {
     text-align: center;
     max-width: 46px;
-    -ms-flex-preferred-size: 46px;
     flex-basis: 46px;
     border-color: #e5e7ea;
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
     flex-grow: 0;
 }
 .input-spinner .btn {
@@ -1564,7 +1443,6 @@ body {
 .slider-home-banner .carousel-item img {
     width: 100%;
     height: 375px;
-    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -1573,16 +1451,11 @@ body {
 }
 
 .card-deal {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
 }
 .card-deal .col-heading {
     min-width: 300px;
-    -ms-flex-preferred-size: 350px;
     flex-basis: 350px;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
 }
 .card-deal .row {
@@ -1622,9 +1495,7 @@ body {
 }
 
 .card-home-category .item:hover img {
-    -webkit-transform: scale(1.3);
     transform: scale(1.3);
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -1651,7 +1522,6 @@ body {
     height: 480px;
     width: auto;
     display: inline-block;
-    cursor: -webkit-zoom-in;
     cursor: zoom-in;
 }
 
@@ -1674,9 +1544,7 @@ body {
 .gallery-wrap .thumbs-wrap img {
     max-width: 100%;
     max-height: 100%;
-    -o-object-fit: cover;
     object-fit: cover;
-    cursor: -webkit-zoom-in;
     cursor: zoom-in;
 }
 
@@ -1787,11 +1655,7 @@ body {
 }
 
 .search-header .input-group-append {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     z-index: 8;
 }
@@ -1856,12 +1720,8 @@ footer {
 }
 
 .navlink-icon {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     gap: 8px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -1959,7 +1819,6 @@ footer {
     width: 160px;
     padding: 11px 0;
     background-color: #e00b0b;
-    -webkit-box-shadow: 0 5px 5px rgb(0 0 0 / 20%);
     box-shadow: 0 5px 5px rgb(0 0 0 / 20%);
     color: #fff;
     font-size: 14px;
@@ -1968,8 +1827,6 @@ footer {
     font-weight: 600;
     left: -30px;
     top: 28px;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
 
@@ -2033,4 +1890,3 @@ footer {
         padding: 0.7rem 0;
     }
 }
-/*# sourceMappingURL=ui.css.map */

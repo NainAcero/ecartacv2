@@ -50,7 +50,7 @@
           <div class="img-container position-relative">
             @if($item->feria)
             <div class="en-feria">
-              <span>En la feria</span>
+              <span>Feria Digital</span>
             </div>
             @endif
             <img src="{{asset($item->portada)}}" class="card-img-top">
