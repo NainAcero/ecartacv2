@@ -1882,7 +1882,7 @@ footer {
     max-height: 32px;
 }
 
-.restaurant-header {
+/* .restaurant-header {
     min-height: 250px;
 }
 
@@ -1942,7 +1942,7 @@ footer {
     background-color: #91b622;
     border-color: #91b622;
     color: #fff;
-}
+} */
 
 .en-feria {
     position: absolute;
@@ -1990,7 +1990,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .restaurant-content .restaurant-img {
         width: 150px;
         height: 140px;
@@ -2021,7 +2021,7 @@ footer {
         -ms-flex-pack: start;
         justify-content: flex-start;
     }
-}
+} */
 
 @media (min-width: 1100px) {
     .container {
