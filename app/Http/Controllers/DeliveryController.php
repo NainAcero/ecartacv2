@@ -125,7 +125,7 @@ class DeliveryController extends Controller
         $deliveries = RestDelivery::where('tienda_id', '=', $request->id)
             ->join('deliveries', 'deliveries.id', 'rest_deliveries.delivery_id')
             ->join('personas', 'deliveries.persona_id', 'personas.id')
-            ->select('deliveries.id', 'personas.nombres')
+            ->select('deliveries.id', 'personas.nombres', 'deliveries.logo')
             ->get();
 
         return response()->json(compact('deliveries'),200);
