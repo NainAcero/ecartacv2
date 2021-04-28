@@ -35,7 +35,7 @@
             <div class="recorridoFeria">
               <div
                 style="background-image:
-                              url({{ URL::asset('img/portada_feria.png') }});background-size: cover;background-position: center; "
+                              url({{ URL::asset('img/portada_feria2.png') }});background-size: cover;background-position: center; "
                 class="stand">
 
                 <div class="nominadosMejorStand"></div>
