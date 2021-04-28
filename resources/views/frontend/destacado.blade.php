@@ -15,11 +15,9 @@
                 <a href="{{ url('productos/'.$item->slug)}}" class="item" data-toggle="tooltip" title="{{$item->ingredientes}}">
                     <div class="img-container position-relative">
                     @if ($item->portada)
-                        {{-- <img src="{{asset($item->portada)}}"> --}}
-                        <img src="{{asset('img/elpadrino-logo.png')}}" class="card-img-top">
+                        <img src="{{asset($item->portada)}}" class="card-img-top">
                     @else
-                        {{-- <img src="{{asset($item->tienda->portada)}}">  --}}
-                        <img src="{{asset('img/elpadrino-logo.png')}}" class="card-img-top">
+                         <img src="{{asset($item->tienda->portada)}}" class="card-img-top">
                     @endif
                     </div>
                 </a>
