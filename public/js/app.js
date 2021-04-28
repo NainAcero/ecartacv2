@@ -2382,7 +2382,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
@@ -2424,8 +2423,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-=======
->>>>>>> 6a982ec3ea787edbaa781fbb6da118e8c5203768
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
@@ -54296,9 +54294,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\AppServ\www\ecartacv2\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\AppServ\www\ecartacv2\public\ecom\css\ui.css */"./public/ecom/css/ui.css");
+__webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Users\NAIN\Documents\proyecto2021\public\ecom\css\ui.css */"./public/ecom/css/ui.css");
 
 
 /***/ })
