@@ -354,6 +354,7 @@
                                                                             <i class="fab fa-whatsapp mr-2"></i>Enviar pedido
                                                                         </span>
                                                                     </button>
+
                                                                 </div>
                                                                 </div>
                                                                 <div v-else-if="modal_page === 1">

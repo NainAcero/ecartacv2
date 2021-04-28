@@ -2380,6 +2380,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
