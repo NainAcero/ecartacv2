@@ -2381,6 +2381,48 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
@@ -2396,7 +2438,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       restdescripcion: this.descripcion,
       resttienda: this.tienda,
       restimagen_pri: "min-height:320px; background-image: url(../" + this.imagen_pri + ");"
-    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "ofertas", []), _defineProperty(_ref, "deliveries", []), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
+    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "ofertas", []), _defineProperty(_ref, "deliveries", []), _defineProperty(_ref, "response", {}), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
       nombre: '',
       telefono: '',
       direccion: ''
@@ -2430,6 +2472,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.deliveries = res.data.deliveries; // console.log(this.deliveries);
       });
     },
+    getProductoById: function getProductoById(id) {
+      var _this3 = this;
+
+      axios.get('../get_producto_by_id?id=' + id).then(function (res) {
+        _this3.response = res.data;
+
+        _this3.$nextTick(function () {
+          $('#productoShow').modal('show');
+        });
+      });
+    },
     showModal: function showModal(select) {
       // this.selector = select;
       this.is_modal_visible = true;
@@ -2438,25 +2491,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }); // console.log(this.selector);
     },
     get_productos_by_oferta: function get_productos_by_oferta() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('../get_productos_by_oferta?id=' + this.idrest).then(function (res) {
-        _this3.ofertas = res.data.productos;
+        _this4.ofertas = res.data.productos;
       });
     },
     getCateProd: function getCateProd() {
-      var _this4 = this;
+      var _this5 = this;
 
       // this.valuemultisel = {iglesia:'Buscar...', codigo:'', manual_online:''}
       axios.get('../getcategoria?category=' + this.categoriaid + '&key=' + this.idrest).then(function (res) {
-        _this4.categorias = res.data.categoria; // console.log(res);
+        _this5.categorias = res.data.categoria; // console.log(res);
       });
     },
     getBuscProd: function getBuscProd() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.get('../getbuscador?category=' + this.categoriaid + '&buscar=' + this.textBusc + '&key=' + this.idrest).then(function (res) {
-        _this5.categorias = res.data.categoria;
+        _this6.categorias = res.data.categoria;
       });
     },
     getCatProdInput: function getCatProdInput() {
@@ -2465,13 +2518,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     get_horarios: function get_horarios() {
-      var _this6 = this;
+      var _this7 = this;
 
       this.horarios = [];
       axios.get('../get_horarios?tienda_id=' + this.idrest).then(function (res) {
-        _this6.dia = res.data.dia;
-        _this6.estatus = res.data.estatus;
-        _this6.horarios = res.data.horarios;
+        _this7.dia = res.data.dia;
+        _this7.estatus = res.data.estatus;
+        _this7.horarios = res.data.horarios;
       });
     },
     enviarDelivery: function enviarDelivery() {
@@ -2496,7 +2549,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.modal_page += 1;
     },
     confirmDelivery: function confirmDelivery() {
-      var _this7 = this;
+      var _this8 = this;
 
       // var aux = 0
       // this.carrito.forEach(element => {
@@ -2518,14 +2571,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (res) {
         if (res.status == 201) {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Pedido Enviado con éxito");
-          _this7.carrito = [];
+          _this8.carrito = [];
 
-          _this7.saveCarts();
+          _this8.saveCarts();
 
-          if (Number(_this7.selector) > 0) {
-            window.open('https://wa.me/51' + res.data.delivery.celular + '?text=Hola, deseo realizar este pedido. ' + _this7.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+          if (Number(_this8.selector) > 0) {
+            window.open('https://wa.me/51' + res.data.delivery.celular + '?text=Hola, deseo realizar este pedido. ' + _this8.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           } else {
-            window.open('https://wa.me/51' + _this7.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this7.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
+            window.open('https://wa.me/51' + _this8.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this8.listwsp + '%0D%0A%0D%0A Gracias', '_blank');
           }
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.error("Ocurrio un error!..");
@@ -2535,12 +2588,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $('#modal').modal('hide');
     },
     calcularTotal: function calcularTotal() {
-      var _this8 = this;
+      var _this9 = this;
 
       this.total = 0.00;
       this.carrito.forEach(function (element) {
         if (element.xprecioNew != null) {
-          _this8.total += parseFloat(element.xprecioNew) * parseInt(element.xcantidad);
+          _this9.total += parseFloat(element.xprecioNew) * parseInt(element.xcantidad);
         }
       });
     },
@@ -2602,12 +2655,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       localStorage.setItem('carrito', parsed);
     },
     cantidadPedidos: function cantidadPedidos() {
-      var _this9 = this;
+      var _this10 = this;
 
       this.listwsp = [];
       this.carrito.forEach(function (val) {
-        if (val.xmaster == _this9.idrest) {
-          _this9.listwsp.push('%0D%0A • *' + val.xprod + '* | _Cant_=*' + val.xcantidad + '*');
+        if (val.xmaster == _this10.idrest) {
+          _this10.listwsp.push('%0D%0A • *' + val.xprod + '* | _Cant_=*' + val.xcantidad + '*');
         }
       });
       this.saveCarts(); // this.calcularTotal();
@@ -39411,6 +39464,125 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
+          id: "productoShow",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "productoShow",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _vm.response.producto != null
+              ? _c("div", { staticClass: "modal-content" }, [
+                  _c("div", { staticClass: "modal-header" }, [
+                    _c(
+                      "h5",
+                      {
+                        staticClass: "modal-title",
+                        attrs: { id: "exampleModalLongTitle" }
+                      },
+                      [_vm._v(_vm._s(_vm.response.producto.producto))]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]),
+                  _vm._v(" "),
+                  _vm.response.producto != null
+                    ? _c("div", { staticClass: "modal-body" }, [
+                        _vm.response.producto.portada
+                          ? _c("img", {
+                              staticClass: "card-img-top",
+                              attrs: {
+                                src: "../" + _vm.response.producto.portada,
+                                alt: "Card image cap"
+                              }
+                            })
+                          : _c("img", {
+                              staticClass: "card-img-top",
+                              attrs: {
+                                src:
+                                  "../" + _vm.response.producto.tienda.portada,
+                                alt: "Card image cap"
+                              }
+                            }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card" }, [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("h6", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(_vm.response.producto.ingredientes))
+                            ]),
+                            _vm._v(" "),
+                            _c("span", {
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  _vm.response.producto.contenido
+                                )
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c(
+                              "h6",
+                              {
+                                staticClass:
+                                  "card-text text-primary text-center"
+                              },
+                              [
+                                _vm._v(
+                                  " " +
+                                    _vm._s(_vm.response.producto.tienda.tienda)
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Close")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            return _vm.addProducto(_vm.response.producto)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fas fa-cart-plus" })]
+                    )
+                  ])
+                ])
+              : _vm._e()
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
           id: "exampleModalCenter",
           tabindex: "-1",
           role: "dialog",
@@ -39723,7 +39895,7 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _vm._m(0)
+                            _vm._m(1)
                           ]
                         )
                       : _vm._e()
@@ -39852,7 +40024,7 @@ var render = function() {
                       _vm.ofertas.length > 0
                         ? [
                             _c("div", { staticClass: "lista-categoria" }, [
-                              _vm._m(1),
+                              _vm._m(2),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -39878,8 +40050,14 @@ var render = function() {
                                             "a",
                                             {
                                               attrs: {
-                                                href:
-                                                  "../productos/" + item.slug
+                                                href: "javascript:void(0);"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.getProductoById(
+                                                    item.slug
+                                                  )
+                                                }
                                               }
                                             },
                                             [
@@ -39919,16 +40097,21 @@ var render = function() {
                                                   staticClass:
                                                     "bg-white position-relative",
                                                   attrs: {
-                                                    href:
-                                                      "../productos/" +
-                                                      item.slug
+                                                    href: "javascript:void(0);"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.getProductoById(
+                                                        item.slug
+                                                      )
+                                                    }
                                                   }
                                                 },
                                                 [
                                                   _vm._v(
-                                                    " " +
+                                                    "\n                                    " +
                                                       _vm._s(item.producto) +
-                                                      "  "
+                                                      "\n                                "
                                                   )
                                                 ]
                                               )
@@ -40107,8 +40290,16 @@ var render = function() {
                                                           {
                                                             attrs: {
                                                               href:
-                                                                "../productos/" +
-                                                                item.slug
+                                                                "javascript:void(0);"
+                                                            },
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.getProductoById(
+                                                                  item.slug
+                                                                )
+                                                              }
                                                             }
                                                           },
                                                           [
@@ -40175,17 +40366,25 @@ var render = function() {
                                                                         },
                                                                         attrs: {
                                                                           href:
-                                                                            "../productos/" +
-                                                                            item.slug
+                                                                            "javascript:void(0);"
+                                                                        },
+                                                                        on: {
+                                                                          click: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.getProductoById(
+                                                                              item.slug
+                                                                            )
+                                                                          }
                                                                         }
                                                                       },
                                                                       [
                                                                         _vm._v(
-                                                                          " " +
+                                                                          "\n                                            " +
                                                                             _vm._s(
                                                                               item.producto
                                                                             ) +
-                                                                            "  "
+                                                                            "\n                                        "
                                                                         )
                                                                       ]
                                                                     ),
@@ -40366,11 +40565,11 @@ var render = function() {
                   _vm.listwsp.length > 0
                     ? _c("div", { staticClass: "mt-4" }, [
                         _c("div", { staticClass: "bg-white cart-wrapper" }, [
-                          _vm._m(2),
+                          _vm._m(3),
                           _vm._v(" "),
                           _c("div", { staticClass: "table-responsive" }, [
                             _c("table", { staticClass: "table" }, [
-                              _vm._m(3),
+                              _vm._m(4),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -40655,7 +40854,7 @@ var render = function() {
                                                                       ]
                                                                     ),
                                                                     _vm._v(" "),
-                                                                    _vm._m(4),
+                                                                    _vm._m(5),
                                                                     _vm._v(" "),
                                                                     _c(
                                                                       "table",
@@ -41089,7 +41288,7 @@ var render = function() {
                                                                               " "
                                                                             ),
                                                                             _vm._m(
-                                                                              5
+                                                                              6
                                                                             )
                                                                           ]
                                                                         ),
@@ -41288,7 +41487,7 @@ var render = function() {
                                                                         },
                                                                         [
                                                                           _vm._m(
-                                                                            6
+                                                                            7
                                                                           )
                                                                         ]
                                                                       )
@@ -41386,7 +41585,7 @@ var render = function() {
                                                                             },
                                                                             [
                                                                               _vm._m(
-                                                                                7
+                                                                                8
                                                                               )
                                                                             ]
                                                                           )
@@ -41516,6 +41715,23 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

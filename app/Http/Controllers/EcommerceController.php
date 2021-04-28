@@ -93,6 +93,20 @@ class EcommerceController extends Controller
         return view('frontend.detalleproducto', compact('producto','galeriimagen','categorias'));
     }
 
+    public function get_producto_by_id(Request $request) {
+        $categorias = Categoria::where('estado', 1)->orderBy('categoria')->get();
+
+        $producto = Producto::with('tienda','categoria')->where('slug', $request->id)
+        ->where('estado', 1)
+        ->first();
+
+        $galeriimagen = Imagengaleri::where('tp_id', $producto->id)
+        ->where('tipo','P')
+        ->first();
+
+        return compact('producto', 'galeriimagen');
+    }
+
     public function listarGalerias()
     {
         $categorias = Categoria::where('estado', 1)->orderBy('categoria')->get();

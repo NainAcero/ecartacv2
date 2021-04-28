@@ -23,7 +23,9 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/', 'EcommerceController@index')->name('inicio');
 // Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('get_producto_by_id', 'EcommerceController@get_producto_by_id');
 Route::get('productos/{id}', 'EcommerceController@verProducto');
+
 Route::get('c/{slug}', 'EcommerceController@listarPorCategoria');
 Route::get('s', 'EcommerceController@buscarProducto');
 Route::get('ccomerciales', 'EcommerceController@listarGalerias');

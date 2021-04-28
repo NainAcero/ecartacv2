@@ -1,5 +1,35 @@
 <template>
     <div>
+        <!-- Modal Show producto By Id -->
+        <div class="modal fade" id="productoShow"  tabindex="-1" role="dialog" aria-labelledby="productoShow" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" v-if="response.producto != null">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{ response.producto.producto }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" v-if="response.producto != null">
+                    <img v-if="response.producto.portada" class="card-img-top" :src="'../'+response.producto.portada" alt="Card image cap">
+                    <img v-else class="card-img-top" :src="'../'+response.producto.tienda.portada" alt="Card image cap">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-text">{{ response.producto.ingredientes }}</h6>
+                            <span v-html="response.producto.contenido"></span>
+                            <hr>
+                            <h6 class="card-text text-primary text-center" > {{ response.producto.tienda.tienda }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" @click="addProducto(response.producto)"> <i class="fas fa-cart-plus"></i></button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
 
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -116,14 +146,18 @@
                             <div class="menu-holder mb-5 mt-3">
                             <div v-for="(item, index) in ofertas" :key="index" class="menu-post flex-column text-center">
                                 <div class="menu-post-img overflow-hidden position-relative" style="max-height:194px">
-                                <a :href="'../productos/'+ item.slug">
+                                <!-- <a :href="'../productos/'+ item.slug"> -->
+                                <a href="javascript:void(0);" @click="getProductoById(item.slug)">
                                     <img v-if="item.portada" class="w-100" :src="'../'+item.portada">
                                     <img v-else class="w-100" :src="'../' + restportada">
                                 </a>
                                 </div>
                                 <div class="menu-info pt-4 pb-3 px-2 bg-white">
                                 <h6 class="title mb-1">
-                                    <a :href="'../productos/'+ item.slug" class="bg-white position-relative"> {{item.producto}}  </a>
+                                    <!-- <a :href="'../productos/'+ item.slug" class="bg-white position-relative"> -->
+                                    <a href="javascript:void(0);" @click="getProductoById(item.slug)" class="bg-white position-relative">
+                                        {{item.producto}}
+                                    </a>
                                 </h6>
                                 <small class="text-muted"><p>{{item.ingredientes}}</p></small>
                                 <div class="menu-bottom d-flex justify-content-around mt-3 align-items-center">
@@ -152,7 +186,8 @@
                             <div class="table table-hover">
                                 <div v-for="(item, index) in categoria.productos" :key="index" class="row align-items-center mt-3 flex-nowrap cat-prod">
                                     <div class="p-2">
-                                        <a :href="'../productos/'+ item.slug">
+                                        <!-- <a :href="'../productos/'+ item.slug"> -->
+                                        <a href="javascript:void(0);" @click="getProductoById(item.slug)">
                                             <img v-if="item.portada" class="icon icon-md rounded-circle" :src="'../'+item.portada">
                                             <img v-else class="icon icon-md rounded-circle" :src="'../' + restportada">
                                         </a>
@@ -161,7 +196,14 @@
                                     <div class="d-flex align-items-md-center">
                                         <div class="product-info">
                                         <h6 class="title mb-1">
-                                            <a :href="'../productos/'+ item.slug" class="bg-white position-relative" style="z-index:2"> {{item.producto}}  </a>  <span v-if="item.oferta" class="text-warning mr-2" data-toggle="tooltip" title="Oferta/Promoción"><i class="fas fa-tag"></i></span>
+                                            <!-- <a :href="'../productos/'+ item.slug" class="bg-white position-relative" style="z-index:2">  -->
+                                            <a href="javascript:void(0);" @click="getProductoById(item.slug)"
+                                                class="bg-white position-relative" style="z-index:2">
+                                                {{item.producto}}
+                                            </a>
+                                            <span v-if="item.oferta" class="text-warning mr-2" data-toggle="tooltip" title="Oferta/Promoción">
+                                                <i class="fas fa-tag"></i>
+                                            </span>
                                             <span class="menu-dots"></span>
                                             <span class="price bg-white pl-2">S/ {{item.precio}}</span>
                                         </h6>
@@ -417,6 +459,7 @@
                 horarios: [],
                 ofertas: [],
                 deliveries: [],
+                response: {},
 
                 carrito:[],
                 newCat:null,
@@ -459,6 +502,16 @@
                 axios.get('../get_deliveries?id='+this.idrest).then(res=>{
                     this.deliveries = res.data.deliveries;
                     // console.log(this.deliveries);
+                })
+            },
+
+            getProductoById(id){
+                axios.get('../get_producto_by_id?id='+id).then(res=>{
+                    this.response = res.data;
+                    this.$nextTick(() => {
+                        $('#productoShow').modal('show');
+                    });
+
                 })
             },
 
