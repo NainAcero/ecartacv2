@@ -1973,6 +1973,10 @@ footer {
     transform: rotate(-45deg);
 }
 
+.btn-feria {
+    position: absolute;
+}
+
 @media (min-width: 1100px) {
     .container {
         max-width: 1160px;
