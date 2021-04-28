@@ -177,7 +177,7 @@ class EcommerceController extends Controller
             ->where('estado', 1)
             ->with(array('productos'=>function ($query) use ($buscar){
                 $query->select('id','slug','portada','producto','ingredientes','precio','categoria_id');
-                $query->where('ingredientes', 'like', '%'.$buscar.'%');
+                $query->where('producto', 'like', '%'.$buscar.'%');
                 $query->orWhere('ingredientes', 'like', '%'.$buscar.'%');
                 $query->where('estado', 1);
             }))
@@ -190,7 +190,7 @@ class EcommerceController extends Controller
             ->where('estado', 1)
             ->with(array('productos'=>function ($query) use ($buscar){
                 $query->select('id','slug','portada','producto','ingredientes','precio','categoria_id');
-                $query->where('ingredientes', 'like', '%'.$buscar.'%');
+                $query->where('producto', 'like', '%'.$buscar.'%');
                 $query->orWhere('ingredientes', 'like', '%'.$buscar.'%');
                 $query->where('estado', 1);
             }))

@@ -327,7 +327,7 @@
                                                                         <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" v-bind:value="delivery.id">
                                                                         <div class="option-body">
                                                                             <div class="option-img">
-                                                                            <i class="fas fa-motorcycle"></i>
+                                                                            <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >
                                                                             </div>
                                                                             <strong>{{ delivery.nombres }}</strong>
                                                                             <label v-bind:for="delivery.id"></label>
@@ -459,7 +459,7 @@
             get_deliveries(){
                 axios.get('../get_deliveries?id='+this.idrest).then(res=>{
                     this.deliveries = res.data.deliveries;
-                    console.log(this.deliveries);
+                    // console.log(this.deliveries);
                 })
             },
 
@@ -480,7 +480,7 @@
                 // this.valuemultisel = {iglesia:'Buscar...', codigo:'', manual_online:''}
                 axios.get('../getcategoria?category='+this.categoriaid+'&key='+this.idrest).then(res=>{
                     this.categorias = res.data.categoria;
-                    console.log(res);
+                    // console.log(res);
                 })
             },
             getBuscProd() {
