@@ -59,7 +59,7 @@
   <link href="{{asset('ecom/fonts/fontawesome/css/all.min.css')}}" type="text/css" rel="stylesheet">
 
   <!-- custom style -->
-  <link href="{{asset('ecom/css/ui.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{mix('css/ui.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{asset('ecom/css/responsive.css')}}" rel="stylesheet" type="text/css" />
 
   <link href="https://bootstrap-ecommerce.com/bootstrap-ecommerce-html/plugins/owlcarousel/assets/owl.carousel.css"

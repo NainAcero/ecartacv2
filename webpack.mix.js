@@ -19,4 +19,5 @@ mix.options({
 
 mix.js('resources/js/app.js', 'public/js')
   .sass('resources/sass/app.scss', 'public/css')
+  .postCss('public/ecom/css/ui.css', 'public/css')
   .version();
