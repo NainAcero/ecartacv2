@@ -349,7 +349,11 @@
                                                                 <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
                                                                 <div>
                                                                     <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="button" class="btn btn-primary" @click="enviarDelivery()">Siguiente<i class="fa fa-arrow-right ml-2"></i></button>
+                                                                    <button type="button" class="btn btn-primary" @click="confirmDelivery()">
+                                                                        <span class="v-btn__content">
+                                                                            <i class="fab fa-whatsapp mr-2"></i>Enviar pedido
+                                                                        </span>
+                                                                    </button>
                                                                 </div>
                                                                 </div>
                                                                 <div v-else-if="modal_page === 1">
