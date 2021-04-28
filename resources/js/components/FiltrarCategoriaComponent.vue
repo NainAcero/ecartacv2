@@ -53,7 +53,8 @@
                                       </button>
                                      </div>
                                         <p class="restaurant-description mb-3">{{ restdescripcion }}</p>
-                                        <p class="restaurant-direccion"><i class="fa fa-map-marker-alt mr-2"></i> {{ restdireccion }}</p>
+                                        <p class="restaurant-direccion"><i class="fa fa-map-marker-alt mr-2 mb-2"></i> {{ restdireccion }}</p>
+                                        <p class="restaurant-direccion"><i class="fas fa-phone mr-2"></i><b>{{restcelular}}</b></p>
                                  </div>
                              </div>
                          </div>
@@ -265,7 +266,7 @@
                                                         <i class="fab fa-whatsapp"></i>
                                                     </a> -->
                                                     <!-- @click="enviarDelivery()" -->
-                                                    <div v-if="is_modal_visible" id="modal" class="modal fade d-flex">
+                                                    <div v-if="is_modal_visible" id="modal" class="modal fade modal-delivery">
                                                             <div class="modal-dialog modal-dialog-centered delivery" role="document">
                                                             <div class="modal-content">
                                                             <div class="modal-header">
@@ -928,6 +929,8 @@
     .modal-dialog.delivery {
         max-width: unset;
         min-width: 450px;
+            display: inline-flex;
+    text-align: left;
     }
   }
 
@@ -1089,5 +1092,9 @@
     .restaurant-content .restaurant-socials {
         justify-content: center;
     }
+}
+
+.modal-delivery {
+  text-align: center;
 }
 </style>
