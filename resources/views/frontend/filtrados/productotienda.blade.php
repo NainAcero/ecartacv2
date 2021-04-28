@@ -29,8 +29,8 @@
 <script src="{{ mix('js/app.js') }}" defer></script>
 <script src="https://bootstrap-ecommerce.com/bootstrap-ecommerce-html/plugins/owlcarousel/owl.carousel.min.js"></script>
 <script>
-  $("#owl-example").owlCarousel({
-            items : 2,
-        });
+  // $("#owl-example").owlCarousel({
+  //           items : 2,
+  //       });
 </script>
 @endsection

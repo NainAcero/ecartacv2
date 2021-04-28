@@ -15,7 +15,7 @@
                     <div class="table-responsive">
                         <table class="table">
                             <tbody>
-                                <tr v-for="(horario, index) in horarios">
+                                <tr v-for="(horario, index) in horarios" :key="index">
                                     <td class="text-left bg-light text-dark" v-if="index == dia">{{ horario.day }}</td>
                                     <td class="text-left" v-if="index != dia">{{ horario.day }}</td>
 
@@ -92,7 +92,7 @@
                         <div class="form-inline justify-content-between">
                             <select class="mr-2 form-control" v-model="categoriaid" @change="getCateProd()">
                                 <option value="0">Ver toda la Cartas</option>
-                                <option v-for="(categoria, index) in listCategoria" :value="categoria.id">{{categoria.categoria}} </option>
+                                <option v-for="(categoria, index) in listCategoria" :value="categoria.id" :key="index">{{categoria.categoria}} </option>
                             </select>
                             <div class="input-group mt-md-0 mt-2">
                                 <input type="text" v-model="textBusc" @change="getCatProdInput()" class="form-control" placeholder="Buscar Producto">
@@ -140,7 +140,7 @@
                     <article v-for="(categoria, index) in categorias" v-if="categoria.productos.length > 0" class="mb-3">
                         <template >
                         <div class="card lista-categoria">
-                            <input :id="'group-toggle-'+categoria.categoria.replace(/ /g,'')" type="checkbox" style="position: absolute; clip: rect(0, 0, 0, 0);" :checked="index === 0 || index === 1">
+                            <input :id="'group-toggle-'+categoria.categoria.replace(/ /g,'')" type="checkbox" style="position: absolute; clip: rect(0, 0, 0, 0);" :checked="index === 0">
                             <header class="card-header border-3 position-relative">
                             <h4 class="mb-0">
                                 <strong class="card-title mb-4">{{categoria.categoria}}</strong>
@@ -207,7 +207,7 @@
                 </div> -->
                 <main class="col-md-12">
                     <div class="d-flex justify-content-between flex-column flex-md-row">
-                    <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0""><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
+                    <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
                     <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
 
                     </div>
@@ -265,8 +265,8 @@
                                                         <i class="fab fa-whatsapp"></i>
                                                     </a> -->
                                                     <!-- @click="enviarDelivery()" -->
-                                                    <div v-if="is_modal_visible" id="modal" class="modal fade">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div v-if="is_modal_visible" id="modal" class="modal fade d-flex">
+                                                            <div class="modal-dialog modal-dialog-centered delivery" role="document">
                                                             <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <span type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
@@ -322,7 +322,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="option" v-for="(delivery, index) in deliveries">
+                                                                    <div class="option" v-for="(delivery, index) in deliveries" :key="index">
                                                                         <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" v-bind:value="delivery.id">
                                                                         <div class="option-body">
                                                                             <div class="option-img">
@@ -349,7 +349,7 @@
                                                                 <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
                                                                 <div>
                                                                     <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="button" class="btn btn-primary" @click="confirmDelivery()">
+                                                                    <button type="button" class="btn btn-primary" @click="confirmDelivery()" :disabled="!(model.nombre && model.telefono && model.direccion)">
                                                                         <span class="v-btn__content">
                                                                             <i class="fab fa-whatsapp mr-2"></i>Enviar pedido
                                                                         </span>
@@ -799,7 +799,7 @@
   }
   .options-wrapper {
     display: flex;
-    gap: 28px;
+    gap: 15px;
     padding: 15px 0;
     justify-content: center;
   }
@@ -807,12 +807,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 30px 50px 45px;
+    padding: 30px 45px 45px;
     border: 1px solid #dfdee3;
     border-radius: 8px;
     position: relative;
     text-align: center;
-    min-width: 190px;
+    min-width: 180px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
   .option-body:hover {
@@ -925,8 +925,9 @@
       }
   }
   @media (min-width: 576px){
-    .modal-dialog {
-        max-width: 470px;
+    .modal-dialog.delivery {
+        max-width: unset;
+        min-width: 450px;
     }
   }
 
