@@ -17,6 +17,11 @@
                             <h5 class="modal-title" id="exampleModalLongTitle">{{ response.producto.producto }}</h5>
                             <p class="card-text">{{ response.producto.ingredientes }}</p>
                             <span v-html="response.producto.contenido"></span>
+                            <!-- <var class="price h5"></var>  -->
+                            <p><h5 class="modal-title">S/ {{ response.producto.precio }}</h5></p>
+                            <!-- <div class="mb-3"> 
+                                <p class="text-warning mr-2" data-toggle="tooltip" title="" data-original-title="Oferta/Promoción"><i class="fas fa-tag"></i> En oferta</p>                        
+                            </div> -->
                             <hr>
                             <h6 class="card-text text-primary text-center" > {{ response.producto.tienda.tienda }}</h6>
                         </div>
