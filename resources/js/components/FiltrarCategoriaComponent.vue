@@ -5,7 +5,6 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" v-if="response.producto != null">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">{{ response.producto.producto }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -15,7 +14,8 @@
                     <img v-else class="card-img-top" :src="'../'+response.producto.tienda.portada" alt="Card image cap">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-text">{{ response.producto.ingredientes }}</h6>
+                            <h5 class="modal-title" id="exampleModalLongTitle">{{ response.producto.producto }}</h5>
+                            <p class="card-text">{{ response.producto.ingredientes }}</p>
                             <span v-html="response.producto.contenido"></span>
                             <hr>
                             <h6 class="card-text text-primary text-center" > {{ response.producto.tienda.tienda }}</h6>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-warning" data-dismiss="modal" @click="addProducto(response.producto)"> <i class="fas fa-cart-plus"></i></button>
                 </div>
                 </div>

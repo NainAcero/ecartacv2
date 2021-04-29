@@ -16,8 +16,8 @@
       {{-- <div class="carousel-item">
             <img src="{{asset('ecom/images/banners/slide-lg-3.jpg')}}" alt="Third slide">
     </div> --}}
-    <button type="button" class="btn btn-primary btn-feria">Acceder a la feria</button>
   </div>
+  <a href="{{url('feriadigital')}}" class="btn btn-primary btn-feria">Ingresar a la Feria</a>
   <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
     {{-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> --}}
     {{-- <span class="sr-only">Previous</span> --}}
