@@ -114,7 +114,7 @@
 
                 <div class="bottom-section-fixed">
                   <div class="container-btn">
-                    <a href="#" @click="changeTab()" class="btn-flotante" v-if="listwsp.length > 0">
+                    <a href="javascript:void(0);" @click="changeTab()" class="btn-flotante" v-if="listwsp.length > 0">
                         <div class="col-md-5 col-3">
                         <span class="py-1 px-2 text-white rounded" style="background:#ff8c3b" >{{ listwsp.length }}</span>
                         </div>
@@ -151,11 +151,11 @@
                             </header>
                             <div class="menu-holder mb-5 mt-3">
                             <div v-for="(item, index) in ofertas" :key="index" class="menu-post flex-column text-center">
-                                <div class="menu-post-img overflow-hidden position-relative" style="max-height:194px">
+                                <div class="menu-post-img overflow-hidden position-relative" style="height:194px">
                                 <!-- <a :href="'../productos/'+ item.slug"> -->
-                                <a href="javascript:void(0);" @click="getProductoById(item.slug)">
-                                    <img v-if="item.portada" class="w-100" :src="'../'+item.portada">
-                                    <img v-else class="w-100" :src="'../' + restportada">
+                                <a href="javascript:void(0);" @click="getProductoById(item.slug)" class="d-block h-100">
+                                    <img v-if="item.portada" class="w-100 h-100" :src="'../'+item.portada">
+                                    <img v-else class="w-100 h-100" :src="'../' + restportada">
                                 </a>
                                 </div>
                                 <div class="menu-info pt-4 pb-3 px-2 bg-white">

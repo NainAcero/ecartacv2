@@ -1975,6 +1975,12 @@ footer {
 
 .btn-feria {
     position: absolute;
+    right: 23%;
+    top: 41%;
+    box-shadow: 0 2.1px 1.3px rgb(0 0 0 / 4%), 0 5.9px 4.2px rgb(0 0 0 / 5%),
+        0 12.6px 9.5px rgb(0 0 0 / 6%), 0 25px 20px rgb(0 0 0 / 10%);
+    border-radius: 25px;
+    padding: 0.9rem 1.8rem;
 }
 
 @media (min-width: 1100px) {
