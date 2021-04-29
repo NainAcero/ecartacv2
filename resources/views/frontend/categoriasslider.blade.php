@@ -8,7 +8,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{asset('ecom/images/banners/slide-lg-10.jpg')}}" alt="First slide">
+          <img src="{{asset('ecom/images/banners/slide-lg-11.jpg')}}" alt="First slide">
         </div>
         {{-- <div class="carousel-item">
             <img src="{{asset('ecom/images/banners/slide-lg-4.jpg')}}" alt="Second slide">
