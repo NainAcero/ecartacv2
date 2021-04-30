@@ -269,8 +269,8 @@
                                         <th scope="col">Plato</th>
                                         <th scope="col" class="head-delete"></th>
                                         <th scope="col">Precio</th>
-                                        <th scope="col">Descripción</th>
                                         <th scope="col" width="100" class="text-center">Cantidad</th>
+                                        <th scope="col">Nota</th>
                                         <th class="text-center"></th>
                                     </tr>
                                     </thead>
@@ -289,10 +289,10 @@
                                                 <var class="text-muted">S/ {{item.xprecio}}</var>
                                             </td>
                                             <td>
-                                                <input type="text" v-model="item.descripcion" @change="cantidadPedidos()" class="form-control">
+                                                <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" min="0" class="form-control text-center">
                                             </td>
                                             <td>
-                                                <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" min="0" class="form-control text-center">
+                                                <input type="text" v-model="item.descripcion" @change="cantidadPedidos()" class="form-control">
                                             </td>
                                             <td class="text-center">
                                                 <button class="btn btn-outline-danger" @click="removeCart(index)"><i class="fa fa-trash-alt"></i></button>
@@ -423,6 +423,12 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                        <p class=" mr-md-2 mb-2 mb-md-0"></p>
+                        <!-- <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button> -->
+                        <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
                     </div>
                     <div v-if="listwsp.length < 1" class="alert alert-warning text-center mt-4" role="alert">
                     Tus pedidos se visualizarán aquí. <p>Aún no cuentas con pedidos para este restaurante.</p>

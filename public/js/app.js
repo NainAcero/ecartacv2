@@ -2432,6 +2432,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['idrest', 'celular', 'portada', 'delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
@@ -40674,39 +40680,6 @@ var render = function() {
                                                 {
                                                   name: "model",
                                                   rawName: "v-model",
-                                                  value: item.descripcion,
-                                                  expression: "item.descripcion"
-                                                }
-                                              ],
-                                              staticClass: "form-control",
-                                              attrs: { type: "text" },
-                                              domProps: {
-                                                value: item.descripcion
-                                              },
-                                              on: {
-                                                change: function($event) {
-                                                  return _vm.cantidadPedidos()
-                                                },
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    item,
-                                                    "descripcion",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            })
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
                                                   value: item.xcantidad,
                                                   expression: "item.xcantidad"
                                                 }
@@ -40731,6 +40704,39 @@ var render = function() {
                                                   _vm.$set(
                                                     item,
                                                     "xcantidad",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            })
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("td", [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: item.descripcion,
+                                                  expression: "item.descripcion"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: { type: "text" },
+                                              domProps: {
+                                                value: item.descripcion
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.cantidadPedidos()
+                                                },
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    item,
+                                                    "descripcion",
                                                     $event.target.value
                                                   )
                                                 }
@@ -41727,6 +41733,38 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex justify-content-between flex-column flex-md-row"
+                    },
+                    [
+                      _c("p", { staticClass: " mr-md-2 mb-2 mb-md-0" }),
+                      _vm._v(" "),
+                      _vm.listwsp.length > 0
+                        ? _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.showModal()
+                                }
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-motorcycle" }),
+                              _vm._v(" Solicitar delivery")
+                            ]
+                          )
+                        : _vm._e()
+                    ]
+                  ),
+                  _vm._v(" "),
                   _vm.listwsp.length < 1
                     ? _c(
                         "div",
@@ -41832,13 +41870,13 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Precio")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
-        _vm._v(" "),
         _c(
           "th",
           { staticClass: "text-center", attrs: { scope: "col", width: "100" } },
           [_vm._v("Cantidad")]
         ),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nota")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" })
       ])
