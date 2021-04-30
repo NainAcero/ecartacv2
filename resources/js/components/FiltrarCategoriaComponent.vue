@@ -83,7 +83,7 @@
                                  </div>
                                  <div class="restaurant-info">
                                      <div class="d-flex mb-2 align-items-md-center">
-                                       <h3 class="card-title mb-md-0 mr-md-3">{{ resttienda }} </h3>
+                                       <h3 class="card-title mb-md-0 mr-md-3" style="text-shadow: 2px 3px 2px black;">{{ resttienda }} </h3>
                                       <button type="button" class="btn btn-sm px-3" data-toggle="modal" data-target="#exampleModalCenter">{{ estatus }}
                                       </button>
                                      </div>
