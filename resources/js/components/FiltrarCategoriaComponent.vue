@@ -381,6 +381,7 @@
                                                                             </div>
                                                                             <strong>{{ delivery.nombres }}</strong>
                                                                             <label v-bind:for="delivery.id"></label>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
