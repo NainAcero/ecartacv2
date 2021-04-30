@@ -2453,7 +2453,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       restdescripcion: this.descripcion,
       resttienda: this.tienda,
       restimagen_pri: "min-height:320px; background-image: url(../" + this.imagen_pri + ");"
-    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "ofertas", []), _defineProperty(_ref, "deliveries", []), _defineProperty(_ref, "response", {}), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
+    }, _defineProperty(_ref, "restportada", "../" + this.portada), _defineProperty(_ref, "restinfo", "https://wa.me/51" + this.celular + "?text=Hola " + this.tienda + " deseo más información..."), _defineProperty(_ref, "restfacebook", this.facebook), _defineProperty(_ref, "listCategoria", []), _defineProperty(_ref, "categorias", []), _defineProperty(_ref, "categoriaid", '0'), _defineProperty(_ref, "buscador", ''), _defineProperty(_ref, "tab", 0), _defineProperty(_ref, "estatus", ''), _defineProperty(_ref, "dia", 0), _defineProperty(_ref, "selector", 1), _defineProperty(_ref, "horarios", []), _defineProperty(_ref, "ofertas", []), _defineProperty(_ref, "deliveries", []), _defineProperty(_ref, "response", {}), _defineProperty(_ref, "aux", true), _defineProperty(_ref, "carrito", []), _defineProperty(_ref, "newCat", null), _defineProperty(_ref, "pedidos", ''), _defineProperty(_ref, "listwsp", []), _defineProperty(_ref, "textBusc", ""), _defineProperty(_ref, "is_modal_visible", false), _defineProperty(_ref, "is_second_modal", false), _defineProperty(_ref, "modal_page", 1), _defineProperty(_ref, "total", 0.00), _defineProperty(_ref, "model", {
       nombre: '',
       telefono: '',
       direccion: ''
@@ -2479,6 +2479,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     changeTab: function changeTab() {
       this.tab = !this.tab;
+    },
+    changeP: function changeP() {
+      this.aux = false;
     },
     get_deliveries: function get_deliveries() {
       var _this2 = this;
@@ -41346,9 +41349,7 @@ var render = function() {
                                                                                     name:
                                                                                       "delivery[]",
                                                                                     id:
-                                                                                      delivery.id,
-                                                                                    selected:
-                                                                                      ""
+                                                                                      delivery.id
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -41359,6 +41360,11 @@ var render = function() {
                                                                                     )
                                                                                   },
                                                                                   on: {
+                                                                                    click: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.changeP()
+                                                                                    },
                                                                                     change: function(
                                                                                       $event
                                                                                     ) {
@@ -41639,7 +41645,9 @@ var render = function() {
                                                                           "btn btn-primary",
                                                                         attrs: {
                                                                           type:
-                                                                            "button"
+                                                                            "button",
+                                                                          disabled:
+                                                                            _vm.aux
                                                                         },
                                                                         on: {
                                                                           click: function(

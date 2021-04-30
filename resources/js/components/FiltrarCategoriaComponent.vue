@@ -374,14 +374,13 @@
                                                                     </div> -->
 
                                                                     <div class="option" v-for="(delivery, index) in deliveries" :key="index">
-                                                                        <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" v-bind:value="delivery.id" checked>
+                                                                        <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" @click="changeP()" v-bind:value="delivery.id">
                                                                         <div class="option-body">
                                                                             <div class="option-img">
                                                                             <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >
                                                                             </div>
                                                                             <strong>{{ delivery.nombres }}</strong>
                                                                             <label v-bind:for="delivery.id"></label>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -411,7 +410,7 @@
                                                                 </div>
                                                                 <div v-else-if="modal_page === 1">
                                                                     <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="button" class="btn btn-primary" @click="enviarDelivery()">Siguiente<i class="fa fa-arrow-right ml-2"></i></button>
+                                                                    <button type="button"  class="btn btn-primary" :disabled="aux" @click="enviarDelivery()">Siguiente<i class="fa fa-arrow-right ml-2"></i></button>
                                                                 </div>
                                                             </div>
                                                             </div>
@@ -476,6 +475,7 @@
                 ofertas: [],
                 deliveries: [],
                 response: {},
+                aux: true,
 
                 carrito:[],
                 newCat:null,
@@ -512,6 +512,10 @@
 
             changeTab() {
                 this.tab = !this.tab;
+            },
+
+            changeP() {
+                this.aux = false;
             },
 
             get_deliveries(){
