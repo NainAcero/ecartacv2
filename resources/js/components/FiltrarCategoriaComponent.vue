@@ -126,10 +126,10 @@
                 <main class="col-md-12">
                     <header class="border-bottom mb-4 pb-3">
                         <div class="form-inline justify-content-between">
-                            <select class="mr-2 form-control" v-model="categoriaid" @change="getCateProd()">
+                            <!-- <select class="mr-2 form-control" v-model="categoriaid" @change="getCateProd()">
                                 <option value="0">Ver toda la Cartas</option>
                                 <option v-for="(categoria, index) in listCategoria" :value="categoria.id" :key="index">{{categoria.categoria}} </option>
-                            </select>
+                            </select> -->
                             <div class="input-group mt-md-0 mt-2">
                                 <input type="text" v-model="textBusc" @change="getCatProdInput()" class="form-control" placeholder="Buscar Producto">
                                 <div class="input-group-append">
