@@ -2588,12 +2588,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Pedido Enviado con éxito");
           _this8.carrito = [];
 
-          _this8.saveCarts(); // if(Number(this.selector) > 0){
-          //     window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
-          // }else{
+          _this8.saveCarts();
 
-
-          window.open('https://wa.me/51' + _this8.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this8.listwsp + '%0D%0A%0D%0A' + _this8.model.nombre + ', Dir: ' + _this8.model.direccion + ', Cel: ' + _this8.model.telefono + '%0D%0A%0D%0A Gracias', '_blank'); // }
+          if (Number(_this8.selector) > 0) {
+            window.open('https://wa.me/51' + res.data.delivery.celular + '?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *' + _this8.tienda + '* %0D%0A' + _this8.listwsp + '%0D%0A' + _this8.model.nombre + ', Dir: ' + _this8.model.direccion + ', Cel: ' + _this8.model.telefono + '%0D%0A%0D%0A Gracias', '_blank');
+          } else {
+            window.open('https://wa.me/51' + _this8.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this8.listwsp + '%0D%0A%0D%0A' + _this8.model.nombre + ', Dir: ' + _this8.model.direccion + ', Cel: ' + _this8.model.telefono + '%0D%0A%0D%0A Gracias', '_blank');
+          }
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.error("Ocurrio un error!..");
         }
