@@ -79,7 +79,7 @@
   <aside class="main-sidebar elevation-4 sidebar-light-info">
     <!-- Brand Logo -->
     <a href="{{url('/')}}" class="brand-link navbar-info">
-      <img src="{{asset('img/logo4.png')}}" alt="GT Logo" class="brand-image elevation-0"
+      <img src="{{asset('img/logo5.png')}}" alt="GT Logo" class="brand-image elevation-0"
            style="opacity: .8">
       {{-- <span class="brand-text font-weight-light">Galerias Tacna</span> --}}
     </a>
@@ -92,7 +92,7 @@
           @if (Auth::user()->persona->tienda)
             <img src="{{asset(Auth::user()->persona->tienda->portada)}}" class="img-circle elevation-2" alt="User Image">
           @else
-            <img src="{{asset('img/logo4.png')}}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{asset('img/logo5.png')}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">

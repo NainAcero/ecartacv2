@@ -12,7 +12,7 @@
   {{-- <meta name="description" content="eCartac - Un Ecommerce de restaurantes de Tacna donde podrás visualizar sus cartas digitales."> --}}
   <meta property="og:description"
     content="@yield('ogDesc', 'eCartac - Un Ecommerce de restaurantes de Tacna donde podrás visualizar sus cartas digitales.')" />
-  <meta property="og:image" content="@yield('ogImage', 'https://ecartac.com/img/logo4.png')" />
+  <meta property="og:image" content="@yield('ogImage', 'https://ecartac.com/img/logo5.png')" />
   <meta property="og:image:width" content="200" />
   {{-- <meta property="og:image:height" content="400" /> --}}
 

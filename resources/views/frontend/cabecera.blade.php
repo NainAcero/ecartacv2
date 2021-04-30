@@ -4,7 +4,7 @@
         <div class="row align-items-center">
           <div class="col-lg-3 col-md-3 col-6">
             <a href="{{url('/')}}" class="brand-wrap">
-              <img class="logo" src="{{asset('img/logo4.png')}}">
+              <img class="logo" src="{{asset('img/logo5.png')}}">
             </a> <!-- brand-wrap.// -->
           </div>
           <div class="col-lg-5 col-md-6 px-lg-4 order-md-0 order-3 px-0">
