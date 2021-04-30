@@ -685,8 +685,13 @@
                 this.listwsp = []
                 this.carrito.forEach(val => {
                     if (val.xmaster == this.idrest) {
-                        this.listwsp.push('%0D%0A • '+val.xprod+' | _Cant_='+val.xcantidad+' | _Desc_='+val.descripcion
-                        + ' | ')
+                        if(val.descripcion != null) {
+
+                            this.listwsp.push('%0D%0A • '+val.xprod+' | _Cant_='+val.xcantidad+' | _Nota_='+val.descripcion
+                            + ' | ')
+                        }else {
+                            this.listwsp.push('%0D%0A • '+val.xprod+' | _Cant_='+val.xcantidad+ ' | ')
+                        }
                     }
                 });
                 this.saveCarts();
