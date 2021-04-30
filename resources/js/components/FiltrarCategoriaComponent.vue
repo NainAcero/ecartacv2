@@ -263,14 +263,14 @@
                         <div class="bg-white cart-wrapper">
                         <h4 class="pb-4"> <i class="fas fa-shopping-basket"></i> Canasta</h4>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-sm">
                                     <thead class="text-muted cart-header">
                                     <tr class="text-uppercase">
                                         <th scope="col">Plato</th>
                                         <th scope="col" class="head-delete"></th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col" width="100" class="text-center">Cantidad</th>
-                                        <th scope="col">Nota</th>
+                                        <!-- <th scope="col">Precio</th> -->
+                                        <th scope="col" width="100" class="text-center">Cant</th>
+                                        <th scope="col" >Nota</th>
                                         <th class="text-center"></th>
                                     </tr>
                                     </thead>
@@ -283,11 +283,11 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0);" @click="getProductoById(item.xslug)" class="font-weight-bold text-dark" style="font-size:16px">{{item.xprod}}</a>
+                                                <a href="javascript:void(0);" @click="getProductoById(item.xslug)" class="font-weight-bold text-dark" style="font-size:16px">{{item.xprod}} <var class="text-muted">(S/ {{item.xprecio}})</var></a>
                                             </td>
-                                            <td class="text-lefth">
+                                            <!-- <td class="text-lefth">
                                                 <var class="text-muted">S/ {{item.xprecio}}</var>
-                                            </td>
+                                            </td> -->
                                             <td>
                                                 <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" min="0" class="form-control text-center">
                                             </td>
@@ -1085,7 +1085,7 @@
 
   .restaurant-header::before {
       content: "";
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.38);
       position: absolute;
       top: 0;
       left: 0;

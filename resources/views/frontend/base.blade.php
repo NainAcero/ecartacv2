@@ -226,20 +226,18 @@
 
 
   <!-- ========================= FOOTER ========================= -->
-  <footer class="section-footer">
+  <footer class="section-footer bg-secondary text-white">
     <div class="container">
       <section class="footer-top  padding-y-lg">
         <div class="row">
-          <aside class="col-md-4 col-12">
+          <aside class="col-md-8 col-12">
             <article class="mr-md-4">
               {{-- <h5 class="title">Sobre nosotros</h5> --}}
-              <p>eCartac, una plataforma web que ayuda a las personas a conocer la Carta/Menú de los restaurantes de la
-                ciudad de Tacna al escanear el código QR
-                desde su celular.</p>
+              <p><b>eCartac</b> es una plataforma que almacena las Cartas Digitales de los Restaurantes del Sur del Perú, implementamos los códigos QR en los establecimientos, somos un formato de ecommerce gastronómico, facilitamos los pedidos por delivery mediante Whataspp sea directo con restaurantes o con agentes de delivery.</p>
               {{-- <p>tus clientes podrán escanear el código QR desde su celular y acceder al menú online de tu local.</p> --}}
 
               <ul class="list-icon">
-                <li> <i class="icon fa fa-map-marker"> </i>Tacna </li>
+                {{-- <li> <i class="icon fa fa-map-marker"> </i>Tacna </li> --}}
                 <li> <i class="icon fa fa-envelope"> </i> wgcalisaya@gmail.com</li>
                 <li>
                   {{-- <i class="icon fa fa-whatsapp"> </i>  --}}
