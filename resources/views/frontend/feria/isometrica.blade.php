@@ -42,11 +42,11 @@
                 {{-- <h2 style="color:black;"><b>Restaurante 01</b></h2> --}}
 
                 <div class="video">
-                  {{-- <iframe width="600" height="500" src="https://www.youtube.com/embed/WkrhVexll_g" frameborder="0"
+                  <iframe width="600" height="500" src="https://www.youtube.com/embed/WkrhVexll_g" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe> --}}
+                    allowfullscreen></iframe>
 
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadProvincialDeTacna%2Fvideos%2F498352388145017%2F&show_text=false&width=560" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    {{-- <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadProvincialDeTacna%2Fvideos%2F498352388145017%2F&show_text=false&width=560" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> --}}
 
                   <div class="text-center mt-5" hidden>
                     <a class="btn black " href="https://meet.google.com/pup-veda-bqy">
