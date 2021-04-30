@@ -374,7 +374,7 @@
                                                                     </div> -->
 
                                                                     <div class="option" v-for="(delivery, index) in deliveries" :key="index">
-                                                                        <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" v-bind:value="delivery.id">
+                                                                        <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" v-bind:value="delivery.id" selected>
                                                                         <div class="option-body">
                                                                             <div class="option-img">
                                                                             <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >

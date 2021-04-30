@@ -41346,7 +41346,9 @@ var render = function() {
                                                                                     name:
                                                                                       "delivery[]",
                                                                                     id:
-                                                                                      delivery.id
+                                                                                      delivery.id,
+                                                                                    selected:
+                                                                                      ""
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
