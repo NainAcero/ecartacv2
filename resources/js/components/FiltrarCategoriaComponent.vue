@@ -362,7 +362,7 @@
                                                                 <template v-else-if="modal_page === 1">
                                                                 <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
                                                                 <div class="options-wrapper">
-                                                                    <div class="option">
+                                                                    <!-- <div class="option">
                                                                         <input type="radio" name="delivery" id="deliv_res" v-model="selector" value="0">
                                                                         <div class="option-body">
                                                                             <div class="option-img">
@@ -371,7 +371,7 @@
                                                                             <strong>Restaurante</strong>
                                                                             <label for="deliv_res"></label>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
 
                                                                     <div class="option" v-for="(delivery, index) in deliveries" :key="index">
                                                                         <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" v-bind:value="delivery.id">
@@ -611,11 +611,11 @@
                         toastr.success("Pedido Enviado con éxito")
                         this.carrito = []
                         this.saveCarts();
-                        if(Number(this.selector) > 0){
-                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
-                        }else{
+                        // if(Number(this.selector) > 0){
+                        //     window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
+                        // }else{
                             window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
-                        }
+                        // }
                     }else{
                         toastr.error("Ocurrio un error!..")
                     }

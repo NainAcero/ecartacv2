@@ -2588,13 +2588,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Pedido Enviado con éxito");
           _this8.carrito = [];
 
-          _this8.saveCarts();
+          _this8.saveCarts(); // if(Number(this.selector) > 0){
+          //     window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
+          // }else{
 
-          if (Number(_this8.selector) > 0) {
-            window.open('https://wa.me/51' + res.data.delivery.celular + '?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *' + _this8.tienda + '* %0D%0A' + _this8.listwsp + '%0D%0A' + _this8.model.nombre + ', Dir: ' + _this8.model.direccion + ', Cel: ' + _this8.model.telefono + '%0D%0A%0D%0A Gracias', '_blank');
-          } else {
-            window.open('https://wa.me/51' + _this8.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this8.listwsp + '%0D%0A%0D%0A' + _this8.model.nombre + ', Dir: ' + _this8.model.direccion + ', Cel: ' + _this8.model.telefono + '%0D%0A%0D%0A Gracias', '_blank');
-          }
+
+          window.open('https://wa.me/51' + _this8.restcelular + '?text=Hola, deseo realizar este pedido. ' + _this8.listwsp + '%0D%0A%0D%0A' + _this8.model.nombre + ', Dir: ' + _this8.model.direccion + ', Cel: ' + _this8.model.telefono + '%0D%0A%0D%0A Gracias', '_blank'); // }
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_0___default.a.error("Ocurrio un error!..");
         }
@@ -41311,187 +41310,126 @@ var render = function() {
                                                                         staticClass:
                                                                           "options-wrapper"
                                                                       },
-                                                                      [
-                                                                        _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "option"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "input",
-                                                                              {
-                                                                                directives: [
-                                                                                  {
+                                                                      _vm._l(
+                                                                        _vm.deliveries,
+                                                                        function(
+                                                                          delivery,
+                                                                          index
+                                                                        ) {
+                                                                          return _c(
+                                                                            "div",
+                                                                            {
+                                                                              key: index,
+                                                                              staticClass:
+                                                                                "option"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "input",
+                                                                                {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm.selector,
+                                                                                      expression:
+                                                                                        "selector"
+                                                                                    }
+                                                                                  ],
+                                                                                  attrs: {
+                                                                                    type:
+                                                                                      "radio",
                                                                                     name:
-                                                                                      "model",
-                                                                                    rawName:
-                                                                                      "v-model",
+                                                                                      "delivery[]",
+                                                                                    id:
+                                                                                      delivery.id
+                                                                                  },
+                                                                                  domProps: {
                                                                                     value:
+                                                                                      delivery.id,
+                                                                                    checked: _vm._q(
                                                                                       _vm.selector,
-                                                                                    expression:
-                                                                                      "selector"
-                                                                                  }
-                                                                                ],
-                                                                                attrs: {
-                                                                                  type:
-                                                                                    "radio",
-                                                                                  name:
-                                                                                    "delivery",
-                                                                                  id:
-                                                                                    "deliv_res",
-                                                                                  value:
-                                                                                    "0"
-                                                                                },
-                                                                                domProps: {
-                                                                                  checked: _vm._q(
-                                                                                    _vm.selector,
-                                                                                    "0"
-                                                                                  )
-                                                                                },
-                                                                                on: {
-                                                                                  change: function(
-                                                                                    $event
-                                                                                  ) {
-                                                                                    _vm.selector =
-                                                                                      "0"
+                                                                                      delivery.id
+                                                                                    )
+                                                                                  },
+                                                                                  on: {
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      _vm.selector =
+                                                                                        delivery.id
+                                                                                    }
                                                                                   }
                                                                                 }
-                                                                              }
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _vm._m(
-                                                                              6
-                                                                            )
-                                                                          ]
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " "
-                                                                        ),
-                                                                        _vm._l(
-                                                                          _vm.deliveries,
-                                                                          function(
-                                                                            delivery,
-                                                                            index
-                                                                          ) {
-                                                                            return _c(
-                                                                              "div",
-                                                                              {
-                                                                                key: index,
-                                                                                staticClass:
-                                                                                  "option"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "input",
-                                                                                  {
-                                                                                    directives: [
-                                                                                      {
-                                                                                        name:
-                                                                                          "model",
-                                                                                        rawName:
-                                                                                          "v-model",
-                                                                                        value:
-                                                                                          _vm.selector,
-                                                                                        expression:
-                                                                                          "selector"
-                                                                                      }
-                                                                                    ],
-                                                                                    attrs: {
-                                                                                      type:
-                                                                                        "radio",
-                                                                                      name:
-                                                                                        "delivery[]",
-                                                                                      id:
-                                                                                        delivery.id
+                                                                              ),
+                                                                              _vm._v(
+                                                                                " "
+                                                                              ),
+                                                                              _c(
+                                                                                "div",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "option-body"
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "div",
+                                                                                    {
+                                                                                      staticClass:
+                                                                                        "option-img"
                                                                                     },
-                                                                                    domProps: {
-                                                                                      value:
-                                                                                        delivery.id,
-                                                                                      checked: _vm._q(
-                                                                                        _vm.selector,
-                                                                                        delivery.id
+                                                                                    [
+                                                                                      _c(
+                                                                                        "img",
+                                                                                        {
+                                                                                          staticClass:
+                                                                                            "icon icon-md",
+                                                                                          attrs: {
+                                                                                            src:
+                                                                                              "../" +
+                                                                                              delivery.logo,
+                                                                                            alt:
+                                                                                              "Delivery"
+                                                                                          }
+                                                                                        }
                                                                                       )
-                                                                                    },
-                                                                                    on: {
-                                                                                      change: function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        _vm.selector =
+                                                                                    ]
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "strong",
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        _vm._s(
+                                                                                          delivery.nombres
+                                                                                        )
+                                                                                      )
+                                                                                    ]
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "label",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        for:
                                                                                           delivery.id
                                                                                       }
                                                                                     }
-                                                                                  }
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "option-body"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "option-img"
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "img",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "icon icon-md",
-                                                                                            attrs: {
-                                                                                              src:
-                                                                                                "../" +
-                                                                                                delivery.logo,
-                                                                                              alt:
-                                                                                                "Delivery"
-                                                                                            }
-                                                                                          }
-                                                                                        )
-                                                                                      ]
-                                                                                    ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _c(
-                                                                                      "strong",
-                                                                                      [
-                                                                                        _vm._v(
-                                                                                          _vm._s(
-                                                                                            delivery.nombres
-                                                                                          )
-                                                                                        )
-                                                                                      ]
-                                                                                    ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _c(
-                                                                                      "label",
-                                                                                      {
-                                                                                        attrs: {
-                                                                                          for:
-                                                                                            delivery.id
-                                                                                        }
-                                                                                      }
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          }
-                                                                        )
-                                                                      ],
-                                                                      2
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        }
+                                                                      ),
+                                                                      0
                                                                     )
                                                                   ]
                                                                 : _vm._e()
@@ -41563,7 +41501,7 @@ var render = function() {
                                                                         },
                                                                         [
                                                                           _vm._m(
-                                                                            7
+                                                                            6
                                                                           )
                                                                         ]
                                                                       )
@@ -41661,7 +41599,7 @@ var render = function() {
                                                                             },
                                                                             [
                                                                               _vm._m(
-                                                                                8
+                                                                                7
                                                                               )
                                                                             ]
                                                                           )
@@ -41911,20 +41849,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "option-body" }, [
-      _c("div", { staticClass: "option-img" }, [
-        _c("i", { staticClass: "fab fa-whatsapp" })
-      ]),
-      _vm._v(" "),
-      _c("strong", [_vm._v("Restaurante")]),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "deliv_res" } })
-    ])
   },
   function() {
     var _vm = this
