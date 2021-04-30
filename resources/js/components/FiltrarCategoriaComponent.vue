@@ -19,8 +19,8 @@
                             <span v-html="response.producto.contenido"></span>
                             <!-- <var class="price h5"></var>  -->
                             <p><h5 class="modal-title">S/ {{ response.producto.precio }}</h5></p>
-                            <!-- <div class="mb-3"> 
-                                <p class="text-warning mr-2" data-toggle="tooltip" title="" data-original-title="Oferta/Promoción"><i class="fas fa-tag"></i> En oferta</p>                        
+                            <!-- <div class="mb-3">
+                                <p class="text-warning mr-2" data-toggle="tooltip" title="" data-original-title="Oferta/Promoción"><i class="fas fa-tag"></i> En oferta</p>
                             </div> -->
                             <hr>
                             <h6 class="card-text text-primary text-center" > {{ response.producto.tienda.tienda }}</h6>
@@ -269,6 +269,7 @@
                                         <th scope="col">Plato</th>
                                         <th scope="col" class="head-delete"></th>
                                         <th scope="col">Precio</th>
+                                        <th scope="col">Descripción</th>
                                         <th scope="col" width="100" class="text-center">Cantidad</th>
                                         <th class="text-center"></th>
                                     </tr>
@@ -286,6 +287,9 @@
                                             </td>
                                             <td class="text-lefth">
                                                 <var class="text-muted">S/ {{item.xprecio}}</var>
+                                            </td>
+                                            <td>
+                                                <input type="text" v-model="item.descripcion" @change="cantidadPedidos()" class="form-control">
                                             </td>
                                             <td>
                                                 <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" min="0" class="form-control text-center">
@@ -681,7 +685,8 @@
                 this.listwsp = []
                 this.carrito.forEach(val => {
                     if (val.xmaster == this.idrest) {
-                        this.listwsp.push('%0D%0A • *'+val.xprod+'* | _Cant_=*'+val.xcantidad+'*')
+                        this.listwsp.push('%0D%0A • '+val.xprod+' | _Cant_='+val.xcantidad+' | _Desc_='+val.descripcion
+                        + ' | ')
                     }
                 });
                 this.saveCarts();

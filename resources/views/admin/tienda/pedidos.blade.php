@@ -124,6 +124,7 @@
 
     function onPedidosLoaded(data) {
         pedidos = data.pedidos;
+        console.log(data);
         cargarPedidos();
     }
 
