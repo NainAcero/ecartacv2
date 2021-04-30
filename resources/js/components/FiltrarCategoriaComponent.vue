@@ -255,9 +255,8 @@
                 </div> -->
                 <main class="col-md-12">
                     <div class="d-flex justify-content-between flex-column flex-md-row">
-                    <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
-                    <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
-
+                        <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
+                        <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
                     </div>
                     <div class="mt-4" v-if="listwsp.length > 0">
                         <!-- <h4 class="py-4">Su Canasta</h4> -->
@@ -603,9 +602,9 @@
                         this.carrito = []
                         this.saveCarts();
                         if(Number(this.selector) > 0){
-                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A Gracias', '_blank');
+                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
                         }else{
-                            window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A Gracias', '_blank');
+                            window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
                         }
                     }else{
                         toastr.error("Ocurrio un error!..")
