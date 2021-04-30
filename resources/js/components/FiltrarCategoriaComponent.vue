@@ -277,13 +277,13 @@
                                     <tbody>
                                         <tr v-for="(item, index) in carrito" v-if="item.xmaster == idrest">
                                             <td width="20">
-                                                <a :href="'../productos/'+ item.slug">
+                                                <a href="javascript:void(0);" @click="getProductoById(item.xslug)">
                                                 <img v-if="item.portada" class="icon icon-md" :src="'../'+item.portada">
                                                 <img v-else class="icon icon-md" :src="'../' + restportada">
                                                 </a>
                                             </td>
                                             <td>
-                                                <a :href="'../productos/'+ item.xslug" class="font-weight-bold text-dark" style="font-size:16px">{{item.xprod}}</a>
+                                                <a href="javascript:void(0);" @click="getProductoById(item.xslug)" class="font-weight-bold text-dark" style="font-size:16px">{{item.xprod}}</a>
                                             </td>
                                             <td class="text-lefth">
                                                 <var class="text-muted">S/ {{item.xprecio}}</var>

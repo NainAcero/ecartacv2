@@ -40613,8 +40613,14 @@ var render = function() {
                                               "a",
                                               {
                                                 attrs: {
-                                                  href:
-                                                    "../productos/" + item.slug
+                                                  href: "javascript:void(0);"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.getProductoById(
+                                                      item.xslug
+                                                    )
+                                                  }
                                                 }
                                               },
                                               [
@@ -40650,8 +40656,14 @@ var render = function() {
                                                   "font-size": "16px"
                                                 },
                                                 attrs: {
-                                                  href:
-                                                    "../productos/" + item.xslug
+                                                  href: "javascript:void(0);"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.getProductoById(
+                                                      item.xslug
+                                                    )
+                                                  }
                                                 }
                                               },
                                               [_vm._v(_vm._s(item.xprod))]
