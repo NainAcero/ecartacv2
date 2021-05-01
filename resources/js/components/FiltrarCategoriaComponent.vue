@@ -358,7 +358,7 @@
                                                                         <input type="text" v-model="model.direccion" class="form-control">
                                                                     </div>
                                                                     <div class="alert alert-success text-center" role="alert">
-                                                                        <strong>Solo falta 1 click, </strong> Este proceso termina al enviar los detalles del pedido al Whatsapp del Delivery. preciona el botón "Enviar Pedido".
+                                                                        <strong>Solo falta 1 click, </strong> Este proceso termina al enviar los detalles del pedido al Whatsapp del Delivery. Presiona el botón "Enviar Pedido".
                                                                     </div>
                                                                     </div>
                                                                 </template>
