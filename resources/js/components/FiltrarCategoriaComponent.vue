@@ -357,6 +357,9 @@
                                                                         <label >Dirección</label>
                                                                         <input type="text" v-model="model.direccion" class="form-control">
                                                                     </div>
+                                                                    <div class="alert alert-success text-center" role="alert">
+                                                                        <strong>Solo falta 1 click, </strong> Este proceso termina al enviar los detalles del pedido al Whatsapp del Delivery. preciona el botón "Enviar Pedido".
+                                                                    </div>
                                                                     </div>
                                                                 </template>
                                                                 <template v-else-if="modal_page === 1">
@@ -392,7 +395,7 @@
                                                                     <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
                                                                     <button type="button" class="btn btn-primary" @click="confirmDelivery()">
                                                                         <span class="v-btn__content">
-                                                                            <i class="fab fa-whatsapp mr-2"></i>Enviar pedido
+                                                                            <i class="fab fa-whatsapp mr-2"></i>Enviar Pedido
                                                                         </span>
                                                                     </button>
                                                                 </div>
