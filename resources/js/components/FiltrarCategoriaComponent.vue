@@ -617,7 +617,7 @@
                         this.carrito = []
                         this.saveCarts();
                         if(Number(this.selector) > 0){
-                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
+                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
                         }else{
                             window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
                         }
@@ -698,10 +698,10 @@
                     if (val.xmaster == this.idrest) {
                         if(val.descripcion != null) {
 
-                            this.listwsp.push('%0D%0A • '+val.xprod+' | _Cant_='+val.xcantidad+' | _Nota_='+val.descripcion
+                            this.listwsp.push('%0D%0A • *'+val.xprod+'* | _Cant_='+val.xcantidad+' | _Nota_='+val.descripcion
                             + ' | ')
                         }else {
-                            this.listwsp.push('%0D%0A • '+val.xprod+' | _Cant_='+val.xcantidad+ ' | ')
+                            this.listwsp.push('%0D%0A • *'+val.xprod+'* | _Cant_='+val.xcantidad+ ' | ')
                         }
                     }
                 });
