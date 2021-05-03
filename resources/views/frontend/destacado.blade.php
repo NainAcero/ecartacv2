@@ -32,7 +32,9 @@
                         <small><p class="text-muted">{{$item->ingredientes}}</p></small>
                     </a>
 
-                    <span class="label-rating text-warning"><a href="{{url('r/'.$item->tienda->slug)}}"  style="color: royalblue">{{$item->tienda->tienda}}</a></span>
+                    <small>
+                        <span class="label-rating text-warning"><a href="{{url('r/'.$item->tienda->slug)}}"  style="color: royalblue">{{$item->tienda->tienda}}</a></span>
+                    </small>
                     {{-- <dd class="col-sm-10"><a href="{{url('r/'.$item->tienda->slug)}}"  style="color: royalblue">{{$item->tienda->tienda}}</a></dd> --}}
 
                 </figcaption>
