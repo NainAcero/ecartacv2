@@ -37,7 +37,7 @@ class Producto extends Model
         $array = $this->toArray();
         $array['tienda'] = $this->tienda['tienda'];
         $array['categoria'] = $this->categoria['categoria'];
-        $array['products'] = $this->producto;
+        // $array['products'] = $this->producto;
 
         return $array;
     }
