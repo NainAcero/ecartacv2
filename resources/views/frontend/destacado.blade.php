@@ -28,7 +28,7 @@
                     <figcaption class="info-wrap">
 
                     <a href="{{ url('productos/'.$item->slug)}}" class="title" data-toggle="tooltip" title="{{$item->ingredientes}}">
-                        <b>{{$item->producto}}</b>
+                        <b>{{$item->producto}}</b>: {{$item->ingredientes}}
                     </a>
 
                     <small><p class="text-muted">{{$item->tienda->tienda}}</p></small>
