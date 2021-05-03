@@ -33,4 +33,5 @@
   //           items : 2,
   //       });
 </script>
+
 @endsection

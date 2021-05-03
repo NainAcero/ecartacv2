@@ -254,10 +254,10 @@
                     </div>
                 </div> -->
                 <main class="col-md-12">
-                    <div class="d-flex justify-content-between flex-column flex-md-row">
-                        <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
+                    <!-- <div class="d-flex justify-content-between flex-column flex-md-row">
+                        <button type="button" @click="changeTab()" class="btn btn-secondary mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Regresar a la Carta</button>
                         <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
-                    </div>
+                    </div> -->
                     <div class="mt-4" v-if="listwsp.length > 0">
                         <!-- <h4 class="py-4">Su Canasta</h4> -->
                         <div class="bg-white cart-wrapper">
@@ -428,9 +428,13 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                    <!-- <div class="d-flex justify-content-between flex-column flex-md-row">
                         <p class=" mr-md-2 mb-2 mb-md-0"></p>
-                        <!-- <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button> -->
+                        <button type="button" @click="changeTab()" class="btn btn-light mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Ir a la Carta</button>
+                        <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
+                    </div> -->
+                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                        <button type="button" @click="changeTab()" class="btn btn-secondary mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Regresar a la Carta</button>
                         <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
                     </div>
                     <div v-if="listwsp.length < 1" class="alert alert-warning text-center mt-4" role="alert">

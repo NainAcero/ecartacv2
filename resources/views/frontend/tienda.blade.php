@@ -70,3 +70,6 @@
 
 </section>
 @endif
+@section('quienessomos')
+  @include('frontend.quienessomos')
+@endsection
