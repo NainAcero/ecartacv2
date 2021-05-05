@@ -94,13 +94,13 @@
                              </div>
                          </div>
                          <div class="restaurant-socials mb-lg-3">
-                             <a :href="'https://wa.me/51'+ restcelular + '?text=Hola' + resttienda + '.. quisiera un pedido'" target=".../"
+                             <a :href="'https://wa.me/51'+ restcelular + '?text=Hola ' + resttienda + ', quisiera hacer un pedido'" target=".../"
                                 class="btn btn-lg btn-success ">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             <a :href="'tel:+51' + restcelular" class="btn btn-lg btn-info "><i class="fas fa-phone"></i></a>
-                            <a v-if="restfacebook != null" :href="restfacebook" target="../" class="btn btn-lg btn-secondary" style="background-color: #0d3be0;"><i class="fab fa-facebook-f"></i></a>
-                            <a v-if="restweb != null" :href="restweb" target="../" class="btn btn-lg btn-gray "> <i class="fa fa-globe"></i></a>
+                            <a v-if="restfacebook != ''" :href="restfacebook" target="../" class="btn btn-lg btn-secondary" style="background-color: #0d3be0;"><i class="fab fa-facebook-f"></i></a>
+                            <a v-if="restweb != ''" :href="restweb" target="../" class="btn btn-lg btn-gray "> <i class="fa fa-globe"></i></a>
                         </div>
                     </article>
                   </div>
@@ -365,16 +365,17 @@
                                                                 <template v-else-if="modal_page === 1">
                                                                 <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
                                                                 <div class="options-wrapper">
-                                                                    <!-- <div class="option">
-                                                                        <input type="radio" name="delivery" id="deliv_res" v-model="selector" value="0">
+                                                                    <div class="option">
+                                                                        <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">
                                                                         <div class="option-body">
                                                                             <div class="option-img">
-                                                                            <i class="fab fa-whatsapp"></i>
+                                                                            <!-- <i class="fab fa-whatsapp"></i> -->
+                                                                            <img class="icon icon-md" :src="restportada" alt="Delivery" >
                                                                             </div>
                                                                             <strong>Restaurante</strong>
                                                                             <label for="deliv_res"></label>
                                                                         </div>
-                                                                    </div> -->
+                                                                    </div>
 
                                                                     <div class="option" v-for="(delivery, index) in deliveries" :key="index">
                                                                         <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" @click="changeP()" v-bind:value="delivery.id">
@@ -624,10 +625,11 @@
                         this.carrito = []
                         this.saveCarts();
                         if(Number(this.selector) > 0){
-                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
+                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A%0D%0A Cliente: '+ this.model.nombre +'%0D%0A Dirección: '+ this.model.direccion+'%0D%0A Celular: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
                         }else{
-                            window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. '+ this.listwsp +'%0D%0A%0D%0A'+ this.model.nombre +', Dir: '+ this.model.direccion+', Cel: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
+                            window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. %0D%0A'+ this.listwsp +'%0D%0A%0D%0A Cliente: '+ this.model.nombre +'%0D%0A Dirección: '+ this.model.direccion+'%0D%0A Celular: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
                         }
+                        this.changeTab();
                     }else{
                         toastr.error("Ocurrio un error!..")
                     }
@@ -705,10 +707,10 @@
                     if (val.xmaster == this.idrest) {
                         if(val.descripcion != null) {
 
-                            this.listwsp.push('%0D%0A • *'+val.xprod+'* | _Cant_='+val.xcantidad+' | _Nota_='+val.descripcion
-                            + ' | ')
+                            this.listwsp.push('%0D%0A •'+val.xcantidad+' x *'+val.xprod+'* _Nota_='+val.descripcion
+                            + ' ')
                         }else {
-                            this.listwsp.push('%0D%0A • *'+val.xprod+'* | _Cant_='+val.xcantidad+ ' | ')
+                            this.listwsp.push('%0D%0A •'+val.xcantidad+' x *'+val.xprod+'* ')
                         }
                     }
                 });
