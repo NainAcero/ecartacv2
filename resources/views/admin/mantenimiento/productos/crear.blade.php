@@ -78,7 +78,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                 <label>Título del Producto</label>
-                                <input type="text" class="form-control" name="producto" required maxlength="190">
+                                <input type="text" class="form-control" name="producto" required maxlength="190" autofocus>
                                 </div>
                             </div>
                             <div class="col-sm-3">
