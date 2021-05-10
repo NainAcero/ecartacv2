@@ -70,6 +70,17 @@
                                 <input type="text" name="portada_url" class="form-control">
                                 </div>
                             </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                <label>Categorías</label>
+                                <select class="form-control select2" name="categoria_id" required>
+                                    <option value="">-Seleccione una categoría-</option>
+                                    @foreach ($categorias as $item)
+                                        <option value="{{$item->id}}" {{$item->id == $producto->categoria_id ? 'selected':''}}>{{$item->categoria}}</option>
+                                    @endforeach
+                                </select>
+                                </div>
+                            </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                 <label>Título del Producto</label>
@@ -88,17 +99,7 @@
                                 <input type="text" class="form-control" name="oferta" value="{{$producto->oferta}}" readonly>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                <label>Categorías</label>
-                                <select class="form-control select2" name="categoria_id" required>
-                                    <option value="">-Seleccione una categoría-</option>
-                                    @foreach ($categorias as $item)
-                                        <option value="{{$item->id}}" {{$item->id == $producto->categoria_id ? 'selected':''}}>{{$item->categoria}}</option>
-                                    @endforeach
-                                </select>
-                                </div>
-                            </div>
+                            
                             
                             <div class="col-sm-6">
                                 <div class="form-group">
