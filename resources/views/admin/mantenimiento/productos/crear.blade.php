@@ -263,17 +263,20 @@
                     success: function(data){
                         console.log(data);
                         if (data.ok) {
-                            alert(data.ok);    
+                            // alert(data.ok);    
+                            toastr.success(data.ok)
                             location.reload(true);
                             $('body').loadingModal('hide');
                         }else{
                             alert(data.error);
+                            toastr.error(data.error)
                             location.reload(true);
                         }  
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
                         // console.log(XMLHttpRequest, textStatus, errorThrown)
                         alert("error servidor: "+ XMLHttpRequest.statusText + textStatus);
+                        toastr.error("Contactarse con el administrador");
                         location.reload(true);
                     }
                 })
