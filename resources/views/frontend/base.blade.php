@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <meta property="og:title" content="@yield('ogTitle', 'eCartac - Ecommerce de la Gastronomia Tacneña')" />
+  <meta property="og:title" content="@yield('ogTitle', 'eCartac - Cartas . Qr . Restaurantes')" />
   {{-- <meta name="description" content="eCartac - Un Ecommerce de restaurantes de Tacna donde podrás visualizar sus cartas digitales."> --}}
   <meta property="og:description"
-    content="@yield('ogDesc', 'eCartac - Un Ecommerce de restaurantes de Tacna donde podrás visualizar sus cartas digitales.')" />
+    content="@yield('ogDesc', 'eCartac - Un Ecommerce de restaurantes donde podrás visualizar las cartas digitales.')" />
   <meta property="og:image" content="@yield('ogImage', 'https://ecartac.com/img/logo5.png')" />
   <meta property="og:image:width" content="200" />
   {{-- <meta property="og:image:height" content="400" /> --}}
