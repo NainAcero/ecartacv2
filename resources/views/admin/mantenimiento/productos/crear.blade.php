@@ -75,6 +75,12 @@
                                 <input type="text" name="portada_url" class="form-control">
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                <label>Título del Producto</label>
+                                <input type="text" class="form-control" name="producto" required maxlength="190" autofocus>
+                                </div>
+                            </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                 <label>Categorías</label>
@@ -84,12 +90,6 @@
                                         <option value="{{$item->id}}">{{$item->categoria}}</option>
                                     @endforeach
                                 </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                <label>Título del Producto</label>
-                                <input type="text" class="form-control" name="producto" required maxlength="190" autofocus>
                                 </div>
                             </div>
                             <div class="col-sm-3">
