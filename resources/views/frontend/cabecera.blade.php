@@ -119,7 +119,7 @@
             {{-- <a class="nav-link" href="#">Regístrate</a> --}}
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-primary" href="{{ url('feriadigital') }}">Feria</a>
+            {{-- <a class="nav-link btn btn-primary" href="{{ url('feriadigital') }}">Feria</a> --}}
             {{-- <div class="dropdown-menu dropdown-menu-right">
                                                       <a class="dropdown-item" href="#">Russian</a>
                                                       <a class="dropdown-item" href="#">French</a>
