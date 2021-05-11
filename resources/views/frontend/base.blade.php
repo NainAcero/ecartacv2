@@ -172,7 +172,7 @@
 
 <body>
   <!-- Messenger plugin de chat Code -->
-  <div id="fb-root"></div>
+  {{-- <div id="fb-root"></div>
   <script>
     window.fbAsyncInit = function() {
       FB.init({
@@ -188,7 +188,7 @@
       js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  </script>
+  </script> --}}
 
   <!-- Your plugin de chat code -->
   <div class="fb-customerchat"
