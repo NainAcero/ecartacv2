@@ -8,6 +8,7 @@ use App\Imagengaleri;
 use App\Producto;
 use App\Productocategoria;
 use App\Tienda;
+use App\Tipo;
 use Illuminate\Http\Request;
 
 class EcommerceController extends Controller
@@ -22,7 +23,13 @@ class EcommerceController extends Controller
         $categorias = Categoria::where('estado', 1)->orderBy('categoria')->get();
         $productos = Producto::with('tienda')->where('estado', 1)->inRandomOrder('1234')->paginate(12);
         // $tiendas = Tienda::where('estado', 1)->orderby('id', 'desc')->paginate(8, ['*'], 'restaurantes');
-        $tiendas = Tienda::where('estado', 1)->orderby('id', 'desc')->get();
+        // $tiendas = Tienda::where('estado', 1)->orderby('id', 'desc')->get();
+        $tiendas = Tipo::where('estado', 1)
+        ->with('tiendas')
+        ->with(array('tiendas'=>function ($query){
+                $query->where('estado', 1);
+        }))
+        ->orderby('id', 'asc')->get();
         // $galerias = Galeria::where('estado', 1)->take(8)->get();
         // dd($productos   );
         // dd($productos);

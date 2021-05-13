@@ -18,5 +18,9 @@ class Tienda extends Model
     {
         return $this->hasMany(Categoria::class);
     }
+    public function tipo()
+    {
+        return $this->belongsTo(Tipo::class);
+    }
 
 }

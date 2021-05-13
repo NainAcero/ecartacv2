@@ -38,34 +38,37 @@
 
 <section class="padding-bottom-sm">
 
-  <header class="section-heading heading-line">
-    <h2 class="title-section text-uppercase">Restaurantes</h2>
-  </header>
-  <div class="row ">
-    @foreach ($tiendas as $item)
-    <div class="col-lg-3 col-md-4 col-6 mb-3">
-
-      <a href="{{url('r/'.$item->slug)}}" class="item">
-        <article class="card card-product-grid card-lg h-100">
-          <div class="img-container position-relative">
-            @if($item->feria)
-            <div class="en-feria">
-              <span>Feria Digital</span>
-            </div>
-            @endif
-            <img src="{{asset($item->portada)}}" class="card-img-top">
-          </div>
-
-          <div class="card-body card-bodyv2  text-center">
-            <h5 class="title text-uppercase">{{$item->tienda}}</h5>
-            <p class="small text-muted">{{$item->direccion}}</p>
-          </div>
-        </article>
-        <!-- card.// -->
-      </a>
-    </div> <!-- col.// -->
-    @endforeach
-  </div> <!-- row.// -->
+  @foreach ($tiendas as $item)
+    @if ($item->tiendas->count() > 0)
+      <header class="section-heading heading-line">
+        <h2 class="title-section text-uppercase">{{$item->tipo}}</h2>
+      </header>
+      <div class="row ">
+        @foreach ($item->tiendas as $item)
+        <div class="col-lg-3 col-md-4 col-6 mb-3">
+          <a href="{{url('r/'.$item->slug)}}" class="item">
+            <article class="card card-product-grid card-lg h-100">
+              <div class="img-container position-relative">
+                @if($item->feria)
+                <div class="en-feria">
+                  <span>Feria Digital</span>
+                </div>
+                @endif
+                <img src="{{asset($item->portada)}}" class="card-img-top">
+              </div>
+              
+              <div class="card-body card-bodyv2  text-center">
+                <h5 class="title text-uppercase">{{$item->tienda}}</h5>
+                <p class="small text-muted">{{$item->direccion}}</p>
+              </div>
+            </article>
+            <!-- card.// -->
+          </a>
+        </div> <!-- col.// -->
+        @endforeach
+      </div> <!-- row.// -->
+    @endif
+  @endforeach
   {{-- {{$tiendas->appends(['restaurantes' => $tiendas->currentPage()])->links()}} --}}
 
 </section>
