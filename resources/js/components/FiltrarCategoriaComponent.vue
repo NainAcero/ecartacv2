@@ -83,7 +83,7 @@
                                  </div>
                                  <div class="restaurant-info">
                                      <div class="d-flex mb-2 align-items-md-center">
-                                       <h3 class="card-title mb-md-0 mr-md-3" style="text-shadow: 2px 3px 2px black;">{{ resttienda }} </h3>
+                                       <h3 class="card-title mb-md-0 mr-md-3">{{ resttienda }} </h3>
                                       <button type="button" class="btn btn-sm px-3" data-toggle="modal" data-target="#exampleModalCenter">{{ estatus }}
                                       </button>
                                      </div>
@@ -304,123 +304,6 @@
                                                 <p v-if="restdelivery !=''" class="icontext"><i class="icon text-success fa fa-truck"></i> {{restdelivery}}</p>
                                             </td>
                                             <td colspan="3">
-                                                <div class="align-self-end ml-auto">
-                                                    <!-- <a class="btn btn-success float-right"
-                                                        :href="'https://wa.me/51'+ restcelular + '?text=Hola, deseo realizar este pedido. '+listwsp +'%0D%0A%0D%0A Gracias'"
-                                                        target="../" >
-                                                        Enviar mi Pedido
-                                                        <i class="fab fa-whatsapp"></i>
-                                                    </a>
-                                                    <a @click="showModal()" class="mr-2 ml-2 btn btn-info float-right">
-                                                        Delivery
-                                                        <i class="fab fa-whatsapp"></i>
-                                                    </a> -->
-                                                    <!-- @click="enviarDelivery()" -->
-                                                    <div v-if="is_modal_visible" id="modal" class="modal fade modal-delivery">
-                                                            <div class="modal-dialog modal-dialog-centered delivery" role="document">
-                                                            <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <span type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="28"><title>Close</title><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="38" d="M368 368L144 144M368 144L144 368"/></svg>
-                                                                </span>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div v-if="modal_page === 3">
-                                                                <h4 class="modal-title" id="exampleModalLongTitle">Resumen del pedido</h4>
-                                                                    <div class="alert alert-success text-center" role="alert">
-                                                                        <strong>Solo falta 1 click, </strong> tu solicitud nos llegará por whatsapp
-                                                                    </div>
-                                                                    <table class="table table-modal">
-                                                                        <tbody>
-                                                                            <tr v-for="(item, index) in carrito" v-if="item.xmaster == idrest">
-                                                                                <td>{{item.xprod}}</td>
-                                                                                <td class="text-right">
-                                                                                    <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" class="form-control text-center" readonly="readonly" style="width: 80px;margin:0 auto">
-                                                                                </td>
-                                                                                <!-- <td>
-                                                                                    <button class="btn btn-outline-danger btn-sm float-right" @click="removeCartModal(index)"><i class="fa fa-trash-alt"></i></button>
-                                                                                </td> -->
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                                <template v-else-if="modal_page === 2">
-                                                                <h4 class="modal-title" id="exampleModalLongTitle">Ingresa tus datos</h4><div>                                                  <div class="form-group">
-                                                                    <label >Nombre</label>
-                                                                    <input type="text" v-model="model.nombre" class="form-control">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label >Celular</label>
-                                                                        <input type="tel" v-model="model.telefono" class="form-control">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label >Dirección</label>
-                                                                        <input type="text" v-model="model.direccion" class="form-control">
-                                                                    </div>
-                                                                    <div class="alert alert-success text-center" role="alert">
-                                                                        <strong>Solo falta 1 click, </strong> Este proceso termina al enviar los detalles del pedido al Whatsapp del Delivery. Presiona el botón "Enviar Pedido".
-                                                                    </div>
-                                                                    </div>
-                                                                </template>
-                                                                <template v-else-if="modal_page === 1">
-                                                                <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
-                                                                <div class="options-wrapper">
-                                                                    <div class="option">
-                                                                        <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">
-                                                                        <div class="option-body">
-                                                                            <div class="option-img">
-                                                                            <!-- <i class="fab fa-whatsapp"></i> -->
-                                                                            <img class="icon icon-md" :src="restportada" alt="Delivery" >
-                                                                            </div>
-                                                                            <strong>Restaurante</strong>
-                                                                            <label for="deliv_res"></label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="option" v-for="(delivery, index) in deliveries" :key="index">
-                                                                        <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" @click="changeP()" v-bind:value="delivery.id">
-                                                                        <div class="option-body">
-                                                                            <div class="option-img">
-                                                                            <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >
-                                                                            </div>
-                                                                            <strong>{{ delivery.nombres }}</strong>
-                                                                            <label v-bind:for="delivery.id"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                </template>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <div v-if="modal_page === 3" class="d-flex justify-content-between w-100">
-                                                                    <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
-                                                                    <button type="button" class="btn btn-primary" @click="confirmDelivery()">
-                                                                        <span class="v-btn__content">
-                                                                            <i class="fab fa-whatsapp mr-2"></i>Enviar Pedido
-                                                                        </span>
-                                                                    </button>
-                                                                </div>
-                                                                <div v-else-if="modal_page === 2" class="d-flex justify-content-between w-100">
-                                                                <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
-                                                                <div>
-                                                                    <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="button" class="btn btn-primary" @click="confirmDelivery()" :disabled="!(model.nombre && model.telefono && model.direccion)">
-                                                                        <span class="v-btn__content">
-                                                                            <i class="fab fa-whatsapp mr-2"></i>Enviar pedido
-                                                                        </span>
-                                                                    </button>
-
-                                                                </div>
-                                                                </div>
-                                                                <div v-else-if="modal_page === 1">
-                                                                    <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="button"  class="btn btn-primary" :disabled="aux" @click="enviarDelivery()">Siguiente<i class="fa fa-arrow-right ml-2"></i></button>
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -447,6 +330,110 @@
             </div>
             </div>
         </section>
+        </div>
+        <div v-if="is_modal_visible" id="modal" class="modal fade modal-delivery">
+                <div class="modal-dialog modal-dialog-centered delivery" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <span type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="28"><title>Close</title><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="38" d="M368 368L144 144M368 144L144 368"/></svg>
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <div v-if="modal_page === 3">
+                    <h4 class="modal-title" id="exampleModalLongTitle">Resumen del pedido</h4>
+                        <div class="alert alert-success text-center" role="alert">
+                            <strong>Solo falta 1 click, </strong> tu solicitud nos llegará por whatsapp
+                        </div>
+                        <table class="table table-modal">
+                            <tbody>
+                                <tr v-for="(item, index) in carrito" v-if="item.xmaster == idrest">
+                                    <td>{{item.xprod}}</td>
+                                    <td class="text-right">
+                                        <input type="number" v-model="item.xcantidad" @change="cantidadPedidos()" class="form-control text-center" readonly="readonly" style="width: 80px;margin:0 auto">
+                                    </td>
+                                    <!-- <td>
+                                        <button class="btn btn-outline-danger btn-sm float-right" @click="removeCartModal(index)"><i class="fa fa-trash-alt"></i></button>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <template v-else-if="modal_page === 2">
+                    <h4 class="modal-title" id="exampleModalLongTitle">Ingresa tus datos</h4><div>                                                  <div class="form-group">
+                        <label >Nombre</label>
+                        <input type="text" v-model="model.nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label >Celular</label>
+                            <input type="tel" v-model="model.telefono" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label >Dirección</label>
+                            <input type="text" v-model="model.direccion" class="form-control">
+                        </div>
+                        <div class="alert alert-success text-center" role="alert">
+                            <strong>Solo falta 1 click, </strong> Este proceso termina al enviar los detalles del pedido al Whatsapp del Delivery. Presiona el botón "Enviar Pedido".
+                        </div>
+                        </div>
+                    </template>
+                    <template v-else-if="modal_page === 1">
+                    <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
+                    <div class="options-wrapper">
+                        <div class="option">
+                            <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">
+                            <div class="option-body">
+                                <div class="option-img">
+                                <!-- <i class="fab fa-whatsapp"></i> -->
+                                <img class="icon icon-md" :src="restportada" alt="Delivery" >
+                                </div>
+                                <strong>Restaurante</strong>
+                                <label for="deliv_res"></label>
+                            </div>
+                        </div>
+
+                        <div class="option" v-for="(delivery, index) in deliveries" :key="index">
+                            <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" @click="changeP()" v-bind:value="delivery.id">
+                            <div class="option-body">
+                                <div class="option-img">
+                                <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >
+                                </div>
+                                <strong>{{ delivery.nombres }}</strong>
+                                <label v-bind:for="delivery.id"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    </template>
+                </div>
+                <div class="modal-footer">
+                    <div v-if="modal_page === 3" class="d-flex justify-content-between w-100">
+                        <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
+                        <button type="button" class="btn btn-primary" @click="confirmDelivery()">
+                            <span class="v-btn__content">
+                                <i class="fab fa-whatsapp mr-2"></i>Enviar Pedido
+                            </span>
+                        </button>
+                    </div>
+                    <div v-else-if="modal_page === 2" class="d-flex justify-content-between w-100">
+                    <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
+                    <div>
+                        <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" @click="confirmDelivery()" :disabled="!(model.nombre && model.telefono && model.direccion)">
+                            <span class="v-btn__content">
+                                <i class="fab fa-whatsapp mr-2"></i>Enviar pedido
+                            </span>
+                        </button>
+
+                    </div>
+                    </div>
+                    <div v-else-if="modal_page === 1">
+                        <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
+                        <button type="button"  class="btn btn-primary" :disabled="aux" @click="enviarDelivery()">Siguiente<i class="fa fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -887,14 +874,15 @@
   }
   .options-wrapper {
     display: flex;
-    gap: 15px;
     padding: 15px 0;
     justify-content: center;
   }
+
+  .options-wrapper > * + * { margin-left: 15px;}
+
   .option-body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     padding: 30px 45px 45px;
     border: 1px solid #dfdee3;
     border-radius: 8px;
@@ -903,6 +891,9 @@
     min-width: 180px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
+
+  .options-body > * + * { margin-top: 10px;}
+
   .option-body:hover {
     background: #fff4ec;
     border-color: #ff6a00;
@@ -960,8 +951,9 @@
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    gap: 30px;
   }
+
+  .menu-holder > * + * { margin-left: 30px;}
 
   .menu-post {
     flex: 0 0 260px;
@@ -976,7 +968,7 @@
   }
 
   .container-btn {
-        width: 100%;
+    width: 100%;
     padding: 9px;
     margin-right: auto;
     margin-left: auto;
@@ -1130,8 +1122,10 @@
   .restaurant-content .restaurant-socials {
       display: flex;
       align-items: flex-end;
-      gap: 10px;
   }
+
+  .restaurant-content .restaurant-socials > * + * { margin-left: 10px;}
+
   .restaurant-content .restaurant-socials a {
       border-radius: 24px;
   }
@@ -1151,8 +1145,10 @@
 
       .restaurant-info > div {
           flex-direction: column-reverse;
-          gap: 15px;
       }
+
+      .restaurant-info > div > * + * { margin-top: 15px;}
+
       .restaurant-info > div > h3 {
           font-size: 24px;
       }
