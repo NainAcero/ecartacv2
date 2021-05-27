@@ -39,40 +39,74 @@
 <section class="padding-bottom-sm">
 
   @foreach ($tiendas as $item)
-    @if ($item->tiendas->count() > 0)
-      <header class="section-heading heading-line">
-        <h2 class="title-section text-uppercase">{{$item->tipo}}</h2>
-      </header>
-      <div class="row ">
-        @foreach ($item->tiendas as $item)
-        <div class="col-lg-3 col-md-4 col-6 mb-3">
-          <a href="{{url('r/'.$item->slug)}}" class="item">
-            <article class="card card-product-grid card-lg h-100">
-              <div class="img-container position-relative">
-                @if($item->feria)
-                <div class="en-feria">
-                  <span>Feria Digital</span>
-                </div>
-                @endif
-                <img src="{{asset($item->portada)}}" class="card-img-top">
+  @if ($item->tiendas->count() > 0)
+  <header class="section-heading heading-line">
+    <h2 class="title-section text-uppercase">{{$item->tipo}}</h2>
+  </header>
+  <div class="row">
+    <div class="owl-carousel owl-theme">
+      @foreach ($item->tiendas as $item)
+      <div class="h-100">
+        <a href="{{url('r/'.$item->slug)}}" class="item">
+          <article class="card card-product-grid card-lg h-100">
+            <div class="img-container position-relative">
+              @if($item->feria)
+              <div class="en-feria">
+                <span>Feria Digital</span>
               </div>
-              
-              <div class="card-body card-bodyv2  text-center">
-                <h5 class="title text-uppercase">{{$item->tienda}}</h5>
-                <p class="small text-muted">{{$item->direccion}}</p>
-              </div>
-            </article>
-            <!-- card.// -->
-          </a>
-        </div> <!-- col.// -->
-        @endforeach
-      </div> <!-- row.// -->
-    @endif
+              @endif
+              <img src="{{asset($item->portada)}}" class="card-img-top">
+            </div>
+            <div class="card-body card-bodyv2  text-center">
+              <h5 class="title text-uppercase">{{$item->tienda}}</h5>
+              <p class="small text-muted">{{$item->direccion}}</p>
+            </div>
+          </article>
+          <!-- card.// -->
+        </a>
+      </div> <!-- col.// -->
+      @endforeach
+    </div>
+  </div> <!-- row.// -->
+  @endif
   @endforeach
   {{-- {{$tiendas->appends(['restaurantes' => $tiendas->currentPage()])->links()}} --}}
 
 </section>
 @endif
 @section('quienessomos')
-  @include('frontend.quienessomos')
+@include('frontend.quienessomos')
+@endsection
+
+@section('scripts')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+  integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+  crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+
+    $(".owl-carousel").each(function(){
+      $(this).owlCarousel({
+          margin:15,
+          dots:false,
+          navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+          responsive:{
+              0:{
+                  items:2,
+                  nav:false
+              },
+              768:{
+                  items:3
+              },
+              992:{
+                  items:4,
+                  nav:true
+              }
+          }
+      });
+    });
+  });
+</script>
+
 @endsection

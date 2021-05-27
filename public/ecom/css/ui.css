@@ -1825,11 +1825,11 @@ body {
 }
 
 .card-body {
-    padding: 20px 20px 15px;
+    padding: 20px 20px 35px;
 }
 
 .card-bodyv2 {
-    padding: 20px 20px 15px;
+    padding: 20px 20px 35px;
     z-index: 1;
 }
 
@@ -1883,67 +1883,48 @@ footer {
     max-height: 32px;
 }
 
-/* .restaurant-header {
-    min-height: 250px;
+.card-product-grid {
+    margin-bottom: 0;
 }
 
-.restaurant-header::before {
-    content: "";
-    background: rgba(0, 0, 0, 0.6);
+.owl-stage {
+    display: flex;
+}
+
+div.owl-nav {
+    display: inline-block;
+    font-size: 25px;
+    height: 0px;
+    margin-top: -30px;
+    text-align: center;
+    width: 40px;
+}
+
+.owl-prev,
+.owl-next {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    top: 35%;
+    background-color: #fff !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% !important;
+    box-shadow: 0 0 3px 0 rgb(169 169 169 / 70%);
+}
+.owl-prev:hover,
+.owl-next:hover {
+    color: inherit !important;
 }
 
-.restaurant-content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    color: #fff;
-    z-index: 3;
+.owl-prev {
+    left: -0px;
 }
 
-.restaurant-content::after {
-    content: none;
+.owl-next {
+    right: 5px;
 }
-
-.restaurant-content .restaurant-img {
-    width: 190px;
-    height: 180px;
-    background: white;
-    border: 4px solid #ff6a00;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.restaurant-content .restaurant-img img {
-    width: 100%;
-    height: 100%;
-}
-
-.restaurant-content .restaurant-socials {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    gap: 10px;
-}
-.restaurant-content .restaurant-socials a {
-    border-radius: 24px;
-}
-
-.restaurant-info .btn {
-    background-color: #91b622;
-    border-color: #91b622;
-    color: #fff;
-} */
 
 .en-feria {
     position: absolute;
