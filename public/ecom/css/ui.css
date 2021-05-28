@@ -1768,7 +1768,7 @@ body {
 
 .section-header {
     position: -webkit-sticky;
-    position: sticky;
+    position: initial;
     top: 0;
     z-index: 3;
 }
