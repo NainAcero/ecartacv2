@@ -41,7 +41,7 @@
   @foreach ($tiendas as $item)
   @if ($item->tiendas->count() > 0)
   <header class="section-heading heading-line">
-    <h2 class="title-section text-uppercase">{{$item->tipo}}</h2>
+    <h2 class="title-section">{{$item->tipo}}</h2>
   </header>
   <div class="row">
     <div class="owl-carousel owl-theme">
