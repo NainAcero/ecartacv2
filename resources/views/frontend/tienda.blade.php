@@ -58,8 +58,8 @@
               <img src="{{asset($item->portada)}}" class="card-img-top">
             </div>
             <div class="card-body card-bodyv2  text-center">
-              <h5 class="title text-uppercase">{{$item->tienda}}</h5>
-              <p class="small text-muted">{{$item->direccion}}</p>
+              <h6 class="title">{{$item->tienda}}</h6>
+              {{-- <p class="small text-muted">{{$item->direccion}}</p> --}}
             </div>
           </article>
           <!-- card.// -->
@@ -94,10 +94,11 @@
           responsive:{
               0:{
                   items:2,
-                  nav:false
+                  nav:true
               },
               768:{
-                  items:3
+                  items:3,
+                  nav:true
               },
               992:{
                   items:4,
