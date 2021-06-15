@@ -25,7 +25,7 @@ class EcommerceController extends Controller
         // $tiendas = Tienda::where('estado', 1)->orderby('id', 'desc')->paginate(8, ['*'], 'restaurantes');
         // $tiendas = Tienda::where('estado', 1)->orderby('id', 'desc')->get();
         $tiendas = Tipo::where('estado', 1)
-        ->with('tiendas')
+        // ->with('tiendas')
         ->with(array('tiendas'=>function ($query){
                 $query->where('estado', 1);
                 $query->orderby('orden', 'asc');
