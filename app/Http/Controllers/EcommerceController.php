@@ -28,6 +28,7 @@ class EcommerceController extends Controller
         ->with('tiendas')
         ->with(array('tiendas'=>function ($query){
                 $query->where('estado', 1);
+                $query->orderby('orden', 'asc');
         }))
         ->orderby('id', 'asc')->get();
         // $galerias = Galeria::where('estado', 1)->take(8)->get();
