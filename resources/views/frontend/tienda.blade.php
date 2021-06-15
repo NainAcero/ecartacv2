@@ -45,7 +45,7 @@
   </header>
   <div class="row">
     <div class="owl-carousel owl-theme">
-      @foreach ($item->tiendas as $item)
+      @foreach ($item->tiendas->sortBy('orden') as $item)
       <div class="h-100">
         <a href="{{url('r/'.$item->slug)}}" class="item">
           <article class="card card-product-grid card-lg h-100">
