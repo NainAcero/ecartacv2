@@ -35,14 +35,14 @@
             <div class="recorridoFeria">
               <div
                 style="background-image:
-                              url({{ URL::asset('img/portada_feria2.png') }});background-size: cover;background-position: center; background-repeat:no-repeat"
+                              url({{ URL::asset('img/portada_ceviche.png') }});background-size: cover;background-position: center; background-repeat:no-repeat"
                 class="stand">
 
                 <div class="nominadosMejorStand"></div>
                 {{-- <h2 style="color:black;"><b>Restaurante 01</b></h2> --}}
 
                 <div class="video">
-                  <iframe width="600" height="500" src="https://www.youtube.com/embed/WkrhVexll_g" frameborder="0"
+                  <iframe width="600" height="500" src="https://www.youtube.com/embed/avaK1fE6oso" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
 
