@@ -7,8 +7,8 @@
 <style>
   .feriaIsometrica {
     background-image: url('{{ URL::asset('img/feria/fondo-isometrico-puertas-izq.png') }}'),
-    url('{{ URL::asset('img/feria/fondo-isometrico-puertas-der.png') }}'),
-    url('{{ URL::asset('img/feria/fondo-isometrico.jpg') }}');
+    url('{{ URL::asset('img/feria/fondo-isometrico-puertas-der.png') }}');
+    /* url('{{ URL::asset('img/feria/fondo-isometrico.jpg') }}'); */
   }
 
   @media (max-width: 576px) {
