@@ -2,6 +2,9 @@
 /public/hot
 /public/storage
 /storage/*.key
+/public/tienda
+/public/productos
+/public/galeriaimage
 /vendor
 .env
 .env.backup

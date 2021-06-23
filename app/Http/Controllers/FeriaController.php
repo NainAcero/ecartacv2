@@ -12,7 +12,9 @@ class FeriaController extends Controller
     }
 
     public function isometrica() {
-        $tiendas = Tienda::where('feria', '=', 1)->get();
+        $tiendas = Tienda::where('feria', '=', 1)
+        ->orderBy('orden', 'asc')
+        ->get();
         return view('frontend.feria.isometrica', compact('tiendas'));
     }
 
