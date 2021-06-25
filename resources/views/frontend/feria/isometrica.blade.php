@@ -63,17 +63,17 @@
                     </a>
                   </div>
 
-                  {{-- <div class="botonContactanos botonesLargos">
-                <a href="https://www.instagram.com/Cultural.tacna/" target="_blank">
-                  <img src="{{ asset('img/feria/bc_instagram.png' ) }}">
+                  <div class="botonContactanos botonesLargos">
+                <a href="https://wa.me/51952633245?text=M%C3%A1s%20informaci%C3%B3n%20sobre%20el FESTIVAL DEL CEVICHE TACNA DIGITAL 2021" target="_blank">
+                  <img src="{{ asset('img/feria/bc_whatsapp.png' ) }}">
                   </a>
-                </div> --}}
+                </div>
 
                 {{-- <div class="botonContactanos botonesLargos">
                 <a href="https://cultural.edu.pe/tacna/" target="_blank">
                   <img src="{{ asset('img/feria/bc_web.png' ) }}">
-                </a>
-              </div> --}}
+                </a> --}}
+              </div>
             </div>
           </div>
         </div>
