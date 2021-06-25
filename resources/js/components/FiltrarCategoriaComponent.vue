@@ -224,6 +224,8 @@
                             </div>
                             </div>
                         </div>
+                        <br>
+                        <a class="nav-link btn btn-success" v-if="restcartaext != ''" :href="restcartaext" target="../"> <i class="fas fa-book-open"></i> Ver Carta Completa</a>
                         </template>
 
                     </article>
@@ -443,7 +445,7 @@
 
     import toastr from 'toastr';
     export default {
-        props : ['idrest','celular','portada','delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web'],
+        props : ['idrest','celular','portada','delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web', 'cartaext'],
         data(){
             return{
                 restcelular:this.celular,
@@ -457,6 +459,7 @@
                 restportada: "../" + this.portada,
                 restinfo: "https://wa.me/51"+ this.celular +"?text=Hola "+ this.tienda +" deseo más información...",
                 restfacebook: this.facebook,
+                restcartaext: this.cartaext,
 
                 listCategoria:[],
                 categorias:[],

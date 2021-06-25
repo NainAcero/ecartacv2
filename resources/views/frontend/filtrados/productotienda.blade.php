@@ -7,7 +7,7 @@
   <filtrar-categoria idrest='{{$tienda->id}}' celular={{$tienda->celular}} portada={{$tienda->portada}}
     delivery="{{$tienda->delivery}}" tienda="{{ $tienda->tienda }}" imagen_pri="{{ $galeriimagen->imagen_pri}}"
     portada="{{ $tienda->portada }}" facebook="{{ $tienda->facebook }}" direccion="{{ $tienda->direccion }}"
-    descripcion="{{ $tienda->descripcion }}" web="{{ $tienda->web }}">
+    descripcion="{{ $tienda->descripcion }}" web="{{ $tienda->web }}" cartaext="{{ $tienda->cartaexterna}}">
   </filtrar-categoria>
 </div>
 @endsection
