@@ -58,7 +58,7 @@
 
                 <div class="marcoBotonesDesplegables" data-id="1532">
                   <div class="botonContactanos botonesLargos">
-                    <a href="https://www.facebook.com/MunicipalidadProvincialDeTacna" target="_blank">
+                    <a href="https://www.facebook.com/ecartac" target="_blank">
                       <img src="{{ asset('img/feria/bc_facebook.png' ) }} ">
                     </a>
                   </div>
