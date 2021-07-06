@@ -389,7 +389,7 @@
                                 <!-- <i class="fab fa-whatsapp"></i> -->
                                 <img class="icon icon-md" :src="restportada" alt="Delivery" >
                                 </div>
-                                <strong>Restaurante</strong>
+                                <strong> {{resttienda}} </strong>
                                 <label for="deliv_res"></label>
                             </div>
                         </div>
