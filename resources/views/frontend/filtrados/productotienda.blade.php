@@ -1,7 +1,7 @@
 @extends('frontend.base')
 
 @section('cabecera')
-@include('frontend.cabecera')
+@include('frontend.cabeceramini')
 
 <div class="" id="app">
   <filtrar-categoria idrest='{{$tienda->id}}' celular={{$tienda->celular}} portada={{$tienda->portada}}

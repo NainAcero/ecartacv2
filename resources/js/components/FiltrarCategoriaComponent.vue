@@ -374,6 +374,14 @@
                             <label >Dirección</label>
                             <input type="text" v-model="model.direccion" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label>S/ Medio de pago</label>
+                            <select class="form-control" id="" v-model="model.mediopago">
+                                <option value="">-</option>
+                                <option value="Yape">Yape</option>
+                                <option value="Efectivo">Efectivo</option>
+                            </select>
+                        </div>
                         <div class="alert alert-success text-center" role="alert">
                             <strong>Solo falta 1 click, </strong> Este proceso termina al enviar los detalles del pedido al Whatsapp del Delivery. Presiona el botón "Enviar Pedido".
                         </div>
@@ -421,7 +429,7 @@
                     <button @click="regresarForm()" class="btn btn-light"><i class="fa fa-chevron-left mr-2"></i>Regresar</button>
                     <div>
                         <button type="button" class="btn btn-outline-dark cancel-btn" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" @click="confirmDelivery()" :disabled="!(model.nombre && model.telefono && model.direccion)">
+                        <button type="button" class="btn btn-primary" @click="confirmDelivery()" :disabled="!(model.nombre && model.telefono && model.direccion && model.mediopago)">
                             <span class="v-btn__content">
                                 <i class="fab fa-whatsapp mr-2"></i>Enviar pedido
                             </span>
@@ -488,6 +496,7 @@
                     nombre: '',
                     telefono: '',
                     direccion: '',
+                    mediopago: '',
                 }
             }
         },
@@ -612,12 +621,13 @@
                 }).then(res=>{
                     if(res.status == 201) {
                         toastr.success("Pedido Enviado con éxito")
+                        console.log(res.delivery)
                         this.carrito = []
                         this.saveCarts();
                         if(Number(this.selector) > 0){
-                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A%0D%0A Cliente: '+ this.model.nombre +'%0D%0A Dirección: '+ this.model.direccion+'%0D%0A Celular: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
+                            window.open('https://wa.me/51'+res.data.delivery.celular+'?text=Hola, deseo realizar este pedido. %0D%0A%0D%0A *'+this.tienda+'* %0D%0A'+ this.listwsp +'%0D%0A%0D%0A *Cliente:* '+ this.model.nombre +'%0D%0A *Dirección:* '+ this.model.direccion+'%0D%0A *Celular:* '+ this.model.telefono+'%0D%0A *Medio de pago:* *'+ this.model.mediopago+'* %0D%0A%0D%0A Gracias', '_blank');
                         }else{
-                            window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. %0D%0A'+ this.listwsp +'%0D%0A%0D%0A Cliente: '+ this.model.nombre +'%0D%0A Dirección: '+ this.model.direccion+'%0D%0A Celular: '+ this.model.telefono+'%0D%0A%0D%0A Gracias', '_blank');
+                            window.open('https://wa.me/51'+ this.restcelular + '?text=Hola, deseo realizar este pedido. %0D%0A'+ this.listwsp +'%0D%0A%0D%0A *Cliente:* '+ this.model.nombre +'%0D%0A *Dirección:* '+ this.model.direccion+'%0D%0A *Celular:* '+ this.model.telefono+'%0D%0A *Medio de pago:* *'+ this.model.mediopago+'* %0D%0A%0D%0A Gracias', '_blank');
                         }
                         this.changeTab();
                     }else{
@@ -697,7 +707,7 @@
                     if (val.xmaster == this.idrest) {
                         if(val.descripcion != null) {
 
-                            this.listwsp.push('%0D%0A •'+val.xcantidad+' x *'+val.xprod+'* _Nota_='+val.descripcion
+                            this.listwsp.push('%0D%0A •'+val.xcantidad+' x *'+val.xprod+'* _Nota_ = '+val.descripcion
                             + ' ')
                         }else {
                             this.listwsp.push('%0D%0A •'+val.xcantidad+' x *'+val.xprod+'* ')
