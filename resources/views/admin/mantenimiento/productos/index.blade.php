@@ -44,6 +44,7 @@
                 <table id="tabla" class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th>Opc</th>
                             <th>ID</th>
                             <th>Manú/Carta</th>
                             <th>Restaurante</th>
@@ -52,12 +53,20 @@
                             <th>En Oferta</th>
                             <th>Portada</th>
                             <th>Estado</th>
-                            <th>Opc</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($productos as $index => $item)
                             <tr>
+                                <td>
+                                    <a href="{{ route('products.edit', [$item->slug]) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                    <form method="POST" action="{{ route('products.destroy', [$item->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                  
+                                        <button type="submit" class="btn btn-danger btn-sm"  onclick="return confirm('Quieres Eliminar por completo?')"><i class="fas fa-trash"></i></button>
+                                      </form>
+                                </td>
                                 <td>{{$index+1}}</td>
                                 <td>
                                     <b>{{$item->producto}}</b>
@@ -80,15 +89,6 @@
                                     @else
                                         <span class="badge bg-danger">Inactivo</span>
                                     @endif
-                                </td>
-                                <td>
-                                    <a href="{{ route('products.edit', [$item->slug]) }}" class="btn btn-block btn-outline-info btn-sm">Editar</a>
-                                    <form method="POST" action="{{ route('products.destroy', [$item->id]) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                  
-                                        <button type="submit" class="btn btn-warning"  onclick="return confirm('Quieres Eliminar por completo?')">Eliminar</button>
-                                      </form>
                                 </td>
                             </tr>
                         @endforeach
