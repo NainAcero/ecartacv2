@@ -75,6 +75,9 @@
             <div class="d-block w-100">
                   <div class="card-banner card-bodyv2 img-fluid d-flex restaurant-header"
                         :style="restimagen_pri">
+                    <article class="restaurant-content restaurant-info restaurantlogo">
+                        <img :src="restportada" class="" width="80px" >
+                    </article>
                     <article class="restaurant-content container">
                          <div class="icontext mb-lg-3 align-items-end">
                              <div class="d-flex align-items-center flex-md-row flex-column">
@@ -84,12 +87,11 @@
                                  <div class="restaurant-info">
                                      <div class="d-flex mb-2 align-items-md-center">
                                        <h3 class="card-title mb-md-0 mr-md-3">{{ resttienda }} </h3>
-                                      <button type="button" class="btn btn-sm px-3" data-toggle="modal" data-target="#exampleModalCenter">{{ estatus }}
-                                      </button>
                                      </div>
                                         <p class="restaurant-description mb-3">{{ restdescripcion }}</p>
                                         <p class="restaurant-direccion"><i class="fa fa-map-marker-alt mr-2 mb-2"></i> {{ restdireccion }}</p>
                                         <p class="restaurant-direccion"><i class="fas fa-phone mr-2"></i><b>{{restcelular}}</b></p>
+                                        
                                  </div>
                              </div>
                          </div>
@@ -101,6 +103,8 @@
                             <a :href="'tel:+51' + restcelular" class="btn btn-lg btn-info "><i class="fas fa-phone"></i></a>
                             <a v-if="restfacebook != ''" :href="restfacebook" target="../" class="btn btn-lg btn-secondary" style="background-color: #0d3be0;"><i class="fab fa-facebook-f"></i></a>
                             <a v-if="restweb != ''" :href="restweb" target="../" class="btn btn-lg btn-gray "> <i class="fa fa-globe"></i></a>
+                            <button type="button" class="btn btn-lg btn-gray" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-info"></i> {{ estatus }}
+                                        </button>
                         </div>
                     </article>
                   </div>
@@ -621,7 +625,6 @@
                 }).then(res=>{
                     if(res.status == 201) {
                         toastr.success("Pedido Enviado con éxito")
-                        console.log(res.delivery)
                         this.carrito = []
                         this.saveCarts();
                         if(Number(this.selector) > 0){
@@ -1149,6 +1152,19 @@
       color: #fff;
   }
 
+    @media (min-width: 768px) {
+    .restaurantlogo {
+        position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 123px;
+    background: #fff;
+    min-width: 122px;
+    display: none;
+    /* border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12)!important; */
+    }
+    }
   @media (max-width: 768px) {
       .restaurant-content .restaurant-img {
           flex: 0 0 150px;
