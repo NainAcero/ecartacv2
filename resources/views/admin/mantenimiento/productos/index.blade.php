@@ -45,14 +45,13 @@
                     <thead>
                         <tr>
                             <th>Opc</th>
-                            <th>ID</th>
                             <th>Manú/Carta</th>
-                            <th>Restaurante</th>
-                            <th>Categoría</th>
                             <th>Precio</th>
-                            <th>En Oferta</th>
                             <th>Portada</th>
-                            <th>Estado</th>
+                            <th>Categoría</th>
+                            <th>Restaurante</th>
+                            <th>En Oferta</th>
+                            <th>ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,14 +66,19 @@
                                         <button type="submit" class="btn btn-danger btn-sm"  onclick="return confirm('Quieres Eliminar por completo?')"><i class="fas fa-trash"></i></button>
                                       </form>
                                 </td>
-                                <td>{{$index+1}}</td>
                                 <td>
                                     <b>{{$item->producto}}</b>
-                                    ({{$item->ingredientes}})
+                                    ({{$item->ingredientes}}) <br>
+                                    @if ($item->estado == 1)
+                                        <span class="badge bg-success">Activo</span>
+                                    @else
+                                        <span class="badge bg-danger">Inactivo</span>
+                                    @endif
                                 </td>
-                                <td>{{$item->tienda->tienda}}</td>
-                                <td>{{$item->categoria->categoria}}</td>
                                 <td>{{$item->precio}}</td>
+                                <td><img src="{{asset($item->portada)}}" alt="" width="50px"></td>
+                                <td>{{$item->categoria->categoria}}</td>
+                                <td>{{$item->tienda->tienda}}</td>
                                 <td>
                                     @if ($item->oferta == 1)
                                         <span class="badge bg-success">Activo</span>
@@ -82,14 +86,7 @@
                                         <span class="badge bg-danger">Inactivo</span>
                                     @endif
                                 </td>
-                                <td><img src="{{asset($item->portada)}}" alt="" width="50px"></td>
-                                <td>
-                                    @if ($item->estado == 1)
-                                        <span class="badge bg-success">Activo</span>
-                                    @else
-                                        <span class="badge bg-danger">Inactivo</span>
-                                    @endif
-                                </td>
+                                <td>{{$index+1}}</td>
                             </tr>
                         @endforeach
                     </tbody>
