@@ -232,7 +232,6 @@
                         </template>
                     </article>
                     <a class="nav-link btn btn-success" v-if="restcartaext != ''" :href="restcartaext" target="../"> <i class="fas fa-book-open"></i> Ver Carta Completa</a>
-
                     </template>
                     <!-- <template v-else>
                     </template> -->
