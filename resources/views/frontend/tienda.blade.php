@@ -70,6 +70,20 @@
   </div> <!-- row.// -->
   @endif
   @endforeach
+  <div>
+    {{-- ADSENSE --}}
+    <!-- anuncio ecartac -->
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-7054594845763014"
+      data-ad-slot="5716911987"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    {{-- ADSENSE --}}
+  </div>
   {{-- {{$tiendas->appends(['restaurantes' => $tiendas->currentPage()])->links()}} --}}
 
 </section>

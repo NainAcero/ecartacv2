@@ -27,22 +27,8 @@
   <link href="{{asset('ecom/images/favicon.ico')}}" rel="shortcut icon" type="image/x-icon">
 
   <!-- jQuery -->
-  {{-- ADSENSE --}}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7054594845763014"
-     crossorigin="anonymous"></script>
-  <!-- anuncio ecartac -->
-  <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-7054594845763014"
-      data-ad-slot="5716911987"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-
-  {{-- ADSENSE --}}
-
+  crossorigin="anonymous"></script>
   <script src="{{asset('ecom/js/jquery-2.0.0.min.js')}}" type="text/javascript"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-053M0WK7S9"></script>
   <script>
