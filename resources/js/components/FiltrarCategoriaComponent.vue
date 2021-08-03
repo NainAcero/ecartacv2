@@ -4,12 +4,16 @@
         <div class="modal fade" id="productoShow"  tabindex="-1" role="dialog" aria-labelledby="productoShow" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" v-if="response.producto != null">
-                <div class="modal-header">
+                <!-- <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
-                <div class="modal-body" v-if="response.producto != null">
+                </div> -->
+                <!-- se elimino modal-body del class -->
+                <div class="" v-if="response.producto != null">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <img v-if="response.producto.portada" class="card-img-top" :src="'../'+response.producto.portada" alt="Card image cap">
                     <img v-else class="card-img-top" :src="'../'+response.producto.tienda.portada" alt="Card image cap">
                     <div class="card">
@@ -18,19 +22,24 @@
                             <p class="card-text">{{ response.producto.ingredientes }}</p>
                             <span v-html="response.producto.contenido"></span>
                             <!-- <var class="price h5"></var>  -->
-                            <p><h5 class="modal-title">S/ {{ response.producto.precio }}</h5></p>
+                            <p>
+                                <!-- <h5 class="modal-title">S/ {{ response.producto.precio }}</h5> -->
+                                <b>S/ {{ response.producto.precio }}</b>
+                                <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal" @click="addProducto(response.producto)"> <i class="fas fa-cart-plus"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm float-right" data-dismiss="modal">Cerrar</button>
+                            </p>
                             <!-- <div class="mb-3">
                                 <p class="text-warning mr-2" data-toggle="tooltip" title="" data-original-title="Oferta/Promoción"><i class="fas fa-tag"></i> En oferta</p>
                             </div> -->
-                            <hr>
-                            <h6 class="card-text text-primary text-center" > {{ response.producto.tienda.tienda }}</h6>
+                            <!-- <hr>
+                            <h6 class="card-text text-primary text-center" > {{ response.producto.tienda.tienda }}</h6> -->
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-warning" data-dismiss="modal" @click="addProducto(response.producto)"> <i class="fas fa-cart-plus"></i></button>
-                </div>
+                </div> -->
                 </div>
             </div>
         </div>
@@ -217,10 +226,10 @@
                                             <span class="menu-dots"></span>
                                             <span class="price bg-white pl-2">S/ {{item.precio}}</span>
                                         </h6>
-                                        <small class="text-muted"><p>{{item.ingredientes}}</p></small>
+                                        <small class="text-muted"><p>{{item.ingredientes}} <a v-if="item.contenido != null" href="javascript:void(0);" @click="getProductoById(item.slug)" class="text-info">Ver más</a></p></small>
                                         </div>
                                         <div class="product-btn ml-md-4">
-                                        <button class="btn btn-warning btn-sm" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
+                                            <button class="btn btn-warning btn-sm" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
                                         </div>
                                     </div>
                                     </div>
@@ -417,7 +426,7 @@
                         </table>
                     </div>
                     <template v-else-if="modal_page === 2">
-                        <h4 class="modal-title" id="exampleModalLongTitle">Ingresa tus datos</h4>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Quien recepcionará tu pedido?</h5>
                         <div>                                                  
                         <div class="form-group">
                             <label >Nombre</label>
@@ -445,7 +454,7 @@
                         </div>
                     </template>
                     <template v-else-if="modal_page === 1">
-                        <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Tu pedido se enviará al Restaurante seleccionado</h5>
                         <div class="options-wrapper">
                             <div class="option">
                                 <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">

@@ -155,7 +155,7 @@ class EcommerceController extends Controller
     {
         $categprod = Categoria::where('tienda_id', $id)
         ->with(array('productos'=>function ($query){
-            $query->select('id','slug','portada','producto','ingredientes','precio','categoria_id','oferta');
+            $query->select('id','slug','portada','producto','ingredientes','precio','categoria_id','oferta','contenido');
             $query->where('estado', 1);
         }))
         ->select('id','categoria')
