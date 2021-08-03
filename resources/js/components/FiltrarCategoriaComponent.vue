@@ -173,7 +173,7 @@
                                 <div class="menu-bottom d-flex justify-content-around mt-3 align-items-center">
                                     <span class="font-weight-bold">S/ {{item.precio}}</span>
                                     <div class="product-btn">
-                                    <button class="btn btn-warning" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
+                                    <button class="btn btn-warning btn-sm" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
                                     </div>
                                 </div>
                                 </div>
@@ -195,14 +195,14 @@
                             <div class="table-responsive contenido-categoria px-4">
                             <div class="table table-hover">
                                 <div v-for="(item, index) in categoria.productos" :key="index" class="row align-items-center mt-3 flex-nowrap cat-prod">
-                                    <div class="p-2">
+                                    <div class="">
                                         <!-- <a :href="'../productos/'+ item.slug"> -->
                                         <a href="javascript:void(0);" @click="getProductoById(item.slug)">
                                             <img v-if="item.portada" class="icon icon-md rounded-circle" :src="'../'+item.portada">
                                             <img v-else class="icon icon-md rounded-circle" :src="'../' + restportada">
                                         </a>
                                     </div>
-                                    <div class="col-xl-11 p-2">
+                                    <div class="col-xl-11">
                                     <div class="d-flex align-items-md-center">
                                         <div class="product-info">
                                         <h6 class="title mb-1">
@@ -220,7 +220,7 @@
                                         <small class="text-muted"><p>{{item.ingredientes}}</p></small>
                                         </div>
                                         <div class="product-btn ml-md-4">
-                                        <button class="btn btn-warning" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
+                                        <button class="btn btn-warning btn-sm" @click="addProducto(item)"> <i class="fas fa-cart-plus"></i></button>
                                         </div>
                                     </div>
                                     </div>
@@ -265,7 +265,7 @@
                     <div class="mt-4" v-if="listwsp.length > 0">
                         <!-- <h4 class="py-4">Su Canasta</h4> -->
                         <div class="bg-white cart-wrapper">
-                        <h4 class="pb-4"> <i class="fas fa-shopping-basket"></i> Canasta</h4>
+                            <h4 class="pb-4"> <i class="fas fa-shopping-basket"></i> Canasta</h4>
                             <div class="table-responsive">
                                 <table class="table table-sm">
                                     <thead class="text-muted cart-header">
@@ -314,6 +314,59 @@
                                 </table>
                             </div>
                         </div>
+                        <!-- datos personales -->
+                        <!-- <div class="bg-white cart-wrapper">                                             
+                            <h4 class="modal-title" id="exampleModalLongTitle">Ingresa tus datos</h4>
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" v-model="model.nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label >Celular</label>
+                                <input type="tel" v-model="model.telefono" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label >Dirección</label>
+                                <input type="text" v-model="model.direccion" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Con qué medio de pago desea concretar el pedido? </label>
+                                <select class="form-control" id="" v-model="model.mediopago">
+                                    <option value="">-</option>
+                                    <option value="Yape">Yape</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                </select>
+                            </div>
+                            <div class="alert alert-success text-center" role="alert">
+                                <strong>Solo falta 1 click, </strong> Este proceso termina al enviar los detalles del pedido al Whatsapp del Delivery. Presiona el botón "Enviar Pedido".
+                            </div>
+                        </div> -->
+                        <!-- seleccionar delivery -->
+                        <!-- <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
+                        <div class="options-wrapper">
+                            <div class="option">
+                                <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">
+                                <div class="option-body">
+                                    <div class="option-img">
+                                    <img class="icon icon-md" :src="restportada" alt="Delivery" >
+                                    </div>
+                                    <strong> {{resttienda}} </strong>
+                                    <label for="deliv_res"></label>
+                                </div>
+                            </div>
+
+                            <div class="option" v-for="(delivery, index) in deliveries" :key="index">
+                                <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" @click="changeP()" v-bind:value="delivery.id">
+                                <div class="option-body">
+                                    <div class="option-img">
+                                    <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >
+                                    </div>
+                                    <strong>{{ delivery.nombres }}</strong>
+                                    <label v-bind:for="delivery.id"></label>
+                                </div>
+                            </div>
+                        </div> -->
+                        
                     </div>
                     <hr>
                     <!-- <div class="d-flex justify-content-between flex-column flex-md-row">
@@ -364,9 +417,11 @@
                         </table>
                     </div>
                     <template v-else-if="modal_page === 2">
-                    <h4 class="modal-title" id="exampleModalLongTitle">Ingresa tus datos</h4><div>                                                  <div class="form-group">
-                        <label >Nombre</label>
-                        <input type="text" v-model="model.nombre" class="form-control">
+                        <h4 class="modal-title" id="exampleModalLongTitle">Ingresa tus datos</h4>
+                        <div>                                                  
+                        <div class="form-group">
+                            <label >Nombre</label>
+                            <input type="text" v-model="model.nombre" class="form-control">
                         </div>
                         <div class="form-group">
                             <label >Celular</label>
@@ -377,7 +432,7 @@
                             <input type="text" v-model="model.direccion" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>S/ Medio de pago</label>
+                            <label>Con qué medio de pago desea concretar el pedido? </label>
                             <select class="form-control" id="" v-model="model.mediopago">
                                 <option value="">-</option>
                                 <option value="Yape">Yape</option>
@@ -390,32 +445,31 @@
                         </div>
                     </template>
                     <template v-else-if="modal_page === 1">
-                    <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
-                    <div class="options-wrapper">
-                        <div class="option">
-                            <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">
-                            <div class="option-body">
-                                <div class="option-img">
-                                <!-- <i class="fab fa-whatsapp"></i> -->
-                                <img class="icon icon-md" :src="restportada" alt="Delivery" >
+                        <h4 class="modal-title" id="exampleModalLongTitle">Seleccionar Delivery</h4>
+                        <div class="options-wrapper">
+                            <div class="option">
+                                <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">
+                                <div class="option-body">
+                                    <div class="option-img">
+                                    <!-- <i class="fab fa-whatsapp"></i> -->
+                                    <img class="icon icon-md" :src="restportada" alt="Delivery" >
+                                    </div>
+                                    <strong> {{resttienda}} </strong>
+                                    <label for="deliv_res"></label>
                                 </div>
-                                <strong> {{resttienda}} </strong>
-                                <label for="deliv_res"></label>
+                            </div>
+
+                            <div class="option" v-for="(delivery, index) in deliveries" :key="index">
+                                <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" @click="changeP()" v-bind:value="delivery.id">
+                                <div class="option-body">
+                                    <div class="option-img">
+                                    <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >
+                                    </div>
+                                    <strong>{{ delivery.nombres }}</strong>
+                                    <label v-bind:for="delivery.id"></label>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="option" v-for="(delivery, index) in deliveries" :key="index">
-                            <input type="radio" name="delivery[]" v-bind:id="delivery.id" v-model="selector" @click="changeP()" v-bind:value="delivery.id">
-                            <div class="option-body">
-                                <div class="option-img">
-                                <img class="icon icon-md" :src="'../' + delivery.logo" alt="Delivery" >
-                                </div>
-                                <strong>{{ delivery.nombres }}</strong>
-                                <label v-bind:for="delivery.id"></label>
-                            </div>
-                        </div>
-                    </div>
-
                     </template>
                 </div>
                 <div class="modal-footer">
@@ -802,7 +856,7 @@
     border-bottom: 1px solid #dee2e6;
   }
   .title {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     line-height: 1.45;
     font-size: 16px;
   }
@@ -874,9 +928,9 @@
     padding: 0 1.85rem 1rem ;
   }
   .form-control {
-    border-radius: 20px;
-    height: unset;
-    padding: 0.65rem;
+    /* border-radius: 20px;
+    height: unset; */
+    /* padding: 0.65rem; */
   }
   .close-btn {
     border: 0;
@@ -1043,7 +1097,8 @@
     .cat-prod {
       position: relative;
       align-items: center;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #e5e7ea !important;
     }
 
     /* .cat-prod > div:last-child {
@@ -1054,7 +1109,8 @@
     }
 
     .menu-dots {
-      position: static;
+      /* position: static; */
+      height: 0px;
     }
 
     .price {
@@ -1062,7 +1118,7 @@
     right: unset;
     bottom: 13px;
     left: 0;
-    font-size: 20px;
+    font-size: 16px;
     }
 
     .product-info small p {
