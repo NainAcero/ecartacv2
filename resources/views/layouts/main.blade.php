@@ -2,6 +2,26 @@
 <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
     <!-- Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library -->
+    @hasanyrole('Admin')
+    <li class="nav-item has-treeview menu-open">
+        <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-cog"></i>
+        <p>
+            MultiUsuarios
+            <i class="fas fa-angle-left right"></i>
+        </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <select name="users" id="userid" class="form-control select2">
+                </select>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-success btn-sm" onclick="impersonate()">Ir a restaurante</button>
+            </li>
+        </ul>
+    </li>
+    @endhasanyrole
     <li class="nav-item has-treeview {{ (request()->is('home')) ? 'menu-open' : '' }}">
         <a href="#" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -13,14 +33,14 @@
         <ul class="nav nav-treeview">
             <li class="nav-item ">
                 <a href="{{url('home')}} " class="nav-link {{ (request()->is('home')) ? 'active' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-chart-line"></i>
                 <p>Home</p>
                 </a>
             </li>
             @hasanyrole('Delivery|DeliveryRestaurante')
             <li class="nav-item ">
                 <a href="{{url('pedidos')}}" class="nav-link {{ (request()->is('pedidos')) ? 'active' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-cart-plus"></i>
                 <p>Pedidos</p>
                 </a>
             </li>
@@ -93,7 +113,7 @@
             @hasanyrole('Tienda') {{-- CONVENIO --}}
             <li class="nav-item">
                 <a href="{{url('pedidosTienda')}} " class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-cart-plus"></i>
                 <p>Pedidos</p>
                 </a>
             </li>
@@ -103,7 +123,7 @@
             @if(Auth::user()->mitienda != null)
                 <li class="nav-item">
                     <a href="{{ route('horarios.show', [Auth::user()->mitienda->id]) }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="far fa-clock"></i>
                     <p>Horarios</p>
                     </a>
                 </li>
@@ -114,8 +134,8 @@
             @if(Auth::user()->mitienda != null)
                 <li class="nav-item">
                     <a href="{{ url('restaurante/delivery-show') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                    <p>Delivery</p>
+                        <i class="fas fa-motorcycle"></i>
+                    <p>Agentes Delivery</p>
                     </a>
                 </li>
             @endif
@@ -125,7 +145,7 @@
             <li class="nav-item">
                 <a href="{{route('personal.index')}} " class="nav-link">
 
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-users"></i>
                 <p>Usuarios</p>
                 </a>
             </li>
@@ -133,9 +153,8 @@
             @hasanyrole('Admin') {{-- CONVENIO --}}
             <li class="nav-item">
                 <a href="{{route('delivery.index')}} " class="nav-link">
-
-                <i class="far fa-circle nav-icon"></i>
-                <p>Delivery</p>
+                <i class="fas fa-truck"></i>
+                <p>Agentes de Delivery</p>
                 </a>
             </li>
             @endhasanyrole
@@ -151,29 +170,9 @@
         </ul>
     </li>
     @endhasanyrole
-    @hasanyrole('Admin')
-    <li class="nav-item has-treeview menu-open">
-        <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-cog"></i>
-        <p>
-            MultiUsuarios
-            <i class="fas fa-angle-left right"></i>
-        </p>
-        </a>
-        <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <select name="users" id="userid" class="form-control select2">
-                </select>
-            </li>
-            <li class="nav-item">
-                <button type="button" class="btn btn-success btn-sm" onclick="impersonate()">Ir a restaurante</button>
-            </li>
-        </ul>
-    </li>
-    @endhasanyrole
     <li class="nav-item">
         @if(session('impersonated_by'))
             <a href="{{route('users.impersonate_leave')}}" class="btn btn-danger btn-sm"> <i class="fa fa-reply"></i> Volver</a>
         @endif
     </li>
-    </ul>
+</ul>
