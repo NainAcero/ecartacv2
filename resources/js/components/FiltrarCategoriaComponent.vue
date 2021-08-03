@@ -1118,7 +1118,8 @@
     right: unset;
     bottom: 13px;
     left: 0;
-    font-size: 16px;
+    font-size: 14px;
+    color: orange;
     }
 
     .product-info small p {
