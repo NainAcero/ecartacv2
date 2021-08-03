@@ -207,8 +207,8 @@
                                     <div class="">
                                         <!-- <a :href="'../productos/'+ item.slug"> -->
                                         <a href="javascript:void(0);" @click="getProductoById(item.slug)">
-                                            <img v-if="item.portada" class="icon icon-md rounded-circle" :src="'../'+item.portada">
-                                            <img v-else class="icon icon-md rounded-circle" :src="'../' + restportada">
+                                            <img v-if="item.portada" class="icon icon-md rounded-circle-ecartac" :src="'../'+item.portada">
+                                            <img v-else class="icon icon-md rounded-circle-ecartac" :src="'../' + restportada">
                                         </a>
                                     </div>
                                     <div class="col-xl-11">
@@ -813,6 +813,9 @@
 
 
 <style scoped>
+    .rounded-circle-ecartac{
+        border-radius: 12%
+    }
   .product-btn {
     display: flex;
   }
@@ -870,8 +873,8 @@
     font-size: 16px;
   }
   .icon-md {
-    width: 80px;
-    height: 80px;
+    width: 43px;
+    height: 45px;
     line-height: 80px;
   }
   .lista-categoria > input:checked ~ .contenido-categoria {
