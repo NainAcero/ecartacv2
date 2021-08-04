@@ -7,6 +7,7 @@ use App\Galeria;
 use App\Imagengaleri;
 use App\Producto;
 use App\Productocategoria;
+use App\Qrvisita;
 use App\Tienda;
 use App\Tipo;
 use Illuminate\Http\Request;
@@ -140,6 +141,10 @@ class EcommerceController extends Controller
             }));
         }))
         ->firstorfail();
+        $qrvisitas = new Qrvisita();
+        $qrvisitas->tienda_id = $tienda->id;
+        $qrvisitas->linkcarta = 1;
+        $qrvisitas->save();
 
         $categorias = Categoria::where('estado', 1)->orderBy('categoria')->get();
         // dd($tienda);
@@ -232,6 +237,11 @@ class EcommerceController extends Controller
     public function lectorqr($qr)
     {
         $tiendas = Tienda::where('codigoqr',$qr)->where('estado', 1)->firstorfail();
+        $qrvisitas = new Qrvisita();
+        $qrvisitas->tienda_id = $tiendas->id;
+        $qrvisitas->lectorqr = 1;
+        $qrvisitas->save();
+
         return redirect('r/'.$tiendas->slug);
     }
 

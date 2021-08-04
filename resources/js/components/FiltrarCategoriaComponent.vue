@@ -454,7 +454,7 @@
                         </div>
                     </template>
                     <template v-else-if="modal_page === 1">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Tu pedido se enviará al Restaurante seleccionado</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Tu pedido se enviará al Restaurante o Delivery seleccionado</h5>
                         <div class="options-wrapper">
                             <div class="option">
                                 <input type="radio" name="delivery" id="deliv_res" v-model="selector" @click="changeP()" value="0">
