@@ -130,6 +130,34 @@ class EcommerceController extends Controller
         // dd($galerias);
         return view('frontend.filtrados.tiendas', compact('tiendas','categorias'));
     }
+    public function getClientIps()
+    {
+        $clientIps = array();
+        $ip = $this->server->get('REMOTE_ADDR');
+        if (!$this->isFromTrustedProxy()) {
+            return array($ip);
+        }
+        if (self::$trustedHeaders[self::HEADER_FORWARDED] && $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED])) {
+            $forwardedHeader = $this->headers->get(self::$trustedHeaders[self::HEADER_FORWARDED]);
+            preg_match_all('{(for)=("?\[?)([a-z0-9\.:_\-/]*)}', $forwardedHeader, $matches);
+            $clientIps = $matches[3];
+        } elseif (self::$trustedHeaders[self::HEADER_CLIENT_IP] && $this->headers->has(self::$trustedHeaders[self::HEADER_CLIENT_IP])) {
+            $clientIps = array_map('trim', explode(',', $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_IP])));
+        }
+        $clientIps[] = $ip; // Complete the IP chain with the IP the request actually came from
+        $ip = $clientIps[0]; // Fallback to this when the client IP falls into the range of trusted proxies
+        foreach ($clientIps as $key => $clientIp) {
+            // Remove port (unfortunately, it does happen)
+            if (preg_match('{((?:\d+\.){3}\d+)\:\d+}', $clientIp, $match)) {
+                $clientIps[$key] = $clientIp = $match[1];
+            }
+            if (IpUtils::checkIp($clientIp, self::$trustedProxies)) {
+                unset($clientIps[$key]);
+            }
+        }
+        // Now the IP chain contains only untrusted proxies and the client IP
+        return $clientIps ? array_reverse($clientIps) : array($ip);
+    } 
     public function listarTiendaProducto($slug)
     {
         $tienda = Tienda::where('slug', $slug)
@@ -141,7 +169,10 @@ class EcommerceController extends Controller
             }));
         }))
         ->firstorfail();
-        $ipcli = \Request::ip();
+        // $ipcli = \Request::ipv4();
+        
+        $ipcli = \Request::getClientIp();
+        dd($this->getIp());
         $qrvisitas = new Qrvisita();
         $qrvisitas->tienda_id = $tienda->id;
         $qrvisitas->linkcarta = 1;
@@ -157,6 +188,18 @@ class EcommerceController extends Controller
         $productos = Producto::where('tienda_id',$tienda->id)->where('estado', 1)->get();
 
         return view('frontend.filtrados.productotienda', compact('categorias','tienda','productos','galeriimagen'));
+    }
+    public function getIp(){
+        foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
+            if (array_key_exists($key, $_SERVER) === true){
+                foreach (explode(',', $_SERVER[$key]) as $ip){
+                    $ip = trim($ip); // just to be safe
+                    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false){
+                        return $ip;
+                    }
+                }
+            }
+        }
     }
     public function listarCategProducto_rest($id)
     {
