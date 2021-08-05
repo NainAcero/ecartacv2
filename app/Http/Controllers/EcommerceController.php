@@ -141,9 +141,11 @@ class EcommerceController extends Controller
             }));
         }))
         ->firstorfail();
+        $ipcli = \Request::ip();
         $qrvisitas = new Qrvisita();
         $qrvisitas->tienda_id = $tienda->id;
         $qrvisitas->linkcarta = 1;
+        $qrvisitas->ipcliente = $ipcli;
         $qrvisitas->save();
 
         $categorias = Categoria::where('estado', 1)->orderBy('categoria')->get();
