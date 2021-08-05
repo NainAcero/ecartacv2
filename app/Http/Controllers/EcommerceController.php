@@ -172,7 +172,7 @@ class EcommerceController extends Controller
         // $ipcli = \Request::ipv4();
         
         $ipcli = \Request::getClientIp();
-        dd($this->getIp());
+        // dd($this->getIp());
         $qrvisitas = new Qrvisita();
         $qrvisitas->tienda_id = $tienda->id;
         $qrvisitas->linkcarta = 1;
