@@ -108,6 +108,7 @@ class ProductoController extends Controller
             $producto->save();
 
             if ($request->hasFile('portada')) {
+                $request->portada = str_replace(".webp", ".jpg", $request->portada);
                 $portada = 'productos/'.time().'-'.$producto->slug.".webp";
                 $img = \Image::make($request->portada)->resize(null, 450, function ($constraint) {
                                             $constraint->aspectRatio();

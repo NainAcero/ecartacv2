@@ -385,7 +385,7 @@
                     </div> -->
                     <div class="d-flex justify-content-between flex-column flex-md-row">
                         <button type="button" @click="changeTab()" class="btn btn-secondary mr-md-2 mb-2 mb-md-0"><i class="fa fa-arrow-circle-left"></i> Regresar a la Carta</button>
-                        <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-motorcycle"></i> Solicitar delivery</button>
+                        <button v-if="listwsp.length > 0" type="button" @click="showModal()" class="btn btn-primary"><i class="fas fa-clipboard-check"></i> Confirmar Pedido</button>
                     </div>
                     <div v-if="listwsp.length < 1" class="alert alert-warning text-center mt-4" role="alert">
                     Tus pedidos se visualizarán aquí. <p>Aún no cuentas con pedidos para este restaurante.</p>
