@@ -58,7 +58,13 @@
                         @foreach ($users as $index => $user)
                             <tr>
                                 <td>{{$index+1}}</td>
-                                <td>{{$user->persona->nombres}} {{$user->persona->apellidos}}</td>
+                                <td>{{$user->persona->nombres}} {{$user->persona->apellidos}}
+                                    @if ($user->persona->estado == 1)
+                                        <span class="badge bg-success">Activo</span>
+                                    @else
+                                        <span class="badge bg-danger">Inactivo</span>
+                                    @endif
+                                </td>
                                 <td>{{$user->username}}</td>
                                 <td>
                                     @foreach ($user->getRoleNames() as $item)
@@ -72,12 +78,18 @@
                                     <td></td>
                                 @endif
                                 
-                                @if ($user->persona->estado == 1)
-                                    <td><small class="badge badge-success">Activo</small></td>
-                                @else
-                                    <td><small class="badge badge-danger">Inactivo</small></td>
-                                @endif
-                                
+                                <td>
+                                    @if ($user->persona->tienda)
+                                        @if ($user->persona->tienda->feria == 1)
+                                            <small class="badge badge-success">Activo</small>
+                                        @else
+                                            <small class="badge badge-danger">Inactivo</small>
+                                        @endif
+                                    @else    
+                                        
+                                    @endif
+                                </td>
+                                        
                                 <td>
                                     <a href="{{ route('personal.edit', [$user->id]) }}" class="btn btn-block btn-outline-info btn-sm">Editar</a>
                                 </td>
