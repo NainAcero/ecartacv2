@@ -35,16 +35,16 @@
             <div class="recorridoFeria">
               <div
                 style="background-image:
-                              url({{ URL::asset('img/portada_ceviche.png') }});background-size: cover;background-position: center; background-repeat:no-repeat"
+                              url({{ URL::asset('img/portada_expoferia.png') }});background-size: cover;background-position: center; background-repeat:no-repeat"
                 class="stand">
 
                 <div class="nominadosMejorStand"></div>
                 {{-- <h2 style="color:black;"><b>Restaurante 01</b></h2> --}}
 
                 <div class="video">
-                  <iframe width="600" height="500" src="https://www.youtube.com/embed/avaK1fE6oso" frameborder="0"
+                  {{-- <iframe width="600" height="500" src="https://www.youtube.com/embed/avaK1fE6oso" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                    allowfullscreen></iframe> --}}
 
                     {{-- <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadProvincialDeTacna%2Fvideos%2F498352388145017%2F&show_text=false&width=560" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> --}}
 
