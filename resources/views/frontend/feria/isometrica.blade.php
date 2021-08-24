@@ -115,10 +115,10 @@
 <div class="container-fluid">
   <div class="overflow-hidden owl-carousel">
     <img src="{{ asset('img/a_muni.png' ) }}" class="px-0 w-100" alt="">
-    <img src="{{ asset('img/a_cautiva.jpeg' ) }}" class="px-0 w-100" alt="">
+    {{-- <img src="{{ asset('img/a_cautiva.jpeg' ) }}" class="px-0 w-100" alt=""> --}}
     <img src="{{ asset('img/a_ecartac.jpg' ) }}" class="px-0 w-100" alt="">
     <img src="{{ asset('img/a_muni.png' ) }}" class="px-0 w-100" alt="">
-    <img src="{{ asset('img/a_cautiva.jpeg' ) }}" class="px-0 w-100" alt="">
+    {{-- <img src="{{ asset('img/a_cautiva.jpeg' ) }}" class="px-0 w-100" alt=""> --}}
     <img src="{{ asset('img/a_ecartac.jpg' ) }}" class="px-0 w-100" alt="">
   </div>
 </div>
