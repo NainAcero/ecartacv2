@@ -2,7 +2,7 @@
 
 @section('styles')
 {{-- <link href="{{asset('css/feria/css.css?family=Roboto:400,700')}}" type="text/css" rel="stylesheet"> --}}
-<link href="{{asset('css/feria/stilos.css')}}" type="text/css" rel="stylesheet">
+<link href="{{asset('css/feria/stiloss.css')}}" type="text/css" rel="stylesheet">
 
 <style>
   .feriaIsometrica {
