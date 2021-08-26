@@ -93,7 +93,7 @@
 
               @foreach ($tiendas as $tienda)
               <a href="{{url('r/'.$tienda->slug)}}" target="_self" class="standIsometrico">
-                <img src="{{ asset('img/feria/rest_2.png') }}" alt="">
+                <img src="{{ asset($tienda->standimg) }}" alt="">
                 <div class="nombre logo">
                   <img src="{{asset($tienda->portada)}}" class="w-100" alt="Ok Computer">
                   <div class="nombre-tienda text-dark text-center">{{$tienda->tienda}}</div>
