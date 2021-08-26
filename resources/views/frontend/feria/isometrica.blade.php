@@ -6,15 +6,15 @@
 
 <style>
   .feriaIsometrica {
-    background-image: url('{{ URL::asset('img/feria/fondo-isometrico-puertas-izq.png') }}'),
-    url('{{ URL::asset('img/feria/fondo-isometrico-puertas-der.png') }}');
-    /* url('{{ URL::asset('img/feria/fondo-isometrico.jpg') }}'); */
+    /* background-image: url('{{ URL::asset('img/feria/fondo-isometrico-puertas-izq.png') }}'),
+    url('{{ URL::asset('img/feria/fondo-isometrico-puertas-der.png') }}'); */
   }
+  /* url('{{ URL::asset('img/feria/fondo-isometrico.jpg') }}'); */
 
   @media (max-width: 576px) {
     .feriaIsometrica {
       /* background-image: url('{{ URL::asset('img/feria/fondo-isometrico.jpg') }}'); */
-      background-image: url('{{ URL::asset('img/feria/fondo-isometrico-tapete.jpg') }}');
+      background-image: url('{{ URL::asset('img/feria/fondo-isometrico-tapete2.png') }}');
     }
   }
 </style>
@@ -35,16 +35,54 @@
             <div class="recorridoFeria">
               <div
                 style="background-image:
-                              url({{ URL::asset('img/portada_expoferia.png') }});background-size: cover;background-position: center; background-repeat:no-repeat"
+                              url({{ URL::asset('img/portada_expoferia3.png') }});background-size: cover;background-position: center; background-repeat:no-repeat"
                 class="stand">
 
                 <div class="nominadosMejorStand"></div>
                 {{-- <h2 style="color:black;"><b>Restaurante 01</b></h2> --}}
+                <style>
+                  .arte-middle-front {
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      width: 100%;
+                      height: 20%;
+                      flex-direction: row;
+                  }
+                  .arte-middle-front .center-middle {
+                      width: 100%;
+                      display: flex;
+                      height: auto;
+                      align-items: center;
+                      justify-content: center;
+                      flex-direction: row;
+                  }
+                  .arte-middle-front .center-middle img {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: auto;
+                    border: 3px solid #CCC;
+                    -webkit-box-shadow: 1px 1px 1px 2px rgb(0 0 0 / 40%);
+                    -moz-box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.4);
+                    box-shadow: 1px 1px 1px 2px rgb(0 0 0 / 40%);
+                    flex-direction: row;
+                }
+                </style>
 
-                <div class="video">
+
+              <div class="video">
+                <div class="arte-middle-front">
+                  <div class="center-middle">
+                    <img src="{{ URL::asset('img/feria/feriatacna.jpeg') }}">
+                  </div>
+                </div>
+                  
                   {{-- <iframe width="600" height="500" src="https://www.youtube.com/embed/avaK1fE6oso" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe> --}}
+                    {{-- <img src="{{ URL::asset('img/feria/bannerferia.jpg') }}" width="600" height="500" alt=""> --}}
 
                     {{-- <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadProvincialDeTacna%2Fvideos%2F498352388145017%2F&show_text=false&width=560" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> --}}
 
