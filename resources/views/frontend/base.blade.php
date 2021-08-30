@@ -27,8 +27,8 @@
   <link href="{{asset('ecom/images/favicon.ico')}}" rel="shortcut icon" type="image/x-icon">
 
   <!-- jQuery -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7054594845763014"
-  crossorigin="anonymous"></script>
+  {{-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7054594845763014"
+  crossorigin="anonymous"></script> --}}
   <script src="{{asset('ecom/js/jquery-2.0.0.min.js')}}" type="text/javascript"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-053M0WK7S9"></script>
   <script>
