@@ -11,9 +11,9 @@
             <form action="{{url('s/')}}" class="search-header" method="GET">
               <div class="input-group w-100">
                 <select class="custom-select border-right" name="tipo" value="{{request()->tipo}}">
-                  <option value="P">Menú/Carta</option>
-                  <option value="O">Ofertas</option>
                   <option value="T">Restaurantes</option>
+                  <option value="P">Menú/Carta</option>
+                  {{-- <option value="O">Ofertas</option> --}}
                 </select>
                 <input type="text" name="data" class="form-control" placeholder="Buscar" value="{{request()->data}}"
                   minlength="3">
@@ -119,7 +119,7 @@
             {{-- <a class="nav-link" href="#">Regístrate</a> --}}
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-primary" href="{{ url('feriadigital') }}">Feria Digital</a>
+            {{-- <a class="nav-link btn btn-primary" href="{{ url('feriadigital') }}">Feria Digital</a> --}}
             {{-- <div class="dropdown-menu dropdown-menu-right">
                                                       <a class="dropdown-item" href="#">Russian</a>
                                                       <a class="dropdown-item" href="#">French</a>

@@ -201,7 +201,7 @@
   <b class="screen-overlay"></b>
   @yield('cabecera')
 
-  <div class="container">
+  <div class="">
     @yield('content')
     <!-- =============== SECTION REGION =============== -->
     {{-- <section  class="padding-bottom">

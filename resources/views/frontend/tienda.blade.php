@@ -38,36 +38,51 @@
 
 <section class="padding-bottom-sm">
 
-  @foreach ($tiendas as $item)
+  
+  
+
+
+  @foreach ($tiendas as $index => $item)
   @if ($item->tiendas->count() > 0)
-  <header class="section-heading heading-line">
-    <h2 class="title-section">{{$item->tipo}}</h2>
-  </header>
-  <div class="row">
-    <div class="owl-carousel owl-theme">
-      @foreach ($item->tiendas->sortBy('orden') as $item)
-      <div class="h-100">
-        <a href="{{url('r/'.$item->slug)}}" class="item">
-          <article class="card card-product-grid card-lg h-100">
-            <div class="img-container position-relative">
-              @if($item->feria)
-              <div class="en-feria">
-                <span>Feria Digital</span>
-              </div>
-              @endif
-              <img src="{{asset($item->portada)}}" class="card-img-top">
-            </div>
-            <div class="card-body card-bodyv2  text-center">
-              <h6 class="title">{{$item->tienda}}</h6>
-              {{-- <p class="small text-muted">{{$item->direccion}}</p> --}}
-            </div>
-          </article>
-          <!-- card.// -->
-        </a>
-      </div> <!-- col.// -->
-      @endforeach
+
+  {{-- <div class="card"> --}}
+    <header class="card-header">
+      <a href="#" data-toggle="collapse" data-target="#collapse{{$index+1}}" aria-expanded="false" class="collapsed">
+        <i class="icon-control fa fa-chevron-down"></i>
+        <h6 class="title">{{$item->tipo}} </h6>
+      </a>
+    </header>
+    <div class="collapse" id="collapse{{$index+1}}" style="">
+      <article class="card-body">
+        <div class="row">
+          <div class="owl-carousel owl-theme">
+            @foreach ($item->tiendas->sortBy('orden') as $item)
+            <div class="h-100">
+              <a href="{{url('r/'.$item->slug)}}" class="item">
+                <article class="card card-product-grid card-lg h-100">
+                  <div class="img-container position-relative">
+                    @if($item->feria)
+                    <div class="en-feria">
+                      <span>Feria Digital</span>
+                    </div>
+                    @endif
+                    <img src="{{asset($item->portada)}}" class="card-img-top">
+                  </div>
+                  <div class="card-body card-bodyv2  text-center">
+                    <h6 class="title">{{$item->tienda}}</h6>
+                    {{-- <p class="small text-muted">{{$item->direccion}}</p> --}}
+                  </div>
+                </article>
+                <!-- card.// -->
+              </a>
+            </div> <!-- col.// -->
+            @endforeach
+          </div>
+        </div> <!-- row.// -->    
+      </article>
     </div>
-  </div> <!-- row.// -->
+  {{-- </div> --}}
+  
   @endif
   @endforeach
   <div>
