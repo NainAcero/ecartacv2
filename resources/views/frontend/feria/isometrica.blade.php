@@ -80,7 +80,7 @@
                   </div>
                 </div>
                 <br>
-                <a href="https://itacna.pe/" target="../" class="btn btn-warning" style="background-color: #880E4F">CLICK AQUÍ PARA VER MÁS SECTORES: Bodegas - Pastelerías - Artesanía - Salones de belleza - Sector comercial - Prendas - Otros</a>
+                {{-- <a href="https://itacna.pe/" target="../" class="btn btn-warning" style="background-color: #880E4F">CLICK AQUÍ PARA VER MÁS SECTORES: Bodegas - Pastelerías - Artesanía - Salones de belleza - Sector comercial - Prendas - Otros</a> --}}
                   
                   {{-- <iframe width="600" height="500" src="https://www.youtube.com/embed/avaK1fE6oso" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
