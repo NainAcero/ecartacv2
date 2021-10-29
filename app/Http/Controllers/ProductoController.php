@@ -230,7 +230,7 @@ class ProductoController extends Controller
 
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
         $validatedData = $request->validate([
             'portada' => 'image|mimes:jpeg,png,jpg|max:2800',
             'gal1' => 'image|mimes:jpeg,png,jpg|max:2800',
