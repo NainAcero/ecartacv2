@@ -74,6 +74,15 @@
                                     @else
                                         <span class="badge bg-danger">Inactivo</span>
                                     @endif
+                                    <span class="badge bg-secondary">
+                                        @if ($item->tipocarta == 'D')
+                                            <i class="fas fa-motorcycle"></i>
+                                        @elseif($item->tipocarta == 'DM')
+                                        <i class="fas fa-motorcycle"></i> <i class="fas fa-hotel"></i>
+                                        @else
+                                            <i class="fas fa-hotel"></i>
+                                        @endif
+                                    </span>
                                 </td>
                                 <td>{{$item->precio}}</td>
                                 <td><img src="{{asset($item->portada)}}" alt="" width="50px"></td>

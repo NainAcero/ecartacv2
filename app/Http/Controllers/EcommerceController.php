@@ -160,17 +160,16 @@ class EcommerceController extends Controller
     } 
     public function listarTiendaProducto(Request $request, $slug)
     {
-        // dd($request->tc);
+        $tc = null;
+        if ($request->tc) {
+            $tc = $request->tc;
+        }else{
+            $tc = '';
+        }
+        
         $tienda = Tienda::where('slug', $slug)
-        // ->with('categorias.productos')
-        ->with(array('categorias'=>function ($query){
-            $query->where('estado', 1);
-            $query->with(array('productos'=>function ($query){
-                $query->where('estado', 1);
-            }));
-        }))
         ->firstorfail();
-        // $ipcli = \Request::ip();
+        
         $ipcli = $this->getIp();
         $qrvisitas = new Qrvisita();
         $qrvisitas->tienda_id = $tienda->id;
@@ -186,7 +185,7 @@ class EcommerceController extends Controller
         ->first();
         // $productos = Producto::where('tienda_id',$tienda->id)->where('estado', 1)->get();
 
-        return view('frontend.filtrados.productotienda', compact('tienda','galeriimagen'));
+        return view('frontend.filtrados.productotienda', compact('tienda','galeriimagen','tc'));
     }
     public function getIp(){
         foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
@@ -200,17 +199,32 @@ class EcommerceController extends Controller
             }
         }
     }
-    public function listarCategProducto_rest($id)
+    public function listarCategProducto_rest(Request $request, $id)
     {
-        $categprod = Categoria::where('tienda_id', $id)
-        ->with(array('productos'=>function ($query){
-            $query->select('id','slug','portada','producto','ingredientes','precio','categoria_id','oferta','contenido');
-            $query->where('estado', 1);
-        }))
-        ->select('id','categoria')
-        ->orderBy('sort_id','asc')
-        ->where('estado', 1)
-        ->get();
+        if ($request->tc) {
+            $tc = $request->tc;
+            $categprod = Categoria::where('tienda_id', $id)
+            ->with(array('productos'=>function ($query) use ($tc){
+                $query->select('id','slug','portada','producto','ingredientes','precio','categoria_id','oferta','contenido');
+                $query->where('tipocarta', 'LIKE' ,'%'.$tc);
+                $query->where('estado', 1);
+            }))
+            ->select('id','categoria')
+            ->orderBy('sort_id','asc')
+            ->where('estado', 1)
+            ->get();
+        }else{
+            $categprod = Categoria::where('tienda_id', $id)
+            ->with(array('productos'=>function ($query){
+                $query->select('id','slug','portada','producto','ingredientes','precio','categoria_id','oferta','contenido');
+                $query->where('tipocarta', 'LIKE' ,'D'.'%');
+                $query->where('estado', 1);
+            }))
+            ->select('id','categoria')
+            ->orderBy('sort_id','asc')
+            ->where('estado', 1)
+            ->get();
+        }
         return compact('categprod');
     }
     public function getCategoria_rest(Request $request)
@@ -286,7 +300,7 @@ class EcommerceController extends Controller
         $qrvisitas->lectorqr = 1;
         $qrvisitas->save();
 
-        return redirect('r/'.$tiendas->slug.'?tc=DM');
+        return redirect('r/'.$tiendas->slug.'?tc=M');
     }
 
     public function get_productos_by_oferta(Request $request){

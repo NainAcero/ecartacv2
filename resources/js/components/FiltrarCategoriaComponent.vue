@@ -518,7 +518,7 @@
 
     import toastr from 'toastr';
     export default {
-        props : ['idrest','celular','portada','delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web', 'cartaext'],
+        props : ['idrest','celular','portada','delivery', 'tienda', 'imagen_pri', 'portada', 'facebook', 'direccion', 'descripcion', 'web', 'cartaext','tc'],
         data(){
             return{
                 restcelular:this.celular,
@@ -533,6 +533,7 @@
                 restinfo: "https://wa.me/51"+ this.celular +"?text=Hola "+ this.tienda +" deseo más información...",
                 restfacebook: this.facebook,
                 restcartaext: this.cartaext,
+                tipocarta: this.tc,
 
                 listCategoria:[],
                 categorias:[],
@@ -566,7 +567,7 @@
             }
         },
         created(){
-            var urlcategprod = '../catemenu/'+this.idrest
+            var urlcategprod = '../catemenu/'+this.idrest+'?tc='+this.tipocarta
             axios.get(urlcategprod).then(res=>{
                 this.categorias = res.data.categprod;
                 this.listCategoria = res.data.categprod;
