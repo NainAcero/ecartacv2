@@ -70,10 +70,20 @@
                                 <input type="text" name="portada_url" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                 <label>Título del Producto</label>
-                                <input type="text" class="form-control" name="producto" value="{{$producto->producto}}" required maxlength="190">
+                                <input type="text" class="form-control" name="producto" value="{{$producto->producto}}" required maxlength="190">                                
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                <label>Tipo Carta</label>
+                                <select name="tipocarta" class="form-control" id="" required>
+                                    <option value="D" {{'D' == $producto->tipocarta ? 'selected':''}}>Delivery</option>
+                                    <option value="M" {{'M' == $producto->tipocarta ? 'selected':''}}>Mesa</option>
+                                    <option value="DM" {{'DM' == $producto->tipocarta ? 'selected':''}}>Delivery y Mesa</option>
+                                </select>
                                 </div>
                             </div>
                             <div class="col-sm-3">

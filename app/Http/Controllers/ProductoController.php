@@ -105,6 +105,7 @@ class ProductoController extends Controller
             $producto->categoria_id = $request->categoria_id;
             $producto->destacado = $request->destacado;
             $producto->estado = $request->estado;
+            $producto->tipocarta = $request->tipocarta;
             $producto->save();
 
             if ($request->hasFile('portada')) {
@@ -229,7 +230,7 @@ class ProductoController extends Controller
 
     public function update(Request $request, $id)
     {
-        // dd($id);
+        dd($request->all());
         $validatedData = $request->validate([
             'portada' => 'image|mimes:jpeg,png,jpg|max:2800',
             'gal1' => 'image|mimes:jpeg,png,jpg|max:2800',
@@ -260,6 +261,7 @@ class ProductoController extends Controller
             $producto->categoria_id = $request->categoria_id;
             $producto->destacado = $request->destacado;
             $producto->estado = $request->estado;
+            $producto->tipocarta = $request->tipocarta;
             $producto->save();
 
             if ($request->hasFile('portada')) {

@@ -158,8 +158,9 @@ class EcommerceController extends Controller
         // Now the IP chain contains only untrusted proxies and the client IP
         return $clientIps ? array_reverse($clientIps) : array($ip);
     } 
-    public function listarTiendaProducto($slug)
+    public function listarTiendaProducto(Request $request, $slug)
     {
+        // dd($request->tc);
         $tienda = Tienda::where('slug', $slug)
         // ->with('categorias.productos')
         ->with(array('categorias'=>function ($query){
@@ -177,15 +178,15 @@ class EcommerceController extends Controller
         $qrvisitas->ipcliente = $ipcli;
         $qrvisitas->save();
 
-        $categorias = Categoria::where('estado', 1)->orderBy('categoria')->get();
+        // $categorias = Categoria::where('estado', 1)->orderBy('categoria')->get();
         // dd($tienda);
         // $prodcat = Productocategoria::where('categoria_id', $cate->id)->pluck('producto_id');
         $galeriimagen = Imagengaleri::where('tp_id', $tienda->id)
         ->where('tipo','T')
         ->first();
-        $productos = Producto::where('tienda_id',$tienda->id)->where('estado', 1)->get();
+        // $productos = Producto::where('tienda_id',$tienda->id)->where('estado', 1)->get();
 
-        return view('frontend.filtrados.productotienda', compact('categorias','tienda','productos','galeriimagen'));
+        return view('frontend.filtrados.productotienda', compact('tienda','galeriimagen'));
     }
     public function getIp(){
         foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
@@ -285,7 +286,7 @@ class EcommerceController extends Controller
         $qrvisitas->lectorqr = 1;
         $qrvisitas->save();
 
-        return redirect('r/'.$tiendas->slug);
+        return redirect('r/'.$tiendas->slug.'?tc=DM');
     }
 
     public function get_productos_by_oferta(Request $request){
