@@ -169,6 +169,10 @@ class EcommerceController extends Controller
         
         $tienda = Tienda::where('slug', $slug)
         ->firstorfail();
+
+        if ($tienda->estado == 0) {
+            return redirect('/');
+        }
         
         $ipcli = $this->getIp();
         $qrvisitas = new Qrvisita();
